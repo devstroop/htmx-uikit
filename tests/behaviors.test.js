@@ -384,3 +384,67 @@ describe("sidebar toggle", () => {
     expect(sidebar.classList.contains("dt-sidebar--collapsed")).toBe(true);
   });
 });
+
+describe("form", () => {
+  it("dispatches dt:submit with FormData on a valid submit without blocking", () => {
+    const form = fixture(`
+      <form data-dt-form>
+        <input name="email" data-dt-field value="a@b.c" />
+        <button type="submit">Go</button>
+      </form>`);
+    const seen = [];
+    form.addEventListener("dt:submit", (e) => seen.push([e.detail.form, e.detail.data]));
+    const event = new Event("submit", { bubbles: true, cancelable: true });
+    form.dispatchEvent(event);
+    expect(event.defaultPrevented).toBe(false);
+    expect(seen).toHaveLength(1);
+    expect(seen[0][0]).toBe(form);
+    expect(seen[0][1].get("email")).toBe("a@b.c");
+  });
+
+  it("blocks the submit and dispatches dt:invalid when a field is invalid", () => {
+    const form = fixture(`
+      <form data-dt-form>
+        <input name="email" data-dt-field aria-invalid="true" />
+        <input name="name" data-dt-field />
+        <button type="submit">Go</button>
+      </form>`);
+    const invalid = [];
+    const submitted = [];
+    form.addEventListener("dt:invalid", (e) => invalid.push(e.detail.fields));
+    form.addEventListener("dt:submit", () => submitted.push(1));
+    const event = new Event("submit", { bubbles: true, cancelable: true });
+    form.dispatchEvent(event);
+    expect(event.defaultPrevented).toBe(true);
+    expect(invalid).toHaveLength(1);
+    expect(invalid[0].map((f) => f.name)).toEqual(["email"]);
+    expect(submitted).toHaveLength(0);
+  });
+
+  it("treats data-dt-invalid as invalid without aria-invalid", () => {
+    const form = fixture(`
+      <form data-dt-form>
+        <input name="name" data-dt-field data-dt-invalid />
+      </form>`);
+    const event = new Event("submit", { bubbles: true, cancelable: true });
+    form.dispatchEvent(event);
+    expect(event.defaultPrevented).toBe(true);
+  });
+
+  it("skips disabled fields when checking validity", () => {
+    const form = fixture(`
+      <form data-dt-form>
+        <input name="x" data-dt-field aria-invalid="true" disabled />
+      </form>`);
+    const event = new Event("submit", { bubbles: true, cancelable: true });
+    form.dispatchEvent(event);
+    expect(event.defaultPrevented).toBe(false);
+  });
+
+  it("ignores submits outside [data-dt-form]", () => {
+    const form = fixture(`<form><input name="x" data-dt-field aria-invalid="true" /></form>`);
+    const event = new Event("submit", { bubbles: true, cancelable: true });
+    form.dispatchEvent(event);
+    expect(event.defaultPrevented).toBe(false);
+  });
+});

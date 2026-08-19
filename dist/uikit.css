@@ -1074,6 +1074,10 @@
   border-top: 1px solid var(--dt-color-border);
 }
 
+.dt-form {
+  font-family: var(--dt-font-sans);
+}
+
 .dt-header {
   display: flex;
   flex-shrink: 0;

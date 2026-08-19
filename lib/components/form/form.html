@@ -1,0 +1,37 @@
+<!--
+  Form — reference markup for server templates.
+  Root: <form class="dt-form" data-dt-form [action="..." method="..."]>
+  The data-dt-form behavior (behaviors.js) runs on submit:
+    - any [data-dt-field] that is invalid (aria-invalid="true" or the
+      data-dt-invalid attribute) blocks the native submit and dispatches
+      dt:invalid with detail { fields: [{ name, element }] }.
+    - otherwise dt:submit fires with detail { form, data: FormData } and
+      the native submit proceeds (set action/method for the no-JS path).
+  Validators (data-dt-required, data-dt-email, ...) set the invalid
+  state; see specs/components/validators.md. Layout is the consumer's
+  job — pair with dt-field, dt-row, dt-column.
+-->
+
+<form class="dt-form" data-dt-form>
+  <div class="dt-field">
+    <label class="dt-field-label" for="contact-email">Email</label>
+    <input id="contact-email" class="dt-input dt-input--md" type="email" name="email" data-dt-field placeholder="you@example.com" />
+  </div>
+  <div class="dt-field">
+    <label class="dt-field-label" for="contact-name">Name</label>
+    <input id="contact-name" class="dt-input dt-input--md" type="text" name="name" data-dt-field placeholder="Full name" />
+  </div>
+  <button class="dt-button dt-button--primary" type="submit">Submit</button>
+</form>
+
+<form class="dt-form" data-dt-form action="/login" method="post">
+  <div class="dt-field">
+    <label class="dt-field-label" for="login-email">Email</label>
+    <input id="login-email" class="dt-input dt-input--md" type="email" name="email" data-dt-field />
+  </div>
+  <div class="dt-field">
+    <label class="dt-field-label" for="login-password">Password</label>
+    <input id="login-password" class="dt-input dt-input--md" type="password" name="password" data-dt-field />
+  </div>
+  <button class="dt-button dt-button--primary" type="submit">Login</button>
+</form>
