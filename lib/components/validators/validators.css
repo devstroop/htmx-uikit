@@ -1,0 +1,4 @@
+/* Validators — no standalone styles. Validation state is styled by the
+   field component (dt-field-error, dt-input--invalid) via the field
+   contract; this file exists so the spec-to-directory parity check has
+   a home for the validators spec. */

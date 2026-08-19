@@ -1,0 +1,33 @@
+<!--
+  Validators — declarative validation rules for dt-form fields.
+  There is no validator markup: rules are data-dt-* attributes on
+  [data-dt-field] elements inside a [data-dt-form] and are evaluated at
+  submit time by behaviors.js.
+
+  Rules: data-dt-required, data-dt-email, data-dt-pattern (regexp
+  source), data-dt-min, data-dt-max (numbers), data-dt-minlength,
+  data-dt-maxlength. Messages: data-dt-<rule>-message, else
+  data-dt-error-message, else a default. Native constraints on the same
+  element (required/min/max/minlength/maxlength/pattern/type=email/
+  type=number) are respected via the validity API. Empty values pass
+  every rule except required.
+
+  See specs/components/validators.md for the full contract.
+-->
+
+<!-- Required + email + length with a custom per-rule message. -->
+<form class="dt-form" data-dt-form>
+  <div class="dt-field">
+    <label class="dt-field-label" for="v-name">Name</label>
+    <input id="v-name" class="dt-input dt-input--md" type="text" name="name" data-dt-field data-dt-required data-dt-minlength="2" data-dt-minlength-message="At least 2 characters" />
+  </div>
+  <div class="dt-field">
+    <label class="dt-field-label" for="v-email">Email</label>
+    <input id="v-email" class="dt-input dt-input--md" type="email" name="email" data-dt-field data-dt-required data-dt-email />
+  </div>
+  <div class="dt-field">
+    <label class="dt-field-label" for="v-age">Age</label>
+    <input id="v-age" class="dt-input dt-input--md" type="number" name="age" data-dt-field data-dt-min="18" data-dt-max="120" />
+  </div>
+  <button class="dt-button dt-button--primary" type="submit">Submit</button>
+</form>
