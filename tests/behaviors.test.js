@@ -402,10 +402,10 @@ describe("form", () => {
     expect(seen[0][1].get("email")).toBe("a@b.c");
   });
 
-  it("blocks the submit and dispatches dt:invalid when a field is invalid", () => {
+  it("blocks the submit and dispatches dt:invalid when a field fails a rule", () => {
     const form = fixture(`
       <form data-dt-form>
-        <input name="email" data-dt-field aria-invalid="true" />
+        <input name="email" data-dt-field data-dt-required />
         <input name="name" data-dt-field />
         <button type="submit">Go</button>
       </form>`);
@@ -418,23 +418,25 @@ describe("form", () => {
     expect(event.defaultPrevented).toBe(true);
     expect(invalid).toHaveLength(1);
     expect(invalid[0].map((f) => f.name)).toEqual(["email"]);
+    expect(invalid[0][0].messages).toEqual(["Required"]);
     expect(submitted).toHaveLength(0);
   });
 
-  it("treats data-dt-invalid as invalid without aria-invalid", () => {
+  it("marks the failing field invalid with aria-invalid and data-dt-invalid", () => {
     const form = fixture(`
       <form data-dt-form>
-        <input name="name" data-dt-field data-dt-invalid />
+        <input name="email" data-dt-field data-dt-required />
       </form>`);
-    const event = new Event("submit", { bubbles: true, cancelable: true });
-    form.dispatchEvent(event);
-    expect(event.defaultPrevented).toBe(true);
+    form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
+    const input = form.querySelector("[name=email]");
+    expect(input.getAttribute("aria-invalid")).toBe("true");
+    expect(input.hasAttribute("data-dt-invalid")).toBe(true);
   });
 
   it("skips disabled fields when checking validity", () => {
     const form = fixture(`
       <form data-dt-form>
-        <input name="x" data-dt-field aria-invalid="true" disabled />
+        <input name="x" data-dt-field data-dt-required disabled />
       </form>`);
     const event = new Event("submit", { bubbles: true, cancelable: true });
     form.dispatchEvent(event);
@@ -446,5 +448,145 @@ describe("form", () => {
     const event = new Event("submit", { bubbles: true, cancelable: true });
     form.dispatchEvent(event);
     expect(event.defaultPrevented).toBe(false);
+  });
+});
+
+describe("form validation rules", () => {
+  const submit = (form) => form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
+
+  it("required passes a filled value", () => {
+    const form = fixture(`
+      <form data-dt-form>
+        <input name="name" data-dt-field data-dt-required value="Ada" />
+      </form>`);
+    const event = new Event("submit", { bubbles: true, cancelable: true });
+    form.dispatchEvent(event);
+    expect(event.defaultPrevented).toBe(false);
+    expect(form.querySelector("[name=name]").hasAttribute("aria-invalid")).toBe(false);
+  });
+
+  it("email rule rejects a bad address and accepts a good one", () => {
+    const form = fixture(`
+      <form data-dt-form>
+        <input name="email" data-dt-field data-dt-email />
+      </form>`);
+    let event = new Event("submit", { bubbles: true, cancelable: true });
+    submit(form);
+    expect(event.defaultPrevented).toBe(false);
+    const input = form.querySelector("[name=email]");
+    input.value = "nope";
+    event = new Event("submit", { bubbles: true, cancelable: true });
+    form.dispatchEvent(event);
+    expect(event.defaultPrevented).toBe(true);
+    expect(input.getAttribute("aria-invalid")).toBe("true");
+  });
+
+  it("pattern rule matches against data-dt-pattern", () => {
+    const form = fixture(`
+      <form data-dt-form>
+        <input name="zip" data-dt-field data-dt-pattern="^\\d{5}$" />
+      </form>`);
+    const input = form.querySelector("[name=zip]");
+    input.value = "12";
+    let event = new Event("submit", { bubbles: true, cancelable: true });
+    form.dispatchEvent(event);
+    expect(event.defaultPrevented).toBe(true);
+    input.value = "12345";
+    event = new Event("submit", { bubbles: true, cancelable: true });
+    form.dispatchEvent(event);
+    expect(event.defaultPrevented).toBe(false);
+  });
+
+  it("min/max rules bound numeric values", () => {
+    const form = fixture(`
+      <form data-dt-form>
+        <input name="age" type="number" data-dt-field data-dt-min="18" data-dt-max="120" />
+      </form>`);
+    const input = form.querySelector("[name=age]");
+    input.value = "17";
+    let event = new Event("submit", { bubbles: true, cancelable: true });
+    form.dispatchEvent(event);
+    expect(event.defaultPrevented).toBe(true);
+    input.value = "121";
+    event = new Event("submit", { bubbles: true, cancelable: true });
+    form.dispatchEvent(event);
+    expect(event.defaultPrevented).toBe(true);
+    input.value = "42";
+    event = new Event("submit", { bubbles: true, cancelable: true });
+    form.dispatchEvent(event);
+    expect(event.defaultPrevented).toBe(false);
+  });
+
+  it("minlength/maxlength bound string length", () => {
+    const form = fixture(`
+      <form data-dt-form>
+        <input name="code" data-dt-field data-dt-minlength="2" data-dt-maxlength="4" />
+      </form>`);
+    const input = form.querySelector("[name=code]");
+    input.value = "x";
+    let event = new Event("submit", { bubbles: true, cancelable: true });
+    form.dispatchEvent(event);
+    expect(event.defaultPrevented).toBe(true);
+    input.value = "xxxxx";
+    event = new Event("submit", { bubbles: true, cancelable: true });
+    form.dispatchEvent(event);
+    expect(event.defaultPrevented).toBe(true);
+    input.value = "xx";
+    event = new Event("submit", { bubbles: true, cancelable: true });
+    form.dispatchEvent(event);
+    expect(event.defaultPrevented).toBe(false);
+  });
+
+  it("empty values pass every rule except required", () => {
+    const form = fixture(`
+      <form data-dt-form>
+        <input name="a" data-dt-field data-dt-email data-dt-minlength="3" />
+      </form>`);
+    const event = new Event("submit", { bubbles: true, cancelable: true });
+    form.dispatchEvent(event);
+    expect(event.defaultPrevented).toBe(false);
+  });
+
+  it("uses data-dt-<rule>-message and falls back to data-dt-error-message", () => {
+    const form = fixture(`
+      <form data-dt-form>
+        <input name="a" data-dt-field data-dt-required data-dt-required-message="Custom A" />
+        <input name="b" data-dt-field data-dt-required data-dt-error-message="Custom B" />
+      </form>`);
+    const invalid = [];
+    form.addEventListener("dt:invalid", (e) => invalid.push(e.detail.fields));
+    submit(form);
+    expect(invalid[0].find((f) => f.name === "a").messages).toEqual(["Custom A"]);
+    expect(invalid[0].find((f) => f.name === "b").messages).toEqual(["Custom B"]);
+  });
+
+  it("respects native constraints via the validity API", () => {
+    const form = fixture(`
+      <form data-dt-form>
+        <input name="name" data-dt-field required />
+      </form>`);
+    const invalid = [];
+    form.addEventListener("dt:invalid", (e) => invalid.push(e.detail.fields));
+    submit(form);
+    expect(invalid).toHaveLength(1);
+    expect(invalid[0][0].messages.length).toBeGreaterThan(0);
+    form.querySelector("[name=name]").value = "Ada";
+    const event = new Event("submit", { bubbles: true, cancelable: true });
+    form.dispatchEvent(event);
+    expect(event.defaultPrevented).toBe(false);
+  });
+
+  it("clears stale invalid state on a later valid submit", () => {
+    const form = fixture(`
+      <form data-dt-form>
+        <input name="email" data-dt-field data-dt-required />
+      </form>`);
+    submit(form);
+    const input = form.querySelector("[name=email]");
+    expect(input.getAttribute("aria-invalid")).toBe("true");
+    input.value = "a@b.c";
+    submit(form);
+    expect(input.hasAttribute("aria-invalid")).toBe(false);
+    expect(input.hasAttribute("data-dt-invalid")).toBe(false);
   });
 });

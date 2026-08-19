@@ -2,24 +2,29 @@
   Form — reference markup for server templates.
   Root: <form class="dt-form" data-dt-form [action="..." method="..."]>
   The data-dt-form behavior (behaviors.js) runs on submit:
-    - any [data-dt-field] that is invalid (aria-invalid="true" or the
-      data-dt-invalid attribute) blocks the native submit and dispatches
-      dt:invalid with detail { fields: [{ name, element }] }.
+    - rules declared on [data-dt-field] via data-dt-required, data-dt-email,
+      data-dt-pattern, data-dt-min, data-dt-max, data-dt-minlength,
+      data-dt-maxlength (empty values pass all but required); messages via
+      data-dt-<rule>-message, data-dt-error-message, or defaults. Native
+      constraints (required/min/max/.../type=email) are also respected.
+    - failing fields get aria-invalid="true" + data-dt-invalid and block
+      the submit: dt:invalid fires with detail { fields: [{ name, element,
+      messages }] }.
     - otherwise dt:submit fires with detail { form, data: FormData } and
       the native submit proceeds (set action/method for the no-JS path).
-  Validators (data-dt-required, data-dt-email, ...) set the invalid
-  state; see specs/components/validators.md. Layout is the consumer's
-  job — pair with dt-field, dt-row, dt-column.
+  Error rendering and aria-describedby wiring: see specs/components/
+  field.md. Layout is the consumer's job — pair with dt-field, dt-row,
+  dt-column.
 -->
 
 <form class="dt-form" data-dt-form>
   <div class="dt-field">
     <label class="dt-field-label" for="contact-email">Email</label>
-    <input id="contact-email" class="dt-input dt-input--md" type="email" name="email" data-dt-field placeholder="you@example.com" />
+    <input id="contact-email" class="dt-input dt-input--md" type="email" name="email" data-dt-field data-dt-required data-dt-email placeholder="you@example.com" />
   </div>
   <div class="dt-field">
     <label class="dt-field-label" for="contact-name">Name</label>
-    <input id="contact-name" class="dt-input dt-input--md" type="text" name="name" data-dt-field placeholder="Full name" />
+    <input id="contact-name" class="dt-input dt-input--md" type="text" name="name" data-dt-field data-dt-required data-dt-minlength="2" placeholder="Full name" />
   </div>
   <button class="dt-button dt-button--primary" type="submit">Submit</button>
 </form>
@@ -27,11 +32,15 @@
 <form class="dt-form" data-dt-form action="/login" method="post">
   <div class="dt-field">
     <label class="dt-field-label" for="login-email">Email</label>
-    <input id="login-email" class="dt-input dt-input--md" type="email" name="email" data-dt-field />
+    <input id="login-email" class="dt-input dt-input--md" type="email" name="email" data-dt-field data-dt-required data-dt-email />
   </div>
   <div class="dt-field">
     <label class="dt-field-label" for="login-password">Password</label>
-    <input id="login-password" class="dt-input dt-input--md" type="password" name="password" data-dt-field />
+    <input id="login-password" class="dt-input dt-input--md" type="password" name="password" data-dt-field data-dt-required data-dt-minlength="8" data-dt-minlength-message="At least 8 characters" />
+  </div>
+  <div class="dt-field">
+    <label class="dt-field-label" for="login-age">Age</label>
+    <input id="login-age" class="dt-input dt-input--md" type="number" name="age" data-dt-field data-dt-min="18" data-dt-max="120" placeholder="18–120" />
   </div>
   <button class="dt-button dt-button--primary" type="submit">Login</button>
 </form>
