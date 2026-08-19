@@ -1116,3 +1116,72 @@ describe("datagrid", () => {
     expect(root.querySelector("[data-dt-grid-new-row]")).toBeFalsy();
   });
 });
+
+describe("datalist", () => {
+  const datalistFixture = (extra = "") => {
+    const root = fixture(`
+      <div data-dt-datalist data-dt-datalist-pagesize="4" data-dt-datalist-pagesize-options="[4,8,12]" ${extra}>
+        <div data-dt-datalist-items>
+          <div data-dt-datalist-item>Apple</div>
+          <div data-dt-datalist-item>Banana</div>
+          <div data-dt-datalist-item>Cherry</div>
+          <div data-dt-datalist-item>Date</div>
+          <div data-dt-datalist-item>Elderberry</div>
+          <div data-dt-datalist-item>Fig</div>
+          <div data-dt-datalist-item>Grape</div>
+          <div data-dt-datalist-item>Honeydew</div>
+          <div data-dt-datalist-item>Kiwi</div>
+          <div data-dt-datalist-item>Lemon</div>
+        </div>
+        <div data-dt-datalist-empty hidden>No records found</div>
+        <div data-dt-datalist-pager></div>
+      </div>`);
+    window.dtUikit.datalist.init(root);
+    return root;
+  };
+
+  const visibleItems = (root) =>
+    [...root.querySelectorAll("[data-dt-datalist-item]")].filter((item) => !item.hidden).map((item) => item.textContent);
+
+  it("shows the first page by default (pageSize 4)", () => {
+    const root = datalistFixture();
+    expect(visibleItems(root)).toEqual(["Apple", "Banana", "Cherry", "Date"]);
+    expect(root.querySelector(".dt-datalist-pager-summary").textContent).toContain("Page 1 of 3");
+  });
+
+  it("pages through items and fires dt:datalist-page", () => {
+    const listener = vi.fn();
+    const root = datalistFixture();
+    root.addEventListener("dt:datalist-page", listener);
+    root.querySelector('[data-dt-datalist-page="2"]').click();
+    expect(visibleItems(root)).toEqual(["Elderberry", "Fig", "Grape", "Honeydew"]);
+    expect(listener).toHaveBeenCalledWith(expect.objectContaining({ detail: { pageNumber: 2 } }));
+  });
+
+  it("resets to page 1 when page size changes", () => {
+    const root = datalistFixture();
+    root.querySelector('[data-dt-datalist-page="2"]').click();
+    root.querySelector("[data-dt-datalist-page-size]").value = "8";
+    root.querySelector("[data-dt-datalist-page-size]").dispatchEvent(new Event("change", { bubbles: true }));
+    expect(root.querySelector(".dt-datalist-pager-summary").textContent).toContain("Page 1 of 2");
+    expect(visibleItems(root)).toHaveLength(8);
+  });
+
+  it("applies wrap grid layout when data-dt-datalist-wrap is present", () => {
+    const root = datalistFixture("data-dt-datalist-wrap");
+    expect(root.hasAttribute("data-dt-datalist-wrap")).toBe(true);
+    expect(root.querySelector("[data-dt-datalist-items]")).toBeTruthy();
+  });
+
+  it("shows the empty message when there are no items", () => {
+    const root = fixture(`
+      <div data-dt-datalist>
+        <div data-dt-datalist-items></div>
+        <div data-dt-datalist-empty hidden>No records found</div>
+        <div data-dt-datalist-pager></div>
+      </div>`);
+    window.dtUikit.datalist.init(root);
+    expect(root.querySelector("[data-dt-datalist-empty]").hidden).toBe(false);
+    expect(root.querySelector(".dt-datalist-pager-summary").textContent).toContain("Page 1 of 1");
+  });
+});
