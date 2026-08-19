@@ -905,6 +905,50 @@
   .dt-column--xl-offset-11 { margin-left: calc(11 / 12 * 100%); }
 }
 
+/* DataFilter — filter expression builder (Radzen rz-datafilter parity). */
+
+.dt-datafilter {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dt-space-3, 0.75rem);
+  font-size: 0.875rem;
+}
+
+.dt-datafilter-rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dt-space-2, 0.5rem);
+}
+
+.dt-datafilter-row {
+  display: flex;
+  align-items: center;
+  gap: var(--dt-space-2, 0.5rem);
+}
+
+.dt-datafilter-label {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dt-space-1, 0.25rem);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--dt-color-fg-muted, currentColor);
+}
+
+.dt-datafilter-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--dt-space-3, 0.75rem);
+}
+
+.dt-datafilter-operator-bar {
+  display: flex;
+  gap: var(--dt-space-3, 0.75rem);
+  font-size: 0.875rem;
+}
+
 .dt-dialog {
   z-index: var(--dt-z-modal);
   border: 1px solid var(--dt-color-border);

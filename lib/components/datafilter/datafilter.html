@@ -1,0 +1,51 @@
+<!--
+  DataFilter — declarative filter-expression builder (Radzen RadzenDataFilter
+  parity). Server renders the shell; behaviors.js drives it.
+
+  Attributes on [data-dt-datafilter]:
+    data-dt-datafilter-properties   JSON: [{name, title?, type,
+                                     values?: [{value,label}]}]
+    data-dt-datafilter-operator     "And" | "Or" (default "And")
+    data-dt-datafilter-output       optional selector for a hidden input
+                                    receiving the descriptor JSON
+  Rows are [data-dt-datafilter-row] containing:
+    [data-dt-datafilter-property]   <select>  (options auto-populated)
+    [data-dt-datafilter-operator]   <select>  (options swap per type)
+    [data-dt-datafilter-value]      value editor (input/select per type)
+    [data-dt-datafilter-remove]     <button>  removes the row (keeps one)
+  [data-dt-datafilter-add] appends a row cloned from the first row.
+
+  Behavior fires dt:filter-change on the container after any change, with
+  detail { filters, filterString, oDataFilterString, logicalOperator }.
+  Rows with an empty value are ignored (Radzen canFilter parity) unless
+  the operator is a null/empty test.
+
+  See specs/components/data-filter.md for the full contract.
+-->
+
+<div class="dt-datafilter" data-dt-datafilter
+     data-dt-datafilter-properties='[{"name":"name","title":"Name","type":"string"},{"name":"age","title":"Age","type":"number"},{"name":"active","title":"Active","type":"boolean"}]'
+     data-dt-datafilter-operator="And">
+  <div class="dt-datafilter-rows" data-dt-datafilter-rows>
+    <div class="dt-datafilter-row" data-dt-datafilter-row>
+      <label class="dt-datafilter-label">Name
+        <select class="dt-select" data-dt-datafilter-property aria-label="Property"></select>
+      </label>
+      <label class="dt-datafilter-label">Operator
+        <select class="dt-select" data-dt-datafilter-operator aria-label="Operator"></select>
+      </label>
+      <label class="dt-datafilter-label">Value
+        <input class="dt-input dt-input--md" data-dt-datafilter-value aria-label="Value">
+      </label>
+      <button type="button" class="dt-btn" data-dt-datafilter-remove aria-label="Remove condition">×</button>
+    </div>
+  </div>
+  <div class="dt-datafilter-bar">
+    <button type="button" class="dt-btn dt-btn--secondary" data-dt-datafilter-add>Add filter</button>
+    <div class="dt-datafilter-operator-bar" role="radiogroup" aria-label="Join filters">
+      <label><input type="radio" name="df-op" value="And" checked> AND</label>
+      <label><input type="radio" name="df-op" value="Or"> OR</label>
+    </div>
+    <input type="hidden" data-dt-datafilter-output name="filters">
+  </div>
+</div>
