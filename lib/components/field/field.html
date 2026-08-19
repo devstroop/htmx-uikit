@@ -5,10 +5,13 @@
     label    <label class="dt-field-label" for="<control-id>">
     required <span class="dt-field-required" aria-hidden="true">*</span>
     hint     <div class="dt-field-hint" id="<hint-id>">
-    error    <div class="dt-field-error" id="<error-id>" role="alert">
+    error    <div class="dt-field-error" id="<error-id>" aria-live="polite" data-dt-field-error>
   A server template composes the wrapper: the visible message id is wired
   onto the control's aria-describedby (error id wins over hint id) and an
-  error also sets aria-invalid="true" on the control.
+  error also sets aria-invalid="true" on the control. The [data-dt-form]
+  behavior writes validation messages into the [data-dt-field-error]
+  element, merges its id into aria-describedby (existing hint ids kept),
+  and clears the state when the control is edited.
 -->
 
 <!-- Label + control + hint: control is linked via aria-describedby. -->
@@ -21,8 +24,8 @@
 <!-- Label + required marker + error: error wins, control gets aria-invalid. -->
 <div class="dt-field">
   <label class="dt-field-label" for="username">Username<span class="dt-field-required" aria-hidden="true">*</span></label>
-  <input id="username" class="dt-input dt-input--md" type="text" aria-describedby="username-error" aria-invalid="true" />
-  <div id="username-error" class="dt-field-error" role="alert">Username is required.</div>
+  <input id="username" class="dt-input dt-input--md" type="text" data-dt-required aria-describedby="username-error" aria-invalid="true" />
+  <div id="username-error" class="dt-field-error" aria-live="polite" data-dt-field-error>Username is required.</div>
 </div>
 
 <!-- Control only: no label and no messaging. -->
