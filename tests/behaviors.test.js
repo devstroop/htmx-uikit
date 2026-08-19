@@ -927,4 +927,111 @@ describe("datagrid", () => {
     expect(detail.oDataFilterString).toBe("contains(tolower(name), tolower('ja'))");
     expect(detail.pageSize).toBe(2);
   });
+
+  const advancedFixture = () => {
+    const root = fixture(`
+      <div data-dt-datagrid
+           data-dt-datagrid-properties='[
+             {"property":"name","title":"Name","type":"string","frozen":true,"width":"8rem"},
+             {"property":"age","title":"Age","type":"number","align":"center"},
+             {"property":"role","title":"Role","type":"string"}
+           ]'
+           data-dt-datagrid-select="multiple"
+           data-dt-datagrid-column-picker
+           data-dt-datagrid-resize
+           data-dt-datagrid-reorder
+           data-dt-datagrid-pagesize="10">
+        <div data-dt-datagrid-toolbar></div>
+        <div class="dt-datagrid-data" role="grid" data-dt-datagrid-data>
+          <table class="dt-datagrid-table">
+            <colgroup data-dt-datagrid-cols></colgroup>
+            <thead data-dt-datagrid-head></thead>
+            <tbody data-dt-datagrid-rows>
+              <tr data-dt-row data-dt-row-key="1" data-dt-row-value='{"name":"John","age":30,"role":"admin"}'>
+                <td data-dt-col="name">John</td>
+                <td data-dt-col="age" class="dt-datagrid-cell--center">30</td>
+                <td data-dt-col="role">admin</td>
+              </tr>
+              <tr data-dt-row data-dt-row-key="2" data-dt-row-value='{"name":"Jane","age":25,"role":"editor"}'>
+                <td data-dt-col="name">Jane</td>
+                <td data-dt-col="age" class="dt-datagrid-cell--center">25</td>
+                <td data-dt-col="role">editor</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="dt-datagrid-empty" data-dt-datagrid-empty hidden>No records found</div>
+        </div>
+        <div class="dt-datagrid-pager" data-dt-datagrid-pager></div>
+      </div>`);
+    window.dtUikit.datagrid.init(root);
+    return root;
+  };
+
+  it("selects rows in multiple mode with aria-selected and dt:grid-select", () => {
+    const listener = vi.fn();
+    const root = advancedFixture();
+    root.addEventListener("dt:grid-select", listener);
+    root.querySelector('[data-dt-row-key="1"]').querySelector("td").click();
+    root.querySelector('[data-dt-row-key="2"]').querySelector("td").click();
+    expect(root.querySelector('[data-dt-row-key="1"]').getAttribute("aria-selected")).toBe("true");
+    expect(root.querySelector('[data-dt-row-key="2"]').getAttribute("aria-selected")).toBe("true");
+    expect(root.querySelector('[data-dt-row-key="1"]').classList.contains("dt-datagrid-row--selected")).toBe(true);
+    expect(listener.mock.calls[1][0].detail.keys).toEqual(["1", "2"]);
+    root.querySelector('[data-dt-row-key="1"]').querySelector("td").click();
+    expect(listener.mock.calls[2][0].detail.keys).toEqual(["2"]);
+  });
+
+  it("toggles columns from the picker and emits dt:grid-column-pick", () => {
+    const listener = vi.fn();
+    const root = advancedFixture();
+    root.addEventListener("dt:grid-column-pick", listener);
+    const toggle = root.querySelector("[data-dt-grid-picker-toggle]");
+    expect(toggle.textContent).toBe("Columns");
+    toggle.click();
+    const checkbox = root.querySelector('[data-dt-grid-picker-item="role"]');
+    expect(checkbox).toBeTruthy();
+    checkbox.checked = false;
+    checkbox.dispatchEvent(new Event("change", { bubbles: true }));
+    expect(root.querySelectorAll("[data-dt-grid-col]")).toHaveLength(2);
+    expect(listener).toHaveBeenCalledWith(expect.objectContaining({ detail: { key: "role", visible: false } }));
+    expect(root.querySelector('[data-dt-grid-picker-item="name"]').checked).toBe(true);
+  });
+
+  it("freezes the name column with a sticky offset", () => {
+    const root = advancedFixture();
+    const firstTh = root.querySelector("th");
+    expect(firstTh.classList.contains("dt-datagrid-cell--frozen")).toBe(true);
+    expect(firstTh.style.left).toBe("0px");
+    const secondTh = root.querySelectorAll("th")[1];
+    expect(secondTh.classList.contains("dt-datagrid-cell--frozen")).toBe(false);
+    const firstTd = root.querySelector("[data-dt-row] td");
+    expect(firstTd.classList.contains("dt-datagrid-cell--frozen")).toBe(true);
+    expect(firstTd.style.left).toBe("0px");
+  });
+
+  it("resizes a column by dragging its handle", () => {
+    const root = advancedFixture();
+    const handle = root.querySelector('[data-dt-grid-resize="name"]');
+    expect(handle.getAttribute("aria-label")).toBe("Resize Name");
+    handle.dispatchEvent(new MouseEvent("mousedown", { bubbles: true, clientX: 100 }));
+    document.dispatchEvent(new MouseEvent("mousemove", { bubbles: true, clientX: 300 }));
+    document.dispatchEvent(new MouseEvent("mouseup", { bubbles: true }));
+    const col = root.querySelector("[data-dt-datagrid-cols] col");
+    expect(col.style.width).toBe("208px");
+  });
+
+  it("reorders columns on dragstart and drop", () => {
+    const listener = vi.fn();
+    const root = advancedFixture();
+    root.addEventListener("dt:grid-column-reorder", listener);
+    const ageTh = root.querySelector('[data-dt-grid-col="age"]');
+    const nameTh = root.querySelector('[data-dt-grid-col="name"]');
+    ageTh.dispatchEvent(new Event("dragstart", { bubbles: true }));
+    nameTh.dispatchEvent(new Event("dragover", { bubbles: true, cancelable: true }));
+    nameTh.dispatchEvent(new Event("drop", { bubbles: true, cancelable: true }));
+    const headers = [...root.querySelectorAll("th")];
+    expect(headers[0].textContent).toBe("Age");
+    expect(headers[1].textContent).toBe("Name");
+    expect(listener).toHaveBeenCalledWith(expect.objectContaining({ detail: { from: "age", to: "name" } }));
+  });
 });
