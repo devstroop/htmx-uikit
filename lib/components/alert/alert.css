@@ -1,0 +1,176 @@
+.se-alert {
+  --alert-pad: var(--se-space-3);
+  --alert-gap: var(--se-space-2);
+  --alert-radius: var(--se-radius-md);
+  --alert-title-size: var(--se-font-size-md);
+  --alert-body-size: var(--se-font-size-sm);
+  --alert-dismiss-size: 22px;
+  --alert-dismiss-font: var(--se-font-size-md);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--alert-gap);
+  padding: var(--alert-pad);
+  margin: 0 0 var(--se-space-3);
+  border-radius: var(--alert-radius);
+  border: 1px solid var(--se-color-border);
+  background: var(--se-color-surface);
+  color: var(--se-color-text);
+  font-size: var(--se-font-size-sm);
+}
+
+/* Size tiers scale the whole banner (shared ComponentSize scale) */
+.se-alert--xs {
+  --alert-pad: var(--se-space-2);
+  --alert-gap: var(--se-space-1);
+  --alert-radius: var(--se-radius-sm);
+  --alert-title-size: var(--se-font-size-sm);
+  --alert-body-size: var(--se-font-size-xs);
+  --alert-dismiss-size: 18px;
+  --alert-dismiss-font: var(--se-font-size-xs);
+}
+
+.se-alert--sm {
+  --alert-pad: var(--se-space-2);
+  --alert-gap: var(--se-space-1);
+  --alert-radius: var(--se-radius-sm);
+  --alert-title-size: var(--se-font-size-sm);
+  --alert-body-size: var(--se-font-size-xs);
+  --alert-dismiss-size: 20px;
+  --alert-dismiss-font: var(--se-font-size-sm);
+}
+
+.se-alert--lg {
+  --alert-pad: var(--se-space-4);
+  --alert-gap: var(--se-space-2);
+  --alert-radius: var(--se-radius-lg);
+  --alert-title-size: var(--se-font-size-lg);
+  --alert-body-size: var(--se-font-size-sm);
+  --alert-dismiss-size: 26px;
+  --alert-dismiss-font: var(--se-font-size-lg);
+}
+
+.se-alert--xl {
+  --alert-pad: var(--se-space-4);
+  --alert-gap: var(--se-space-3);
+  --alert-radius: var(--se-radius-lg);
+  --alert-title-size: var(--se-font-size-lg);
+  --alert-body-size: var(--se-font-size-md);
+  --alert-dismiss-size: 30px;
+  --alert-dismiss-font: var(--se-font-size-lg);
+}
+
+/* Tones define the palette and the soft paint (default).
+   Variant modifiers --outline | --solid override the paint.
+   (Badge-language parity) */
+.se-alert--info {
+  --alert-tone: var(--se-color-primary);
+  --alert-fg: var(--se-color-text-primary);
+  background-color: color-mix(in srgb, var(--se-color-primary) 12%, transparent);
+  border-color: var(--se-color-primary);
+  color: var(--se-color-text-primary);
+}
+
+.se-alert--success {
+  --alert-tone: var(--se-color-success);
+  --alert-fg: var(--se-color-text-success);
+  background-color: color-mix(in srgb, var(--se-color-success) 12%, transparent);
+  border-color: var(--se-color-success);
+  color: var(--se-color-text-success);
+}
+
+.se-alert--warning {
+  --alert-tone: var(--se-color-warning);
+  --alert-fg: var(--se-color-text-warning);
+  background-color: color-mix(in srgb, var(--se-color-warning) 12%, transparent);
+  border-color: var(--se-color-warning);
+  color: var(--se-color-text-warning);
+}
+
+.se-alert--danger {
+  --alert-tone: var(--se-color-danger);
+  --alert-fg: var(--se-color-text-danger);
+  background-color: color-mix(in srgb, var(--se-color-danger) 12%, transparent);
+  border-color: var(--se-color-danger);
+  color: var(--se-color-text-danger);
+}
+
+/* outline: no fill, tone border, text-{tone} foreground */
+.se-alert--outline {
+  background-color: transparent;
+  border-color: var(--alert-tone);
+  color: var(--alert-fg);
+}
+
+/* solid: tone fill; primary/danger use their dedicated contrast tokens,
+   success/warning use surface (Badge solid pattern) */
+.se-alert--solid {
+  background-color: var(--alert-tone);
+  border-color: var(--alert-tone);
+  color: var(--se-color-surface);
+}
+
+.se-alert--info.se-alert--solid {
+  color: var(--se-color-primary-fg);
+}
+
+.se-alert--danger.se-alert--solid {
+  color: var(--se-color-danger-fg);
+}
+
+.se-alert-icon {
+  flex-shrink: 0;
+  display: flex;
+  margin-top: 1px;
+}
+
+.se-alert-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.se-alert-title {
+  font-size: var(--alert-title-size);
+  font-weight: var(--se-font-weight-bold);
+  line-height: 1.4;
+}
+
+.se-alert-body {
+  margin-top: var(--se-space-1);
+  font-size: var(--alert-body-size);
+  line-height: 1.5;
+}
+
+.se-alert-dismiss {
+  flex-shrink: 0;
+  width: var(--alert-dismiss-size);
+  height: var(--alert-dismiss-size);
+  margin-top: calc(-1 * var(--alert-pad) / 2);
+  margin-right: calc(-1 * var(--alert-gap));
+  border: none;
+  border-radius: var(--se-radius-md);
+  background: transparent;
+  color: var(--se-color-text-muted);
+  font-size: var(--alert-dismiss-font);
+  line-height: 1;
+  cursor: pointer;
+  transition: background var(--se-transition-fast), color var(--se-transition-fast);
+}
+
+.se-alert-dismiss:hover {
+  background: var(--se-color-surface-hover);
+  color: var(--se-color-text);
+}
+
+.se-alert-dismiss:focus-visible {
+  outline: 2px solid var(--se-color-focus);
+  outline-offset: 2px;
+}
+
+.se-alert--solid .se-alert-dismiss {
+  color: color-mix(in srgb, currentColor 75%, transparent);
+}
+
+.se-alert--solid .se-alert-dismiss:hover {
+  background: color-mix(in srgb, currentColor 15%, transparent);
+  color: currentColor;
+}

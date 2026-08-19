@@ -1,0 +1,205 @@
+<!--
+  Tabs — reference markup for server templates.
+  Root: <div class="se-tabs [se-tabs--left|se-tabs--right|se-tabs--bottom]" data-se-tabs>
+  Tablist: <div class="se-tabs-tablist se-tabs-tablist--<variant> [se-tabs-tablist--<position>]"
+            role="tablist" data-se-tablist [data-se-tablist-orientation="vertical"]>
+    variant   --underline (default) | --pills
+    position  --left | --right | --bottom (default: top; left/right make the
+              tablist vertical, so add data-se-tablist-orientation="vertical"
+              to keep arrow-key navigation orientation-aware)
+  Tab: <button class="se-tabs-tab [se-tabs-tab--active] [se-tabs-tab--disabled]"
+        role="tab" data-se-tab data-se-tab-key="<key>"
+        id="<id>" aria-selected="true|false" aria-controls="<panel-id>"
+        tabindex="0|-1" [disabled]>
+  Panel: <div class="se-tabs-panel" role="tabpanel" data-se-tabpanel
+          data-se-tab-key="<key>" id="<panel-id>" aria-labelledby="<tab-id>" [hidden]>
+  behaviors.js drives activation: click + orientation-aware arrows + Home/End
+  (roving tabindex, aria-selected, hidden panels).
+-->
+
+<div class="se-tabs" data-se-tabs>
+  <div class="se-tabs-tablist se-tabs-tablist--underline" role="tablist" data-se-tablist>
+    <button
+      class="se-tabs-tab se-tabs-tab--active"
+      type="button"
+      role="tab"
+      data-se-tab
+      data-se-tab-key="overview"
+      id="tabs1-tab-overview"
+      aria-selected="true"
+      aria-controls="tabs1-panel-overview"
+      tabindex="0"
+    >
+      Overview
+    </button>
+    <button
+      class="se-tabs-tab"
+      type="button"
+      role="tab"
+      data-se-tab
+      data-se-tab-key="activity"
+      id="tabs1-tab-activity"
+      aria-selected="false"
+      aria-controls="tabs1-panel-activity"
+      tabindex="-1"
+    >
+      Activity
+    </button>
+    <button
+      class="se-tabs-tab se-tabs-tab--disabled"
+      type="button"
+      role="tab"
+      data-se-tab
+      data-se-tab-key="billing"
+      id="tabs1-tab-billing"
+      aria-selected="false"
+      aria-controls="tabs1-panel-billing"
+      tabindex="-1"
+      disabled
+    >
+      Billing
+    </button>
+  </div>
+  <div
+    class="se-tabs-panel"
+    role="tabpanel"
+    data-se-tabpanel
+    data-se-tab-key="overview"
+    id="tabs1-panel-overview"
+    aria-labelledby="tabs1-tab-overview"
+  >
+    <p>Overview content.</p>
+  </div>
+  <div
+    class="se-tabs-panel"
+    role="tabpanel"
+    data-se-tabpanel
+    data-se-tab-key="activity"
+    id="tabs1-panel-activity"
+    aria-labelledby="tabs1-tab-activity"
+    hidden
+  >
+    <p>Activity content.</p>
+  </div>
+  <div
+    class="se-tabs-panel"
+    role="tabpanel"
+    data-se-tabpanel
+    data-se-tab-key="billing"
+    id="tabs1-panel-billing"
+    aria-labelledby="tabs1-tab-billing"
+    hidden
+  >
+    <p>Billing content.</p>
+  </div>
+</div>
+
+<div class="se-tabs" data-se-tabs>
+  <div class="se-tabs-tablist se-tabs-tablist--pills" role="tablist" data-se-tablist>
+    <button
+      class="se-tabs-tab se-tabs-tab--active"
+      type="button"
+      role="tab"
+      data-se-tab
+      data-se-tab-key="one"
+      id="tabs2-tab-one"
+      aria-selected="true"
+      aria-controls="tabs2-panel-one"
+      tabindex="0"
+    >
+      One
+    </button>
+    <button
+      class="se-tabs-tab"
+      type="button"
+      role="tab"
+      data-se-tab
+      data-se-tab-key="two"
+      id="tabs2-tab-two"
+      aria-selected="false"
+      aria-controls="tabs2-panel-two"
+      tabindex="-1"
+    >
+      Two
+    </button>
+  </div>
+  <div
+    class="se-tabs-panel"
+    role="tabpanel"
+    data-se-tabpanel
+    data-se-tab-key="one"
+    id="tabs2-panel-one"
+    aria-labelledby="tabs2-tab-one"
+  >
+    <p>Pills, panel one.</p>
+  </div>
+  <div
+    class="se-tabs-panel"
+    role="tabpanel"
+    data-se-tabpanel
+    data-se-tab-key="two"
+    id="tabs2-panel-two"
+    aria-labelledby="tabs2-tab-two"
+    hidden
+  >
+    <p>Pills, panel two.</p>
+  </div>
+</div>
+
+<!-- Vertical tabs: left position, underline tracks the inner edge -->
+<div class="se-tabs se-tabs--left" data-se-tabs>
+  <div
+    class="se-tabs-tablist se-tabs-tablist--underline se-tabs-tablist--left"
+    role="tablist"
+    data-se-tablist
+    data-se-tablist-orientation="vertical"
+  >
+    <button
+      class="se-tabs-tab se-tabs-tab--active"
+      type="button"
+      role="tab"
+      data-se-tab
+      data-se-tab-key="design"
+      id="tabs3-tab-design"
+      aria-selected="true"
+      aria-controls="tabs3-panel-design"
+      tabindex="0"
+    >
+      Design
+    </button>
+    <button
+      class="se-tabs-tab"
+      type="button"
+      role="tab"
+      data-se-tab
+      data-se-tab-key="code"
+      id="tabs3-tab-code"
+      aria-selected="false"
+      aria-controls="tabs3-panel-code"
+      tabindex="-1"
+    >
+      Code
+    </button>
+  </div>
+  <div
+    class="se-tabs-panel"
+    role="tabpanel"
+    data-se-tabpanel
+    data-se-tab-key="design"
+    id="tabs3-panel-design"
+    aria-labelledby="tabs3-tab-design"
+  >
+    <p>Left-positioned tabs, panel content.</p>
+  </div>
+  <div
+    class="se-tabs-panel"
+    role="tabpanel"
+    data-se-tabpanel
+    data-se-tab-key="code"
+    id="tabs3-panel-code"
+    aria-labelledby="tabs3-tab-code"
+    hidden
+  >
+    <p>Second panel, Arrow Up/Down navigates.</p>
+  </div>
+</div>

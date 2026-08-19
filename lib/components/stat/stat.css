@@ -1,0 +1,48 @@
+.se-stat {
+  font-family: var(--se-font-sans);
+  display: flex;
+  flex-direction: column;
+  gap: var(--se-space-2);
+}
+
+.se-stat-label {
+  font-size: var(--se-font-size-xs);
+  font-weight: var(--se-font-weight-medium);
+  color: var(--se-color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.se-stat-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--se-space-2);
+}
+
+.se-stat-value {
+  font-size: var(--se-font-size-lg);
+  font-weight: var(--se-font-weight-bold);
+  color: var(--se-color-text);
+}
+
+.se-stat-delta {
+  font-size: var(--se-font-size-xs);
+  font-weight: var(--se-font-weight-medium);
+}
+
+.se-stat-delta--success {
+  color: var(--se-color-text-success);
+}
+
+.se-stat-delta--danger {
+  color: var(--se-color-text-danger);
+}
+
+.se-stat-delta--neutral {
+  color: var(--se-color-text-muted);
+}
+
+.se-stat-hint {
+  font-size: var(--se-font-size-xs);
+  color: var(--se-color-text-muted);
+}

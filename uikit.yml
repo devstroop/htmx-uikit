@@ -1,0 +1,19 @@
+# Framework registry — consumed by scripts/ and CI.
+# Fields:
+#   name        published package name (git-tag distributed)
+#   technology  delivery technology
+#   description one-liner
+#   tokens.sync path (relative to this file) where the generated tokens.css
+#                is synced — see scripts/generate-css.mjs
+#   commands    local development commands (run from this directory)
+
+name: "@devstroop/htmx-uikit"
+technology: htmx
+description: Server-rendered htmx implementation of the uikit specs — HTML fragments, plain CSS, tiny behaviors.
+
+tokens:
+  sync: lib/styles/tokens.css
+
+commands:
+  install: npm ci
+  build: npm run build

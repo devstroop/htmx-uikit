@@ -1,0 +1,61 @@
+<!--
+  Dialog — reference markup for server templates.
+  Dialog: <dialog class="se-dialog se-dialog--<size>" data-se-dialog>
+    size  --sm | --md (default) | --lg
+  Trigger: any element with data-se-dialog-open="#<dialog-id>"
+    (behaviors.js calls showModal and restores focus on close)
+  Close: <button class="se-dialog-close" type="button"
+         data-se-dialog-close aria-label="Close dialog">×</button>
+  The native <dialog> provides focus containment, Escape, and the
+  ::backdrop; the footer's buttons should close with data-se-dialog-close.
+-->
+
+<button class="se-button se-button--primary" type="button" data-se-dialog-open="#dialog1">
+  Open dialog
+</button>
+
+<dialog class="se-dialog se-dialog--md" data-se-dialog id="dialog1">
+  <div class="se-dialog-header">
+    <div>
+      <h2 class="se-dialog-title">Confirm deletion</h2>
+      <p class="se-dialog-description">This cannot be undone.</p>
+    </div>
+    <button class="se-dialog-close" type="button" data-se-dialog-close aria-label="Close dialog">
+      ×
+    </button>
+  </div>
+  <div class="se-dialog-body">
+    <p>The workspace and all of its branches will be removed.</p>
+  </div>
+  <div class="se-dialog-footer">
+    <button class="se-button se-button--secondary" type="button" data-se-dialog-close>
+      Cancel
+    </button>
+    <button class="se-button se-button--danger" type="button" data-se-dialog-close>
+      Delete
+    </button>
+  </div>
+</dialog>
+
+<button class="se-button se-button--secondary" type="button" data-se-dialog-open="#dialog2">
+  Small dialog
+</button>
+
+<dialog class="se-dialog se-dialog--sm" data-se-dialog id="dialog2">
+  <div class="se-dialog-header">
+    <div>
+      <h2 class="se-dialog-title">Sync complete</h2>
+    </div>
+    <button class="se-dialog-close" type="button" data-se-dialog-close aria-label="Close dialog">
+      ×
+    </button>
+  </div>
+  <div class="se-dialog-body">
+    <p>All tokens are in sync.</p>
+  </div>
+  <div class="se-dialog-footer">
+    <button class="se-button se-button--primary" type="button" data-se-dialog-close>
+      Done
+    </button>
+  </div>
+</dialog>

@@ -1,0 +1,25 @@
+<!--
+  Skeleton — reference markup for server templates.
+  Root: <span class="se-skeleton se-skeleton--<variant>"
+        aria-hidden="true" [style="width: ...; height: ..."]>
+  Modifiers:
+    variant  --text (default, 1em tall) | --circle (needs explicit
+             width/height) | --rect
+  The server template sets width/height inline only when provided
+  (numeric values become px). Purely decorative — aria-hidden="true",
+  never focusable. No JS, no data-* hooks.
+-->
+
+<span class="se-skeleton se-skeleton--text" aria-hidden="true"></span>
+
+<span class="se-skeleton se-skeleton--text" aria-hidden="true" style="width: 240px"></span>
+
+<span class="se-skeleton se-skeleton--text" aria-hidden="true" style="width: 60%; height: 0.75em"></span>
+
+<span class="se-skeleton se-skeleton--circle" aria-hidden="true" style="width: 48px; height: 48px"></span>
+
+<span class="se-skeleton se-skeleton--circle" aria-hidden="true" style="width: 96px; height: 96px"></span>
+
+<span class="se-skeleton se-skeleton--rect" aria-hidden="true" style="width: 100%; height: 120px"></span>
+
+<span class="se-skeleton se-skeleton--rect" aria-hidden="true" style="width: 320px; height: 40px"></span>

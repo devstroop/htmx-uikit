@@ -1,0 +1,30 @@
+<!--
+  Select — reference markup for server templates.
+  Root: <select class="se-select se-select--<size>">
+  Modifiers:
+    size    --sm | --md          (default: --md)
+    state   --invalid            (sets danger border + ring; pair with aria-invalid="true")
+  Native chevron is replaced by an inline SVG data-URI; options render as
+  children, each option carrying value and optional disabled.
+-->
+
+<select class="se-select se-select--md">
+  <option value="red">Red</option>
+  <option value="green">Green</option>
+  <option value="blue">Blue</option>
+</select>
+
+<select class="se-select se-select--sm">
+  <option value="sm">Small select</option>
+</select>
+
+<select class="se-select se-select--md" disabled>
+  <option value="disabled">Disabled</option>
+</select>
+
+<select class="se-select se-select--md se-select--invalid" aria-invalid="true">
+  <option value="">Choose a color</option>
+  <option value="red">Red</option>
+  <option value="green" disabled>Green (unavailable)</option>
+  <option value="blue">Blue</option>
+</select>

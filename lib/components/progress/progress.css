@@ -1,0 +1,139 @@
+.se-progress {
+  position: relative;
+  width: 100%;
+  height: 6px;
+  border-radius: var(--se-radius-full);
+  background: var(--se-color-surface-hover);
+  overflow: hidden;
+}
+
+/* Linear thickness tiers */
+.se-progress--xs {
+  height: 4px;
+}
+
+.se-progress--sm {
+  height: 5px;
+}
+
+.se-progress--md {
+  height: 6px;
+}
+
+.se-progress--lg {
+  height: 8px;
+}
+
+.se-progress--xl {
+  height: 10px;
+}
+
+.se-progress-bar {
+  position: absolute;
+  inset: 0 auto 0 0;
+  height: 100%;
+  border-radius: var(--se-radius-full);
+  transition: width var(--se-transition-base) var(--se-ease-out);
+}
+
+.se-progress--primary .se-progress-bar {
+  background: var(--se-color-primary);
+}
+
+.se-progress--success .se-progress-bar {
+  background: var(--se-color-success);
+}
+
+.se-progress--warning .se-progress-bar {
+  background: var(--se-color-warning);
+}
+
+.se-progress--danger .se-progress-bar {
+  background: var(--se-color-danger);
+}
+
+.se-progress--indeterminate .se-progress-bar {
+  width: 40%;
+  animation: se-progress-slide var(--se-motion-sweep) infinite;
+}
+
+@keyframes se-progress-slide {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(350%);
+  }
+}
+
+.se-progress-circular {
+  transform: rotate(-90deg);
+  width: var(--se-control-height-md);
+  height: var(--se-control-height-md);
+  stroke-width: 2px;
+}
+
+/* Circular diameter tiers — control-height scale */
+.se-progress-circular.se-progress--xs {
+  width: var(--se-control-height-xs);
+  height: var(--se-control-height-xs);
+}
+
+.se-progress-circular.se-progress--sm {
+  width: var(--se-control-height-sm);
+  height: var(--se-control-height-sm);
+}
+
+.se-progress-circular.se-progress--md {
+  width: var(--se-control-height-md);
+  height: var(--se-control-height-md);
+}
+
+.se-progress-circular.se-progress--lg {
+  width: var(--se-control-height-lg);
+  height: var(--se-control-height-lg);
+}
+
+.se-progress-circular.se-progress--xl {
+  width: var(--se-control-height-xl);
+  height: var(--se-control-height-xl);
+}
+
+.se-progress-circular circle {
+  fill: none;
+  stroke-width: 2px;
+}
+
+.se-progress-circular .se-progress-track {
+  stroke: var(--se-color-surface-hover);
+}
+
+.se-progress-circular .se-progress-fill {
+  stroke: var(--se-color-primary);
+  transition: stroke-dashoffset var(--se-transition-base) var(--se-ease-out);
+}
+
+.se-progress-circular.se-progress--success .se-progress-fill {
+  stroke: var(--se-color-success);
+}
+
+.se-progress-circular.se-progress--warning .se-progress-fill {
+  stroke: var(--se-color-warning);
+}
+
+.se-progress-circular.se-progress--danger .se-progress-fill {
+  stroke: var(--se-color-danger);
+}
+
+.se-progress-circular.se-progress--indeterminate {
+  animation: se-progress-spin var(--se-motion-sweep) linear infinite;
+}
+
+@keyframes se-progress-spin {
+  from {
+    transform: rotate(-90deg);
+  }
+  to {
+    transform: rotate(270deg);
+  }
+}

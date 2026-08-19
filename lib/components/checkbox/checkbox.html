@@ -1,0 +1,27 @@
+<!--
+  Checkbox — reference markup for server templates.
+  Root: <input type="checkbox" class="se-checkbox">
+  No modifiers. All native input props are forwarded (checked, disabled,
+  name, value, aria-*). No built-in label: consumers associate one via a
+  wrapping <label> or for/id for an accessible name.
+-->
+
+<label>
+  <input type="checkbox" class="se-checkbox" name="newsletter" />
+  Subscribe to the newsletter
+</label>
+
+<label>
+  <input type="checkbox" class="se-checkbox" name="terms" checked />
+  Accept the terms
+</label>
+
+<label>
+  <input type="checkbox" class="se-checkbox" name="legacy" disabled />
+  Disabled option
+</label>
+
+<label>
+  <input type="checkbox" class="se-checkbox" name="legacy-checked" checked disabled />
+  Disabled and checked
+</label>

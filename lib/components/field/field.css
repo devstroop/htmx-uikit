@@ -1,0 +1,27 @@
+.se-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--se-space-1);
+  font-family: var(--se-font-sans);
+}
+
+.se-field-label {
+  font-size: var(--se-font-size-sm);
+  font-weight: var(--se-font-weight-medium);
+  color: var(--se-color-text);
+}
+
+.se-field-required {
+  color: var(--se-color-text-danger);
+  margin-left: 2px;
+}
+
+.se-field-hint {
+  font-size: var(--se-font-size-xs);
+  color: var(--se-color-text-muted);
+}
+
+.se-field-error {
+  font-size: var(--se-font-size-xs);
+  color: var(--se-color-text-danger);
+}

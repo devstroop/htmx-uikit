@@ -1,0 +1,7 @@
+.se-header {
+  display: flex;
+  flex-shrink: 0;
+  padding: var(--se-space-4);
+  background: var(--se-color-surface);
+  border-bottom: 1px solid var(--se-color-border);
+}

@@ -1,0 +1,73 @@
+<!--
+  Table — reference markup for server templates.
+  Root: <div class="se-table-wrap">
+  Parts:
+    table  <table class="se-table">
+    header <thead><tr><th scope="col" [class="se-table-<align>"]>
+    body   <tbody><tr><td [class="se-table-<align>"]>
+    empty  <div class="se-table-empty">          (sibling of the table when
+                                                  there are no rows)
+  Modifiers (per cell, on th/td):
+    align  se-table-start | se-table-center | se-table-end
+           (applied when the column defines align; default is left)
+  No JS, no data-* hooks. Column headers carry scope="col". The server
+  template omits <thead> content handling entirely for empty tables and
+  renders the empty slot instead of the tbody.
+-->
+
+<div class="se-table-wrap">
+  <table class="se-table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Role</th>
+        <th scope="col" class="se-table-end">Quota</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Jane Doe</td>
+        <td>Admin</td>
+        <td class="se-table-end">48 GB</td>
+      </tr>
+      <tr>
+        <td>Alfred Aku</td>
+        <td>Member</td>
+        <td class="se-table-end">12 GB</td>
+      </tr>
+      <tr>
+        <td>Grace Hopper</td>
+        <td>Member</td>
+        <td class="se-table-end">9 GB</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="se-table-wrap">
+  <table class="se-table">
+    <thead>
+      <tr>
+        <th scope="col">Status</th>
+        <th scope="col" class="se-table-center">Nodes</th>
+        <th scope="col">Region</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Healthy</td>
+        <td class="se-table-center">3</td>
+        <td>eu-west-1</td>
+      </tr>
+      <tr>
+        <td>Degraded</td>
+        <td class="se-table-center">1</td>
+        <td>us-east-1</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="se-table-wrap">
+  <div class="se-table-empty">No deployments yet — create your first one.</div>
+</div>

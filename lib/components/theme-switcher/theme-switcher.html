@@ -1,0 +1,16 @@
+<!--
+  ThemeSwitcher — reference markup for server templates
+  (RadzenAppearanceToggle parity).
+  Root: <label class="se-theme-switcher">
+  Hook: <input type="checkbox" data-se-theme-switch>
+  Behavior: on load, checked is initialized from
+  document.documentElement.dataset.theme (dark = checked); on change,
+  the attribute flips between "light" and "dark".
+  Use the switch surface (se-switch) or a plain checkbox — the behavior
+  only cares about checked. No persistence is included.
+-->
+
+<label class="se-theme-switcher">
+  <span>Dark mode</span>
+  <input type="checkbox" data-se-theme-switch />
+</label>

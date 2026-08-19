@@ -1,0 +1,28 @@
+/* Icon — size tier modifiers. The glyph inherits its color via
+   stroke="currentColor". Sizing comes from the width/height attributes on
+   the <svg>, or from a size tier modifier when a server prefers classes:
+   each tier maps to the font-size scale. Default (no modifier) is md. */
+.se-icon--xs {
+  width: var(--se-font-size-xs);
+  height: var(--se-font-size-xs);
+}
+
+.se-icon--sm {
+  width: var(--se-font-size-sm);
+  height: var(--se-font-size-sm);
+}
+
+.se-icon--md {
+  width: var(--se-font-size-md);
+  height: var(--se-font-size-md);
+}
+
+.se-icon--lg {
+  width: var(--se-font-size-lg);
+  height: var(--se-font-size-lg);
+}
+
+.se-icon--xl {
+  width: var(--se-font-size-xl);
+  height: var(--se-font-size-xl);
+}

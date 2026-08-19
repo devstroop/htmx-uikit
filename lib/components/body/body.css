@@ -1,0 +1,7 @@
+.se-body {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  padding: var(--se-space-4);
+  overflow-y: auto;
+}

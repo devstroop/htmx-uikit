@@ -1,0 +1,24 @@
+<!--
+  Switch — reference markup for server templates.
+  Root: <input type="checkbox" role="switch" class="se-switch">
+  No modifiers. All native input props are forwarded (checked, disabled,
+  name, value, aria-*). Accessible name must be supplied by the consumer
+  (aria-label or a wrapping <label>).
+-->
+
+<label>
+  <input type="checkbox" role="switch" class="se-switch" name="notifications" />
+  Enable notifications
+</label>
+
+<label>
+  <input type="checkbox" role="switch" class="se-switch" name="auto-save" checked />
+  Auto-save enabled
+</label>
+
+<label>
+  <input type="checkbox" role="switch" class="se-switch" name="legacy" disabled />
+  Disabled switch
+</label>
+
+<input type="checkbox" role="switch" class="se-switch" name="dark-mode" aria-label="Dark mode" checked />

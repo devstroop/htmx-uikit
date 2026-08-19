@@ -1,0 +1,50 @@
+<!--
+  Card — reference markup for server templates.
+  Root: <div class="se-card se-card--<variant>" [tabindex="0" when interactive]>
+  Modifiers:
+    variant  --elevated (default) | --outlined | --interactive | --text
+  Parts:
+    header  <div class="se-card-header">   (omitted when absent)
+    body    <div class="se-card-body">      (always present, wraps children)
+    footer  <div class="se-card-footer">    (omitted when absent)
+  The interactive variant adds tabindex="0" and data-se-interactive, which
+  makes Enter/Space dispatch a click on the card (behaviors.js). A
+  consumer wires the click action itself (e.g. hx-get or a link).
+  Focus-visible ring handled in CSS.
+-->
+
+<div class="se-card se-card--elevated">
+  <div class="se-card-header">Deployments</div>
+  <div class="se-card-body">Your deployments are all healthy.</div>
+  <div class="se-card-footer">
+    <button class="se-button se-button--secondary" type="button">View all</button>
+  </div>
+</div>
+
+<div class="se-card se-card--elevated">
+  <div class="se-card-body">Body only.</div>
+</div>
+
+<div class="se-card se-card--outlined">
+  <div class="se-card-header">Usage</div>
+  <div class="se-card-body">This month: 48 GB of 100 GB.</div>
+</div>
+
+<div class="se-card se-card--interactive" tabindex="0" data-se-interactive>
+  <div class="se-card-header">Open pull requests</div>
+  <div class="se-card-body">3 PRs await your review.</div>
+</div>
+
+<div class="se-card se-card--interactive" tabindex="0" data-se-interactive>
+  <div class="se-card-body">Interactive body only.</div>
+</div>
+
+<div class="se-card se-card--text">
+  <div class="se-card-header">Flat text card</div>
+  <div class="se-card-body">No border, no shadow, transparent background — inherits the parent surface.</div>
+</div>
+
+<div class="se-card se-card--outlined">
+  <div class="se-card-body">Body.</div>
+  <div class="se-card-footer">Footer only.</div>
+</div>

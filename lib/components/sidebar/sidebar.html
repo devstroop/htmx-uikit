@@ -1,0 +1,64 @@
+<!--
+  Sidebar — collapsible flank (Radzen RadzenSidebar model).
+  Root: <aside class="se-sidebar [se-sidebar--left|--right] [se-sidebar--collapsed]" data-se-sidebar>
+  Position: --left (default, right border) or --right (left border).
+  Width: var(--se-layout-sidebar-width, 240px) — override inline or
+  per theme.
+  Collapse: author adds se-sidebar--collapsed for the initial state;
+  any element with data-se-sidebar-toggle="#id" flips the class and
+  mirrors aria-expanded on itself. Toggle should set aria-controls
+  pointing at the sidebar id.
+  Responsive: se-sidebar--responsive collapses below 768px via media
+  query (RadzenSidebar Responsive parity) — no JS.
+  Overlay (drawer): se-sidebar--overlay renders the aside absolutely
+  over the body with shadow.lg; the owning .se-layout-row becomes its
+  positioning context via :has(). Pair it with a scrim:
+    <div class="se-layout-mask" data-se-sidebar-mask="#side"></div>
+  The data-se-sidebar-mask behavior collapses the target sidebar,
+  hides the mask, and mirrors aria-expanded="false" on its toggle.
+  Collapse is visual-only: hide the aside (hidden/inert) as well if
+  its content must not be reachable while collapsed.
+-->
+
+<aside class="se-sidebar se-sidebar--left" id="preview-sidebar" data-se-sidebar>
+  <nav aria-label="Preview navigation">
+    <ul class="se-list" style="display: grid; gap: 4px">
+      <li>Dashboard</li>
+      <li>Users</li>
+      <li>Settings</li>
+    </ul>
+  </nav>
+</aside>
+
+<button class="se-button se-button--ghost se-button--sm" type="button" data-se-sidebar-toggle="#preview-sidebar" aria-expanded="true" aria-controls="preview-sidebar">
+  Toggle sidebar
+</button>
+
+<!-- Responsive: collapses below 768px regardless of expanded state. -->
+<aside class="se-sidebar se-sidebar--left se-sidebar--responsive" id="responsive-sidebar" data-se-sidebar>
+  <nav aria-label="Responsive navigation">
+    <ul class="se-list" style="display: grid; gap: 4px">
+      <li>Dashboard</li>
+      <li>Users</li>
+    </ul>
+  </nav>
+</aside>
+
+<!-- Overlay drawer: absolute panel + scrim (mask closes the drawer;
+     Escape closes it too). Start collapsed with the mask hidden so
+     copying this markup does not cover the page. -->
+<div class="se-layout-row">
+  <div class="se-layout-mask se-layout-mask--hidden" data-se-sidebar-mask="#drawer-sidebar"></div>
+  <aside class="se-sidebar se-sidebar--right se-sidebar--overlay se-sidebar--collapsed" id="drawer-sidebar" data-se-sidebar>
+    <nav aria-label="Drawer navigation">
+      <ul class="se-list" style="display: grid; gap: 4px">
+        <li>Dashboard</li>
+        <li>Settings</li>
+      </ul>
+    </nav>
+  </aside>
+</div>
+
+<button class="se-button se-button--ghost se-button--sm" type="button" data-se-sidebar-toggle="#drawer-sidebar" aria-expanded="false" aria-controls="drawer-sidebar">
+  Toggle drawer
+</button>

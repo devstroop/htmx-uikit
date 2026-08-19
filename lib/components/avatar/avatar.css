@@ -1,0 +1,119 @@
+.se-avatar {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--se-color-surface-hover);
+  overflow: visible;
+}
+
+.se-avatar--xs {
+  width: var(--se-control-height-xs);
+  height: var(--se-control-height-xs);
+  font-size: 10px;
+}
+
+.se-avatar--sm {
+  width: var(--se-control-height-sm);
+  height: var(--se-control-height-sm);
+  font-size: 12px;
+}
+
+.se-avatar--md {
+  width: var(--se-control-height-md);
+  height: var(--se-control-height-md);
+  font-size: 15px;
+}
+
+.se-avatar--lg {
+  width: var(--se-control-height-lg);
+  height: var(--se-control-height-lg);
+  font-size: 18px;
+}
+
+.se-avatar--xl {
+  width: var(--se-control-height-xl);
+  height: var(--se-control-height-xl);
+  font-size: 22px;
+}
+
+.se-avatar-initials {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  color: var(--se-color-surface);
+  font-size: 0.72em;
+  font-weight: var(--se-font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  user-select: none;
+}
+
+/* Tokenized palette: per-mode fills, surface-on-palette >= 4.5 enforced */
+.se-avatar--palette-0 .se-avatar-initials {
+  background: var(--se-color-palette-0);
+}
+
+.se-avatar--palette-1 .se-avatar-initials {
+  background: var(--se-color-palette-1);
+}
+
+.se-avatar--palette-2 .se-avatar-initials {
+  background: var(--se-color-palette-2);
+}
+
+.se-avatar--palette-3 .se-avatar-initials {
+  background: var(--se-color-palette-3);
+}
+
+.se-avatar--palette-4 .se-avatar-initials {
+  background: var(--se-color-palette-4);
+}
+
+.se-avatar--palette-5 .se-avatar-initials {
+  background: var(--se-color-palette-5);
+}
+
+.se-avatar-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.se-avatar-status {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--se-color-surface);
+  border-radius: 50%;
+}
+
+.se-avatar--sm .se-avatar-status {
+  width: 10px;
+  height: 10px;
+}
+
+.se-avatar--lg .se-avatar-status {
+  width: 14px;
+  height: 14px;
+}
+
+.se-avatar--online .se-avatar-status {
+  background: var(--se-color-success);
+}
+
+.se-avatar--offline .se-avatar-status {
+  background: var(--se-color-text-muted);
+}
+
+.se-avatar--away .se-avatar-status {
+  background: var(--se-color-warning);
+}

@@ -1,0 +1,16 @@
+<!--
+  Input — reference markup for server templates.
+  Root: <input class="se-input se-input--<size>">
+  Modifiers:
+    size    --sm | --md          (default: --md)
+    state   --invalid            (sets danger border + ring; pair with aria-invalid="true")
+  Attributes are forwarded to the native input (type, name, value,
+  placeholder, disabled, aria-*). :focus-visible draws the focus ring;
+  disabled renders at opacity 0.55.
+-->
+
+<input class="se-input se-input--md" type="text" placeholder="Placeholder" />
+<input class="se-input se-input--sm" type="text" placeholder="Small input" />
+<input class="se-input se-input--md" type="text" value="Prefilled" />
+<input class="se-input se-input--md" type="text" placeholder="Disabled" disabled />
+<input class="se-input se-input--md se-input--invalid" type="text" aria-invalid="true" />

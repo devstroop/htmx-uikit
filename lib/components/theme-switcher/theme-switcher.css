@@ -1,0 +1,8 @@
+.se-theme-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--se-space-2);
+  font-size: var(--se-font-size-sm);
+  color: var(--se-color-text);
+  cursor: pointer;
+}
