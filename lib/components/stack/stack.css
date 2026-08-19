@@ -1,0 +1,99 @@
+.dt-stack {
+  display: flex;
+}
+
+.dt-stack--row {
+  flex-direction: row;
+}
+
+.dt-stack--row-reverse {
+  flex-direction: row-reverse;
+}
+
+.dt-stack--column {
+  flex-direction: column;
+}
+
+.dt-stack--column-reverse {
+  flex-direction: column-reverse;
+}
+
+.dt-stack--nowrap {
+  flex-wrap: nowrap;
+}
+
+.dt-stack--wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
+.dt-stack--gap-xs {
+  gap: var(--dt-space-1);
+}
+
+.dt-stack--gap-sm {
+  gap: var(--dt-space-2);
+}
+
+.dt-stack--gap-md {
+  gap: var(--dt-space-3);
+}
+
+.dt-stack--gap-lg {
+  gap: var(--dt-space-4);
+}
+
+.dt-stack--gap-xl {
+  gap: var(--dt-space-5);
+}
+
+.dt-stack--align-start {
+  align-items: flex-start;
+}
+
+.dt-stack--align-center {
+  align-items: center;
+}
+
+.dt-stack--align-end {
+  align-items: flex-end;
+}
+
+.dt-stack--align-stretch {
+  align-items: stretch;
+}
+
+.dt-stack--align-baseline {
+  align-items: baseline;
+}
+
+.dt-stack--align-normal {
+  align-items: normal;
+}
+
+.dt-stack--justify-start {
+  justify-content: flex-start;
+}
+
+.dt-stack--justify-center {
+  justify-content: center;
+}
+
+.dt-stack--justify-end {
+  justify-content: flex-end;
+}
+
+.dt-stack--justify-between {
+  justify-content: space-between;
+}
+
+.dt-stack--justify-around {
+  justify-content: space-around;
+}
+
+.dt-stack--justify-evenly {
+  justify-content: space-evenly;
+}
+
+.dt-stack--justify-normal {
+  justify-content: normal;
+}

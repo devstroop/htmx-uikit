@@ -135,3 +135,58 @@
   .dt-column--xl-offset-10 { margin-left: calc(10 / 12 * 100%); }
   .dt-column--xl-offset-11 { margin-left: calc(11 / 12 * 100%); }
 }
+.dt-col--order-first {
+  order: -1;
+}
+
+.dt-col--order-last {
+  order: 999;
+}
+
+@media (min-width: 576px) {
+  .dt-col--sm-order-first { order: -1; }
+  .dt-col--sm-order-last { order: 999; }
+}
+
+@media (min-width: 768px) {
+  .dt-col--md-order-first { order: -1; }
+  .dt-col--md-order-last { order: 999; }
+}
+
+@media (min-width: 992px) {
+  .dt-col--lg-order-first { order: -1; }
+  .dt-col--lg-order-last { order: 999; }
+}
+
+@media (min-width: 1200px) {
+  .dt-col--xl-order-first { order: -1; }
+  .dt-col--xl-order-last { order: 999; }
+}
+
+@media (min-width: 2560px) {
+  .dt-col--xxl-order-first { order: -1; }
+  .dt-col--xxl-order-last { order: 999; }
+  .dt-col--xxl-1 { width: calc(1 / 12 * 100%); flex: none; }
+  .dt-col--xxl-2 { width: calc(2 / 12 * 100%); flex: none; }
+  .dt-col--xxl-3 { width: calc(3 / 12 * 100%); flex: none; }
+  .dt-col--xxl-4 { width: calc(4 / 12 * 100%); flex: none; }
+  .dt-col--xxl-5 { width: calc(5 / 12 * 100%); flex: none; }
+  .dt-col--xxl-6 { width: calc(6 / 12 * 100%); flex: none; }
+  .dt-col--xxl-7 { width: calc(7 / 12 * 100%); flex: none; }
+  .dt-col--xxl-8 { width: calc(8 / 12 * 100%); flex: none; }
+  .dt-col--xxl-9 { width: calc(9 / 12 * 100%); flex: none; }
+  .dt-col--xxl-10 { width: calc(10 / 12 * 100%); flex: none; }
+  .dt-col--xxl-11 { width: calc(11 / 12 * 100%); flex: none; }
+  .dt-col--xxl-12 { width: calc(12 / 12 * 100%); flex: none; }
+  .dt-col--xxl-offset-1 { margin-left: calc(1 / 12 * 100%); }
+  .dt-col--xxl-offset-2 { margin-left: calc(2 / 12 * 100%); }
+  .dt-col--xxl-offset-3 { margin-left: calc(3 / 12 * 100%); }
+  .dt-col--xxl-offset-4 { margin-left: calc(4 / 12 * 100%); }
+  .dt-col--xxl-offset-5 { margin-left: calc(5 / 12 * 100%); }
+  .dt-col--xxl-offset-6 { margin-left: calc(6 / 12 * 100%); }
+  .dt-col--xxl-offset-7 { margin-left: calc(7 / 12 * 100%); }
+  .dt-col--xxl-offset-8 { margin-left: calc(8 / 12 * 100%); }
+  .dt-col--xxl-offset-9 { margin-left: calc(9 / 12 * 100%); }
+  .dt-col--xxl-offset-10 { margin-left: calc(10 / 12 * 100%); }
+  .dt-col--xxl-offset-11 { margin-left: calc(11 / 12 * 100%); }
+}
