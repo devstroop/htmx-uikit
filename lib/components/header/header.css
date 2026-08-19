@@ -1,7 +1,7 @@
-.se-header {
+.dt-header {
   display: flex;
   flex-shrink: 0;
-  padding: var(--se-space-4);
-  background: var(--se-color-surface);
-  border-bottom: 1px solid var(--se-color-border);
+  padding: var(--dt-space-4);
+  background: var(--dt-color-surface);
+  border-bottom: 1px solid var(--dt-color-border);
 }

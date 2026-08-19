@@ -1,20 +1,20 @@
-.se-sidebar {
+.dt-sidebar {
   flex-shrink: 0;
-  width: var(--se-layout-sidebar-width, 240px);
-  padding: var(--se-space-4);
-  background: var(--se-color-surface);
+  width: var(--dt-layout-sidebar-width, 240px);
+  padding: var(--dt-space-4);
+  background: var(--dt-color-surface);
   overflow-y: auto;
 }
 
-.se-sidebar--left {
-  border-right: 1px solid var(--se-color-border);
+.dt-sidebar--left {
+  border-right: 1px solid var(--dt-color-border);
 }
 
-.se-sidebar--right {
-  border-left: 1px solid var(--se-color-border);
+.dt-sidebar--right {
+  border-left: 1px solid var(--dt-color-border);
 }
 
-.se-sidebar--collapsed {
+.dt-sidebar--collapsed {
   width: 0;
   padding: 0;
   border: none;
@@ -22,7 +22,7 @@
 }
 
 @media (max-width: 767.98px) {
-  .se-sidebar--responsive {
+  .dt-sidebar--responsive {
     width: 0;
     padding: 0;
     border: none;
@@ -30,41 +30,41 @@
   }
 }
 
-.se-sidebar--overlay {
+.dt-sidebar--overlay {
   position: absolute;
   top: 0;
   bottom: 0;
   z-index: 20;
-  box-shadow: var(--se-shadow-lg);
+  box-shadow: var(--dt-shadow-lg);
 }
 
-.se-sidebar--overlay.se-sidebar--collapsed {
+.dt-sidebar--overlay.dt-sidebar--collapsed {
   box-shadow: none;
 }
 
-.se-sidebar--overlay.se-sidebar--left {
+.dt-sidebar--overlay.dt-sidebar--left {
   left: 0;
 }
 
-.se-sidebar--overlay.se-sidebar--right {
+.dt-sidebar--overlay.dt-sidebar--right {
   right: 0;
 }
 
-.se-layout-mask {
+.dt-layout-mask {
   position: fixed;
   inset: 0;
   z-index: 10;
-  background: var(--se-color-backdrop);
+  background: var(--dt-color-backdrop);
 }
 
-.se-layout-mask--hidden {
+.dt-layout-mask--hidden {
   display: none;
 }
 
 /* Stacking contract: mask 10 < drawer 20 < toggle 30. The drawer's own
    toggle stays clickable above the scrim; the drawer itself overlays
    the page but never the trigger that controls it. */
-[data-se-sidebar-toggle] {
+[data-dt-sidebar-toggle] {
   position: relative;
   z-index: 30;
 }

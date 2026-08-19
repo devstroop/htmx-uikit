@@ -1,8 +1,8 @@
-.se-theme-switcher {
+.dt-theme-switcher {
   display: inline-flex;
   align-items: center;
-  gap: var(--se-space-2);
-  font-size: var(--se-font-size-sm);
-  color: var(--se-color-text);
+  gap: var(--dt-space-2);
+  font-size: var(--dt-font-size-sm);
+  color: var(--dt-color-text);
   cursor: pointer;
 }

@@ -1,31 +1,31 @@
 <!--
   Field — reference markup for server templates.
-  Root: <div class="se-field">
+  Root: <div class="dt-field">
   Parts:
-    label    <label class="se-field-label" for="<control-id>">
-    required <span class="se-field-required" aria-hidden="true">*</span>
-    hint     <div class="se-field-hint" id="<hint-id>">
-    error    <div class="se-field-error" id="<error-id>" role="alert">
+    label    <label class="dt-field-label" for="<control-id>">
+    required <span class="dt-field-required" aria-hidden="true">*</span>
+    hint     <div class="dt-field-hint" id="<hint-id>">
+    error    <div class="dt-field-error" id="<error-id>" role="alert">
   A server template composes the wrapper: the visible message id is wired
   onto the control's aria-describedby (error id wins over hint id) and an
   error also sets aria-invalid="true" on the control.
 -->
 
 <!-- Label + control + hint: control is linked via aria-describedby. -->
-<div class="se-field">
-  <label class="se-field-label" for="email">Email</label>
-  <input id="email" class="se-input se-input--md" type="email" placeholder="you@example.com" aria-describedby="email-hint" />
-  <div id="email-hint" class="se-field-hint">We never share your address.</div>
+<div class="dt-field">
+  <label class="dt-field-label" for="email">Email</label>
+  <input id="email" class="dt-input dt-input--md" type="email" placeholder="you@example.com" aria-describedby="email-hint" />
+  <div id="email-hint" class="dt-field-hint">We never share your address.</div>
 </div>
 
 <!-- Label + required marker + error: error wins, control gets aria-invalid. -->
-<div class="se-field">
-  <label class="se-field-label" for="username">Username<span class="se-field-required" aria-hidden="true">*</span></label>
-  <input id="username" class="se-input se-input--md" type="text" aria-describedby="username-error" aria-invalid="true" />
-  <div id="username-error" class="se-field-error" role="alert">Username is required.</div>
+<div class="dt-field">
+  <label class="dt-field-label" for="username">Username<span class="dt-field-required" aria-hidden="true">*</span></label>
+  <input id="username" class="dt-input dt-input--md" type="text" aria-describedby="username-error" aria-invalid="true" />
+  <div id="username-error" class="dt-field-error" role="alert">Username is required.</div>
 </div>
 
 <!-- Control only: no label and no messaging. -->
-<div class="se-field">
-  <input id="search" class="se-input se-input--md" type="search" placeholder="Search…" />
+<div class="dt-field">
+  <input id="search" class="dt-input dt-input--md" type="search" placeholder="Search…" />
 </div>

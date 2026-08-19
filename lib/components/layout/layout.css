@@ -1,15 +1,15 @@
-.se-layout {
+.dt-layout {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-.se-layout-row {
+.dt-layout-row {
   display: flex;
   flex: 1;
   min-width: 0;
 }
 
-.se-layout-row:has(.se-sidebar--overlay) {
+.dt-layout-row:has(.dt-sidebar--overlay) {
   position: relative;
 }

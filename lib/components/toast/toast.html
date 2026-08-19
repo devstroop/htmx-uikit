@@ -1,70 +1,70 @@
 <!--
   Toast — reference markup for server templates.
-  Viewport: <div class="se-toast-viewport [se-toast-viewport--top-left |
-    --top-right | --bottom-left]" data-se-toast aria-live="polite">
+  Viewport: <div class="dt-toast-viewport [dt-toast-viewport--top-left |
+    --top-right | --bottom-left]" data-dt-toast aria-live="polite">
     (defaults to bottom-right, the base style; behaviors.js creates or
-    reuses a viewport per corner, honoring seToast({ position }))
-  Item: <div class="se-toast se-toast--<tone>" data-se-dismissable role="status">
+    reuses a viewport per corner, honoring dtToast({ position }))
+  Item: <div class="dt-toast dt-toast--<tone>" data-dt-dismissable role="status">
     tone  --info (default) | --success | --warning | --danger
     role  "alert" for danger, "status" otherwise
-    optional: data-se-toast-id="<id>"  (seToast with the same id updates it)
-              class se-toast--clickable (click dismisses — closeOnClick)
+    optional: data-dt-toast-id="<id>"  (dtToast with the same id updates it)
+              class dt-toast--clickable (click dismisses — closeOnClick)
   Parts:
-    title    <div class="se-toast-title">
-    desc     <div class="se-toast-description">
-    actions  <div class="se-toast-actions"> with buttons
-             .se-toast-action (primary) and .se-toast-cancel
-    dismiss  <button class="se-toast-dismiss" type="button" data-se-dismiss
+    title    <div class="dt-toast-title">
+    desc     <div class="dt-toast-description">
+    actions  <div class="dt-toast-actions"> with buttons
+             .dt-toast-action (primary) and .dt-toast-cancel
+    dismiss  <button class="dt-toast-dismiss" type="button" data-dt-dismiss
              aria-label="Dismiss notification">×</button>
              (omit for dismissible=false)
-    progress <div class="se-toast-progress" style="animation-duration: 4000ms">
+    progress <div class="dt-toast-progress" style="animation-duration: 4000ms">
              (bottom duration bar — showProgress; tone-colored)
   Behaviors: hover pauses the auto-dismiss timer (data-paused on the item);
              leaving items animate out over 200ms.
   Static items are rendered by the server; dynamic ones use
-  window.seToast({ title, description, tone, durationMs, position, id,
+  window.dtToast({ title, description, tone, durationMs, position, id,
   action: {label, onClick}, cancel: {label, onClick}, dismissible,
   closeOnClick, showProgress, onDismiss, onAutoClose }).
 -->
 
-<div class="se-toast-viewport se-toast-viewport--top-left" data-se-toast aria-live="polite"></div>
+<div class="dt-toast-viewport dt-toast-viewport--top-left" data-dt-toast aria-live="polite"></div>
 
-<div class="se-toast-viewport" data-se-toast aria-live="polite">
-  <div class="se-toast se-toast--success" data-se-dismissable role="status">
-    <div class="se-toast-content">
-      <div class="se-toast-title">Deployed</div>
-      <div class="se-toast-description">The release is live.</div>
-      <div class="se-toast-actions">
-        <button type="button" class="se-toast-action">View release</button>
-        <button type="button" class="se-toast-cancel">Dismiss</button>
+<div class="dt-toast-viewport" data-dt-toast aria-live="polite">
+  <div class="dt-toast dt-toast--success" data-dt-dismissable role="status">
+    <div class="dt-toast-content">
+      <div class="dt-toast-title">Deployed</div>
+      <div class="dt-toast-description">The release is live.</div>
+      <div class="dt-toast-actions">
+        <button type="button" class="dt-toast-action">View release</button>
+        <button type="button" class="dt-toast-cancel">Dismiss</button>
       </div>
     </div>
-    <button class="se-toast-dismiss" type="button" data-se-dismiss aria-label="Dismiss notification">
+    <button class="dt-toast-dismiss" type="button" data-dt-dismiss aria-label="Dismiss notification">
       ×
     </button>
   </div>
-  <div class="se-toast se-toast--danger" data-se-dismissable role="alert">
-    <div class="se-toast-content">
-      <div class="se-toast-title">Build failed</div>
-      <div class="se-toast-description">Check the pipeline logs.</div>
+  <div class="dt-toast dt-toast--danger" data-dt-dismissable role="alert">
+    <div class="dt-toast-content">
+      <div class="dt-toast-title">Build failed</div>
+      <div class="dt-toast-description">Check the pipeline logs.</div>
     </div>
-    <button class="se-toast-dismiss" type="button" data-se-dismiss aria-label="Dismiss notification">
+    <button class="dt-toast-dismiss" type="button" data-dt-dismiss aria-label="Dismiss notification">
       ×
     </button>
   </div>
-  <div class="se-toast se-toast--warning se-toast--clickable" data-se-dismissable role="status">
-    <div class="se-toast-content">
-      <div class="se-toast-title">Progress demo</div>
-      <div class="se-toast-description">Click anywhere to dismiss.</div>
+  <div class="dt-toast dt-toast--warning dt-toast--clickable" data-dt-dismissable role="status">
+    <div class="dt-toast-content">
+      <div class="dt-toast-title">Progress demo</div>
+      <div class="dt-toast-description">Click anywhere to dismiss.</div>
     </div>
-    <div class="se-toast-progress" style="animation-duration: 6000ms"></div>
+    <div class="dt-toast-progress" style="animation-duration: 6000ms"></div>
   </div>
 </div>
 
 <script>
   // Dynamic toasts (optional, needs behaviors.js):
-  //   window.seToast({ title: "Saved", description: "Changes are synced.", tone: "success" });
-  //   window.seToast({ title: "Removed", description: "Item was deleted.", tone: "info",
+  //   window.dtToast({ title: "Saved", description: "Changes are synced.", tone: "success" });
+  //   window.dtToast({ title: "Removed", description: "Item was deleted.", tone: "info",
   //     action: { label: "Undo", onClick: () => console.log("undo") },
   //     cancel: { label: "Dismiss" }, showProgress: true, durationMs: 6000 });
 </script>

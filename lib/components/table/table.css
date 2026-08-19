@@ -1,56 +1,56 @@
-.se-table-wrap {
-  font-family: var(--se-font-sans);
-  border: 1px solid var(--se-color-border);
-  border-radius: var(--se-radius-md);
+.dt-table-wrap {
+  font-family: var(--dt-font-sans);
+  border: 1px solid var(--dt-color-border);
+  border-radius: var(--dt-radius-md);
   overflow: hidden;
 }
 
-.se-table {
+.dt-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: var(--se-font-size-sm);
+  font-size: var(--dt-font-size-sm);
 }
 
-.se-table thead th {
-  background-color: var(--se-color-surface-hover);
-  color: var(--se-color-text-muted);
+.dt-table thead th {
+  background-color: var(--dt-color-surface-hover);
+  color: var(--dt-color-text-muted);
   text-align: left;
-  font-weight: var(--se-font-weight-medium);
-  font-size: var(--se-font-size-xs);
+  font-weight: var(--dt-font-weight-medium);
+  font-size: var(--dt-font-size-xs);
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  padding: var(--se-space-2) var(--se-space-3);
-  border-bottom: 1px solid var(--se-color-border);
+  padding: var(--dt-space-2) var(--dt-space-3);
+  border-bottom: 1px solid var(--dt-color-border);
 }
 
-.se-table tbody td {
-  padding: var(--se-space-3);
-  color: var(--se-color-text);
-  border-bottom: 1px solid var(--se-color-border);
+.dt-table tbody td {
+  padding: var(--dt-space-3);
+  color: var(--dt-color-text);
+  border-bottom: 1px solid var(--dt-color-border);
 }
 
-.se-table tbody tr:last-child td {
+.dt-table tbody tr:last-child td {
   border-bottom: none;
 }
 
-.se-table tbody tr:hover {
-  background-color: var(--se-color-surface-hover);
+.dt-table tbody tr:hover {
+  background-color: var(--dt-color-surface-hover);
 }
 
-.se-table-start {
+.dt-table-start {
   text-align: start;
 }
 
-.se-table-center {
+.dt-table-center {
   text-align: center;
 }
 
-.se-table-end {
+.dt-table-end {
   text-align: end;
 }
 
-.se-table-empty {
-  padding: var(--se-space-6);
-  color: var(--se-color-text-muted);
+.dt-table-empty {
+  padding: var(--dt-space-6);
+  color: var(--dt-color-text-muted);
   text-align: center;
 }

@@ -1,30 +1,30 @@
 <!--
   Tabs — reference markup for server templates.
-  Root: <div class="se-tabs [se-tabs--left|se-tabs--right|se-tabs--bottom]" data-se-tabs>
-  Tablist: <div class="se-tabs-tablist se-tabs-tablist--<variant> [se-tabs-tablist--<position>]"
-            role="tablist" data-se-tablist [data-se-tablist-orientation="vertical"]>
+  Root: <div class="dt-tabs [dt-tabs--left|dt-tabs--right|dt-tabs--bottom]" data-dt-tabs>
+  Tablist: <div class="dt-tabs-tablist dt-tabs-tablist--<variant> [dt-tabs-tablist--<position>]"
+            role="tablist" data-dt-tablist [data-dt-tablist-orientation="vertical"]>
     variant   --underline (default) | --pills
     position  --left | --right | --bottom (default: top; left/right make the
-              tablist vertical, so add data-se-tablist-orientation="vertical"
+              tablist vertical, so add data-dt-tablist-orientation="vertical"
               to keep arrow-key navigation orientation-aware)
-  Tab: <button class="se-tabs-tab [se-tabs-tab--active] [se-tabs-tab--disabled]"
-        role="tab" data-se-tab data-se-tab-key="<key>"
+  Tab: <button class="dt-tabs-tab [dt-tabs-tab--active] [dt-tabs-tab--disabled]"
+        role="tab" data-dt-tab data-dt-tab-key="<key>"
         id="<id>" aria-selected="true|false" aria-controls="<panel-id>"
         tabindex="0|-1" [disabled]>
-  Panel: <div class="se-tabs-panel" role="tabpanel" data-se-tabpanel
-          data-se-tab-key="<key>" id="<panel-id>" aria-labelledby="<tab-id>" [hidden]>
+  Panel: <div class="dt-tabs-panel" role="tabpanel" data-dt-tabpanel
+          data-dt-tab-key="<key>" id="<panel-id>" aria-labelledby="<tab-id>" [hidden]>
   behaviors.js drives activation: click + orientation-aware arrows + Home/End
   (roving tabindex, aria-selected, hidden panels).
 -->
 
-<div class="se-tabs" data-se-tabs>
-  <div class="se-tabs-tablist se-tabs-tablist--underline" role="tablist" data-se-tablist>
+<div class="dt-tabs" data-dt-tabs>
+  <div class="dt-tabs-tablist dt-tabs-tablist--underline" role="tablist" data-dt-tablist>
     <button
-      class="se-tabs-tab se-tabs-tab--active"
+      class="dt-tabs-tab dt-tabs-tab--active"
       type="button"
       role="tab"
-      data-se-tab
-      data-se-tab-key="overview"
+      data-dt-tab
+      data-dt-tab-key="overview"
       id="tabs1-tab-overview"
       aria-selected="true"
       aria-controls="tabs1-panel-overview"
@@ -33,11 +33,11 @@
       Overview
     </button>
     <button
-      class="se-tabs-tab"
+      class="dt-tabs-tab"
       type="button"
       role="tab"
-      data-se-tab
-      data-se-tab-key="activity"
+      data-dt-tab
+      data-dt-tab-key="activity"
       id="tabs1-tab-activity"
       aria-selected="false"
       aria-controls="tabs1-panel-activity"
@@ -46,11 +46,11 @@
       Activity
     </button>
     <button
-      class="se-tabs-tab se-tabs-tab--disabled"
+      class="dt-tabs-tab dt-tabs-tab--disabled"
       type="button"
       role="tab"
-      data-se-tab
-      data-se-tab-key="billing"
+      data-dt-tab
+      data-dt-tab-key="billing"
       id="tabs1-tab-billing"
       aria-selected="false"
       aria-controls="tabs1-panel-billing"
@@ -61,20 +61,20 @@
     </button>
   </div>
   <div
-    class="se-tabs-panel"
+    class="dt-tabs-panel"
     role="tabpanel"
-    data-se-tabpanel
-    data-se-tab-key="overview"
+    data-dt-tabpanel
+    data-dt-tab-key="overview"
     id="tabs1-panel-overview"
     aria-labelledby="tabs1-tab-overview"
   >
     <p>Overview content.</p>
   </div>
   <div
-    class="se-tabs-panel"
+    class="dt-tabs-panel"
     role="tabpanel"
-    data-se-tabpanel
-    data-se-tab-key="activity"
+    data-dt-tabpanel
+    data-dt-tab-key="activity"
     id="tabs1-panel-activity"
     aria-labelledby="tabs1-tab-activity"
     hidden
@@ -82,10 +82,10 @@
     <p>Activity content.</p>
   </div>
   <div
-    class="se-tabs-panel"
+    class="dt-tabs-panel"
     role="tabpanel"
-    data-se-tabpanel
-    data-se-tab-key="billing"
+    data-dt-tabpanel
+    data-dt-tab-key="billing"
     id="tabs1-panel-billing"
     aria-labelledby="tabs1-tab-billing"
     hidden
@@ -94,14 +94,14 @@
   </div>
 </div>
 
-<div class="se-tabs" data-se-tabs>
-  <div class="se-tabs-tablist se-tabs-tablist--pills" role="tablist" data-se-tablist>
+<div class="dt-tabs" data-dt-tabs>
+  <div class="dt-tabs-tablist dt-tabs-tablist--pills" role="tablist" data-dt-tablist>
     <button
-      class="se-tabs-tab se-tabs-tab--active"
+      class="dt-tabs-tab dt-tabs-tab--active"
       type="button"
       role="tab"
-      data-se-tab
-      data-se-tab-key="one"
+      data-dt-tab
+      data-dt-tab-key="one"
       id="tabs2-tab-one"
       aria-selected="true"
       aria-controls="tabs2-panel-one"
@@ -110,11 +110,11 @@
       One
     </button>
     <button
-      class="se-tabs-tab"
+      class="dt-tabs-tab"
       type="button"
       role="tab"
-      data-se-tab
-      data-se-tab-key="two"
+      data-dt-tab
+      data-dt-tab-key="two"
       id="tabs2-tab-two"
       aria-selected="false"
       aria-controls="tabs2-panel-two"
@@ -124,20 +124,20 @@
     </button>
   </div>
   <div
-    class="se-tabs-panel"
+    class="dt-tabs-panel"
     role="tabpanel"
-    data-se-tabpanel
-    data-se-tab-key="one"
+    data-dt-tabpanel
+    data-dt-tab-key="one"
     id="tabs2-panel-one"
     aria-labelledby="tabs2-tab-one"
   >
     <p>Pills, panel one.</p>
   </div>
   <div
-    class="se-tabs-panel"
+    class="dt-tabs-panel"
     role="tabpanel"
-    data-se-tabpanel
-    data-se-tab-key="two"
+    data-dt-tabpanel
+    data-dt-tab-key="two"
     id="tabs2-panel-two"
     aria-labelledby="tabs2-tab-two"
     hidden
@@ -147,19 +147,19 @@
 </div>
 
 <!-- Vertical tabs: left position, underline tracks the inner edge -->
-<div class="se-tabs se-tabs--left" data-se-tabs>
+<div class="dt-tabs dt-tabs--left" data-dt-tabs>
   <div
-    class="se-tabs-tablist se-tabs-tablist--underline se-tabs-tablist--left"
+    class="dt-tabs-tablist dt-tabs-tablist--underline dt-tabs-tablist--left"
     role="tablist"
-    data-se-tablist
-    data-se-tablist-orientation="vertical"
+    data-dt-tablist
+    data-dt-tablist-orientation="vertical"
   >
     <button
-      class="se-tabs-tab se-tabs-tab--active"
+      class="dt-tabs-tab dt-tabs-tab--active"
       type="button"
       role="tab"
-      data-se-tab
-      data-se-tab-key="design"
+      data-dt-tab
+      data-dt-tab-key="design"
       id="tabs3-tab-design"
       aria-selected="true"
       aria-controls="tabs3-panel-design"
@@ -168,11 +168,11 @@
       Design
     </button>
     <button
-      class="se-tabs-tab"
+      class="dt-tabs-tab"
       type="button"
       role="tab"
-      data-se-tab
-      data-se-tab-key="code"
+      data-dt-tab
+      data-dt-tab-key="code"
       id="tabs3-tab-code"
       aria-selected="false"
       aria-controls="tabs3-panel-code"
@@ -182,20 +182,20 @@
     </button>
   </div>
   <div
-    class="se-tabs-panel"
+    class="dt-tabs-panel"
     role="tabpanel"
-    data-se-tabpanel
-    data-se-tab-key="design"
+    data-dt-tabpanel
+    data-dt-tab-key="design"
     id="tabs3-panel-design"
     aria-labelledby="tabs3-tab-design"
   >
     <p>Left-positioned tabs, panel content.</p>
   </div>
   <div
-    class="se-tabs-panel"
+    class="dt-tabs-panel"
     role="tabpanel"
-    data-se-tabpanel
-    data-se-tab-key="code"
+    data-dt-tabpanel
+    data-dt-tab-key="code"
     id="tabs3-panel-code"
     aria-labelledby="tabs3-tab-code"
     hidden

@@ -1,44 +1,44 @@
-.se-checkbox {
+.dt-checkbox {
   appearance: none;
   width: 18px;
   height: 18px;
   margin: 0;
-  border: 1px solid var(--se-color-border-strong);
-  border-radius: var(--se-radius-sm);
-  background-color: var(--se-color-surface);
+  border: 1px solid var(--dt-color-border-strong);
+  border-radius: var(--dt-radius-sm);
+  background-color: var(--dt-color-surface);
   cursor: pointer;
   display: inline-grid;
   place-content: center;
   transition:
-    background-color var(--se-transition-fast),
-    border-color var(--se-transition-fast);
+    background-color var(--dt-transition-fast),
+    border-color var(--dt-transition-fast);
 }
 
-.se-checkbox::before {
+.dt-checkbox::before {
   content: "";
   width: 10px;
   height: 10px;
   transform: scale(0);
-  transition: transform var(--se-transition-fast);
-  background-color: var(--se-color-primary-fg);
+  transition: transform var(--dt-transition-fast);
+  background-color: var(--dt-color-primary-fg);
   clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
 }
 
-.se-checkbox:checked {
-  background-color: var(--se-color-primary);
-  border-color: var(--se-color-primary);
+.dt-checkbox:checked {
+  background-color: var(--dt-color-primary);
+  border-color: var(--dt-color-primary);
 }
 
-.se-checkbox:checked::before {
+.dt-checkbox:checked::before {
   transform: scale(1);
 }
 
-.se-checkbox:focus-visible {
-  outline: 2px solid var(--se-color-focus);
+.dt-checkbox:focus-visible {
+  outline: 2px solid var(--dt-color-focus);
   outline-offset: 2px;
 }
 
-.se-checkbox:disabled {
+.dt-checkbox:disabled {
   opacity: 0.55;
   cursor: not-allowed;
 }

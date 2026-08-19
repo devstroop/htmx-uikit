@@ -1,6 +1,6 @@
 <!--
   Progress — reference markup for server templates.
-  Root: <div class="se-progress se-progress--<tone> [se-progress--indeterminate]"
+  Root: <div class="dt-progress dt-progress--<tone> [dt-progress--indeterminate]"
         role="progressbar" aria-label="<description>" aria-valuemin="0"
         aria-valuemax="<max>" [aria-valuenow="<value>"]>
   Modifiers:
@@ -8,47 +8,47 @@
     state --indeterminate (omits aria-valuenow; bar is fixed at 40% and
            animated)
   Parts:
-    bar  <div class="se-progress-bar">
+    bar  <div class="dt-progress-bar">
   The server template sets the bar width inline — style="width: <percent>%"
   where percent = clamp(0, value / max * 100, 100) — and aria-valuenow to
   the rounded value clamped to [0, max]; both are omitted for indeterminate.
   No JS, no data-* hooks.
 -->
 
-<div class="se-progress se-progress--primary" role="progressbar" aria-label="Storage used" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
-  <div class="se-progress-bar" style="width: 40%"></div>
+<div class="dt-progress dt-progress--primary" role="progressbar" aria-label="Storage used" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
+  <div class="dt-progress-bar" style="width: 40%"></div>
 </div>
 
-<div class="se-progress se-progress--primary" role="progressbar" aria-label="Import progress" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-  <div class="se-progress-bar" style="width: 75%"></div>
+<div class="dt-progress dt-progress--primary" role="progressbar" aria-label="Import progress" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+  <div class="dt-progress-bar" style="width: 75%"></div>
 </div>
 
-<div class="se-progress se-progress--success" role="progressbar" aria-label="Upload complete" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-  <div class="se-progress-bar" style="width: 100%"></div>
+<div class="dt-progress dt-progress--success" role="progressbar" aria-label="Upload complete" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+  <div class="dt-progress-bar" style="width: 100%"></div>
 </div>
 
-<div class="se-progress se-progress--warning" role="progressbar" aria-label="Battery level" aria-valuenow="5" aria-valuemin="0" aria-valuemax="10">
-  <div class="se-progress-bar" style="width: 50%"></div>
+<div class="dt-progress dt-progress--warning" role="progressbar" aria-label="Battery level" aria-valuenow="5" aria-valuemin="0" aria-valuemax="10">
+  <div class="dt-progress-bar" style="width: 50%"></div>
 </div>
 
-<div class="se-progress se-progress--danger" role="progressbar" aria-label="Errors found" aria-valuenow="3" aria-valuemin="0" aria-valuemax="10">
-  <div class="se-progress-bar" style="width: 30%"></div>
+<div class="dt-progress dt-progress--danger" role="progressbar" aria-label="Errors found" aria-valuenow="3" aria-valuemin="0" aria-valuemax="10">
+  <div class="dt-progress-bar" style="width: 30%"></div>
 </div>
 
-<div class="se-progress se-progress--primary se-progress--indeterminate" role="progressbar" aria-label="Downloading updates" aria-valuemin="0" aria-valuemax="100">
-  <div class="se-progress-bar"></div>
+<div class="dt-progress dt-progress--primary dt-progress--indeterminate" role="progressbar" aria-label="Downloading updates" aria-valuemin="0" aria-valuemax="100">
+  <div class="dt-progress-bar"></div>
 </div>
 
-<div class="se-progress se-progress--primary" role="progressbar" aria-label="Empty queue" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-  <div class="se-progress-bar" style="width: 0%"></div>
+<div class="dt-progress dt-progress--primary" role="progressbar" aria-label="Empty queue" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+  <div class="dt-progress-bar" style="width: 0%"></div>
 </div>
 
 <!-- Circular (Radzen ProgressBarCircular parity):
-     Root: <svg class="se-progress-circular se-progress--<tone>"
-           [se-progress--indeterminate] [se-progress--<size>]
+     Root: <svg class="dt-progress-circular dt-progress--<tone>"
+           [dt-progress--indeterminate] [dt-progress--<size>]
            viewBox="0 0 24 24" role="progressbar"
            aria-valuenow="<value>" aria-valuemin="0" aria-valuemax="<max>">
-     Size: the tier modifier sets the box via --se-control-height-{tier}
+     Size: the tier modifier sets the box via --dt-control-height-{tier}
      (default --md, 36px in the default theme); the full set is
      --xs --sm --md --lg --xl. Servers may instead set width/height
      attributes for pixel-perfect geometry — in that case the viewBox
@@ -62,42 +62,42 @@
      (keyframes span rotate(-90deg) → rotate(270deg) to keep progress
      starting at 12 o'clock). -->
 
-<svg class="se-progress-circular se-progress--primary" viewBox="0 0 24 24" role="progressbar" aria-label="Storage used" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
-  <circle class="se-progress-track" cx="12" cy="12" r="10.5"></circle>
-  <circle class="se-progress-fill" cx="12" cy="12" r="10.5" stroke-dasharray="65.97" stroke-dashoffset="39.58"></circle>
+<svg class="dt-progress-circular dt-progress--primary" viewBox="0 0 24 24" role="progressbar" aria-label="Storage used" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
+  <circle class="dt-progress-track" cx="12" cy="12" r="10.5"></circle>
+  <circle class="dt-progress-fill" cx="12" cy="12" r="10.5" stroke-dasharray="65.97" stroke-dashoffset="39.58"></circle>
 </svg>
 
-<svg class="se-progress-circular se-progress--success" viewBox="0 0 24 24" role="progressbar" aria-label="Upload complete" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-  <circle class="se-progress-track" cx="12" cy="12" r="10.5"></circle>
-  <circle class="se-progress-fill" cx="12" cy="12" r="10.5" stroke-dasharray="65.97" stroke-dashoffset="0"></circle>
+<svg class="dt-progress-circular dt-progress--success" viewBox="0 0 24 24" role="progressbar" aria-label="Upload complete" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+  <circle class="dt-progress-track" cx="12" cy="12" r="10.5"></circle>
+  <circle class="dt-progress-fill" cx="12" cy="12" r="10.5" stroke-dasharray="65.97" stroke-dashoffset="0"></circle>
 </svg>
 
-<svg class="se-progress-circular se-progress--primary se-progress--indeterminate" viewBox="0 0 24 24" role="progressbar" aria-label="Downloading updates" aria-valuemin="0" aria-valuemax="100">
-  <circle class="se-progress-track" cx="12" cy="12" r="10.5"></circle>
-  <circle class="se-progress-fill" cx="12" cy="12" r="10.5" stroke-dasharray="49.48 65.97" stroke-dashoffset="0"></circle>
+<svg class="dt-progress-circular dt-progress--primary dt-progress--indeterminate" viewBox="0 0 24 24" role="progressbar" aria-label="Downloading updates" aria-valuemin="0" aria-valuemax="100">
+  <circle class="dt-progress-track" cx="12" cy="12" r="10.5"></circle>
+  <circle class="dt-progress-fill" cx="12" cy="12" r="10.5" stroke-dasharray="49.48 65.97" stroke-dashoffset="0"></circle>
 </svg>
 
-<svg class="se-progress-circular se-progress--primary se-progress--xs" viewBox="0 0 24 24" role="progressbar" aria-label="Extra small" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
-  <circle class="se-progress-track" cx="12" cy="12" r="10.5"></circle>
-  <circle class="se-progress-fill" cx="12" cy="12" r="10.5" stroke-dasharray="65.97" stroke-dashoffset="26.39"></circle>
+<svg class="dt-progress-circular dt-progress--primary dt-progress--xs" viewBox="0 0 24 24" role="progressbar" aria-label="Extra small" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+  <circle class="dt-progress-track" cx="12" cy="12" r="10.5"></circle>
+  <circle class="dt-progress-fill" cx="12" cy="12" r="10.5" stroke-dasharray="65.97" stroke-dashoffset="26.39"></circle>
 </svg>
 
-<svg class="se-progress-circular se-progress--primary se-progress--sm" viewBox="0 0 24 24" role="progressbar" aria-label="Small" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
-  <circle class="se-progress-track" cx="12" cy="12" r="10.5"></circle>
-  <circle class="se-progress-fill" cx="12" cy="12" r="10.5" stroke-dasharray="65.97" stroke-dashoffset="26.39"></circle>
+<svg class="dt-progress-circular dt-progress--primary dt-progress--sm" viewBox="0 0 24 24" role="progressbar" aria-label="Small" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+  <circle class="dt-progress-track" cx="12" cy="12" r="10.5"></circle>
+  <circle class="dt-progress-fill" cx="12" cy="12" r="10.5" stroke-dasharray="65.97" stroke-dashoffset="26.39"></circle>
 </svg>
 
-<svg class="se-progress-circular se-progress--primary se-progress--md" viewBox="0 0 24 24" role="progressbar" aria-label="Medium" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
-  <circle class="se-progress-track" cx="12" cy="12" r="10.5"></circle>
-  <circle class="se-progress-fill" cx="12" cy="12" r="10.5" stroke-dasharray="65.97" stroke-dashoffset="26.39"></circle>
+<svg class="dt-progress-circular dt-progress--primary dt-progress--md" viewBox="0 0 24 24" role="progressbar" aria-label="Medium" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+  <circle class="dt-progress-track" cx="12" cy="12" r="10.5"></circle>
+  <circle class="dt-progress-fill" cx="12" cy="12" r="10.5" stroke-dasharray="65.97" stroke-dashoffset="26.39"></circle>
 </svg>
 
-<svg class="se-progress-circular se-progress--primary se-progress--lg" viewBox="0 0 24 24" role="progressbar" aria-label="Large" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
-  <circle class="se-progress-track" cx="12" cy="12" r="10.5"></circle>
-  <circle class="se-progress-fill" cx="12" cy="12" r="10.5" stroke-dasharray="65.97" stroke-dashoffset="26.39"></circle>
+<svg class="dt-progress-circular dt-progress--primary dt-progress--lg" viewBox="0 0 24 24" role="progressbar" aria-label="Large" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+  <circle class="dt-progress-track" cx="12" cy="12" r="10.5"></circle>
+  <circle class="dt-progress-fill" cx="12" cy="12" r="10.5" stroke-dasharray="65.97" stroke-dashoffset="26.39"></circle>
 </svg>
 
-<svg class="se-progress-circular se-progress--primary se-progress--xl" viewBox="0 0 24 24" role="progressbar" aria-label="Extra large" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
-  <circle class="se-progress-track" cx="12" cy="12" r="10.5"></circle>
-  <circle class="se-progress-fill" cx="12" cy="12" r="10.5" stroke-dasharray="65.97" stroke-dashoffset="26.39"></circle>
+<svg class="dt-progress-circular dt-progress--primary dt-progress--xl" viewBox="0 0 24 24" role="progressbar" aria-label="Extra large" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+  <circle class="dt-progress-track" cx="12" cy="12" r="10.5"></circle>
+  <circle class="dt-progress-fill" cx="12" cy="12" r="10.5" stroke-dasharray="65.97" stroke-dashoffset="26.39"></circle>
 </svg>

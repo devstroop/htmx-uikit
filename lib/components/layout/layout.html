@@ -1,34 +1,34 @@
 <!--
   Layout — application shell composition (Radzen RadzenLayout model).
-  Root: <div class="se-layout">
+  Root: <div class="dt-layout">
   Inside, in any authoring order:
-    .se-header                    top bar (use <header> for the landmark)
-    .se-layout-row                required wrapper for the middle band:
-      .se-sidebar [--left|--right] [--collapsed]   use <aside>
-      .se-body                                    use <main>
-    .se-footer                    bottom bar (use <footer>)
+    .dt-header                    top bar (use <header> for the landmark)
+    .dt-layout-row                required wrapper for the middle band:
+      .dt-sidebar [--left|--right] [--collapsed]   use <aside>
+      .dt-body                                    use <main>
+    .dt-footer                    bottom bar (use <footer>)
   All regions are optional; the row holds sidebars + body only.
-  Collapse: [data-se-sidebar-toggle="#id"] flips --collapsed on the
+  Collapse: [data-dt-sidebar-toggle="#id"] flips --collapsed on the
   sidebar and mirrors aria-expanded on the trigger.
-  Width: var(--se-layout-sidebar-width, 240px) — override inline or per
+  Width: var(--dt-layout-sidebar-width, 240px) — override inline or per
   theme. Height default 100vh; override inline (e.g. embedded shells).
 -->
 
-<div class="se-layout" style="min-height: 480px; border: 1px solid currentColor; border-radius: 8px; overflow: hidden">
-  <header class="se-header">
+<div class="dt-layout" style="min-height: 480px; border: 1px solid currentColor; border-radius: 8px; overflow: hidden">
+  <header class="dt-header">
     <span style="font-weight: 600">App title</span>
   </header>
-  <div class="se-layout-row">
-    <aside class="se-sidebar se-sidebar--left" id="preview-sidebar" data-se-sidebar>
+  <div class="dt-layout-row">
+    <aside class="dt-sidebar dt-sidebar--left" id="preview-sidebar" data-dt-sidebar>
       <nav aria-label="Preview navigation">
-        <ul class="se-list" style="display: grid; gap: 4px">
+        <ul class="dt-list" style="display: grid; gap: 4px">
           <li>Dashboard</li>
           <li>Users</li>
           <li>Settings</li>
         </ul>
       </nav>
     </aside>
-    <main class="se-body">Page content goes here.</main>
+    <main class="dt-body">Page content goes here.</main>
   </div>
-  <footer class="se-footer">© 2026 Example</footer>
+  <footer class="dt-footer">© 2026 Example</footer>
 </div>

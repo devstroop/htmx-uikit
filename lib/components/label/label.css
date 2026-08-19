@@ -1,9 +1,9 @@
-.se-label {
+.dt-label {
   display: inline-flex;
   align-items: center;
-  gap: var(--se-space-2);
-  font-family: var(--se-font-sans);
-  font-size: var(--se-font-size-sm);
-  font-weight: var(--se-font-weight-medium);
-  color: var(--se-color-text);
+  gap: var(--dt-space-2);
+  font-family: var(--dt-font-sans);
+  font-size: var(--dt-font-size-sm);
+  font-weight: var(--dt-font-weight-medium);
+  color: var(--dt-color-text);
 }

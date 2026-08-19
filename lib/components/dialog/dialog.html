@@ -1,60 +1,60 @@
 <!--
   Dialog — reference markup for server templates.
-  Dialog: <dialog class="se-dialog se-dialog--<size>" data-se-dialog>
+  Dialog: <dialog class="dt-dialog dt-dialog--<size>" data-dt-dialog>
     size  --sm | --md (default) | --lg
-  Trigger: any element with data-se-dialog-open="#<dialog-id>"
+  Trigger: any element with data-dt-dialog-open="#<dialog-id>"
     (behaviors.js calls showModal and restores focus on close)
-  Close: <button class="se-dialog-close" type="button"
-         data-se-dialog-close aria-label="Close dialog">×</button>
+  Close: <button class="dt-dialog-close" type="button"
+         data-dt-dialog-close aria-label="Close dialog">×</button>
   The native <dialog> provides focus containment, Escape, and the
-  ::backdrop; the footer's buttons should close with data-se-dialog-close.
+  ::backdrop; the footer's buttons should close with data-dt-dialog-close.
 -->
 
-<button class="se-button se-button--primary" type="button" data-se-dialog-open="#dialog1">
+<button class="dt-button dt-button--primary" type="button" data-dt-dialog-open="#dialog1">
   Open dialog
 </button>
 
-<dialog class="se-dialog se-dialog--md" data-se-dialog id="dialog1">
-  <div class="se-dialog-header">
+<dialog class="dt-dialog dt-dialog--md" data-dt-dialog id="dialog1">
+  <div class="dt-dialog-header">
     <div>
-      <h2 class="se-dialog-title">Confirm deletion</h2>
-      <p class="se-dialog-description">This cannot be undone.</p>
+      <h2 class="dt-dialog-title">Confirm deletion</h2>
+      <p class="dt-dialog-description">This cannot be undone.</p>
     </div>
-    <button class="se-dialog-close" type="button" data-se-dialog-close aria-label="Close dialog">
+    <button class="dt-dialog-close" type="button" data-dt-dialog-close aria-label="Close dialog">
       ×
     </button>
   </div>
-  <div class="se-dialog-body">
+  <div class="dt-dialog-body">
     <p>The workspace and all of its branches will be removed.</p>
   </div>
-  <div class="se-dialog-footer">
-    <button class="se-button se-button--secondary" type="button" data-se-dialog-close>
+  <div class="dt-dialog-footer">
+    <button class="dt-button dt-button--secondary" type="button" data-dt-dialog-close>
       Cancel
     </button>
-    <button class="se-button se-button--danger" type="button" data-se-dialog-close>
+    <button class="dt-button dt-button--danger" type="button" data-dt-dialog-close>
       Delete
     </button>
   </div>
 </dialog>
 
-<button class="se-button se-button--secondary" type="button" data-se-dialog-open="#dialog2">
+<button class="dt-button dt-button--secondary" type="button" data-dt-dialog-open="#dialog2">
   Small dialog
 </button>
 
-<dialog class="se-dialog se-dialog--sm" data-se-dialog id="dialog2">
-  <div class="se-dialog-header">
+<dialog class="dt-dialog dt-dialog--sm" data-dt-dialog id="dialog2">
+  <div class="dt-dialog-header">
     <div>
-      <h2 class="se-dialog-title">Sync complete</h2>
+      <h2 class="dt-dialog-title">Sync complete</h2>
     </div>
-    <button class="se-dialog-close" type="button" data-se-dialog-close aria-label="Close dialog">
+    <button class="dt-dialog-close" type="button" data-dt-dialog-close aria-label="Close dialog">
       ×
     </button>
   </div>
-  <div class="se-dialog-body">
+  <div class="dt-dialog-body">
     <p>All tokens are in sync.</p>
   </div>
-  <div class="se-dialog-footer">
-    <button class="se-button se-button--primary" type="button" data-se-dialog-close>
+  <div class="dt-dialog-footer">
+    <button class="dt-button dt-button--primary" type="button" data-dt-dialog-close>
       Done
     </button>
   </div>

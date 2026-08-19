@@ -1,34 +1,34 @@
 <!--
   Tooltip — reference markup for server templates.
-  Root: <span class="se-tooltip" data-se-tooltip [data-se-delay-ms="300"]>
+  Root: <span class="dt-tooltip" data-dt-tooltip [data-dt-delay-ms="300"]>
   Trigger: the first child element (any element — button, link, …)
-  Bubble: <span class="se-tooltip-bubble se-tooltip-bubble--<placement>"
-           role="tooltip" id="<id>" data-se-tooltip-content hidden>
+  Bubble: <span class="dt-tooltip-bubble dt-tooltip-bubble--<placement>"
+           role="tooltip" id="<id>" data-dt-tooltip-content hidden>
     placement  --top (default) | --right | --bottom | --left
   behaviors.js shows the bubble on hover/focus (delay), hides on
   leave/blur/Escape, and wires aria-describedby on the trigger while open.
 -->
 
-<span class="se-tooltip" data-se-tooltip data-se-delay-ms="300">
-  <button class="se-button se-button--secondary" type="button">Hover me</button>
-  <span class="se-tooltip-bubble se-tooltip-bubble--top" role="tooltip" id="tt1" data-se-tooltip-content hidden>
+<span class="dt-tooltip" data-dt-tooltip data-dt-delay-ms="300">
+  <button class="dt-button dt-button--secondary" type="button">Hover me</button>
+  <span class="dt-tooltip-bubble dt-tooltip-bubble--top" role="tooltip" id="tt1" data-dt-tooltip-content hidden>
     More information
-    <span class="se-tooltip-arrow" aria-hidden="true"></span>
+    <span class="dt-tooltip-arrow" aria-hidden="true"></span>
   </span>
 </span>
 
-<span class="se-tooltip" data-se-tooltip data-se-delay-ms="0">
-  <button class="se-button se-button--ghost" type="button">Zero delay</button>
-  <span class="se-tooltip-bubble se-tooltip-bubble--right" role="tooltip" id="tt2" data-se-tooltip-content hidden>
+<span class="dt-tooltip" data-dt-tooltip data-dt-delay-ms="0">
+  <button class="dt-button dt-button--ghost" type="button">Zero delay</button>
+  <span class="dt-tooltip-bubble dt-tooltip-bubble--right" role="tooltip" id="tt2" data-dt-tooltip-content hidden>
     Right placement
-    <span class="se-tooltip-arrow" aria-hidden="true"></span>
+    <span class="dt-tooltip-arrow" aria-hidden="true"></span>
   </span>
 </span>
 
-<span class="se-tooltip" data-se-tooltip>
+<span class="dt-tooltip" data-dt-tooltip>
   <a href="#docs">Learn more</a>
-  <span class="se-tooltip-bubble se-tooltip-bubble--bottom" role="tooltip" id="tt3" data-se-tooltip-content hidden>
+  <span class="dt-tooltip-bubble dt-tooltip-bubble--bottom" role="tooltip" id="tt3" data-dt-tooltip-content hidden>
     Bottom placement
-    <span class="se-tooltip-arrow" aria-hidden="true"></span>
+    <span class="dt-tooltip-arrow" aria-hidden="true"></span>
   </span>
 </span>

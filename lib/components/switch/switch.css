@@ -1,43 +1,43 @@
-.se-switch {
+.dt-switch {
   appearance: none;
   position: relative;
   width: 38px;
   height: 22px;
   margin: 0;
-  border-radius: var(--se-radius-full);
-  background-color: var(--se-color-border-strong);
+  border-radius: var(--dt-radius-full);
+  background-color: var(--dt-color-border-strong);
   cursor: pointer;
-  transition: background-color var(--se-transition-fast);
+  transition: background-color var(--dt-transition-fast);
   flex-shrink: 0;
 }
 
-.se-switch::before {
+.dt-switch::before {
   content: "";
   position: absolute;
   top: 3px;
   left: 3px;
   width: 16px;
   height: 16px;
-  border-radius: var(--se-radius-full);
-  background-color: var(--se-color-surface);
-  box-shadow: var(--se-shadow-sm);
-  transition: transform var(--se-transition-fast);
+  border-radius: var(--dt-radius-full);
+  background-color: var(--dt-color-surface);
+  box-shadow: var(--dt-shadow-sm);
+  transition: transform var(--dt-transition-fast);
 }
 
-.se-switch:checked {
-  background-color: var(--se-color-primary);
+.dt-switch:checked {
+  background-color: var(--dt-color-primary);
 }
 
-.se-switch:checked::before {
+.dt-switch:checked::before {
   transform: translateX(16px);
 }
 
-.se-switch:focus-visible {
-  outline: 2px solid var(--se-color-focus);
+.dt-switch:focus-visible {
+  outline: 2px solid var(--dt-color-focus);
   outline-offset: 2px;
 }
 
-.se-switch:disabled {
+.dt-switch:disabled {
   opacity: 0.55;
   cursor: not-allowed;
 }

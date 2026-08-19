@@ -21,17 +21,17 @@ dist/                   esbuild output: uikit.js + uikit.css
 
 ## Conventions
 
-- **Class naming** — `se-<name>` for the root, `se-<name>--<modifier>` for
-  variants/sizes/states, `se-<name>-<part>` for sub-elements
-  (`se-button--primary`, `se-card-header`).
-- **Tokens only** — components consume `var(--se-*)` exclusively; the
+- **Class naming** — `dt-<name>` for the root, `dt-<name>--<modifier>` for
+  variants/sizes/states, `dt-<name>-<part>` for sub-elements
+  (`dt-button--primary`, `dt-card-header`).
+- **Tokens only** — components consume `var(--dt-*)` exclusively; the
   parity validator (root `npm run parity:validate`) enforces that the CSS
   uses exactly the tokens each spec declares.
 - **A11y is structural** — the HTML fragments carry the roles, labels,
   aria-describedby wiring, and keyboard behavior that the specs require;
   `behaviors.js` only adds what HTML cannot express.
 - **No build-time CSS transforms** — plain CSS, hand-written selectors.
-- **Interactivity via data attributes** — `data-se-*` hooks are the only
+- **Interactivity via data attributes** — `data-dt-*` hooks are the only
   JS contract; htmx attributes handle server-driven swaps in consuming
   apps.
 
@@ -39,14 +39,14 @@ dist/                   esbuild output: uikit.js + uikit.css
 
 `behaviors.js` (2 KB, no deps, optional to load) drives:
 
-- `data-se-tabs` / `data-se-tab` / `data-se-tabpanel` — ARIA tabs pattern,
+- `data-dt-tabs` / `data-dt-tab` / `data-dt-tabpanel` — ARIA tabs pattern,
   arrow/Home/End keys
-- `data-se-accordion` / `data-se-accordion-trigger` — single/multiple
-- `data-se-tooltip` — hover/focus with Escape, `aria-describedby` wiring
-- `data-se-dialog-open` + `<dialog data-se-dialog>` — native dialog with
+- `data-dt-accordion` / `data-dt-accordion-trigger` — single/multiple
+- `data-dt-tooltip` — hover/focus with Escape, `aria-describedby` wiring
+- `data-dt-dialog-open` + `<dialog data-dt-dialog>` — native dialog with
   focus return
-- `data-se-toast` + `window.seToast()` — stacked toasts
-- `data-se-dismiss` — remove an alert/toast element
+- `data-dt-toast` + `window.dtToast()` — stacked toasts
+- `data-dt-dismiss` — remove an alert/toast element
 
 ## Consuming
 
