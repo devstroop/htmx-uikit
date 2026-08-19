@@ -949,6 +949,198 @@
   font-size: 0.875rem;
 }
 
+.dt-datagrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.dt-datagrid-data {
+  overflow-x: auto;
+  border: 1px solid var(--dt-color-border, currentColor);
+  border-radius: 0.5rem;
+  position: relative;
+}
+
+.dt-datagrid-table {
+  border-collapse: collapse;
+  width: 100%;
+  background: var(--dt-color-surface, transparent);
+}
+
+.dt-datagrid-table th {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--dt-color-border, currentColor);
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  background: var(--dt-color-surface-raised, transparent);
+}
+
+.dt-datagrid-table td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--dt-color-border, currentColor);
+  vertical-align: middle;
+}
+
+.dt-datagrid-table tbody tr:hover {
+  background: var(--dt-color-surface-raised, transparent);
+}
+
+.dt-datagrid-cell--center {
+  text-align: center;
+}
+
+.dt-datagrid-cell--right {
+  text-align: right;
+}
+
+.dt-datagrid-sort {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  color: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0;
+}
+
+.dt-datagrid-sort:hover {
+  color: var(--dt-color-primary, inherit);
+}
+
+.dt-datagrid-sort-indicator {
+  font-size: 0.625rem;
+}
+
+.dt-datagrid-filter-cell {
+  display: flex;
+  gap: 0.375rem;
+  align-items: center;
+  padding: 0.375rem 0.5rem;
+  border-bottom: 1px solid var(--dt-color-border, currentColor);
+}
+
+.dt-datagrid-filter-select,
+.dt-datagrid-filter-input {
+  border: 1px solid var(--dt-color-border, currentColor);
+  background: none;
+  color: var(--dt-color-fg, inherit);
+  padding: 0.25rem 0.375rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+}
+
+.dt-datagrid-filter-select {
+  min-width: 7.5rem;
+}
+
+.dt-datagrid-filter-input {
+  min-width: 6rem;
+  flex: 1;
+}
+
+.dt-datagrid-empty {
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--dt-color-fg-muted, currentColor);
+}
+
+.dt-datagrid-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--dt-color-bg, white) 70%, transparent);
+  color: var(--dt-color-fg, inherit);
+}
+
+.dt-datagrid-pager {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 0.5rem 0;
+}
+
+.dt-datagrid-pager-summary {
+  font-size: 0.75rem;
+  color: var(--dt-color-fg-muted, currentColor);
+}
+
+.dt-datagrid-pager-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.dt-datagrid-pager-button {
+  border: 1px solid var(--dt-color-border, currentColor);
+  background: none;
+  color: var(--dt-color-fg, inherit);
+  min-width: 2rem;
+  height: 2rem;
+  padding: 0 0.375rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.dt-datagrid-pager-button:hover:not(:disabled) {
+  background: var(--dt-color-surface-raised, transparent);
+}
+
+.dt-datagrid-pager-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.dt-datagrid-pager-button--active {
+  border-color: var(--dt-color-primary, currentColor);
+  color: var(--dt-color-primary, inherit);
+  font-weight: 600;
+}
+
+.dt-datagrid-pager-ellipsis {
+  color: var(--dt-color-fg-muted, currentColor);
+  padding: 0 0.25rem;
+}
+
+.dt-datagrid-pager-size {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--dt-color-fg-muted, currentColor);
+}
+
+.dt-datagrid-pager-size select {
+  border: 1px solid var(--dt-color-border, currentColor);
+  background: none;
+  color: var(--dt-color-fg, inherit);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.dt-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
 .dt-dialog {
   z-index: var(--dt-z-modal);
   border: 1px solid var(--dt-color-border);

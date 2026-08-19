@@ -1,0 +1,55 @@
+<div class="dt-datagrid" data-dt-datagrid
+     data-dt-datagrid-properties='[
+       {"property":"name","title":"Name","type":"string"},
+       {"property":"age","title":"Age","type":"number","align":"center"},
+       {"property":"role","title":"Role","type":"string"},
+       {"property":"active","title":"Active","type":"boolean","align":"center"}
+     ]'
+     data-dt-datagrid-sortable
+     data-dt-datagrid-multisort
+     data-dt-datagrid-filterable
+     data-dt-datagrid-pagesize="3"
+     data-dt-datagrid-pagesize-options="[3,5,10]"
+     data-dt-datagrid-pagenumbers="5"
+     aria-label="People">
+  <div class="dt-datagrid-data" role="grid" data-dt-datagrid-data>
+    <table class="dt-datagrid-table">
+      <thead data-dt-datagrid-head></thead>
+      <tbody data-dt-datagrid-rows>
+        <tr data-dt-row data-dt-row-value='{"name":"John","age":30,"role":"admin","active":true}'>
+          <td data-dt-col="name">John</td>
+          <td data-dt-col="age" class="dt-datagrid-cell--center">30</td>
+          <td data-dt-col="role">admin</td>
+          <td data-dt-col="active" class="dt-datagrid-cell--center">Yes</td>
+        </tr>
+        <tr data-dt-row data-dt-row-value='{"name":"Jane","age":25,"role":"editor","active":false}'>
+          <td data-dt-col="name">Jane</td>
+          <td data-dt-col="age" class="dt-datagrid-cell--center">25</td>
+          <td data-dt-col="role">editor</td>
+          <td data-dt-col="active" class="dt-datagrid-cell--center">No</td>
+        </tr>
+        <tr data-dt-row data-dt-row-value='{"name":"Bob","age":40,"role":"viewer","active":true}'>
+          <td data-dt-col="name">Bob</td>
+          <td data-dt-col="age" class="dt-datagrid-cell--center">40</td>
+          <td data-dt-col="role">viewer</td>
+          <td data-dt-col="active" class="dt-datagrid-cell--center">Yes</td>
+        </tr>
+        <tr data-dt-row data-dt-row-value='{"name":"Alice","age":22,"role":"editor","active":true}'>
+          <td data-dt-col="name">Alice</td>
+          <td data-dt-col="age" class="dt-datagrid-cell--center">22</td>
+          <td data-dt-col="role">editor</td>
+          <td data-dt-col="active" class="dt-datagrid-cell--center">Yes</td>
+        </tr>
+        <tr data-dt-row data-dt-row-value='{"name":"Charlie","age":35,"role":"viewer","active":false}'>
+          <td data-dt-col="name">Charlie</td>
+          <td data-dt-col="age" class="dt-datagrid-cell--center">35</td>
+          <td data-dt-col="role">viewer</td>
+          <td data-dt-col="active" class="dt-datagrid-cell--center">No</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="dt-datagrid-empty" data-dt-datagrid-empty hidden>No records found</div>
+    <div class="dt-datagrid-loading" data-dt-datagrid-loading hidden role="status">Loading…</div>
+  </div>
+  <div class="dt-datagrid-pager" data-dt-datagrid-pager></div>
+</div>

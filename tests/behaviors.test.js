@@ -796,3 +796,135 @@ describe("datafilter", () => {
     expect(listener.mock.calls[1][0].detail.logicalOperator).toBe("Or");
   });
 });
+
+describe("datagrid", () => {
+  const gridFixture = (overrides = {}) => {
+    const root = fixture(`
+      <div data-dt-datagrid
+           data-dt-datagrid-properties='[
+             {"property":"name","title":"Name","type":"string","sortable":true},
+             {"property":"age","title":"Age","type":"number","align":"center","sortable":true},
+             {"property":"role","title":"Role","type":"string"}
+           ]'
+           data-dt-datagrid-sortable
+           data-dt-datagrid-filterable
+           data-dt-datagrid-pagesize="2"
+           data-dt-datagrid-pagesize-options="[2,5]"
+           data-dt-datagrid-pagenumbers="5">
+        <div class="dt-datagrid-data" role="grid" data-dt-datagrid-data>
+          <table class="dt-datagrid-table">
+            <thead data-dt-datagrid-head></thead>
+            <tbody data-dt-datagrid-rows>
+              <tr data-dt-row data-dt-row-value='{"name":"John","age":30,"role":"admin"}'>
+                <td data-dt-col="name">John</td>
+                <td data-dt-col="age" class="dt-datagrid-cell--center">30</td>
+                <td data-dt-col="role">admin</td>
+              </tr>
+              <tr data-dt-row data-dt-row-value='{"name":"Jane","age":25,"role":"editor"}'>
+                <td data-dt-col="name">Jane</td>
+                <td data-dt-col="age" class="dt-datagrid-cell--center">25</td>
+                <td data-dt-col="role">editor</td>
+              </tr>
+              <tr data-dt-row data-dt-row-value='{"name":"Bob","age":40,"role":"viewer"}'>
+                <td data-dt-col="name">Bob</td>
+                <td data-dt-col="age" class="dt-datagrid-cell--center">40</td>
+                <td data-dt-col="role">viewer</td>
+              </tr>
+              <tr data-dt-row data-dt-row-value='{"name":"Alice","age":22,"role":"editor"}'>
+                <td data-dt-col="name">Alice</td>
+                <td data-dt-col="age" class="dt-datagrid-cell--center">22</td>
+                <td data-dt-col="role">editor</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="dt-datagrid-empty" data-dt-datagrid-empty hidden>No records found</div>
+        </div>
+        <div class="dt-datagrid-pager" data-dt-datagrid-pager></div>
+      </div>`);
+    window.dtUikit.datagrid.init(root);
+    return root;
+  };
+
+  const visibleNames = (root) =>
+    [...root.querySelectorAll("[data-dt-row]")]
+      .filter((row) => !row.hidden)
+      .map((row) => row.querySelector("[data-dt-col=name]").textContent);
+
+  it("renders the header from properties with sort buttons and a filter row", () => {
+    const root = gridFixture();
+    const head = root.querySelector("[data-dt-datagrid-head]");
+    expect(head.querySelectorAll("th")).toHaveLength(3);
+    expect(head.querySelector('[data-dt-grid-sort="name"]').textContent).toBe("Name");
+    expect(head.querySelector('[data-dt-grid-filter-value="name"]')).toBeTruthy();
+    expect(root.querySelector('[data-dt-grid-filter-value="age"]')).toBeTruthy();
+    expect(root.querySelector('[data-dt-grid-filter-value="role"]')).toBeTruthy();
+  });
+
+  it("pages by page size and updates the summary", () => {
+    const root = gridFixture();
+    expect(visibleNames(root)).toEqual(["John", "Jane"]);
+    expect(root.querySelector(".dt-datagrid-pager-summary").textContent).toBe("Page 1 of 2 (4 records)");
+    root.querySelector('[data-dt-grid-page="2"]').click();
+    expect(visibleNames(root)).toEqual(["Bob", "Alice"]);
+    expect(root.querySelector(".dt-datagrid-pager-summary").textContent).toBe("Page 2 of 2 (4 records)");
+  });
+
+  it("sorts ascending then descending then clears with aria-sort", () => {
+    const root = gridFixture();
+    root.querySelector('[data-dt-grid-sort="name"]').click();
+    expect(visibleNames(root)).toEqual(["Alice", "Bob"]);
+    expect(root.querySelector("th").getAttribute("aria-sort")).toBe("ascending");
+    root.querySelector('[data-dt-grid-sort="name"]').click();
+    expect(visibleNames(root)).toEqual(["John", "Jane"]);
+    expect(root.querySelector("th").getAttribute("aria-sort")).toBe("descending");
+    root.querySelector('[data-dt-grid-sort="name"]').click();
+    expect(visibleNames(root)).toEqual(["John", "Jane"]);
+    expect(root.querySelector("th").getAttribute("aria-sort")).toBe("none");
+  });
+
+  it("filters with typed coercion and resets to page 1", () => {
+    const root = gridFixture();
+    const value = root.querySelector('[data-dt-grid-filter-value="age"]');
+    value.value = "25";
+    value.dispatchEvent(new Event("change", { bubbles: true }));
+    expect(visibleNames(root)).toEqual(["Jane"]);
+    const op = root.querySelector('[data-dt-grid-filter-op="age"]');
+    op.value = "GreaterThan";
+    op.dispatchEvent(new Event("change", { bubbles: true }));
+    expect(visibleNames(root)).toEqual(["John", "Bob"]);
+  });
+
+  it("shows the empty message when nothing matches", () => {
+    const root = gridFixture();
+    const value = root.querySelector('[data-dt-grid-filter-value="name"]');
+    value.value = "zzz";
+    value.dispatchEvent(new Event("change", { bubbles: true }));
+    expect(visibleNames(root)).toEqual([]);
+    expect(root.querySelector("[data-dt-datagrid-empty]").hidden).toBe(false);
+  });
+
+  it("changes page size and clamps to page 1", () => {
+    const root = gridFixture();
+    root.querySelector('[data-dt-grid-page="2"]').click();
+    const size = root.querySelector("[data-dt-grid-page-size]");
+    size.value = "5";
+    size.dispatchEvent(new Event("change", { bubbles: true }));
+    expect(visibleNames(root)).toEqual(["John", "Jane", "Bob", "Alice"]);
+    expect(root.querySelector(".dt-datagrid-pager-summary").textContent).toBe("Page 1 of 1 (4 records)");
+  });
+
+  it("dispatches dt:grid-change with filters and both string forms", () => {
+    const listener = vi.fn();
+    const root = gridFixture();
+    root.addEventListener("dt:grid-change", listener);
+    const value = root.querySelector('[data-dt-grid-filter-value="name"]');
+    value.value = "ja";
+    value.dispatchEvent(new Event("change", { bubbles: true }));
+    expect(listener).toHaveBeenCalledTimes(1);
+    const detail = listener.mock.calls[0][0].detail;
+    expect(detail.filters).toEqual([{ property: "name", operator: "Contains", value: "ja", type: "string" }]);
+    expect(detail.filterString).toBe('Name.Contains("ja")'.replace("Name", "name"));
+    expect(detail.oDataFilterString).toBe("contains(tolower(name), tolower('ja'))");
+    expect(detail.pageSize).toBe(2);
+  });
+});
