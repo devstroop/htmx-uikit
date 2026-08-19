@@ -940,6 +940,10 @@ describe("datagrid", () => {
            data-dt-datagrid-column-picker
            data-dt-datagrid-resize
            data-dt-datagrid-reorder
+           data-dt-datagrid-groupable
+           data-dt-datagrid-edit
+           data-dt-datagrid-delete
+           data-dt-datagrid-create
            data-dt-datagrid-pagesize="10">
         <div data-dt-datagrid-toolbar></div>
         <div class="dt-datagrid-data" role="grid" data-dt-datagrid-data>
@@ -1033,5 +1037,82 @@ describe("datagrid", () => {
     expect(headers[0].textContent).toBe("Age");
     expect(headers[1].textContent).toBe("Name");
     expect(listener).toHaveBeenCalledWith(expect.objectContaining({ detail: { from: "age", to: "name" } }));
+  });
+
+  it("groups by a column dropped on the group panel", () => {
+    const listener = vi.fn();
+    const root = advancedFixture();
+    root.addEventListener("dt:grid-group-change", listener);
+    const roleTh = root.querySelector('[data-dt-grid-col="role"]');
+    const panel = root.querySelector("[data-dt-grid-group-panel]");
+    roleTh.dispatchEvent(new Event("dragstart", { bubbles: true }));
+    panel.dispatchEvent(new Event("dragover", { bubbles: true, cancelable: true }));
+    panel.dispatchEvent(new Event("drop", { bubbles: true, cancelable: true }));
+    expect(listener).toHaveBeenCalledWith(expect.objectContaining({ detail: { property: "role" } }));
+    expect(root.querySelectorAll("[data-dt-row]")).toHaveLength(2);
+    expect(root.querySelector("[data-dt-grid-col=role]")).toBeFalsy();
+    const groupRows = root.querySelectorAll(".dt-datagrid-group-row");
+    expect(groupRows).toHaveLength(2);
+    expect(groupRows[0].textContent).toContain("admin (1)");
+    expect(groupRows[1].textContent).toContain("editor (1)");
+  });
+
+  it("collapses groups and removes grouping via the chip", () => {
+    const root = advancedFixture();
+    root.querySelector('[data-dt-grid-col="role"]').dispatchEvent(new Event("dragstart", { bubbles: true }));
+    root.querySelector("[data-dt-grid-group-panel]").dispatchEvent(new Event("drop", { bubbles: true, cancelable: true }));
+    const toggle = root.querySelector("[data-dt-grid-group-toggle]");
+    expect(toggle.getAttribute("aria-expanded")).toBe("true");
+    toggle.click();
+    expect(root.querySelector("[data-dt-grid-group-toggle]").getAttribute("aria-expanded")).toBe("false");
+    expect(root.querySelector('[data-dt-row-key="1"]').hidden).toBe(true);
+    root.querySelector("[data-dt-grid-group-clear]").click();
+    expect(root.querySelector("[data-dt-grid-col=role]")).toBeTruthy();
+    expect(root.querySelectorAll(".dt-datagrid-group-row")).toHaveLength(0);
+  });
+
+  it("edits a row inline and fires dt:grid-row-update", () => {
+    const listener = vi.fn();
+    const root = advancedFixture();
+    root.addEventListener("dt:grid-row-update", listener);
+    root.querySelector('[data-dt-row-key="1"] [data-dt-grid-row-edit]').click();
+    const input = root.querySelector('[data-dt-row-key="1"] [data-dt-grid-edit-input="name"]');
+    input.value = "Jonny";
+    root.querySelector('[data-dt-row-key="1"] [data-dt-grid-row-save]').click();
+    expect(listener).toHaveBeenCalledWith(
+      expect.objectContaining({
+        detail: { original: expect.objectContaining({ name: "John" }), updated: expect.objectContaining({ name: "Jonny" }) },
+      }),
+    );
+    expect(root.querySelector('[data-dt-row-key="1"] [data-dt-col="name"]').textContent).toBe("John");
+    expect(root.querySelector('[data-dt-row-key="1"] [data-dt-grid-row-edit]')).toBeTruthy();
+  });
+
+  it("cancels an edit restoring the original cell text", () => {
+    const root = advancedFixture();
+    root.querySelector('[data-dt-row-key="2"] [data-dt-grid-row-edit]').click();
+    root.querySelector('[data-dt-row-key="2"] [data-dt-grid-row-cancel]').click();
+    expect(root.querySelector('[data-dt-row-key="2"] [data-dt-col="name"]').textContent).toBe("Jane");
+  });
+
+  it("deletes a row firing dt:grid-row-delete", () => {
+    const listener = vi.fn();
+    const root = advancedFixture();
+    root.addEventListener("dt:grid-row-delete", listener);
+    root.querySelector('[data-dt-row-key="1"] [data-dt-grid-row-delete]').click();
+    expect(listener).toHaveBeenCalledWith(expect.objectContaining({ detail: { row: expect.objectContaining({ name: "John" }) } }));
+    expect(root.querySelector('[data-dt-row-key="1"]')).toBeFalsy();
+  });
+
+  it("creates a row firing dt:grid-row-create", () => {
+    const listener = vi.fn();
+    const root = advancedFixture();
+    root.addEventListener("dt:grid-row-create", listener);
+    root.querySelector("[data-dt-grid-row-create]").click();
+    const input = root.querySelector("[data-dt-grid-new-row] [data-dt-grid-edit-input=name]");
+    input.value = "Zed";
+    root.querySelector("[data-dt-grid-row-create-save]").click();
+    expect(listener).toHaveBeenCalledWith(expect.objectContaining({ detail: { row: expect.objectContaining({ name: "Zed" }) } }));
+    expect(root.querySelector("[data-dt-grid-new-row]")).toBeFalsy();
   });
 });
