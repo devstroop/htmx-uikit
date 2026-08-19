@@ -17,6 +17,7 @@
 
 <div class="dt-table-wrap">
   <table class="dt-table">
+    <caption class="dt-table-caption">Team roster</caption>
     <thead>
       <tr>
         <th scope="col">Name</th>
@@ -63,6 +64,50 @@
         <td>Degraded</td>
         <td class="dt-table-center">1</td>
         <td>us-east-1</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- grid variants: none / horizontal / vertical; alternating rows are
+     applied by default and can be disabled with dt-table--no-alternating -->
+<div class="dt-table-wrap dt-table--grid-none dt-table--no-alternating">
+  <table class="dt-table">
+    <thead>
+      <tr>
+        <th scope="col">Mode</th>
+        <th scope="col" class="dt-table-end">Limit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Strict</td>
+        <td class="dt-table-end">100%</td>
+      </tr>
+      <tr>
+        <td>Relaxed</td>
+        <td class="dt-table-end">80%</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="dt-table-wrap dt-table--grid-vertical">
+  <table class="dt-table">
+    <thead>
+      <tr>
+        <th scope="col">Region</th>
+        <th scope="col">Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>eu-west-1</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>us-east-1</td>
+        <td>1</td>
       </tr>
     </tbody>
   </table>

@@ -54,3 +54,51 @@
   color: var(--dt-color-text-muted);
   text-align: center;
 }
+
+.dt-table-caption {
+  caption-side: top;
+  text-align: start;
+  padding: var(--dt-space-2) var(--dt-space-3);
+  font-size: var(--dt-font-size-xs);
+  font-weight: var(--dt-font-weight-medium);
+  color: var(--dt-color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.dt-table--grid-none .dt-table thead th,
+.dt-table--grid-none .dt-table tbody td {
+  border: none;
+}
+
+.dt-table--grid-horizontal .dt-table thead th,
+.dt-table--grid-horizontal .dt-table tbody td {
+  border-left: none;
+  border-right: none;
+}
+
+.dt-table--grid-vertical .dt-table thead th {
+  border-bottom: 1px solid var(--dt-color-border);
+  border-right: 1px solid var(--dt-color-border);
+}
+
+.dt-table--grid-vertical .dt-table thead th:last-child {
+  border-right: none;
+}
+
+.dt-table--grid-vertical .dt-table tbody td {
+  border-bottom: none;
+  border-right: 1px solid var(--dt-color-border);
+}
+
+.dt-table--grid-vertical .dt-table tbody td:last-child {
+  border-right: none;
+}
+
+.dt-table--no-alternating .dt-table tbody tr:nth-child(even) {
+  background-color: initial;
+}
+
+.dt-table tbody tr:nth-child(even) {
+  background-color: var(--dt-color-surface-hover);
+}
