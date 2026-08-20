@@ -1,0 +1,74 @@
+.dt-securitycode {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--dt-space-05);
+}
+
+.dt-securitycode-cell {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  box-sizing: border-box;
+  text-align: center;
+  border: 1px solid var(--dt-color-border);
+  border-radius: var(--dt-radius-sm);
+  background-color: var(--dt-color-surface);
+  color: var(--dt-color-text);
+  font-family: var(--dt-font-sans);
+  font-weight: var(--dt-font-weight-medium);
+  transition:
+    border-color var(--dt-transition-fast),
+    box-shadow var(--dt-transition-fast);
+}
+
+.dt-securitycode-cell::placeholder {
+  color: var(--dt-color-text-muted);
+}
+
+.dt-securitycode-cell:focus-visible {
+  outline: none;
+  border-color: var(--dt-color-primary);
+  box-shadow: 0 0 0 3px var(--dt-color-outline-primary);
+}
+
+.dt-securitycode-cell:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.dt-securitycode[data-dt-invalid] .dt-securitycode-cell,
+.dt-securitycode[data-dt-invalid] .dt-securitycode-cell:focus-visible {
+  border-color: var(--dt-color-danger);
+}
+
+.dt-securitycode[data-dt-invalid] .dt-securitycode-cell:focus-visible {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--dt-color-danger) 25%, transparent);
+}
+
+.dt-securitycode-cell--sm {
+  width: 34px;
+  height: var(--dt-control-height-sm);
+  font-size: var(--dt-font-size-md);
+}
+
+.dt-securitycode-cell--md {
+  width: 44px;
+  height: var(--dt-control-height-md);
+  font-size: var(--dt-font-size-md);
+}
+
+.dt-securitycode-cell--lg {
+  width: 52px;
+  height: var(--dt-control-height-lg);
+  font-size: var(--dt-font-size-md);
+}
+
+.dt-securitycode-live {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

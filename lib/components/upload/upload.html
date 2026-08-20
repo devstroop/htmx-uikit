@@ -1,0 +1,40 @@
+<!--
+  Upload — reference markup for server templates.
+  Root: <div class="dt-upload" data-dt-upload
+        [data-dt-upload-url="/api/files"] [data-dt-upload-param="files"]
+        [data-dt-upload-auto="true"] [data-dt-upload-multiple]
+        [data-dt-upload-accept="image/*"] [data-dt-upload-headers='{"X-Token":"…"}']>
+    <button class="dt-upload-trigger" type="button" data-dt-upload-trigger>Upload</button>
+    <input class="dt-upload-input" type="file" hidden
+           data-dt-upload-input [multiple] [accept="…"]>
+    <ul class="dt-upload-list" data-dt-upload-list>
+      <li class="dt-upload-row" data-dt-upload-row data-dt-upload-state="pending">
+        <span class="dt-upload-name">report.pdf</span>
+        <span class="dt-upload-size">12 KB</span>
+        <span class="dt-upload-progress"><span class="dt-upload-progress-fill"></span></span>
+        <span class="dt-upload-status" role="status"></span>
+        <button class="dt-upload-remove" type="button" data-dt-upload-remove aria-label="Remove report.pdf">×</button>
+      </li>
+    </ul>
+  behaviors.js wires the trigger/input, queues rows, and XHR-uploads with
+  progress; dispatches dt:upload-progress / dt:upload-complete /
+  dt:upload-error on the root.
+-->
+
+<div class="dt-upload" data-dt-upload data-dt-upload-url="/api/files" data-dt-upload-param="files" data-dt-upload-auto="true" data-dt-upload-multiple>
+  <button class="dt-upload-trigger" type="button" data-dt-upload-trigger>Upload files</button>
+  <input class="dt-upload-input" type="file" hidden data-dt-upload-input multiple />
+  <ul class="dt-upload-list" data-dt-upload-list></ul>
+</div>
+
+<div class="dt-upload" data-dt-upload data-dt-upload-url="/api/files" data-dt-upload-param="files" data-dt-upload-auto="false">
+  <button class="dt-upload-trigger" type="button" data-dt-upload-trigger>Choose file</button>
+  <input class="dt-upload-input" type="file" hidden data-dt-upload-input />
+  <ul class="dt-upload-list" data-dt-upload-list></ul>
+</div>
+
+<div class="dt-upload" data-dt-upload data-dt-upload-url="/api/files" data-dt-upload-param="files" data-dt-upload-auto="true" data-dt-upload-accept="image/*">
+  <button class="dt-upload-trigger" type="button" data-dt-upload-trigger>Upload image</button>
+  <input class="dt-upload-input" type="file" hidden data-dt-upload-input accept="image/*" />
+  <ul class="dt-upload-list" data-dt-upload-list></ul>
+</div>

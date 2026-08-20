@@ -1,0 +1,38 @@
+<!--
+  SignaturePad — reference markup for server templates.
+  Root: <div class="dt-signaturepad" data-dt-signaturepad
+        [data-dt-pen-color="#1c1c1c"] [data-dt-pen-width="2.5"]>
+    <div class="dt-signaturepad-header">
+      <span class="dt-signaturepad-label">Signature</span>
+      <button class="dt-signaturepad-clear" type="button"
+              data-dt-signaturepad-clear>Clear</button>
+    </div>
+    <canvas class="dt-signaturepad-canvas" role="img" aria-label="Signature"
+            data-dt-signaturepad-canvas></canvas>
+  behaviors.js wires pointer drawing (mouse/pen/touch), DPR-aware sizing,
+  and dispatches dt:signature-change with the PNG data URL on stroke end.
+-->
+
+<div class="dt-signaturepad" data-dt-signaturepad>
+  <div class="dt-signaturepad-header">
+    <span class="dt-signaturepad-label">Signature</span>
+    <button class="dt-signaturepad-clear" type="button" data-dt-signaturepad-clear>Clear</button>
+  </div>
+  <canvas class="dt-signaturepad-canvas" role="img" aria-label="Signature" data-dt-signaturepad-canvas></canvas>
+</div>
+
+<div class="dt-signaturepad" data-dt-signaturepad data-dt-pen-color="#1d4ed8">
+  <div class="dt-signaturepad-header">
+    <span class="dt-signaturepad-label">Signature (blue)</span>
+    <button class="dt-signaturepad-clear" type="button" data-dt-signaturepad-clear>Clear</button>
+  </div>
+  <canvas class="dt-signaturepad-canvas" role="img" aria-label="Signature" data-dt-signaturepad-canvas></canvas>
+</div>
+
+<div class="dt-signaturepad" data-dt-signaturepad>
+  <div class="dt-signaturepad-header">
+    <span class="dt-signaturepad-label">Signature (disabled)</span>
+    <button class="dt-signaturepad-clear" type="button" data-dt-signaturepad-clear disabled>Clear</button>
+  </div>
+  <canvas class="dt-signaturepad-canvas" role="img" aria-label="Signature" data-dt-signaturepad-canvas data-dt-disabled></canvas>
+</div>

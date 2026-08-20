@@ -1848,3 +1848,366 @@ describe("rating", () => {
     expect(root.querySelectorAll('[data-dt-rating-value="5"]').length).toBe(0);
   });
 });
+
+describe("security code", () => {
+  function codeFixture(attrs = "", len = 6) {
+    const cells = Array.from({ length: len }, () => '<input class="dt-securitycode-cell" type="text" inputmode="numeric" maxlength="1" data-dt-securitycode-cell />').join("");
+    const root = fixture(`<div class="dt-securitycode" data-dt-securitycode ${attrs} role="group" aria-label="Security code"><span class="dt-securitycode-live" data-dt-securitycode-live role="status" aria-live="polite"></span>${cells}</div>`);
+    window.dtUikit.securitycode.init(root);
+    return root;
+  }
+
+  function cells(root) {
+    return [...root.querySelectorAll("[data-dt-securitycode-cell]")];
+  }
+
+  it("labels every cell with its position", () => {
+    const root = codeFixture("", 4);
+    expect(root.querySelectorAll("[data-dt-securitycode-cell]").length).toBe(4);
+    cells(root).forEach((c, i) => {
+      expect(c.getAttribute("aria-label")).toBe(`Digit ${i + 1} of 4`);
+    });
+  });
+
+  it("fills a digit, advances focus, and dispatches dt:change", () => {
+    const root = codeFixture();
+    const detail = [];
+    root.addEventListener("dt:change", (e) => detail.push(e.detail.value));
+    const first = cells(root)[0];
+    first.focus();
+    first.value = "1";
+    first.dispatchEvent(new Event("input", { bubbles: true }));
+    expect(cells(root)[0].value).toBe("1");
+    expect(document.activeElement).toBe(cells(root)[1]);
+    expect(detail).toEqual(["1"]);
+  });
+
+  it("backspaces to the previous cell and clears it", () => {
+    const root = codeFixture();
+    const [c1, c2] = cells(root);
+    c1.value = "1";
+    c2.value = "2";
+    c2.focus();
+    c2.dispatchEvent(new KeyboardEvent("keydown", { key: "Backspace", bubbles: true, cancelable: true }));
+    expect(c2.value).toBe("");
+    c2.dispatchEvent(new KeyboardEvent("keydown", { key: "Backspace", bubbles: true, cancelable: true }));
+    expect(c1.value).toBe("");
+    expect(document.activeElement).toBe(c1);
+  });
+
+  it("navigates with arrows and Home/End", () => {
+    const root = codeFixture();
+    const cellsList = cells(root);
+    cellsList[2].focus();
+    cellsList[2].dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowRight", bubbles: true, cancelable: true }));
+    expect(document.activeElement).toBe(cellsList[3]);
+    cellsList[3].dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowLeft", bubbles: true, cancelable: true }));
+    expect(document.activeElement).toBe(cellsList[2]);
+    cellsList[2].dispatchEvent(new KeyboardEvent("keydown", { key: "End", bubbles: true, cancelable: true }));
+    expect(document.activeElement).toBe(cellsList[5]);
+    cellsList[5].dispatchEvent(new KeyboardEvent("keydown", { key: "Home", bubbles: true, cancelable: true }));
+    expect(document.activeElement).toBe(cellsList[0]);
+  });
+
+  it("splits a pasted code across cells and announces completion", () => {
+    const root = codeFixture("", 6);
+    const detail = [];
+    root.addEventListener("dt:change", (e) => detail.push(e.detail.value));
+    const first = cells(root)[0];
+    first.focus();
+    first.dispatchEvent(new ClipboardEvent("paste", { bubbles: true, cancelable: true, clipboardData: new DataTransfer() }));
+    const dt = new DataTransfer();
+    dt.setData("text", "123456");
+    first.dispatchEvent(new ClipboardEvent("paste", { bubbles: true, cancelable: true, clipboardData: dt }));
+    expect(cells(root).map((c) => c.value).join("")).toBe("123456");
+    expect(detail[detail.length - 1]).toBe("123456");
+    expect(root.querySelector("[data-dt-securitycode-live]").textContent).toBe("Code complete");
+  });
+
+  it("ignores input when disabled", () => {
+    const root = codeFixture("data-dt-disabled", 4);
+    let fired = false;
+    root.addEventListener("dt:change", () => (fired = true));
+    const first = cells(root)[0];
+    first.value = "9";
+    first.dispatchEvent(new Event("input", { bubbles: true }));
+    first.dispatchEvent(new KeyboardEvent("keydown", { key: "Backspace", bubbles: true, cancelable: true }));
+    expect(first.value).toBe("9");
+    expect(fired).toBe(false);
+  });
+});
+
+describe("signature pad", () => {
+  function ctxMock() {
+    const ctx = {
+      setTransform: vi.fn(),
+      lineWidth: 0,
+      strokeStyle: "",
+      lineCap: "",
+      lineJoin: "",
+      beginPath: vi.fn(),
+      moveTo: vi.fn(),
+      lineTo: vi.fn(),
+      stroke: vi.fn(),
+      clearRect: vi.fn(),
+    };
+    return ctx;
+  }
+
+  function fixtureCanvas(root) {
+    const canvas = root.querySelector("[data-dt-signaturepad-canvas]");
+    const ctx = ctxMock();
+    canvas.getContext = vi.fn(() => ctx);
+    canvas.getBoundingClientRect = vi.fn(() => ({ left: 0, top: 0, width: 300, height: 140 }));
+    canvas.width = 300;
+    canvas.height = 140;
+    canvas.toDataURL = vi.fn(() => "data:image/png;base64,abc");
+    return { canvas, ctx };
+  }
+
+  function padFixture(attrs = "") {
+    return fixture(`
+      <div class="dt-signaturepad" data-dt-signaturepad ${attrs}>
+        <div class="dt-signaturepad-header">
+          <span class="dt-signaturepad-label">Signature</span>
+          <button class="dt-signaturepad-clear" type="button" data-dt-signaturepad-clear>Clear</button>
+        </div>
+        <canvas class="dt-signaturepad-canvas" role="img" aria-label="Signature" data-dt-signaturepad-canvas></canvas>
+      </div>`);
+  }
+
+  it("renders a labeled canvas and a clear button", () => {
+    const root = padFixture();
+    fixtureCanvas(root);
+    window.dtUikit.signaturepad.init(root);
+    const canvas = root.querySelector("[data-dt-signaturepad-canvas]");
+    expect(canvas.getAttribute("role")).toBe("img");
+    expect(canvas.getAttribute("aria-label")).toBe("Signature");
+    expect(root.querySelector("[data-dt-signaturepad-clear]")).not.toBeNull();
+  });
+
+  it("draws on pointermove and fires dt:signature-change with a data URL on pointerup", () => {
+    const root = padFixture();
+    const { canvas } = fixtureCanvas(root);
+    window.dtUikit.signaturepad.init(root);
+    let detail = null;
+    root.addEventListener("dt:signature-change", (e) => (detail = e.detail.value));
+    canvas.dispatchEvent(new PointerEvent("pointerdown", { bubbles: true, pointerId: 1, clientX: 10, clientY: 10 }));
+    canvas.dispatchEvent(new PointerEvent("pointermove", { bubbles: true, pointerId: 1, clientX: 50, clientY: 40 }));
+    expect(canvas.getContext("2d").moveTo).toHaveBeenCalled();
+    canvas.dispatchEvent(new PointerEvent("pointerup", { bubbles: true, pointerId: 1, clientX: 50, clientY: 40 }));
+    expect(detail).toBe("data:image/png;base64,abc");
+  });
+
+  it("does not fire on an empty tap", () => {
+    const root = padFixture();
+    const { canvas } = fixtureCanvas(root);
+    window.dtUikit.signaturepad.init(root);
+    let fired = false;
+    root.addEventListener("dt:signature-change", () => (fired = true));
+    canvas.dispatchEvent(new PointerEvent("pointerdown", { bubbles: true, pointerId: 1, clientX: 10, clientY: 10 }));
+    canvas.dispatchEvent(new PointerEvent("pointerup", { bubbles: true, pointerId: 1, clientX: 10, clientY: 10 }));
+    expect(fired).toBe(false);
+  });
+
+  it("clears the canvas and fires dt:signature-change with an empty string", () => {
+    const root = padFixture();
+    const { canvas, ctx } = fixtureCanvas(root);
+    window.dtUikit.signaturepad.init(root);
+    let detail = "x";
+    root.addEventListener("dt:signature-change", (e) => (detail = e.detail.value));
+    root.querySelector("[data-dt-signaturepad-clear]").click();
+    expect(ctx.clearRect).toHaveBeenCalled();
+    expect(detail).toBe("");
+  });
+
+  it("blocks drawing when disabled", () => {
+    const root = padFixture("data-dt-disabled");
+    const { canvas } = fixtureCanvas(root);
+    window.dtUikit.signaturepad.init(root);
+    let fired = false;
+    root.addEventListener("dt:signature-change", () => (fired = true));
+    canvas.dispatchEvent(new PointerEvent("pointerdown", { bubbles: true, pointerId: 1, clientX: 10, clientY: 10 }));
+    canvas.dispatchEvent(new PointerEvent("pointermove", { bubbles: true, pointerId: 1, clientX: 50, clientY: 40 }));
+    canvas.dispatchEvent(new PointerEvent("pointerup", { bubbles: true, pointerId: 1, clientX: 50, clientY: 40 }));
+    expect(fired).toBe(false);
+    expect(root.querySelector("[data-dt-signaturepad-clear]").disabled).toBe(true);
+  });
+});
+
+describe("upload", () => {
+  function uploadFixture(attrs = "") {
+    return fixture(`
+      <div class="dt-upload" data-dt-upload data-dt-upload-url="/api/files" ${attrs}>
+        <button class="dt-upload-trigger" type="button" data-dt-upload-trigger>Upload</button>
+        <input class="dt-upload-input" type="file" hidden data-dt-upload-input />
+        <ul class="dt-upload-list" data-dt-upload-list></ul>
+      </div>`);
+  }
+
+  function mockXhr() {
+    const xhr = {
+      upload: { addEventListener: vi.fn() },
+      addEventListener: vi.fn(),
+      setRequestHeader: vi.fn(),
+      open: vi.fn(),
+      send: vi.fn(),
+      status: 200,
+    };
+    const MockXHR = vi.fn(function () {
+      return xhr;
+    });
+    vi.stubGlobal("XMLHttpRequest", MockXHR);
+    return xhr;
+  }
+
+  function selectFile(root, name, size = 1024, type = "") {
+    const input = root.querySelector("[data-dt-upload-input]");
+    const file = new File([new Uint8Array(size)], name, { type });
+    Object.defineProperty(input, "files", { value: [file], configurable: true });
+    input.dispatchEvent(new Event("change", { bubbles: true }));
+    return file;
+  }
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it("opens the picker when the trigger is clicked", () => {
+    const root = uploadFixture();
+    const input = root.querySelector("[data-dt-upload-input]");
+    input.click = vi.fn();
+    root.querySelector("[data-dt-upload-trigger]").click();
+    expect(input.click).toHaveBeenCalled();
+  });
+
+  it("adds a row per selected file and auto-uploads", () => {
+    const root = uploadFixture('data-dt-upload-auto="true"');
+    mockXhr();
+    selectFile(root, "report.pdf", 2048);
+    const row = root.querySelector("[data-dt-upload-row]");
+    expect(row).not.toBeNull();
+    expect(row.querySelector(".dt-upload-name").textContent).toBe("report.pdf");
+    expect(row.querySelector(".dt-upload-size").textContent).toBe("2 KB");
+  });
+
+  it("fires progress and complete events during an upload", () => {
+    const root = uploadFixture('data-dt-upload-auto="true"');
+    const xhr = mockXhr();
+    const progress = [];
+    const complete = [];
+    root.addEventListener("dt:upload-progress", (e) => progress.push(e.detail.progress));
+    root.addEventListener("dt:upload-complete", (e) => complete.push(e.detail.name));
+    selectFile(root, "a.txt", 1024);
+    const progressCb = xhr.upload.addEventListener.mock.calls.find((c) => c[0] === "progress")[1];
+    const loadCb = xhr.addEventListener.mock.calls.find((c) => c[0] === "load")[1];
+    progressCb({ lengthComputable: true, loaded: 512, total: 1024 });
+    expect(progress).toEqual([50]);
+    loadCb();
+    expect(complete).toEqual(["a.txt"]);
+    expect(root.querySelector(".dt-upload-row").dataset.dtUploadState).toBe("complete");
+  });
+
+  it("fires the error event on a failed request", () => {
+    const root = uploadFixture('data-dt-upload-auto="true"');
+    const xhr = mockXhr();
+    const errors = [];
+    root.addEventListener("dt:upload-error", (e) => errors.push(e.detail.message));
+    selectFile(root, "b.txt", 1024);
+    const loadCb = xhr.addEventListener.mock.calls.find((c) => c[0] === "load")[1];
+    xhr.status = 500;
+    loadCb();
+    expect(errors).toEqual(["HTTP 500"]);
+    expect(root.querySelector(".dt-upload-row").dataset.dtUploadState).toBe("error");
+  });
+
+  it("removes a row and dispatches the cancel event", () => {
+    const root = uploadFixture('data-dt-upload-auto="false"');
+    mockXhr();
+    let cancelled = null;
+    root.addEventListener("dt:upload-cancel", (e) => (cancelled = e.detail.name));
+    selectFile(root, "c.txt", 1024);
+    const remove = root.querySelector("[data-dt-upload-remove]");
+    expect(remove.getAttribute("aria-label")).toBe("Remove c.txt");
+    remove.click();
+    expect(root.querySelectorAll("[data-dt-upload-row]").length).toBe(0);
+    expect(cancelled).toBe("c.txt");
+  });
+
+  it("sends the files field with the parameter name", () => {
+    const root = uploadFixture('data-dt-upload-auto="true" data-dt-upload-param="attachment"');
+    const xhr = mockXhr();
+    selectFile(root, "d.txt", 1024);
+    const fd = xhr.send.mock.calls[0][0];
+    expect(fd.get("attachment")).toBeInstanceOf(File);
+  });
+});
+
+describe("drop zone", () => {
+  function dropFixture(attrs = "") {
+    return fixture(`
+      <div class="dt-dropzone" data-dt-dropzone ${attrs} role="region" aria-label="Drop files here">
+        <p class="dt-dropzone-caption" data-dt-dropzone-caption>Drop files here</p>
+        <button class="dt-dropzone-browse" type="button" data-dt-dropzone-browse>Browse</button>
+        <input class="dt-dropzone-input" type="file" hidden data-dt-dropzone-input />
+      </div>`);
+  }
+
+  function dropEvent(files) {
+    const dt = new DataTransfer();
+    for (const f of files) dt.items.add(f);
+    return new DragEvent("drop", { bubbles: true, cancelable: true, dataTransfer: dt });
+  }
+
+  it("flips the dragging visual on dragenter and back on dragleave", () => {
+    const root = dropFixture();
+    root.dispatchEvent(new DragEvent("dragenter", { bubbles: true, cancelable: true }));
+    expect(root.classList.contains("dt-dropzone--dragging")).toBe(true);
+    root.dispatchEvent(new DragEvent("dragleave", { bubbles: true, cancelable: true }));
+    expect(root.classList.contains("dt-dropzone--dragging")).toBe(false);
+  });
+
+  it("fires dt:dropzone-drop with the FileList on drop", () => {
+    const root = dropFixture();
+    let files = null;
+    root.addEventListener("dt:dropzone-drop", (e) => (files = e.detail.files));
+    root.dispatchEvent(dropEvent([new File(["x"], "a.txt", { type: "text/plain" })]));
+    expect(files.length).toBe(1);
+    expect(files[0].name).toBe("a.txt");
+    expect(root.classList.contains("dt-dropzone--dragging")).toBe(false);
+  });
+
+  it("filters files by accept", () => {
+    const root = dropFixture('data-dt-dropzone-accept="image/*"');
+    let files = null;
+    root.addEventListener("dt:dropzone-drop", (e) => (files = e.detail.files));
+    root.dispatchEvent(
+      dropEvent([
+        new File(["x"], "photo.png", { type: "image/png" }),
+        new File(["x"], "doc.pdf", { type: "application/pdf" }),
+      ]),
+    );
+    expect(files.length).toBe(1);
+    expect(files[0].name).toBe("photo.png");
+  });
+
+  it("opens the picker via the browse button and fires drop on selection", () => {
+    const root = dropFixture();
+    const input = root.querySelector("[data-dt-dropzone-input]");
+    input.click = vi.fn();
+    root.querySelector("[data-dt-dropzone-browse]").click();
+    expect(input.click).toHaveBeenCalled();
+    const file = new File(["x"], "b.txt", { type: "text/plain" });
+    Object.defineProperty(input, "files", { value: [file], configurable: true });
+    let files = null;
+    root.addEventListener("dt:dropzone-drop", (e) => (files = e.detail.files));
+    input.dispatchEvent(new Event("change", { bubbles: true }));
+    expect(files[0].name).toBe("b.txt");
+  });
+
+  it("ignores drag events when disabled", () => {
+    const root = dropFixture("data-dt-dropzone-disabled");
+    root.dispatchEvent(new DragEvent("dragenter", { bubbles: true, cancelable: true }));
+    expect(root.classList.contains("dt-dropzone--dragging")).toBe(false);
+  });
+});

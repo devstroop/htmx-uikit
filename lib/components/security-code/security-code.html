@@ -1,0 +1,49 @@
+<!--
+  SecurityCode — reference markup for server templates.
+  Root: <div class="dt-securitycode" data-dt-securitycode
+        [data-dt-length="6"] [data-dt-invalid]>
+    <input class="dt-securitycode-cell dt-securitycode-cell--<size>" type="text"
+           inputmode="numeric" maxlength="1" [value="1"] [disabled]>
+    ... one input per digit ...
+    <span class="dt-securitycode-live" role="status" aria-live="polite"></span>
+  behaviors.js wires typing (auto-advance), Backspace, ArrowLeft/Right,
+  Home/End, paste-split, and the "Code complete" announce.
+-->
+
+<div class="dt-securitycode" data-dt-securitycode data-dt-length="6" role="group" aria-label="Security code">
+  <input class="dt-securitycode-cell dt-securitycode-cell--md" type="text" inputmode="numeric" maxlength="1" data-dt-securitycode-cell aria-label="Digit 1 of 6" />
+  <input class="dt-securitycode-cell dt-securitycode-cell--md" type="text" inputmode="numeric" maxlength="1" data-dt-securitycode-cell aria-label="Digit 2 of 6" />
+  <input class="dt-securitycode-cell dt-securitycode-cell--md" type="text" inputmode="numeric" maxlength="1" data-dt-securitycode-cell aria-label="Digit 3 of 6" />
+  <input class="dt-securitycode-cell dt-securitycode-cell--md" type="text" inputmode="numeric" maxlength="1" data-dt-securitycode-cell aria-label="Digit 4 of 6" />
+  <input class="dt-securitycode-cell dt-securitycode-cell--md" type="text" inputmode="numeric" maxlength="1" data-dt-securitycode-cell aria-label="Digit 5 of 6" />
+  <input class="dt-securitycode-cell dt-securitycode-cell--md" type="text" inputmode="numeric" maxlength="1" data-dt-securitycode-cell aria-label="Digit 6 of 6" />
+  <span class="dt-securitycode-live" data-dt-securitycode-live role="status" aria-live="polite"></span>
+</div>
+
+<div class="dt-securitycode" data-dt-securitycode data-dt-length="4" role="group" aria-label="PIN">
+  <input class="dt-securitycode-cell dt-securitycode-cell--sm" type="text" inputmode="numeric" maxlength="1" data-dt-securitycode-cell aria-label="Digit 1 of 4" />
+  <input class="dt-securitycode-cell dt-securitycode-cell--sm" type="text" inputmode="numeric" maxlength="1" data-dt-securitycode-cell aria-label="Digit 2 of 4" />
+  <input class="dt-securitycode-cell dt-securitycode-cell--sm" type="text" inputmode="numeric" maxlength="1" data-dt-securitycode-cell aria-label="Digit 3 of 4" />
+  <input class="dt-securitycode-cell dt-securitycode-cell--sm" type="text" inputmode="numeric" maxlength="1" data-dt-securitycode-cell aria-label="Digit 4 of 4" />
+  <span class="dt-securitycode-live" data-dt-securitycode-live role="status" aria-live="polite"></span>
+</div>
+
+<div class="dt-securitycode" data-dt-securitycode data-dt-length="6" data-dt-invalid role="group" aria-label="Security code (invalid)">
+  <input class="dt-securitycode-cell dt-securitycode-cell--md" type="text" inputmode="numeric" maxlength="1" data-dt-securitycode-cell aria-label="Digit 1 of 6" aria-invalid="true" value="1" />
+  <input class="dt-securitycode-cell dt-securitycode-cell--md" type="text" inputmode="numeric" maxlength="1" data-dt-securitycode-cell aria-label="Digit 2 of 6" aria-invalid="true" value="2" />
+  <input class="dt-securitycode-cell dt-securitycode-cell--md" type="text" inputmode="numeric" maxlength="1" data-dt-securitycode-cell aria-label="Digit 3 of 6" aria-invalid="true" value="3" />
+  <input class="dt-securitycode-cell dt-securitycode-cell--md" type="text" inputmode="numeric" maxlength="1" data-dt-securitycode-cell aria-label="Digit 4 of 6" aria-invalid="true" value="4" />
+  <input class="dt-securitycode-cell dt-securitycode-cell--md" type="text" inputmode="numeric" maxlength="1" data-dt-securitycode-cell aria-label="Digit 5 of 6" aria-invalid="true" value="5" />
+  <input class="dt-securitycode-cell dt-securitycode-cell--md" type="text" inputmode="numeric" maxlength="1" data-dt-securitycode-cell aria-label="Digit 6 of 6" aria-invalid="true" value="6" />
+  <span class="dt-securitycode-live" data-dt-securitycode-live role="status" aria-live="polite"></span>
+</div>
+
+<div class="dt-securitycode" data-dt-securitycode data-dt-length="6" role="group" aria-label="Security code (disabled)">
+  <input class="dt-securitycode-cell dt-securitycode-cell--md" type="text" inputmode="numeric" maxlength="1" data-dt-securitycode-cell aria-label="Digit 1 of 6" disabled value="1" />
+  <input class="dt-securitycode-cell dt-securitycode-cell--md" type="text" inputmode="numeric" maxlength="1" data-dt-securitycode-cell aria-label="Digit 2 of 6" disabled />
+  <input class="dt-securitycode-cell dt-securitycode-cell--md" type="text" inputmode="numeric" maxlength="1" data-dt-securitycode-cell aria-label="Digit 3 of 6" disabled />
+  <input class="dt-securitycode-cell dt-securitycode-cell--md" type="text" inputmode="numeric" maxlength="1" data-dt-securitycode-cell aria-label="Digit 4 of 6" disabled />
+  <input class="dt-securitycode-cell dt-securitycode-cell--md" type="text" inputmode="numeric" maxlength="1" data-dt-securitycode-cell aria-label="Digit 5 of 6" disabled />
+  <input class="dt-securitycode-cell dt-securitycode-cell--md" type="text" inputmode="numeric" maxlength="1" data-dt-securitycode-cell aria-label="Digit 6 of 6" disabled />
+  <span class="dt-securitycode-live" data-dt-securitycode-live role="status" aria-live="polite"></span>
+</div>

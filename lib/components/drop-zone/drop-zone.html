@@ -1,0 +1,30 @@
+<!--
+  DropZone — reference markup for server templates.
+  Root: <div class="dt-dropzone" data-dt-dropzone
+        [data-dt-dropzone-accept="image/*"] [data-dt-dropzone-multiple]>
+    <p class="dt-dropzone-caption">Drop files here or browse</p>
+    <button class="dt-dropzone-browse" type="button" data-dt-dropzone-browse>Browse</button>
+    <input class="dt-dropzone-input" type="file" hidden
+           data-dt-dropzone-input [multiple] [accept="…"]>
+  behaviors.js wires dragenter/dragover/dragleave/drop (--dragging visual,
+  caption swap, accept filter) and dispatches dt:dropzone-drop with a
+  FileList on the root.
+-->
+
+<div class="dt-dropzone" data-dt-dropzone role="region" aria-label="Drop files here or browse">
+  <p class="dt-dropzone-caption" data-dt-dropzone-caption>Drop files here or browse</p>
+  <button class="dt-dropzone-browse" type="button" data-dt-dropzone-browse>Browse</button>
+  <input class="dt-dropzone-input" type="file" hidden data-dt-dropzone-input />
+</div>
+
+<div class="dt-dropzone" data-dt-dropzone data-dt-dropzone-multiple data-dt-dropzone-accept="image/*" role="region" aria-label="Drop images here or browse">
+  <p class="dt-dropzone-caption" data-dt-dropzone-caption>Drop images here or browse</p>
+  <button class="dt-dropzone-browse" type="button" data-dt-dropzone-browse>Browse</button>
+  <input class="dt-dropzone-input" type="file" hidden data-dt-dropzone-input multiple accept="image/*" />
+</div>
+
+<div class="dt-dropzone" data-dt-dropzone data-dt-dropzone-disabled role="region" aria-label="Drop zone disabled">
+  <p class="dt-dropzone-caption" data-dt-dropzone-caption>Drop zone disabled</p>
+  <button class="dt-dropzone-browse" type="button" data-dt-dropzone-browse disabled>Browse</button>
+  <input class="dt-dropzone-input" type="file" hidden data-dt-dropzone-input disabled />
+</div>
