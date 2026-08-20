@@ -1,0 +1,17 @@
+<!--
+  Mask — reference markup for server templates.
+  Root: <input class="dt-mask dt-mask--<size>" type="text"
+        data-dt-mask="<format>" [placeholder="(123) 456-7890"]>
+  The data-dt-mask format uses "#" for digit placeholders and any other
+  character as a literal separator (e.g. "(###) ###-####" for phones,
+  "##/##/####" for dates). behaviors.js formats digits on input, drops
+  characters beyond the last placeholder, and Backspace over a separator
+  also removes the digit before it. All other input attributes forward.
+  Modifiers: size --xs..--xl (default --md), state --invalid.
+-->
+
+<input class="dt-mask dt-mask--md" type="text" data-dt-mask="(###) ###-####" placeholder="(123) 456-7890" />
+<input class="dt-mask dt-mask--md" type="text" data-dt-mask="##/##/####" placeholder="MM/DD/YYYY" />
+<input class="dt-mask dt-mask--sm" type="text" data-dt-mask="###-##-####" placeholder="123-45-6789" />
+<input class="dt-mask dt-mask--md dt-mask--invalid" type="text" data-dt-mask="(###) ###-####" aria-invalid="true" placeholder="Invalid" />
+<input class="dt-mask dt-mask--md" type="text" data-dt-mask="(###) ###-####" placeholder="Disabled" disabled />

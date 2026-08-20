@@ -1185,3 +1185,152 @@ describe("datalist", () => {
     expect(root.querySelector(".dt-datalist-pager-summary").textContent).toContain("Page 1 of 1");
   });
 });
+
+describe("password toggle", () => {
+  const passwordFixture = (extra = "") =>
+    fixture(`
+      <div class="dt-password" data-dt-password>
+        <input type="password" data-dt-password-input value="s3cret" />
+        <button type="button" data-dt-password-toggle aria-pressed="false" aria-label="Show password" ${extra}>
+          <svg data-dt-password-icon="visible"></svg>
+          <svg data-dt-password-icon="hidden" hidden></svg>
+        </button>
+      </div>`);
+
+  it("flips the input to text and mirrors aria-pressed/label/icon", () => {
+    const root = passwordFixture();
+    const input = root.querySelector("[data-dt-password-input]");
+    const button = root.querySelector("[data-dt-password-toggle]");
+    button.click();
+    expect(input.type).toBe("text");
+    expect(button.getAttribute("aria-pressed")).toBe("true");
+    expect(button.getAttribute("aria-label")).toBe("Hide password");
+    expect(root.querySelector('[data-dt-password-icon="visible"]').hidden).toBe(true);
+    expect(root.querySelector('[data-dt-password-icon="hidden"]').hidden).toBe(false);
+    button.click();
+    expect(input.type).toBe("password");
+    expect(button.getAttribute("aria-pressed")).toBe("false");
+    expect(button.getAttribute("aria-label")).toBe("Show password");
+    expect(root.querySelector('[data-dt-password-icon="visible"]').hidden).toBe(false);
+    expect(root.querySelector('[data-dt-password-icon="hidden"]').hidden).toBe(true);
+  });
+
+  it("uses data-dt-password-show/hide for the toggle labels", () => {
+    const root = passwordFixture('data-dt-password-show="Reveal" data-dt-password-hide="Conceal"');
+    const button = root.querySelector("[data-dt-password-toggle]");
+    button.click();
+    expect(button.getAttribute("aria-label")).toBe("Conceal");
+    button.click();
+    expect(button.getAttribute("aria-label")).toBe("Reveal");
+  });
+
+  it("ignores clicks on a disabled toggle", () => {
+    const root = passwordFixture("disabled");
+    const input = root.querySelector("[data-dt-password-input]");
+    root.querySelector("[data-dt-password-toggle]").click();
+    expect(input.type).toBe("password");
+  });
+});
+
+describe("mask", () => {
+  const maskFixture = () =>
+    fixture(`
+      <input type="text" data-dt-mask="(###) ###-####" />
+    `);
+
+  it("formats digits as they are typed", () => {
+    const input = maskFixture();
+    input.value = "1234567890";
+    input.dispatchEvent(new Event("input", { bubbles: true }));
+    expect(input.value).toBe("(123) 456-7890");
+  });
+
+  it("strips non-digit characters", () => {
+    const input = maskFixture();
+    input.value = "ab1cd23";
+    input.dispatchEvent(new Event("input", { bubbles: true }));
+    expect(input.value).toBe("(123");
+  });
+
+  it("drops characters beyond the last placeholder", () => {
+    const input = maskFixture();
+    input.value = "1234567890123";
+    input.dispatchEvent(new Event("input", { bubbles: true }));
+    expect(input.value).toBe("(123) 456-7890");
+  });
+
+  it("backspace over a separator also removes the digit before it", () => {
+    const input = maskFixture();
+    input.value = "(123) 456-7";
+    input.setSelectionRange(10, 10);
+    const event = new KeyboardEvent("keydown", { key: "Backspace", bubbles: true, cancelable: true });
+    input.dispatchEvent(event);
+    expect(event.defaultPrevented).toBe(true);
+    expect(input.value).toBe("(123) 456");
+  });
+});
+
+describe("numeric", () => {
+  const numericFixture = (attrs = "") =>
+    fixture(`
+      <div class="dt-numeric" data-dt-numeric ${attrs}>
+        <input type="text" inputmode="decimal" data-dt-numeric-input value="3" />
+        <button type="button" data-dt-numeric-up></button>
+        <button type="button" data-dt-numeric-down></button>
+      </div>`);
+
+  it("steps up/down from the buttons and clamps to min/max", () => {
+    const root = numericFixture('data-dt-min="0" data-dt-max="5"');
+    const input = root.querySelector("[data-dt-numeric-input]");
+    root.querySelector("[data-dt-numeric-up]").click();
+    expect(input.value).toBe("4");
+    input.value = "5";
+    root.querySelector("[data-dt-numeric-up]").click();
+    expect(input.value).toBe("5");
+    input.value = "0";
+    root.querySelector("[data-dt-numeric-down]").click();
+    expect(input.value).toBe("0");
+  });
+
+  it("steps by data-dt-step, snapping from min", () => {
+    const root = numericFixture('data-dt-min="0" data-dt-step="5"');
+    const input = root.querySelector("[data-dt-numeric-input]");
+    root.querySelector("[data-dt-numeric-up]").click();
+    expect(input.value).toBe("5");
+    input.value = "3";
+    root.querySelector("[data-dt-numeric-up]").click();
+    expect(input.value).toBe("5");
+  });
+
+  it("supports ArrowUp/ArrowDown with default prevented", () => {
+    const root = numericFixture();
+    const input = root.querySelector("[data-dt-numeric-input]");
+    const up = new KeyboardEvent("keydown", { key: "ArrowUp", bubbles: true, cancelable: true });
+    input.dispatchEvent(up);
+    expect(up.defaultPrevented).toBe(true);
+    expect(input.value).toBe("4");
+    const down = new KeyboardEvent("keydown", { key: "ArrowDown", bubbles: true, cancelable: true });
+    input.dispatchEvent(down);
+    expect(down.defaultPrevented).toBe(true);
+    expect(input.value).toBe("3");
+  });
+
+  it("strips non-numeric typing", () => {
+    const root = numericFixture();
+    const input = root.querySelector("[data-dt-numeric-input]");
+    input.value = "a1b2c";
+    input.dispatchEvent(new Event("input", { bubbles: true }));
+    expect(input.value).toBe("12");
+  });
+
+  it("clamps and snaps on blur", () => {
+    const root = numericFixture('data-dt-min="0" data-dt-max="5"');
+    const input = root.querySelector("[data-dt-numeric-input]");
+    input.value = "99";
+    input.dispatchEvent(new Event("blur", { bubbles: true }));
+    expect(input.value).toBe("5");
+    input.value = "";
+    input.dispatchEvent(new Event("blur", { bubbles: true }));
+    expect(input.value).toBe("");
+  });
+});

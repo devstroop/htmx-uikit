@@ -1,0 +1,55 @@
+<!--
+  Numeric — reference markup for server templates.
+  Root: <div class="dt-numeric" data-dt-numeric
+        [data-dt-min="0"] [data-dt-max="10"] [data-dt-step="1"]>
+    <input class="dt-numeric-input dt-numeric-input--<size>" type="text"
+           inputmode="decimal" data-dt-numeric-input [value="3"]>
+    <button class="dt-numeric-btn dt-numeric-btn--up" type="button"
+            data-dt-numeric-up aria-label="Increment"><svg chevron-up/></button>
+    <button class="dt-numeric-btn dt-numeric-btn--down" type="button"
+            data-dt-numeric-down aria-label="Decrement"><svg chevron-down/></button>
+  behaviors.js steps on click / ArrowUp / ArrowDown (clamped to
+  data-dt-min/max, snapped to data-dt-step), strips non-numeric typing and
+  clamps/snaps on blur. Modifiers: size --xs..--xl (default --md), state
+  --invalid on the input.
+-->
+
+<div class="dt-numeric" data-dt-numeric data-dt-min="0" data-dt-max="100" data-dt-step="1">
+  <input class="dt-numeric-input dt-numeric-input--md" type="text" inputmode="decimal" data-dt-numeric-input value="3" aria-label="Quantity" />
+  <button class="dt-numeric-btn dt-numeric-btn--up" type="button" data-dt-numeric-up aria-label="Increment">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 15l-6-6-6 6" /></svg>
+  </button>
+  <button class="dt-numeric-btn dt-numeric-btn--down" type="button" data-dt-numeric-down aria-label="Decrement">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" /></svg>
+  </button>
+</div>
+
+<div class="dt-numeric" data-dt-numeric data-dt-min="0" data-dt-step="5">
+  <input class="dt-numeric-input dt-numeric-input--sm" type="text" inputmode="decimal" data-dt-numeric-input value="0" aria-label="Rating (0-5)" />
+  <button class="dt-numeric-btn dt-numeric-btn--up" type="button" data-dt-numeric-up aria-label="Increment">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 15l-6-6-6 6" /></svg>
+  </button>
+  <button class="dt-numeric-btn dt-numeric-btn--down" type="button" data-dt-numeric-down aria-label="Decrement">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" /></svg>
+  </button>
+</div>
+
+<div class="dt-numeric" data-dt-numeric>
+  <input class="dt-numeric-input dt-numeric-input--md dt-numeric-input--invalid" type="text" inputmode="decimal" data-dt-numeric-input aria-invalid="true" placeholder="Invalid" />
+  <button class="dt-numeric-btn dt-numeric-btn--up" type="button" data-dt-numeric-up aria-label="Increment">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 15l-6-6-6 6" /></svg>
+  </button>
+  <button class="dt-numeric-btn dt-numeric-btn--down" type="button" data-dt-numeric-down aria-label="Decrement">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" /></svg>
+  </button>
+</div>
+
+<div class="dt-numeric" data-dt-numeric data-dt-min="0" data-dt-max="9">
+  <input class="dt-numeric-input dt-numeric-input--md" type="text" inputmode="decimal" data-dt-numeric-input value="2" aria-label="Disabled" disabled />
+  <button class="dt-numeric-btn dt-numeric-btn--up" type="button" data-dt-numeric-up aria-label="Increment" disabled>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 15l-6-6-6 6" /></svg>
+  </button>
+  <button class="dt-numeric-btn dt-numeric-btn--down" type="button" data-dt-numeric-down aria-label="Decrement" disabled>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" /></svg>
+  </button>
+</div>
