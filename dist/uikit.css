@@ -530,7 +530,7 @@
 }
 
 .dt-button:focus-visible {
-  outline: 2px solid var(--dt-color-focus);
+  outline: 2px solid var(--dt-color-outline-primary);
   outline-offset: 2px;
 }
 
@@ -592,6 +592,22 @@
 
 .dt-button--info:hover:not(:disabled) {
   background-color: var(--dt-color-info-hover);
+}
+
+.dt-button--secondary:focus-visible {
+  outline-color: var(--dt-color-outline-secondary);
+}
+
+.dt-button--danger:focus-visible {
+  outline-color: var(--dt-color-outline-danger);
+}
+
+.dt-button--success:focus-visible {
+  outline-color: var(--dt-color-outline-success);
+}
+
+.dt-button--info:focus-visible {
+  outline-color: var(--dt-color-outline-info);
 }
 
 .dt-button--xs {
@@ -757,7 +773,7 @@
 }
 
 .dt-checkbox:focus-visible {
-  outline: 2px solid var(--dt-color-focus);
+  outline: 2px solid var(--dt-color-outline-primary);
   outline-offset: 2px;
 }
 
@@ -1679,7 +1695,7 @@
 .dt-input:focus-visible {
   outline: none;
   border-color: var(--dt-color-primary);
-  box-shadow: 0 0 0 3px var(--dt-color-focus);
+  box-shadow: 0 0 0 3px var(--dt-color-outline-primary);
 }
 
 .dt-input:disabled {
@@ -2061,7 +2077,7 @@
 .dt-select:focus-visible {
   outline: none;
   border-color: var(--dt-color-primary);
-  box-shadow: 0 0 0 3px var(--dt-color-focus);
+  box-shadow: 0 0 0 3px var(--dt-color-outline-primary);
 }
 
 .dt-select:disabled {
@@ -2409,7 +2425,7 @@
 }
 
 .dt-switch:focus-visible {
-  outline: 2px solid var(--dt-color-focus);
+  outline: 2px solid var(--dt-color-outline-primary);
   outline-offset: 2px;
 }
 

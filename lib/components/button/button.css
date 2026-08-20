@@ -19,7 +19,7 @@
 }
 
 .dt-button:focus-visible {
-  outline: 2px solid var(--dt-color-focus);
+  outline: 2px solid var(--dt-color-outline-primary);
   outline-offset: 2px;
 }
 
@@ -81,6 +81,22 @@
 
 .dt-button--info:hover:not(:disabled) {
   background-color: var(--dt-color-info-hover);
+}
+
+.dt-button--secondary:focus-visible {
+  outline-color: var(--dt-color-outline-secondary);
+}
+
+.dt-button--danger:focus-visible {
+  outline-color: var(--dt-color-outline-danger);
+}
+
+.dt-button--success:focus-visible {
+  outline-color: var(--dt-color-outline-success);
+}
+
+.dt-button--info:focus-visible {
+  outline-color: var(--dt-color-outline-info);
 }
 
 .dt-button--xs {

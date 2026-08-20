@@ -1,6 +1,6 @@
 {
   "name": "@devstroop/htmx-uikit",
-  "version": "0.12.0",
+  "version": "0.13.0",
   "description": "Server-rendered htmx implementation of the uikit specs — HTML fragments, plain CSS, tiny behaviors.",
   "type": "module",
   "license": "MIT",

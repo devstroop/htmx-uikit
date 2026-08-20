@@ -22,7 +22,7 @@
 .dt-select:focus-visible {
   outline: none;
   border-color: var(--dt-color-primary);
-  box-shadow: 0 0 0 3px var(--dt-color-focus);
+  box-shadow: 0 0 0 3px var(--dt-color-outline-primary);
 }
 
 .dt-select:disabled {

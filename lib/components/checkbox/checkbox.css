@@ -34,7 +34,7 @@
 }
 
 .dt-checkbox:focus-visible {
-  outline: 2px solid var(--dt-color-focus);
+  outline: 2px solid var(--dt-color-outline-primary);
   outline-offset: 2px;
 }
 
