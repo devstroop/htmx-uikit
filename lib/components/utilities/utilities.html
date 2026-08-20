@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Utilities</title>
+    <link rel="stylesheet" href="../../../dist/uikit.css" />
+  </head>
+  <body>
+    <main class="dt-layout dt-layout--padded">
+      <h1 class="dt-h1">Utilities</h1>
+      <p class="dt-text-muted">
+        Radzen theme utility parity: <code>.dt-display-*</code>,
+        <code>.dt-justify-content-*</code>, <code>.dt-align-items-*</code>,
+        <code>.dt-overflow-*</code>, <code>.dt-w-*</code>/<code>.dt-h-*</code>
+        (percent, viewport, keyword, min/max) — all with breakpoint suffixes
+        <code>xs</code> (576px) through <code>xx</code> (2560px). Presentational
+        only — no JS behavior.
+      </p>
+
+      <h2 class="dt-h2">Display</h2>
+      <div class="dt-display-flex" style="gap: 0.5rem">
+        <div class="dt-display-block" style="border: 1px dashed var(--dt-color-border); padding: 0.5rem">block</div>
+        <div class="dt-display-flex" style="border: 1px dashed var(--dt-color-border); padding: 0.5rem">flex</div>
+        <div class="dt-display-grid" style="border: 1px dashed var(--dt-color-border); padding: 0.5rem">grid</div>
+      </div>
+
+      <h2 class="dt-h2">Justify-content / align-items</h2>
+      <div class="dt-display-flex dt-justify-content-space-between dt-align-items-center" style="min-height: 64px">
+        <span style="border: 1px dashed var(--dt-color-border); padding: 0.5rem">start</span>
+        <span style="border: 1px dashed var(--dt-color-border); padding: 0.5rem">middle</span>
+        <span style="border: 1px dashed var(--dt-color-border); padding: 0.5rem">end</span>
+      </div>
+
+      <h2 class="dt-h2">Overflow</h2>
+      <div class="dt-overflow-auto" style="border: 1px dashed var(--dt-color-border); max-height: 4rem; padding: 0.5rem">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+      </div>
+
+      <h2 class="dt-h2">Width / height</h2>
+      <div class="dt-w-50" style="border: 1px dashed var(--dt-color-border); padding: 0.5rem">.dt-w-50</div>
+      <div class="dt-w-fit-content" style="border: 1px dashed var(--dt-color-border); padding: 0.5rem">.dt-w-fit-content</div>
+      <div class="dt-h-25" style="border: 1px dashed var(--dt-color-border); padding: 0.5rem">.dt-h-25</div>
+      <div class="dt-max-w-50" style="border: 1px dashed var(--dt-color-border); padding: 0.5rem">.dt-max-w-50</div>
+
+      <h2 class="dt-h2">Breakpoint variants</h2>
+      <div class="dt-display-flex dt-display-md-block dt-w-100 dt-w-md-50" style="border: 1px dashed var(--dt-color-border); padding: 0.5rem">
+        block at ≥ 768px, width 100% below / 50% from md
+      </div>
+    </main>
+  </body>
+</html>

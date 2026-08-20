@@ -1,0 +1,506 @@
+/* layout utilities — Radzen theme utilities parity (issue #75)
+ * Flex/grid helpers as class names with breakpoint suffixes.
+ * Breakpoint map (Radzen): xs 576, sm 768, md 1024, lg 1280, xl 1920, xx 2560.
+ */
+
+.dt-display-none { display: none !important; }
+.dt-display-block { display: block !important; }
+.dt-display-inline { display: inline !important; }
+.dt-display-inline-block { display: inline-block !important; }
+.dt-display-flex { display: flex !important; }
+.dt-display-inline-flex { display: inline-flex !important; }
+.dt-display-grid { display: grid !important; }
+.dt-display-inline-grid { display: inline-grid !important; }
+.dt-justify-content-normal { justify-content: normal !important; }
+.dt-justify-content-stretch { justify-content: stretch !important; }
+.dt-justify-content-center { justify-content: center !important; }
+.dt-justify-content-start { justify-content: start !important; }
+.dt-justify-content-end { justify-content: end !important; }
+.dt-justify-content-flex-start { justify-content: flex-start !important; }
+.dt-justify-content-flex-end { justify-content: flex-end !important; }
+.dt-justify-content-left { justify-content: left !important; }
+.dt-justify-content-right { justify-content: right !important; }
+.dt-justify-content-space-between { justify-content: space-between !important; }
+.dt-justify-content-space-around { justify-content: space-around !important; }
+.dt-justify-content-space-evenly { justify-content: space-evenly !important; }
+.dt-align-items-normal { align-items: normal !important; }
+.dt-align-items-stretch { align-items: stretch !important; }
+.dt-align-items-center { align-items: center !important; }
+.dt-align-items-start { align-items: start !important; }
+.dt-align-items-end { align-items: end !important; }
+.dt-align-items-flex-start { align-items: flex-start !important; }
+.dt-align-items-flex-end { align-items: flex-end !important; }
+.dt-overflow-auto { overflow: auto !important; }
+.dt-overflow-scroll { overflow: scroll !important; }
+.dt-overflow-visible { overflow: visible !important; }
+.dt-overflow-hidden { overflow: hidden !important; }
+.dt-w-25 { width: 25% !important; }
+.dt-w-50 { width: 50% !important; }
+.dt-w-75 { width: 75% !important; }
+.dt-w-100 { width: 100% !important; }
+.dt-vw-25 { width: 25vw !important; }
+.dt-vw-50 { width: 50vw !important; }
+.dt-vw-75 { width: 75vw !important; }
+.dt-vw-100 { width: 100vw !important; }
+.dt-w-auto { width: auto !important; }
+.dt-w-fit-content { width: fit-content !important; }
+.dt-w-min-content { width: min-content !important; }
+.dt-w-max-content { width: max-content !important; }
+.dt-w-stretch { width: stretch !important; }
+.dt-min-w-25 { min-width: 25% !important; }
+.dt-min-w-50 { min-width: 50% !important; }
+.dt-min-w-75 { min-width: 75% !important; }
+.dt-min-w-100 { min-width: 100% !important; }
+.dt-max-w-25 { max-width: 25% !important; }
+.dt-max-w-50 { max-width: 50% !important; }
+.dt-max-w-75 { max-width: 75% !important; }
+.dt-max-w-100 { max-width: 100% !important; }
+.dt-h-25 { height: 25% !important; }
+.dt-h-50 { height: 50% !important; }
+.dt-h-75 { height: 75% !important; }
+.dt-h-100 { height: 100% !important; }
+.dt-vh-25 { height: 25vh !important; }
+.dt-vh-50 { height: 50vh !important; }
+.dt-vh-75 { height: 75vh !important; }
+.dt-vh-100 { height: 100vh !important; }
+.dt-h-auto { height: auto !important; }
+.dt-min-h-25 { min-height: 25% !important; }
+.dt-min-h-50 { min-height: 50% !important; }
+.dt-min-h-75 { min-height: 75% !important; }
+.dt-min-h-100 { min-height: 100% !important; }
+.dt-max-h-25 { max-height: 25% !important; }
+.dt-max-h-50 { max-height: 50% !important; }
+.dt-max-h-75 { max-height: 75% !important; }
+.dt-max-h-100 { max-height: 100% !important; }
+
+@media (min-width: 576px) {
+  .dt-display-xs-none { display: none !important; }
+  .dt-display-xs-block { display: block !important; }
+  .dt-display-xs-inline { display: inline !important; }
+  .dt-display-xs-inline-block { display: inline-block !important; }
+  .dt-display-xs-flex { display: flex !important; }
+  .dt-display-xs-inline-flex { display: inline-flex !important; }
+  .dt-display-xs-grid { display: grid !important; }
+  .dt-display-xs-inline-grid { display: inline-grid !important; }
+  .dt-justify-content-xs-normal { justify-content: normal !important; }
+  .dt-justify-content-xs-stretch { justify-content: stretch !important; }
+  .dt-justify-content-xs-center { justify-content: center !important; }
+  .dt-justify-content-xs-start { justify-content: start !important; }
+  .dt-justify-content-xs-end { justify-content: end !important; }
+  .dt-justify-content-xs-flex-start { justify-content: flex-start !important; }
+  .dt-justify-content-xs-flex-end { justify-content: flex-end !important; }
+  .dt-justify-content-xs-left { justify-content: left !important; }
+  .dt-justify-content-xs-right { justify-content: right !important; }
+  .dt-justify-content-xs-space-between { justify-content: space-between !important; }
+  .dt-justify-content-xs-space-around { justify-content: space-around !important; }
+  .dt-justify-content-xs-space-evenly { justify-content: space-evenly !important; }
+  .dt-align-items-xs-normal { align-items: normal !important; }
+  .dt-align-items-xs-stretch { align-items: stretch !important; }
+  .dt-align-items-xs-center { align-items: center !important; }
+  .dt-align-items-xs-start { align-items: start !important; }
+  .dt-align-items-xs-end { align-items: end !important; }
+  .dt-align-items-xs-flex-start { align-items: flex-start !important; }
+  .dt-align-items-xs-flex-end { align-items: flex-end !important; }
+  .dt-overflow-xs-auto { overflow: auto !important; }
+  .dt-overflow-xs-scroll { overflow: scroll !important; }
+  .dt-overflow-xs-visible { overflow: visible !important; }
+  .dt-overflow-xs-hidden { overflow: hidden !important; }
+  .dt-w-xs-25 { width: 25% !important; }
+  .dt-w-xs-50 { width: 50% !important; }
+  .dt-w-xs-75 { width: 75% !important; }
+  .dt-w-xs-100 { width: 100% !important; }
+  .dt-vw-xs-25 { width: 25vw !important; }
+  .dt-vw-xs-50 { width: 50vw !important; }
+  .dt-vw-xs-75 { width: 75vw !important; }
+  .dt-vw-xs-100 { width: 100vw !important; }
+  .dt-w-xs-auto { width: auto !important; }
+  .dt-w-xs-fit-content { width: fit-content !important; }
+  .dt-w-xs-min-content { width: min-content !important; }
+  .dt-w-xs-max-content { width: max-content !important; }
+  .dt-w-xs-stretch { width: stretch !important; }
+  .dt-min-w-xs-25 { min-width: 25% !important; }
+  .dt-min-w-xs-50 { min-width: 50% !important; }
+  .dt-min-w-xs-75 { min-width: 75% !important; }
+  .dt-min-w-xs-100 { min-width: 100% !important; }
+  .dt-max-w-xs-25 { max-width: 25% !important; }
+  .dt-max-w-xs-50 { max-width: 50% !important; }
+  .dt-max-w-xs-75 { max-width: 75% !important; }
+  .dt-max-w-xs-100 { max-width: 100% !important; }
+  .dt-h-xs-25 { height: 25% !important; }
+  .dt-h-xs-50 { height: 50% !important; }
+  .dt-h-xs-75 { height: 75% !important; }
+  .dt-h-xs-100 { height: 100% !important; }
+  .dt-vh-xs-25 { height: 25vh !important; }
+  .dt-vh-xs-50 { height: 50vh !important; }
+  .dt-vh-xs-75 { height: 75vh !important; }
+  .dt-vh-xs-100 { height: 100vh !important; }
+  .dt-h-xs-auto { height: auto !important; }
+  .dt-min-h-xs-25 { min-height: 25% !important; }
+  .dt-min-h-xs-50 { min-height: 50% !important; }
+  .dt-min-h-xs-75 { min-height: 75% !important; }
+  .dt-min-h-xs-100 { min-height: 100% !important; }
+  .dt-max-h-xs-25 { max-height: 25% !important; }
+  .dt-max-h-xs-50 { max-height: 50% !important; }
+  .dt-max-h-xs-75 { max-height: 75% !important; }
+  .dt-max-h-xs-100 { max-height: 100% !important; }
+}
+
+@media (min-width: 768px) {
+  .dt-display-sm-none { display: none !important; }
+  .dt-display-sm-block { display: block !important; }
+  .dt-display-sm-inline { display: inline !important; }
+  .dt-display-sm-inline-block { display: inline-block !important; }
+  .dt-display-sm-flex { display: flex !important; }
+  .dt-display-sm-inline-flex { display: inline-flex !important; }
+  .dt-display-sm-grid { display: grid !important; }
+  .dt-display-sm-inline-grid { display: inline-grid !important; }
+  .dt-justify-content-sm-normal { justify-content: normal !important; }
+  .dt-justify-content-sm-stretch { justify-content: stretch !important; }
+  .dt-justify-content-sm-center { justify-content: center !important; }
+  .dt-justify-content-sm-start { justify-content: start !important; }
+  .dt-justify-content-sm-end { justify-content: end !important; }
+  .dt-justify-content-sm-flex-start { justify-content: flex-start !important; }
+  .dt-justify-content-sm-flex-end { justify-content: flex-end !important; }
+  .dt-justify-content-sm-left { justify-content: left !important; }
+  .dt-justify-content-sm-right { justify-content: right !important; }
+  .dt-justify-content-sm-space-between { justify-content: space-between !important; }
+  .dt-justify-content-sm-space-around { justify-content: space-around !important; }
+  .dt-justify-content-sm-space-evenly { justify-content: space-evenly !important; }
+  .dt-align-items-sm-normal { align-items: normal !important; }
+  .dt-align-items-sm-stretch { align-items: stretch !important; }
+  .dt-align-items-sm-center { align-items: center !important; }
+  .dt-align-items-sm-start { align-items: start !important; }
+  .dt-align-items-sm-end { align-items: end !important; }
+  .dt-align-items-sm-flex-start { align-items: flex-start !important; }
+  .dt-align-items-sm-flex-end { align-items: flex-end !important; }
+  .dt-overflow-sm-auto { overflow: auto !important; }
+  .dt-overflow-sm-scroll { overflow: scroll !important; }
+  .dt-overflow-sm-visible { overflow: visible !important; }
+  .dt-overflow-sm-hidden { overflow: hidden !important; }
+  .dt-w-sm-25 { width: 25% !important; }
+  .dt-w-sm-50 { width: 50% !important; }
+  .dt-w-sm-75 { width: 75% !important; }
+  .dt-w-sm-100 { width: 100% !important; }
+  .dt-vw-sm-25 { width: 25vw !important; }
+  .dt-vw-sm-50 { width: 50vw !important; }
+  .dt-vw-sm-75 { width: 75vw !important; }
+  .dt-vw-sm-100 { width: 100vw !important; }
+  .dt-w-sm-auto { width: auto !important; }
+  .dt-w-sm-fit-content { width: fit-content !important; }
+  .dt-w-sm-min-content { width: min-content !important; }
+  .dt-w-sm-max-content { width: max-content !important; }
+  .dt-w-sm-stretch { width: stretch !important; }
+  .dt-min-w-sm-25 { min-width: 25% !important; }
+  .dt-min-w-sm-50 { min-width: 50% !important; }
+  .dt-min-w-sm-75 { min-width: 75% !important; }
+  .dt-min-w-sm-100 { min-width: 100% !important; }
+  .dt-max-w-sm-25 { max-width: 25% !important; }
+  .dt-max-w-sm-50 { max-width: 50% !important; }
+  .dt-max-w-sm-75 { max-width: 75% !important; }
+  .dt-max-w-sm-100 { max-width: 100% !important; }
+  .dt-h-sm-25 { height: 25% !important; }
+  .dt-h-sm-50 { height: 50% !important; }
+  .dt-h-sm-75 { height: 75% !important; }
+  .dt-h-sm-100 { height: 100% !important; }
+  .dt-vh-sm-25 { height: 25vh !important; }
+  .dt-vh-sm-50 { height: 50vh !important; }
+  .dt-vh-sm-75 { height: 75vh !important; }
+  .dt-vh-sm-100 { height: 100vh !important; }
+  .dt-h-sm-auto { height: auto !important; }
+  .dt-min-h-sm-25 { min-height: 25% !important; }
+  .dt-min-h-sm-50 { min-height: 50% !important; }
+  .dt-min-h-sm-75 { min-height: 75% !important; }
+  .dt-min-h-sm-100 { min-height: 100% !important; }
+  .dt-max-h-sm-25 { max-height: 25% !important; }
+  .dt-max-h-sm-50 { max-height: 50% !important; }
+  .dt-max-h-sm-75 { max-height: 75% !important; }
+  .dt-max-h-sm-100 { max-height: 100% !important; }
+}
+
+@media (min-width: 1024px) {
+  .dt-display-md-none { display: none !important; }
+  .dt-display-md-block { display: block !important; }
+  .dt-display-md-inline { display: inline !important; }
+  .dt-display-md-inline-block { display: inline-block !important; }
+  .dt-display-md-flex { display: flex !important; }
+  .dt-display-md-inline-flex { display: inline-flex !important; }
+  .dt-display-md-grid { display: grid !important; }
+  .dt-display-md-inline-grid { display: inline-grid !important; }
+  .dt-justify-content-md-normal { justify-content: normal !important; }
+  .dt-justify-content-md-stretch { justify-content: stretch !important; }
+  .dt-justify-content-md-center { justify-content: center !important; }
+  .dt-justify-content-md-start { justify-content: start !important; }
+  .dt-justify-content-md-end { justify-content: end !important; }
+  .dt-justify-content-md-flex-start { justify-content: flex-start !important; }
+  .dt-justify-content-md-flex-end { justify-content: flex-end !important; }
+  .dt-justify-content-md-left { justify-content: left !important; }
+  .dt-justify-content-md-right { justify-content: right !important; }
+  .dt-justify-content-md-space-between { justify-content: space-between !important; }
+  .dt-justify-content-md-space-around { justify-content: space-around !important; }
+  .dt-justify-content-md-space-evenly { justify-content: space-evenly !important; }
+  .dt-align-items-md-normal { align-items: normal !important; }
+  .dt-align-items-md-stretch { align-items: stretch !important; }
+  .dt-align-items-md-center { align-items: center !important; }
+  .dt-align-items-md-start { align-items: start !important; }
+  .dt-align-items-md-end { align-items: end !important; }
+  .dt-align-items-md-flex-start { align-items: flex-start !important; }
+  .dt-align-items-md-flex-end { align-items: flex-end !important; }
+  .dt-overflow-md-auto { overflow: auto !important; }
+  .dt-overflow-md-scroll { overflow: scroll !important; }
+  .dt-overflow-md-visible { overflow: visible !important; }
+  .dt-overflow-md-hidden { overflow: hidden !important; }
+  .dt-w-md-25 { width: 25% !important; }
+  .dt-w-md-50 { width: 50% !important; }
+  .dt-w-md-75 { width: 75% !important; }
+  .dt-w-md-100 { width: 100% !important; }
+  .dt-vw-md-25 { width: 25vw !important; }
+  .dt-vw-md-50 { width: 50vw !important; }
+  .dt-vw-md-75 { width: 75vw !important; }
+  .dt-vw-md-100 { width: 100vw !important; }
+  .dt-w-md-auto { width: auto !important; }
+  .dt-w-md-fit-content { width: fit-content !important; }
+  .dt-w-md-min-content { width: min-content !important; }
+  .dt-w-md-max-content { width: max-content !important; }
+  .dt-w-md-stretch { width: stretch !important; }
+  .dt-min-w-md-25 { min-width: 25% !important; }
+  .dt-min-w-md-50 { min-width: 50% !important; }
+  .dt-min-w-md-75 { min-width: 75% !important; }
+  .dt-min-w-md-100 { min-width: 100% !important; }
+  .dt-max-w-md-25 { max-width: 25% !important; }
+  .dt-max-w-md-50 { max-width: 50% !important; }
+  .dt-max-w-md-75 { max-width: 75% !important; }
+  .dt-max-w-md-100 { max-width: 100% !important; }
+  .dt-h-md-25 { height: 25% !important; }
+  .dt-h-md-50 { height: 50% !important; }
+  .dt-h-md-75 { height: 75% !important; }
+  .dt-h-md-100 { height: 100% !important; }
+  .dt-vh-md-25 { height: 25vh !important; }
+  .dt-vh-md-50 { height: 50vh !important; }
+  .dt-vh-md-75 { height: 75vh !important; }
+  .dt-vh-md-100 { height: 100vh !important; }
+  .dt-h-md-auto { height: auto !important; }
+  .dt-min-h-md-25 { min-height: 25% !important; }
+  .dt-min-h-md-50 { min-height: 50% !important; }
+  .dt-min-h-md-75 { min-height: 75% !important; }
+  .dt-min-h-md-100 { min-height: 100% !important; }
+  .dt-max-h-md-25 { max-height: 25% !important; }
+  .dt-max-h-md-50 { max-height: 50% !important; }
+  .dt-max-h-md-75 { max-height: 75% !important; }
+  .dt-max-h-md-100 { max-height: 100% !important; }
+}
+
+@media (min-width: 1280px) {
+  .dt-display-lg-none { display: none !important; }
+  .dt-display-lg-block { display: block !important; }
+  .dt-display-lg-inline { display: inline !important; }
+  .dt-display-lg-inline-block { display: inline-block !important; }
+  .dt-display-lg-flex { display: flex !important; }
+  .dt-display-lg-inline-flex { display: inline-flex !important; }
+  .dt-display-lg-grid { display: grid !important; }
+  .dt-display-lg-inline-grid { display: inline-grid !important; }
+  .dt-justify-content-lg-normal { justify-content: normal !important; }
+  .dt-justify-content-lg-stretch { justify-content: stretch !important; }
+  .dt-justify-content-lg-center { justify-content: center !important; }
+  .dt-justify-content-lg-start { justify-content: start !important; }
+  .dt-justify-content-lg-end { justify-content: end !important; }
+  .dt-justify-content-lg-flex-start { justify-content: flex-start !important; }
+  .dt-justify-content-lg-flex-end { justify-content: flex-end !important; }
+  .dt-justify-content-lg-left { justify-content: left !important; }
+  .dt-justify-content-lg-right { justify-content: right !important; }
+  .dt-justify-content-lg-space-between { justify-content: space-between !important; }
+  .dt-justify-content-lg-space-around { justify-content: space-around !important; }
+  .dt-justify-content-lg-space-evenly { justify-content: space-evenly !important; }
+  .dt-align-items-lg-normal { align-items: normal !important; }
+  .dt-align-items-lg-stretch { align-items: stretch !important; }
+  .dt-align-items-lg-center { align-items: center !important; }
+  .dt-align-items-lg-start { align-items: start !important; }
+  .dt-align-items-lg-end { align-items: end !important; }
+  .dt-align-items-lg-flex-start { align-items: flex-start !important; }
+  .dt-align-items-lg-flex-end { align-items: flex-end !important; }
+  .dt-overflow-lg-auto { overflow: auto !important; }
+  .dt-overflow-lg-scroll { overflow: scroll !important; }
+  .dt-overflow-lg-visible { overflow: visible !important; }
+  .dt-overflow-lg-hidden { overflow: hidden !important; }
+  .dt-w-lg-25 { width: 25% !important; }
+  .dt-w-lg-50 { width: 50% !important; }
+  .dt-w-lg-75 { width: 75% !important; }
+  .dt-w-lg-100 { width: 100% !important; }
+  .dt-vw-lg-25 { width: 25vw !important; }
+  .dt-vw-lg-50 { width: 50vw !important; }
+  .dt-vw-lg-75 { width: 75vw !important; }
+  .dt-vw-lg-100 { width: 100vw !important; }
+  .dt-w-lg-auto { width: auto !important; }
+  .dt-w-lg-fit-content { width: fit-content !important; }
+  .dt-w-lg-min-content { width: min-content !important; }
+  .dt-w-lg-max-content { width: max-content !important; }
+  .dt-w-lg-stretch { width: stretch !important; }
+  .dt-min-w-lg-25 { min-width: 25% !important; }
+  .dt-min-w-lg-50 { min-width: 50% !important; }
+  .dt-min-w-lg-75 { min-width: 75% !important; }
+  .dt-min-w-lg-100 { min-width: 100% !important; }
+  .dt-max-w-lg-25 { max-width: 25% !important; }
+  .dt-max-w-lg-50 { max-width: 50% !important; }
+  .dt-max-w-lg-75 { max-width: 75% !important; }
+  .dt-max-w-lg-100 { max-width: 100% !important; }
+  .dt-h-lg-25 { height: 25% !important; }
+  .dt-h-lg-50 { height: 50% !important; }
+  .dt-h-lg-75 { height: 75% !important; }
+  .dt-h-lg-100 { height: 100% !important; }
+  .dt-vh-lg-25 { height: 25vh !important; }
+  .dt-vh-lg-50 { height: 50vh !important; }
+  .dt-vh-lg-75 { height: 75vh !important; }
+  .dt-vh-lg-100 { height: 100vh !important; }
+  .dt-h-lg-auto { height: auto !important; }
+  .dt-min-h-lg-25 { min-height: 25% !important; }
+  .dt-min-h-lg-50 { min-height: 50% !important; }
+  .dt-min-h-lg-75 { min-height: 75% !important; }
+  .dt-min-h-lg-100 { min-height: 100% !important; }
+  .dt-max-h-lg-25 { max-height: 25% !important; }
+  .dt-max-h-lg-50 { max-height: 50% !important; }
+  .dt-max-h-lg-75 { max-height: 75% !important; }
+  .dt-max-h-lg-100 { max-height: 100% !important; }
+}
+
+@media (min-width: 1920px) {
+  .dt-display-xl-none { display: none !important; }
+  .dt-display-xl-block { display: block !important; }
+  .dt-display-xl-inline { display: inline !important; }
+  .dt-display-xl-inline-block { display: inline-block !important; }
+  .dt-display-xl-flex { display: flex !important; }
+  .dt-display-xl-inline-flex { display: inline-flex !important; }
+  .dt-display-xl-grid { display: grid !important; }
+  .dt-display-xl-inline-grid { display: inline-grid !important; }
+  .dt-justify-content-xl-normal { justify-content: normal !important; }
+  .dt-justify-content-xl-stretch { justify-content: stretch !important; }
+  .dt-justify-content-xl-center { justify-content: center !important; }
+  .dt-justify-content-xl-start { justify-content: start !important; }
+  .dt-justify-content-xl-end { justify-content: end !important; }
+  .dt-justify-content-xl-flex-start { justify-content: flex-start !important; }
+  .dt-justify-content-xl-flex-end { justify-content: flex-end !important; }
+  .dt-justify-content-xl-left { justify-content: left !important; }
+  .dt-justify-content-xl-right { justify-content: right !important; }
+  .dt-justify-content-xl-space-between { justify-content: space-between !important; }
+  .dt-justify-content-xl-space-around { justify-content: space-around !important; }
+  .dt-justify-content-xl-space-evenly { justify-content: space-evenly !important; }
+  .dt-align-items-xl-normal { align-items: normal !important; }
+  .dt-align-items-xl-stretch { align-items: stretch !important; }
+  .dt-align-items-xl-center { align-items: center !important; }
+  .dt-align-items-xl-start { align-items: start !important; }
+  .dt-align-items-xl-end { align-items: end !important; }
+  .dt-align-items-xl-flex-start { align-items: flex-start !important; }
+  .dt-align-items-xl-flex-end { align-items: flex-end !important; }
+  .dt-overflow-xl-auto { overflow: auto !important; }
+  .dt-overflow-xl-scroll { overflow: scroll !important; }
+  .dt-overflow-xl-visible { overflow: visible !important; }
+  .dt-overflow-xl-hidden { overflow: hidden !important; }
+  .dt-w-xl-25 { width: 25% !important; }
+  .dt-w-xl-50 { width: 50% !important; }
+  .dt-w-xl-75 { width: 75% !important; }
+  .dt-w-xl-100 { width: 100% !important; }
+  .dt-vw-xl-25 { width: 25vw !important; }
+  .dt-vw-xl-50 { width: 50vw !important; }
+  .dt-vw-xl-75 { width: 75vw !important; }
+  .dt-vw-xl-100 { width: 100vw !important; }
+  .dt-w-xl-auto { width: auto !important; }
+  .dt-w-xl-fit-content { width: fit-content !important; }
+  .dt-w-xl-min-content { width: min-content !important; }
+  .dt-w-xl-max-content { width: max-content !important; }
+  .dt-w-xl-stretch { width: stretch !important; }
+  .dt-min-w-xl-25 { min-width: 25% !important; }
+  .dt-min-w-xl-50 { min-width: 50% !important; }
+  .dt-min-w-xl-75 { min-width: 75% !important; }
+  .dt-min-w-xl-100 { min-width: 100% !important; }
+  .dt-max-w-xl-25 { max-width: 25% !important; }
+  .dt-max-w-xl-50 { max-width: 50% !important; }
+  .dt-max-w-xl-75 { max-width: 75% !important; }
+  .dt-max-w-xl-100 { max-width: 100% !important; }
+  .dt-h-xl-25 { height: 25% !important; }
+  .dt-h-xl-50 { height: 50% !important; }
+  .dt-h-xl-75 { height: 75% !important; }
+  .dt-h-xl-100 { height: 100% !important; }
+  .dt-vh-xl-25 { height: 25vh !important; }
+  .dt-vh-xl-50 { height: 50vh !important; }
+  .dt-vh-xl-75 { height: 75vh !important; }
+  .dt-vh-xl-100 { height: 100vh !important; }
+  .dt-h-xl-auto { height: auto !important; }
+  .dt-min-h-xl-25 { min-height: 25% !important; }
+  .dt-min-h-xl-50 { min-height: 50% !important; }
+  .dt-min-h-xl-75 { min-height: 75% !important; }
+  .dt-min-h-xl-100 { min-height: 100% !important; }
+  .dt-max-h-xl-25 { max-height: 25% !important; }
+  .dt-max-h-xl-50 { max-height: 50% !important; }
+  .dt-max-h-xl-75 { max-height: 75% !important; }
+  .dt-max-h-xl-100 { max-height: 100% !important; }
+}
+
+@media (min-width: 2560px) {
+  .dt-display-xx-none { display: none !important; }
+  .dt-display-xx-block { display: block !important; }
+  .dt-display-xx-inline { display: inline !important; }
+  .dt-display-xx-inline-block { display: inline-block !important; }
+  .dt-display-xx-flex { display: flex !important; }
+  .dt-display-xx-inline-flex { display: inline-flex !important; }
+  .dt-display-xx-grid { display: grid !important; }
+  .dt-display-xx-inline-grid { display: inline-grid !important; }
+  .dt-justify-content-xx-normal { justify-content: normal !important; }
+  .dt-justify-content-xx-stretch { justify-content: stretch !important; }
+  .dt-justify-content-xx-center { justify-content: center !important; }
+  .dt-justify-content-xx-start { justify-content: start !important; }
+  .dt-justify-content-xx-end { justify-content: end !important; }
+  .dt-justify-content-xx-flex-start { justify-content: flex-start !important; }
+  .dt-justify-content-xx-flex-end { justify-content: flex-end !important; }
+  .dt-justify-content-xx-left { justify-content: left !important; }
+  .dt-justify-content-xx-right { justify-content: right !important; }
+  .dt-justify-content-xx-space-between { justify-content: space-between !important; }
+  .dt-justify-content-xx-space-around { justify-content: space-around !important; }
+  .dt-justify-content-xx-space-evenly { justify-content: space-evenly !important; }
+  .dt-align-items-xx-normal { align-items: normal !important; }
+  .dt-align-items-xx-stretch { align-items: stretch !important; }
+  .dt-align-items-xx-center { align-items: center !important; }
+  .dt-align-items-xx-start { align-items: start !important; }
+  .dt-align-items-xx-end { align-items: end !important; }
+  .dt-align-items-xx-flex-start { align-items: flex-start !important; }
+  .dt-align-items-xx-flex-end { align-items: flex-end !important; }
+  .dt-overflow-xx-auto { overflow: auto !important; }
+  .dt-overflow-xx-scroll { overflow: scroll !important; }
+  .dt-overflow-xx-visible { overflow: visible !important; }
+  .dt-overflow-xx-hidden { overflow: hidden !important; }
+  .dt-w-xx-25 { width: 25% !important; }
+  .dt-w-xx-50 { width: 50% !important; }
+  .dt-w-xx-75 { width: 75% !important; }
+  .dt-w-xx-100 { width: 100% !important; }
+  .dt-vw-xx-25 { width: 25vw !important; }
+  .dt-vw-xx-50 { width: 50vw !important; }
+  .dt-vw-xx-75 { width: 75vw !important; }
+  .dt-vw-xx-100 { width: 100vw !important; }
+  .dt-w-xx-auto { width: auto !important; }
+  .dt-w-xx-fit-content { width: fit-content !important; }
+  .dt-w-xx-min-content { width: min-content !important; }
+  .dt-w-xx-max-content { width: max-content !important; }
+  .dt-w-xx-stretch { width: stretch !important; }
+  .dt-min-w-xx-25 { min-width: 25% !important; }
+  .dt-min-w-xx-50 { min-width: 50% !important; }
+  .dt-min-w-xx-75 { min-width: 75% !important; }
+  .dt-min-w-xx-100 { min-width: 100% !important; }
+  .dt-max-w-xx-25 { max-width: 25% !important; }
+  .dt-max-w-xx-50 { max-width: 50% !important; }
+  .dt-max-w-xx-75 { max-width: 75% !important; }
+  .dt-max-w-xx-100 { max-width: 100% !important; }
+  .dt-h-xx-25 { height: 25% !important; }
+  .dt-h-xx-50 { height: 50% !important; }
+  .dt-h-xx-75 { height: 75% !important; }
+  .dt-h-xx-100 { height: 100% !important; }
+  .dt-vh-xx-25 { height: 25vh !important; }
+  .dt-vh-xx-50 { height: 50vh !important; }
+  .dt-vh-xx-75 { height: 75vh !important; }
+  .dt-vh-xx-100 { height: 100vh !important; }
+  .dt-h-xx-auto { height: auto !important; }
+  .dt-min-h-xx-25 { min-height: 25% !important; }
+  .dt-min-h-xx-50 { min-height: 50% !important; }
+  .dt-min-h-xx-75 { min-height: 75% !important; }
+  .dt-min-h-xx-100 { min-height: 100% !important; }
+  .dt-max-h-xx-25 { max-height: 25% !important; }
+  .dt-max-h-xx-50 { max-height: 50% !important; }
+  .dt-max-h-xx-75 { max-height: 75% !important; }
+  .dt-max-h-xx-100 { max-height: 100% !important; }
+}
