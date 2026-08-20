@@ -1334,3 +1334,517 @@ describe("numeric", () => {
     expect(input.value).toBe("");
   });
 });
+
+describe("datepicker", () => {
+  const datepickerFixture = (attrs = "", value = "") =>
+    fixture(`
+      <div class="dt-datepicker" data-dt-datepicker ${attrs}>
+        <input type="text" data-dt-datepicker-input value="${value}" />
+        <button type="button" data-dt-datepicker-trigger aria-expanded="false" aria-controls="dp-popup"></button>
+        <button type="button" data-dt-datepicker-clear hidden></button>
+        <div class="dt-datepicker-popup" data-dt-datepicker-popup hidden>
+          <div class="dt-datepicker-header">
+            <button type="button" data-dt-datepicker-prev></button>
+            <div data-dt-datepicker-title></div>
+            <button type="button" data-dt-datepicker-next></button>
+          </div>
+          <div data-dt-datepicker-weekdays></div>
+          <div class="dt-datepicker-grid" data-dt-datepicker-grid></div>
+        </div>
+      </div>`);
+
+  it("renders a 42-cell grid with a roving focus cell and today highlighted", () => {
+    const root = datepickerFixture('data-dt-format="yyyy-MM-dd" data-dt-value="2026-08-20"');
+    root.querySelector("[data-dt-datepicker-trigger]").click();
+    const grid = root.querySelector("[data-dt-datepicker-grid]");
+    expect(grid.children.length).toBe(42);
+    const focused = grid.querySelector('[tabindex="0"]');
+    expect(focused).not.toBeNull();
+    expect(focused.getAttribute("data-dt-date-value")).toBe("2026-08-20");
+    expect(focused.getAttribute("aria-selected")).toBe("true");
+    const today = new Date();
+    const todayISO = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
+    expect(grid.querySelector(`[data-dt-date-value="${todayISO}"]`).classList.contains("dt-datepicker-day--today")).toBe(true);
+  });
+
+  it("opens on trigger click and closes on Escape, refocusing the input", () => {
+    const root = datepickerFixture('data-dt-format="yyyy-MM-dd"', "2026-08-20");
+    const input = root.querySelector("[data-dt-datepicker-input]");
+    const trigger = root.querySelector("[data-dt-datepicker-trigger]");
+    const popup = root.querySelector("[data-dt-datepicker-popup]");
+    trigger.click();
+    expect(popup.hidden).toBe(false);
+    expect(trigger.getAttribute("aria-expanded")).toBe("true");
+    root.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape", bubbles: true, cancelable: true }));
+    expect(popup.hidden).toBe(true);
+    expect(trigger.getAttribute("aria-expanded")).toBe("false");
+    expect(document.activeElement).toBe(input);
+  });
+
+  it("navigates days with arrow keys and selects on Enter", () => {
+    const root = datepickerFixture('data-dt-format="yyyy-MM-dd" data-dt-value="2026-08-20"');
+    const input = root.querySelector("[data-dt-datepicker-input]");
+    const grid = root.querySelector("[data-dt-datepicker-grid]");
+    root.querySelector("[data-dt-datepicker-trigger]").click();
+    grid.querySelector('[tabindex="0"]').dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowLeft", bubbles: true, cancelable: true }));
+    expect(grid.querySelector('[tabindex="0"]').getAttribute("data-dt-date-value")).toBe("2026-08-19");
+    grid.querySelector('[tabindex="0"]').dispatchEvent(new KeyboardEvent("keydown", { key: "Enter", bubbles: true, cancelable: true }));
+    expect(input.value).toBe("2026-08-19");
+  });
+
+  it("navigates months with PageUp/PageDown", () => {
+    const root = datepickerFixture('data-dt-format="yyyy-MM-dd" data-dt-value="2026-08-20"');
+    const grid = root.querySelector("[data-dt-datepicker-grid]");
+    root.querySelector("[data-dt-datepicker-trigger]").click();
+    grid.querySelector('[tabindex="0"]').dispatchEvent(new KeyboardEvent("keydown", { key: "PageUp", bubbles: true, cancelable: true }));
+    expect(root.querySelector("[data-dt-datepicker-title]").textContent).toMatch(/September 2026/);
+    grid.querySelector('[tabindex="0"]').dispatchEvent(new KeyboardEvent("keydown", { key: "PageDown", shiftKey: true, bubbles: true, cancelable: true }));
+    expect(root.querySelector("[data-dt-datepicker-title]").textContent).toMatch(/September 2025/);
+  });
+
+  it("disables cells outside min/max bounds", () => {
+    const root = datepickerFixture('data-dt-format="yyyy-MM-dd" data-dt-min="2026-08-10" data-dt-max="2026-08-20" data-dt-value="2026-08-15"');
+    const grid = root.querySelector("[data-dt-datepicker-grid]");
+    root.querySelector("[data-dt-datepicker-trigger]").click();
+    expect(grid.querySelector('[data-dt-date-value="2026-08-09"]').getAttribute("aria-disabled")).toBe("true");
+    expect(grid.querySelector('[data-dt-date-value="2026-08-21"]').getAttribute("aria-disabled")).toBe("true");
+    expect(grid.querySelector('[data-dt-date-value="2026-08-15"]').hasAttribute("aria-disabled")).toBe(false);
+  });
+
+  it("parses typing on Enter and fires dt:change with the ISO value", () => {
+    const root = datepickerFixture('data-dt-format="yyyy-MM-dd"');
+    const input = root.querySelector("[data-dt-datepicker-input]");
+    let detail = null;
+    root.addEventListener("dt:change", (e) => (detail = e.detail.value));
+    input.value = "2026-12-31";
+    input.dispatchEvent(new KeyboardEvent("keydown", { key: "Enter", bubbles: true, cancelable: true }));
+    expect(detail).toBe("2026-12-31");
+    expect(input.classList.contains("dt-datepicker-input--invalid")).toBe(false);
+  });
+
+  it("fires dt:invalid for unparseable input", () => {
+    const root = datepickerFixture('data-dt-format="yyyy-MM-dd"');
+    const input = root.querySelector("[data-dt-datepicker-input]");
+    let invalid = null;
+    root.addEventListener("dt:invalid", (e) => (invalid = e.detail.value));
+    input.value = "not-a-date";
+    input.dispatchEvent(new KeyboardEvent("keydown", { key: "Enter", bubbles: true, cancelable: true }));
+    expect(invalid).toBe("not-a-date");
+    expect(input.getAttribute("aria-invalid")).toBe("true");
+  });
+
+  it("formats with custom tokens and shows time steppers with OK", () => {
+    const root = fixture(`
+      <div class="dt-datepicker" data-dt-datepicker data-dt-format="dd.MM.yyyy" data-dt-show-time data-dt-value="2026-08-20">
+        <input type="text" data-dt-datepicker-input value="20.08.2026" />
+        <button type="button" data-dt-datepicker-trigger></button>
+        <div class="dt-datepicker-popup" data-dt-datepicker-popup hidden>
+          <div class="dt-datepicker-grid" data-dt-datepicker-grid></div>
+          <div class="dt-datepicker-time" data-dt-datepicker-time hidden>
+            <input type="text" data-dt-datepicker-time-field="hours" />
+            <input type="text" data-dt-datepicker-time-field="minutes" />
+            <input type="text" data-dt-datepicker-time-field="seconds" />
+          </div>
+          <div class="dt-datepicker-footer" data-dt-datepicker-footer hidden>
+            <button type="button" data-dt-datepicker-ok></button>
+          </div>
+        </div>
+      </div>`);
+    const grid = root.querySelector("[data-dt-datepicker-grid]");
+    root.querySelector("[data-dt-datepicker-trigger]").click();
+    grid.querySelector('[data-dt-date-value="2026-08-20"]').dispatchEvent(
+      new KeyboardEvent("keydown", { key: "Enter", bubbles: true, cancelable: true }),
+    );
+    expect(root.querySelector('[data-dt-datepicker-time-field="hours"]').value).toBe("00");
+    const hours = root.querySelector('[data-dt-datepicker-time-field="hours"]');
+    hours.value = "14";
+    hours.dispatchEvent(new Event("change", { bubbles: true }));
+    root.querySelector("[data-dt-datepicker-ok]").click();
+    expect(root.querySelector("[data-dt-datepicker-input]").value).toBe("20.08.2026");
+  });
+
+  it("clears the value and fires dt:change with null", () => {
+    const root = datepickerFixture('data-dt-format="yyyy-MM-dd"', "2026-08-20");
+    const clear = root.querySelector("[data-dt-datepicker-clear]");
+    let detail = "sentinel";
+    root.addEventListener("dt:change", (e) => (detail = e.detail.value));
+    clear.click();
+    expect(detail).toBe(null);
+    expect(root.querySelector("[data-dt-datepicker-input]").value).toBe("");
+  });
+});
+
+describe("timespanpicker", () => {
+  const timespanFixture = (attrs = "", value = "") =>
+    fixture(`
+      <div class="dt-timespanpicker" data-dt-timespanpicker ${attrs}>
+        <input type="text" data-dt-timespanpicker-input value="${value}" />
+        <button type="button" data-dt-timespanpicker-trigger></button>
+        <div class="dt-timespanpicker-popup" data-dt-timespanpicker-popup hidden>
+          <div class="dt-timespanpicker-units">
+            <div class="dt-timespanpicker-unit">
+              <button type="button" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="days" data-dt-timespanpicker-step-dir="1"></button>
+              <input type="text" data-dt-timespanpicker-value data-dt-unit="days" />
+              <button type="button" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="days" data-dt-timespanpicker-step-dir="-1"></button>
+            </div>
+            <div class="dt-timespanpicker-unit">
+              <button type="button" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="hours" data-dt-timespanpicker-step-dir="1"></button>
+              <input type="text" data-dt-timespanpicker-value data-dt-unit="hours" />
+              <button type="button" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="hours" data-dt-timespanpicker-step-dir="-1"></button>
+            </div>
+            <div class="dt-timespanpicker-unit">
+              <button type="button" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="minutes" data-dt-timespanpicker-step-dir="1"></button>
+              <input type="text" data-dt-timespanpicker-value data-dt-unit="minutes" />
+              <button type="button" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="minutes" data-dt-timespanpicker-step-dir="-1"></button>
+            </div>
+            <div class="dt-timespanpicker-unit">
+              <button type="button" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="seconds" data-dt-timespanpicker-step-dir="1"></button>
+              <input type="text" data-dt-timespanpicker-value data-dt-unit="seconds" />
+              <button type="button" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="seconds" data-dt-timespanpicker-step-dir="-1"></button>
+            </div>
+          </div>
+          <div class="dt-timespanpicker-footer" data-dt-timespanpicker-footer>
+            <button type="button" data-dt-timespanpicker-ok></button>
+          </div>
+        </div>
+      </div>`);
+
+  const unit = (root, name) => root.querySelector(`[data-dt-timespanpicker-value][data-dt-unit="${name}"]`);
+
+  it("stages unit edits and commits on OK with the ISO duration", () => {
+    const root = timespanFixture('data-dt-format="d.HH:mm:ss"', "1.02:30:00");
+    const input = root.querySelector("[data-dt-timespanpicker-input]");
+    let detail = null;
+    root.addEventListener("dt:change", (e) => (detail = e.detail.value));
+    root.querySelector("[data-dt-timespanpicker-trigger]").click();
+    expect(unit(root, "days").value).toBe("1");
+    expect(unit(root, "hours").value).toBe("2");
+    expect(unit(root, "minutes").value).toBe("30");
+    unit(root, "minutes").value = "45";
+    root.querySelector("[data-dt-timespanpicker-ok]").click();
+    expect(input.value).toBe("1.02:45:00");
+    expect(detail).toBe("P1DT2H45M");
+  });
+
+  it("reverts staged edits when closed without confirming", () => {
+    const root = timespanFixture('data-dt-format="d.HH:mm:ss"', "1.02:30:00");
+    root.querySelector("[data-dt-timespanpicker-trigger]").click();
+    unit(root, "hours").value = "9";
+    root.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape", bubbles: true, cancelable: true }));
+    expect(root.querySelector("[data-dt-timespanpicker-popup]").hidden).toBe(true);
+    root.querySelector("[data-dt-timespanpicker-trigger]").click();
+    expect(unit(root, "hours").value).toBe("2");
+  });
+
+  it("clamps units to per-unit maxima and min/max bounds", () => {
+    const root = timespanFixture('data-dt-format="d.HH:mm:ss" data-dt-min="PT30M" data-dt-max="PT12H"');
+    root.querySelector("[data-dt-timespanpicker-trigger]").click();
+    const hours = unit(root, "hours");
+    hours.value = "9";
+    hours.dispatchEvent(new Event("change", { bubbles: true }));
+    expect(hours.value).toBe("9");
+    hours.dispatchEvent(new KeyboardEvent("keydown", { key: "Home", bubbles: true, cancelable: true }));
+    expect(hours.value).toBe("0");
+    hours.dispatchEvent(new KeyboardEvent("keydown", { key: "End", bubbles: true, cancelable: true }));
+    expect(hours.value).toBe("12");
+  });
+
+  it("steps units with the chevron buttons", () => {
+    const root = timespanFixture('data-dt-format="d.HH:mm:ss"', "0.00:00:00");
+    root.querySelector("[data-dt-timespanpicker-trigger]").click();
+    root.querySelector('[data-dt-timespanpicker-step][data-dt-timespanpicker-step-unit="seconds"][data-dt-timespanpicker-step-dir="1"]').click();
+    expect(unit(root, "seconds").value).toBe("1");
+  });
+
+  it("parses typed input and fires dt:invalid on garbage", () => {
+    const root = timespanFixture('data-dt-format="HH:mm:ss"');
+    const input = root.querySelector("[data-dt-timespanpicker-input]");
+    let detail = null;
+    root.addEventListener("dt:change", (e) => (detail = e.detail.value));
+    input.value = "12:30:00";
+    input.dispatchEvent(new KeyboardEvent("keydown", { key: "Enter", bubbles: true, cancelable: true }));
+    expect(detail).toBe("PT12H30M");
+    input.value = "99:99:99";
+    input.dispatchEvent(new KeyboardEvent("keydown", { key: "Enter", bubbles: true, cancelable: true }));
+    expect(input.getAttribute("aria-invalid")).toBe("true");
+  });
+
+  it("rounds to data-dt-precision on commit", () => {
+    const root = timespanFixture('data-dt-format="HH:mm:ss" data-dt-precision="minute"');
+    root.querySelector("[data-dt-timespanpicker-trigger]").click();
+    unit(root, "hours").value = "1";
+    unit(root, "minutes").value = "2";
+    unit(root, "seconds").value = "45";
+    root.querySelector("[data-dt-timespanpicker-ok]").click();
+    expect(root.querySelector("[data-dt-timespanpicker-input]").value).toBe("01:03:00");
+  });
+});
+
+describe("colorpicker", () => {
+  const colorpickerFixture = (attrs = "") =>
+    fixture(`
+      <div class="dt-colorpicker" data-dt-colorpicker ${attrs}>
+        <button type="button" class="dt-colorpicker-trigger" data-dt-colorpicker-trigger>
+          <span class="dt-colorpicker-value" data-dt-colorpicker-value></span>
+        </button>
+        <div class="dt-colorpicker-popup" data-dt-colorpicker-popup hidden>
+          <div class="dt-saturation-picker" data-dt-colorpicker-saturation tabindex="0">
+            <span class="dt-saturation-indicator"></span>
+          </div>
+          <div class="dt-hue-picker" data-dt-colorpicker-hue tabindex="0">
+            <span class="dt-hue-indicator"></span>
+          </div>
+          <div class="dt-alpha-picker" data-dt-colorpicker-alpha tabindex="0">
+            <span class="dt-alpha-indicator"></span>
+          </div>
+          <div class="dt-colorpicker-rgba" data-dt-colorpicker-rgba>
+            <input type="text" data-dt-colorpicker-rgba-input data-dt-colorpicker-rgba-channel="hex" />
+            <input type="text" data-dt-colorpicker-rgba-input data-dt-colorpicker-rgba-channel="r" />
+            <input type="text" data-dt-colorpicker-rgba-input data-dt-colorpicker-rgba-channel="g" />
+            <input type="text" data-dt-colorpicker-rgba-input data-dt-colorpicker-rgba-channel="b" />
+            <input type="text" data-dt-colorpicker-rgba-input data-dt-colorpicker-rgba-channel="a" />
+          </div>
+          <div class="dt-colorpicker-palette" data-dt-colorpicker-palette></div>
+          <button type="button" data-dt-colorpicker-ok></button>
+        </div>
+      </div>`);
+
+  const rgbInput = (root, ch) => root.querySelector(`[data-dt-colorpicker-rgba-input][data-dt-colorpicker-rgba-channel="${ch}"]`);
+
+  it("renders the default 22-swatch palette from data-dt-palette", () => {
+    const root = colorpickerFixture('data-dt-value="#ff2800"');
+    window.dtUikit.colorpicker.init(root);
+    const swatches = root.querySelectorAll("[data-dt-colorpicker-swatch]");
+    expect(swatches.length).toBe(22);
+    expect(swatches[0].getAttribute("aria-label")).toBe("#ff2800");
+    expect(swatches[0].style.backgroundColor).toBe("rgb(255, 40, 0)");
+  });
+
+  it("normalizes the initial value to rgb() and commits live without a button", () => {
+    const root = colorpickerFixture('data-dt-value="#ff2800"');
+    window.dtUikit.colorpicker.init(root);
+    let detail = null;
+    root.addEventListener("dt:change", (e) => (detail = e.detail.value));
+    const swatch = root.querySelector('[data-dt-colorpicker-swatch-value="#0433ff"]');
+    swatch.click();
+    expect(detail).toBe("rgb(4, 51, 255)");
+    expect(root.querySelector("[data-dt-colorpicker-value]").style.backgroundColor).toBe("rgb(4, 51, 255)");
+  });
+
+  it("stages edits with the OK button and reverts on Escape", () => {
+    const root = colorpickerFixture('data-dt-value="#ff2800" data-dt-show-button');
+    let detail = "sentinel";
+    root.addEventListener("dt:change", (e) => (detail = e.detail.value));
+    root.querySelector("[data-dt-colorpicker-trigger]").click();
+    const swatch = root.querySelector('[data-dt-colorpicker-swatch-value="#00fdff"]');
+    swatch.click();
+    expect(detail).toBe("sentinel");
+    root.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape", bubbles: true, cancelable: true }));
+    expect(root.querySelector("[data-dt-colorpicker-popup]").hidden).toBe(true);
+    expect(root.querySelector("[data-dt-colorpicker-value]").style.backgroundColor).toBe("rgb(255, 40, 0)");
+  });
+
+  it("commits the staged color on OK", () => {
+    const root = colorpickerFixture('data-dt-value="#ff2800" data-dt-show-button');
+    let detail = null;
+    root.addEventListener("dt:change", (e) => (detail = e.detail.value));
+    root.querySelector("[data-dt-colorpicker-trigger]").click();
+    root.querySelector('[data-dt-colorpicker-swatch-value="#02f900"]').click();
+    root.querySelector("[data-dt-colorpicker-ok]").click();
+    expect(detail).toBe("rgb(2, 249, 0)");
+    expect(root.querySelector("[data-dt-colorpicker-popup]").hidden).toBe(true);
+  });
+
+  it("adjusts hue with arrows and keeps inputs in sync", () => {
+    const root = colorpickerFixture('data-dt-value="#ff2800"');
+    window.dtUikit.colorpicker.init(root);
+    const hue = root.querySelector("[data-dt-colorpicker-hue]");
+    hue.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowUp", bubbles: true, cancelable: true }));
+    expect(rgbInput(root, "hex").value).not.toBe("#ff2800");
+    expect(rgbInput(root, "a").value).toBe("100");
+  });
+
+  it("commits rgba with an alpha channel when alpha < 1", () => {
+    const root = colorpickerFixture('data-dt-value="#ff2800"');
+    window.dtUikit.colorpicker.init(root);
+    let detail = null;
+    root.addEventListener("dt:change", (e) => (detail = e.detail.value));
+    const alpha = root.querySelector("[data-dt-colorpicker-alpha]");
+    alpha.dispatchEvent(new KeyboardEvent("keydown", { key: "Home", bubbles: true, cancelable: true }));
+    alpha.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowUp", bubbles: true, cancelable: true }));
+    expect(detail).toMatch(/^rgba\(255, 40, 0, 0\.\d+\)$/);
+  });
+
+  it("parses a hex typed into the hex field", () => {
+    const root = colorpickerFixture('data-dt-value="#ff2800"');
+    window.dtUikit.colorpicker.init(root);
+    const hex = rgbInput(root, "hex");
+    hex.value = "#0433ff";
+    hex.dispatchEvent(new Event("change", { bubbles: true }));
+    expect(rgbInput(root, "r").value).toBe("4");
+    expect(rgbInput(root, "b").value).toBe("255");
+  });
+});
+
+describe("slider", () => {
+  const sliderFixture = (attrs = "") => {
+    const maxHandle = attrs.includes("data-dt-range")
+      ? `<div class="dt-slider-handle" role="slider" data-dt-slider-handle data-dt-slider-handle-max></div>`
+      : "";
+    return fixture(`
+      <div class="dt-slider" data-dt-slider ${attrs}>
+        <div class="dt-slider-track" data-dt-slider-track>
+          <div class="dt-slider-range" data-dt-slider-range></div>
+          <div class="dt-slider-handle" role="slider" data-dt-slider-handle></div>
+          ${maxHandle}
+        </div>
+      </div>`);
+  };
+
+  it("seeds a single handle from data-dt-value and steps with arrows", () => {
+    const root = sliderFixture('data-dt-min="0" data-dt-max="100" data-dt-step="5" data-dt-value="30"');
+    window.dtUikit.slider.init(root);
+    const [handle] = root.querySelectorAll("[data-dt-slider-handle]");
+    expect(handle.getAttribute("aria-valuenow")).toBe("30");
+    handle.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowRight", bubbles: true, cancelable: true }));
+    expect(handle.getAttribute("aria-valuenow")).toBe("35");
+    handle.dispatchEvent(new KeyboardEvent("keydown", { key: "Home", bubbles: true, cancelable: true }));
+    expect(handle.getAttribute("aria-valuenow")).toBe("0");
+  });
+
+  it("clamps to min/max and fires dt:change with the numeric value", () => {
+    const root = sliderFixture('data-dt-min="10" data-dt-max="50" data-dt-step="5" data-dt-value="40"');
+    window.dtUikit.slider.init(root);
+    const [handle] = root.querySelectorAll("[data-dt-slider-handle]");
+    let detail = null;
+    root.addEventListener("dt:change", (e) => (detail = e.detail.value));
+    handle.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowRight", bubbles: true, cancelable: true }));
+    expect(detail).toBe(45);
+    handle.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowRight", bubbles: true, cancelable: true }));
+    expect(handle.getAttribute("aria-valuenow")).toBe("50");
+    handle.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowLeft", bubbles: true, cancelable: true }));
+    handle.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowLeft", bubbles: true, cancelable: true }));
+    handle.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowLeft", bubbles: true, cancelable: true }));
+    expect(handle.getAttribute("aria-valuenow")).toBe("35");
+    handle.dispatchEvent(new KeyboardEvent("keydown", { key: "Home", bubbles: true, cancelable: true }));
+    expect(handle.getAttribute("aria-valuenow")).toBe("10");
+  });
+
+  it("keeps range handles ordered and reports {min, max}", () => {
+    const root = sliderFixture('data-dt-min="0" data-dt-max="100" data-dt-step="1" data-dt-value-min="80" data-dt-value-max="20" data-dt-range');
+    window.dtUikit.slider.init(root);
+    const [lo, hi] = root.querySelectorAll("[data-dt-slider-handle]");
+    expect(lo.getAttribute("aria-valuenow")).toBe("20");
+    expect(hi.getAttribute("aria-valuenow")).toBe("80");
+    let detail = null;
+    root.addEventListener("dt:change", (e) => (detail = e.detail.value));
+    hi.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowRight", bubbles: true, cancelable: true }));
+    expect(detail).toEqual({ min: 20, max: 81 });
+    lo.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowRight", bubbles: true, cancelable: true }));
+    expect(detail).toEqual({ min: 21, max: 81 });
+  });
+
+  it("positions the fill between the handles", () => {
+    const root = sliderFixture('data-dt-min="0" data-dt-max="100" data-dt-step="1" data-dt-value-min="20" data-dt-value-max="80" data-dt-range');
+    window.dtUikit.slider.init(root);
+    const range = root.querySelector("[data-dt-slider-range]");
+    expect(range.style.left).toBe("calc(20%)");
+    expect(range.style.width).toBe("calc(60%)");
+  });
+
+  it("honors the vertical orientation for positioning", () => {
+    const root = sliderFixture('data-dt-min="0" data-dt-max="100" data-dt-step="1" data-dt-value="70" data-dt-orientation="vertical"');
+    window.dtUikit.slider.init(root);
+    const [handle] = root.querySelectorAll("[data-dt-slider-handle]");
+    const range = root.querySelector("[data-dt-slider-range]");
+    expect(handle.getAttribute("aria-orientation")).toBe("vertical");
+    expect(handle.style.bottom).toBe("calc(70% - 8px)");
+    expect(range.style.height).toBe("calc(70%)");
+  });
+
+  it("ignores interaction when disabled", () => {
+    const root = sliderFixture('data-dt-min="0" data-dt-max="100" data-dt-step="1" data-dt-value="50" data-dt-disabled');
+    window.dtUikit.slider.init(root);
+    const [handle] = root.querySelectorAll("[data-dt-slider-handle]");
+    let fired = 0;
+    root.addEventListener("dt:change", () => fired++);
+    handle.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowRight", bubbles: true, cancelable: true }));
+    expect(handle.getAttribute("aria-valuenow")).toBe("50");
+    expect(fired).toBe(0);
+  });
+});
+
+describe("rating", () => {
+  const ratingFixture = (attrs = "", stars = 5) => {
+    const items = Array.from({ length: stars }, (_, i) => `
+      <button type="button" role="radio" data-dt-rating-item data-dt-rating-value="${i + 1}">
+        <svg class="dt-rating-icon--filled"></svg>
+        <svg class="dt-rating-icon--empty"></svg>
+      </button>`).join("");
+    return fixture(`
+      <div class="dt-rating" data-dt-rating role="radiogroup" ${attrs}>
+        <button type="button" data-dt-rating-clear></button>
+        ${items}
+      </div>`);
+  };
+
+  it("renders the initial value and roving tabindex", () => {
+    const root = ratingFixture('data-dt-stars="5" data-dt-value="3"');
+    window.dtUikit.rating.init(root);
+    const items = root.querySelectorAll("[data-dt-rating-item]");
+    expect(items[0].getAttribute("aria-checked")).toBe("true");
+    expect(items[2].getAttribute("aria-checked")).toBe("true");
+    expect(items[3].getAttribute("aria-checked")).toBe("false");
+    expect(items[2].tabIndex).toBe(0);
+    expect(items[3].tabIndex).toBe(-1);
+    expect(items[2].classList.contains("dt-rating-item--filled")).toBe(true);
+  });
+
+  it("sets the value on star click and fires dt:change", () => {
+    const root = ratingFixture('data-dt-stars="5" data-dt-value="0"');
+    let detail = null;
+    root.addEventListener("dt:change", (e) => (detail = e.detail.value));
+    root.querySelector('[data-dt-rating-value="4"]').click();
+    expect(detail).toBe(4);
+    expect(root.querySelector('[data-dt-rating-value="4"]').getAttribute("aria-checked")).toBe("true");
+  });
+
+  it("clears to 0 with the clear button", () => {
+    const root = ratingFixture('data-dt-stars="5" data-dt-value="3"');
+    let detail = null;
+    root.addEventListener("dt:change", (e) => (detail = e.detail.value));
+    root.querySelector("[data-dt-rating-clear]").click();
+    expect(detail).toBe(0);
+    expect(root.querySelectorAll('[aria-checked="true"]').length).toBe(0);
+    expect(root.querySelector("[data-dt-rating-clear]").tabIndex).toBe(0);
+  });
+
+  it("navigates with arrow keys and moves focus", () => {
+    const root = ratingFixture('data-dt-stars="5" data-dt-value="3"');
+    root.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowRight", bubbles: true, cancelable: true }));
+    expect(document.activeElement.getAttribute("data-dt-rating-value")).toBe("4");
+    root.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowLeft", bubbles: true, cancelable: true }));
+    expect(document.activeElement.getAttribute("data-dt-rating-value")).toBe("3");
+    root.dispatchEvent(new KeyboardEvent("keydown", { key: "End", bubbles: true, cancelable: true }));
+    expect(document.activeElement.getAttribute("data-dt-rating-value")).toBe("5");
+  });
+
+  it("ignores clicks when readonly or disabled", () => {
+    const readonly = ratingFixture('data-dt-stars="5" data-dt-value="2" data-dt-readonly');
+    window.dtUikit.rating.init(readonly);
+    readonly.querySelector('[data-dt-rating-value="5"]').click();
+    expect(readonly.querySelector('[data-dt-rating-value="5"]').getAttribute("aria-checked")).toBe("false");
+    const disabled = ratingFixture('data-dt-stars="5" data-dt-value="2" data-dt-disabled');
+    window.dtUikit.rating.init(disabled);
+    disabled.querySelector('[data-dt-rating-value="5"]').click();
+    expect(disabled.querySelector('[data-dt-rating-value="5"]').getAttribute("aria-checked")).toBe("false");
+  });
+
+  it("rebuilds items when data-dt-stars does not match the markup", () => {
+    const root = ratingFixture('data-dt-stars="3" data-dt-value="2"', 5);
+    window.dtUikit.rating.init(root);
+    expect(root.querySelectorAll("[data-dt-rating-item]").length).toBe(3);
+    expect(root.querySelectorAll('[data-dt-rating-value="3"]').length).toBe(1);
+    expect(root.querySelectorAll('[data-dt-rating-value="5"]').length).toBe(0);
+  });
+});

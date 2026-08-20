@@ -1,0 +1,281 @@
+<!--
+  Timespanpicker — reference markup for server templates.
+  Root: <div class="dt-timespanpicker" data-dt-timespanpicker
+        [data-dt-format="d.HH:mm:ss"] [data-dt-min="PT1H"]
+        [data-dt-max="P10DT12H"] [data-dt-precision="second"]
+        [data-dt-show-days] [data-dt-show-hours] [data-dt-show-minutes]
+        [data-dt-show-seconds] [data-dt-inline]>
+    <input class="dt-timespanpicker-input dt-timespanpicker-input--<size>"
+           type="text" data-dt-timespanpicker-input [value="1.02:30:00"]
+           [aria-label="Duration"]>
+    <button class="dt-timespanpicker-trigger" type="button"
+            data-dt-timespanpicker-trigger aria-haspopup="dialog"
+            aria-expanded="false" aria-controls="<popup-id>"
+            aria-label="Set duration"><svg clock/></button>
+    [<button class="dt-timespanpicker-clear" type="button"
+             data-dt-timespanpicker-clear aria-label="Clear duration"><svg x/></button>]
+    <div class="dt-timespanpicker-popup" id="<popup-id>" role="dialog"
+         aria-label="Set duration" data-dt-timespanpicker-popup hidden>
+      <div class="dt-timespanpicker-units">
+        <div class="dt-timespanpicker-unit" data-dt-unit="days">  (omit per data-dt-show-*)
+          <span class="dt-timespanpicker-unit-label">Days</span>
+          <button type="button" class="dt-timespanpicker-step" data-dt-timespanpicker-step
+                  data-dt-timespanpicker-step-unit="days" data-dt-timespanpicker-step-dir="1"
+                  aria-label="Increase days"><svg chevron-up/></button>
+          <input type="text" inputmode="numeric" class="dt-timespanpicker-value"
+                 data-dt-timespanpicker-value data-dt-unit="days" aria-label="Days" />
+          <button type="button" class="dt-timespanpicker-step" data-dt-timespanpicker-step
+                  data-dt-timespanpicker-step-unit="days" data-dt-timespanpicker-step-dir="-1"
+                  aria-label="Decrease days"><svg chevron-down/></button>
+        </div>
+        ... same for hours / minutes / seconds
+      </div>
+      <div class="dt-timespanpicker-footer" data-dt-timespanpicker-footer>
+        <button type="button" class="dt-timespanpicker-ok" data-dt-timespanpicker-ok>OK</button>
+      </div>
+    </div>
+  </div>
+  Value is staged in the unit fields and committed on OK; closing without
+  confirming (outside click / Escape / Tab) reverts the staged edits.
+  Enter in the input toggles the popup; ArrowUp/Down and Home/End step a
+  focused unit field. Commits fire dt:change (detail.value = ISO 8601
+  duration, e.g. "P1DT2H30M"); failed typing fires dt:invalid.
+  Formatting: "d.HH:mm:ss" (days) or "HH:mm:ss"; data-dt-precision rounds
+  the committed value to day|hour|minute|second.
+-->
+
+<div class="dt-timespanpicker" data-dt-timespanpicker data-dt-format="d.HH:mm:ss" data-dt-precision="second" data-dt-show-days data-dt-show-hours data-dt-show-minutes data-dt-show-seconds>
+  <input class="dt-timespanpicker-input dt-timespanpicker-input--md" type="text" data-dt-timespanpicker-input value="1.02:30:00" aria-label="Duration" />
+  <button class="dt-timespanpicker-trigger" type="button" data-dt-timespanpicker-trigger aria-haspopup="dialog" aria-expanded="false" aria-controls="tsp1-popup" aria-label="Set duration">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>
+  </button>
+  <button class="dt-timespanpicker-clear" type="button" data-dt-timespanpicker-clear aria-label="Clear duration">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6L6 18M6 6l12 12" /></svg>
+  </button>
+  <div class="dt-timespanpicker-popup" id="tsp1-popup" role="dialog" aria-label="Set duration" data-dt-timespanpicker-popup hidden>
+    <div class="dt-timespanpicker-units">
+      <div class="dt-timespanpicker-unit">
+        <span class="dt-timespanpicker-unit-label">Days</span>
+        <button type="button" class="dt-timespanpicker-step" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="days" data-dt-timespanpicker-step-dir="1" aria-label="Increase days">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 15l-6-6-6 6" /></svg>
+        </button>
+        <input type="text" inputmode="numeric" class="dt-timespanpicker-value" data-dt-timespanpicker-value data-dt-unit="days" aria-label="Days" />
+        <button type="button" class="dt-timespanpicker-step" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="days" data-dt-timespanpicker-step-dir="-1" aria-label="Decrease days">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" /></svg>
+        </button>
+      </div>
+      <div class="dt-timespanpicker-unit">
+        <span class="dt-timespanpicker-unit-label">Hours</span>
+        <button type="button" class="dt-timespanpicker-step" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="hours" data-dt-timespanpicker-step-dir="1" aria-label="Increase hours">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 15l-6-6-6 6" /></svg>
+        </button>
+        <input type="text" inputmode="numeric" class="dt-timespanpicker-value" data-dt-timespanpicker-value data-dt-unit="hours" aria-label="Hours" />
+        <button type="button" class="dt-timespanpicker-step" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="hours" data-dt-timespanpicker-step-dir="-1" aria-label="Decrease hours">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" /></svg>
+        </button>
+      </div>
+      <div class="dt-timespanpicker-unit">
+        <span class="dt-timespanpicker-unit-label">Minutes</span>
+        <button type="button" class="dt-timespanpicker-step" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="minutes" data-dt-timespanpicker-step-dir="1" aria-label="Increase minutes">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 15l-6-6-6 6" /></svg>
+        </button>
+        <input type="text" inputmode="numeric" class="dt-timespanpicker-value" data-dt-timespanpicker-value data-dt-unit="minutes" aria-label="Minutes" />
+        <button type="button" class="dt-timespanpicker-step" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="minutes" data-dt-timespanpicker-step-dir="-1" aria-label="Decrease minutes">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" /></svg>
+        </button>
+      </div>
+      <div class="dt-timespanpicker-unit">
+        <span class="dt-timespanpicker-unit-label">Seconds</span>
+        <button type="button" class="dt-timespanpicker-step" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="seconds" data-dt-timespanpicker-step-dir="1" aria-label="Increase seconds">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 15l-6-6-6 6" /></svg>
+        </button>
+        <input type="text" inputmode="numeric" class="dt-timespanpicker-value" data-dt-timespanpicker-value data-dt-unit="seconds" aria-label="Seconds" />
+        <button type="button" class="dt-timespanpicker-step" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="seconds" data-dt-timespanpicker-step-dir="-1" aria-label="Decrease seconds">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" /></svg>
+        </button>
+      </div>
+    </div>
+    <div class="dt-timespanpicker-footer" data-dt-timespanpicker-footer>
+      <button type="button" class="dt-timespanpicker-ok" data-dt-timespanpicker-ok>OK</button>
+    </div>
+  </div>
+</div>
+
+<div class="dt-timespanpicker" data-dt-timespanpicker data-dt-format="HH:mm:ss" data-dt-precision="second" data-dt-show-hours data-dt-show-minutes data-dt-show-seconds data-dt-min="PT30M" data-dt-max="PT12H">
+  <input class="dt-timespanpicker-input dt-timespanpicker-input--md" type="text" data-dt-timespanpicker-input value="02:30:00" aria-label="Session length" />
+  <button class="dt-timespanpicker-trigger" type="button" data-dt-timespanpicker-trigger aria-haspopup="dialog" aria-expanded="false" aria-controls="tsp2-popup" aria-label="Set duration">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>
+  </button>
+  <div class="dt-timespanpicker-popup" id="tsp2-popup" role="dialog" aria-label="Set duration" data-dt-timespanpicker-popup hidden>
+    <div class="dt-timespanpicker-units">
+      <div class="dt-timespanpicker-unit">
+        <span class="dt-timespanpicker-unit-label">Hours</span>
+        <button type="button" class="dt-timespanpicker-step" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="hours" data-dt-timespanpicker-step-dir="1" aria-label="Increase hours">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 15l-6-6-6 6" /></svg>
+        </button>
+        <input type="text" inputmode="numeric" class="dt-timespanpicker-value" data-dt-timespanpicker-value data-dt-unit="hours" aria-label="Hours" />
+        <button type="button" class="dt-timespanpicker-step" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="hours" data-dt-timespanpicker-step-dir="-1" aria-label="Decrease hours">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" /></svg>
+        </button>
+      </div>
+      <div class="dt-timespanpicker-unit">
+        <span class="dt-timespanpicker-unit-label">Minutes</span>
+        <button type="button" class="dt-timespanpicker-step" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="minutes" data-dt-timespanpicker-step-dir="1" aria-label="Increase minutes">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 15l-6-6-6 6" /></svg>
+        </button>
+        <input type="text" inputmode="numeric" class="dt-timespanpicker-value" data-dt-timespanpicker-value data-dt-unit="minutes" aria-label="Minutes" />
+        <button type="button" class="dt-timespanpicker-step" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="minutes" data-dt-timespanpicker-step-dir="-1" aria-label="Decrease minutes">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" /></svg>
+        </button>
+      </div>
+      <div class="dt-timespanpicker-unit">
+        <span class="dt-timespanpicker-unit-label">Seconds</span>
+        <button type="button" class="dt-timespanpicker-step" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="seconds" data-dt-timespanpicker-step-dir="1" aria-label="Increase seconds">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 15l-6-6-6 6" /></svg>
+        </button>
+        <input type="text" inputmode="numeric" class="dt-timespanpicker-value" data-dt-timespanpicker-value data-dt-unit="seconds" aria-label="Seconds" />
+        <button type="button" class="dt-timespanpicker-step" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="seconds" data-dt-timespanpicker-step-dir="-1" aria-label="Decrease seconds">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" /></svg>
+        </button>
+      </div>
+    </div>
+    <div class="dt-timespanpicker-footer" data-dt-timespanpicker-footer>
+      <button type="button" class="dt-timespanpicker-ok" data-dt-timespanpicker-ok>OK</button>
+    </div>
+  </div>
+</div>
+
+<div class="dt-timespanpicker" data-dt-timespanpicker data-dt-format="HH:mm" data-dt-precision="minute" data-dt-show-hours data-dt-show-minutes>
+  <input class="dt-timespanpicker-input dt-timespanpicker-input--sm" type="text" data-dt-timespanpicker-input value="01:15" aria-label="Minutes budget" />
+  <button class="dt-timespanpicker-trigger" type="button" data-dt-timespanpicker-trigger aria-haspopup="dialog" aria-expanded="false" aria-controls="tsp3-popup" aria-label="Set duration">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>
+  </button>
+  <div class="dt-timespanpicker-popup" id="tsp3-popup" role="dialog" aria-label="Set duration" data-dt-timespanpicker-popup hidden>
+    <div class="dt-timespanpicker-units">
+      <div class="dt-timespanpicker-unit">
+        <span class="dt-timespanpicker-unit-label">Hours</span>
+        <button type="button" class="dt-timespanpicker-step" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="hours" data-dt-timespanpicker-step-dir="1" aria-label="Increase hours">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 15l-6-6-6 6" /></svg>
+        </button>
+        <input type="text" inputmode="numeric" class="dt-timespanpicker-value" data-dt-timespanpicker-value data-dt-unit="hours" aria-label="Hours" />
+        <button type="button" class="dt-timespanpicker-step" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="hours" data-dt-timespanpicker-step-dir="-1" aria-label="Decrease hours">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" /></svg>
+        </button>
+      </div>
+      <div class="dt-timespanpicker-unit">
+        <span class="dt-timespanpicker-unit-label">Minutes</span>
+        <button type="button" class="dt-timespanpicker-step" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="minutes" data-dt-timespanpicker-step-dir="1" aria-label="Increase minutes">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 15l-6-6-6 6" /></svg>
+        </button>
+        <input type="text" inputmode="numeric" class="dt-timespanpicker-value" data-dt-timespanpicker-value data-dt-unit="minutes" aria-label="Minutes" />
+        <button type="button" class="dt-timespanpicker-step" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="minutes" data-dt-timespanpicker-step-dir="-1" aria-label="Decrease minutes">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" /></svg>
+        </button>
+      </div>
+    </div>
+    <div class="dt-timespanpicker-footer" data-dt-timespanpicker-footer>
+      <button type="button" class="dt-timespanpicker-ok" data-dt-timespanpicker-ok>OK</button>
+    </div>
+  </div>
+</div>
+
+<div class="dt-timespanpicker" data-dt-timespanpicker data-dt-format="d.HH:mm:ss" data-dt-precision="second" data-dt-show-days data-dt-show-hours data-dt-show-minutes data-dt-show-seconds>
+  <input class="dt-timespanpicker-input dt-timespanpicker-input--md" type="text" data-dt-timespanpicker-input value="2.00:00:00" aria-label="Disabled duration" disabled />
+  <button class="dt-timespanpicker-trigger" type="button" data-dt-timespanpicker-trigger aria-haspopup="dialog" aria-expanded="false" aria-controls="tsp4-popup" aria-label="Set duration" disabled>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>
+  </button>
+  <div class="dt-timespanpicker-popup" id="tsp4-popup" role="dialog" aria-label="Set duration" data-dt-timespanpicker-popup hidden>
+    <div class="dt-timespanpicker-units">
+      <div class="dt-timespanpicker-unit">
+        <span class="dt-timespanpicker-unit-label">Days</span>
+        <button type="button" class="dt-timespanpicker-step" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="days" data-dt-timespanpicker-step-dir="1" aria-label="Increase days">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 15l-6-6-6 6" /></svg>
+        </button>
+        <input type="text" inputmode="numeric" class="dt-timespanpicker-value" data-dt-timespanpicker-value data-dt-unit="days" aria-label="Days" />
+        <button type="button" class="dt-timespanpicker-step" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="days" data-dt-timespanpicker-step-dir="-1" aria-label="Decrease days">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" /></svg>
+        </button>
+      </div>
+      <div class="dt-timespanpicker-unit">
+        <span class="dt-timespanpicker-unit-label">Hours</span>
+        <button type="button" class="dt-timespanpicker-step" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="hours" data-dt-timespanpicker-step-dir="1" aria-label="Increase hours">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 15l-6-6-6 6" /></svg>
+        </button>
+        <input type="text" inputmode="numeric" class="dt-timespanpicker-value" data-dt-timespanpicker-value data-dt-unit="hours" aria-label="Hours" />
+        <button type="button" class="dt-timespanpicker-step" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="hours" data-dt-timespanpicker-step-dir="-1" aria-label="Decrease hours">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" /></svg>
+        </button>
+      </div>
+      <div class="dt-timespanpicker-unit">
+        <span class="dt-timespanpicker-unit-label">Minutes</span>
+        <button type="button" class="dt-timespanpicker-step" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="minutes" data-dt-timespanpicker-step-dir="1" aria-label="Increase minutes">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 15l-6-6-6 6" /></svg>
+        </button>
+        <input type="text" inputmode="numeric" class="dt-timespanpicker-value" data-dt-timespanpicker-value data-dt-unit="minutes" aria-label="Minutes" />
+        <button type="button" class="dt-timespanpicker-step" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="minutes" data-dt-timespanpicker-step-dir="-1" aria-label="Decrease minutes">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" /></svg>
+        </button>
+      </div>
+      <div class="dt-timespanpicker-unit">
+        <span class="dt-timespanpicker-unit-label">Seconds</span>
+        <button type="button" class="dt-timespanpicker-step" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="seconds" data-dt-timespanpicker-step-dir="1" aria-label="Increase seconds">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 15l-6-6-6 6" /></svg>
+        </button>
+        <input type="text" inputmode="numeric" class="dt-timespanpicker-value" data-dt-timespanpicker-value data-dt-unit="seconds" aria-label="Seconds" />
+        <button type="button" class="dt-timespanpicker-step" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="seconds" data-dt-timespanpicker-step-dir="-1" aria-label="Decrease seconds">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" /></svg>
+        </button>
+      </div>
+    </div>
+    <div class="dt-timespanpicker-footer" data-dt-timespanpicker-footer>
+      <button type="button" class="dt-timespanpicker-ok" data-dt-timespanpicker-ok>OK</button>
+    </div>
+  </div>
+</div>
+
+<div class="dt-timespanpicker" data-dt-timespanpicker data-dt-format="d.HH:mm:ss" data-dt-precision="second" data-dt-show-days data-dt-show-hours data-dt-show-minutes data-dt-show-seconds data-dt-inline>
+  <div class="dt-timespanpicker-popup" role="dialog" aria-label="Set duration" data-dt-timespanpicker-popup>
+    <div class="dt-timespanpicker-units">
+      <div class="dt-timespanpicker-unit">
+        <span class="dt-timespanpicker-unit-label">Days</span>
+        <button type="button" class="dt-timespanpicker-step" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="days" data-dt-timespanpicker-step-dir="1" aria-label="Increase days">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 15l-6-6-6 6" /></svg>
+        </button>
+        <input type="text" inputmode="numeric" class="dt-timespanpicker-value" data-dt-timespanpicker-value data-dt-unit="days" aria-label="Days" />
+        <button type="button" class="dt-timespanpicker-step" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="days" data-dt-timespanpicker-step-dir="-1" aria-label="Decrease days">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" /></svg>
+        </button>
+      </div>
+      <div class="dt-timespanpicker-unit">
+        <span class="dt-timespanpicker-unit-label">Hours</span>
+        <button type="button" class="dt-timespanpicker-step" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="hours" data-dt-timespanpicker-step-dir="1" aria-label="Increase hours">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 15l-6-6-6 6" /></svg>
+        </button>
+        <input type="text" inputmode="numeric" class="dt-timespanpicker-value" data-dt-timespanpicker-value data-dt-unit="hours" aria-label="Hours" />
+        <button type="button" class="dt-timespanpicker-step" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="hours" data-dt-timespanpicker-step-dir="-1" aria-label="Decrease hours">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" /></svg>
+        </button>
+      </div>
+      <div class="dt-timespanpicker-unit">
+        <span class="dt-timespanpicker-unit-label">Minutes</span>
+        <button type="button" class="dt-timespanpicker-step" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="minutes" data-dt-timespanpicker-step-dir="1" aria-label="Increase minutes">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 15l-6-6-6 6" /></svg>
+        </button>
+        <input type="text" inputmode="numeric" class="dt-timespanpicker-value" data-dt-timespanpicker-value data-dt-unit="minutes" aria-label="Minutes" />
+        <button type="button" class="dt-timespanpicker-step" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="minutes" data-dt-timespanpicker-step-dir="-1" aria-label="Decrease minutes">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" /></svg>
+        </button>
+      </div>
+      <div class="dt-timespanpicker-unit">
+        <span class="dt-timespanpicker-unit-label">Seconds</span>
+        <button type="button" class="dt-timespanpicker-step" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="seconds" data-dt-timespanpicker-step-dir="1" aria-label="Increase seconds">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 15l-6-6-6 6" /></svg>
+        </button>
+        <input type="text" inputmode="numeric" class="dt-timespanpicker-value" data-dt-timespanpicker-value data-dt-unit="seconds" aria-label="Seconds" />
+        <button type="button" class="dt-timespanpicker-step" data-dt-timespanpicker-step data-dt-timespanpicker-step-unit="seconds" data-dt-timespanpicker-step-dir="-1" aria-label="Decrease seconds">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" /></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

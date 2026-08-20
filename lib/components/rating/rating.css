@@ -1,0 +1,105 @@
+.dt-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--dt-space-05);
+  font-family: var(--dt-font-sans);
+}
+
+.dt-rating-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--dt-space-05);
+  border: none;
+  border-radius: var(--dt-radius-sm);
+  background-color: transparent;
+  color: var(--dt-color-text-muted);
+  cursor: pointer;
+  transition:
+    color var(--dt-transition-fast),
+    transform var(--dt-transition-fast);
+}
+
+.dt-rating-item:hover:not(:disabled):not([aria-disabled="true"]) {
+  color: var(--dt-color-warning);
+  transform: scale(1.12);
+}
+
+.dt-rating-item--filled {
+  color: var(--dt-color-warning);
+}
+
+.dt-rating-item:focus-visible {
+  outline: 2px solid var(--dt-color-outline-primary);
+  outline-offset: 1px;
+}
+
+.dt-rating-item:disabled,
+.dt-rating-item[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.dt-rating-item .dt-rating-icon--filled {
+  display: none;
+}
+
+.dt-rating-item--filled .dt-rating-icon--filled {
+  display: block;
+}
+
+.dt-rating-item--filled .dt-rating-icon--empty {
+  display: none;
+}
+
+.dt-rating-clear {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: var(--dt-space-1);
+  padding: var(--dt-space-05);
+  border: none;
+  border-radius: var(--dt-radius-sm);
+  background-color: transparent;
+  color: var(--dt-color-text-muted);
+  cursor: pointer;
+  transition:
+    color var(--dt-transition-fast),
+    background-color var(--dt-transition-fast);
+}
+
+.dt-rating-clear:hover:not(:disabled):not([aria-disabled="true"]) {
+  color: var(--dt-color-text);
+  background-color: var(--dt-color-surface-hover);
+}
+
+.dt-rating-clear:focus-visible {
+  outline: 2px solid var(--dt-color-outline-primary);
+  outline-offset: 1px;
+}
+
+.dt-rating-clear:disabled,
+.dt-rating-clear[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.dt-rating--readonly .dt-rating-item,
+.dt-rating--readonly .dt-rating-clear {
+  cursor: default;
+}
+
+.dt-rating--readonly .dt-rating-item:hover {
+  transform: none;
+}
+
+.dt-rating--disabled,
+.dt-state-disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.dt-rating--disabled .dt-rating-item,
+.dt-state-disabled .dt-rating-item {
+  cursor: not-allowed;
+}

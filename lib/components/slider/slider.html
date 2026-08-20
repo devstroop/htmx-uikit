@@ -1,0 +1,59 @@
+<!--
+  Slider — reference markup for server templates.
+  Root: <div class="dt-slider [dt-slider--vertical] [dt-slider--disabled]"
+        data-dt-slider [data-dt-min="0"] [data-dt-max="100"]
+        [data-dt-step="1"] [data-dt-orientation="horizontal|vertical"]
+        [data-dt-range] [data-dt-value="40"]
+        [data-dt-value-min="20"] [data-dt-value-max="80"]>
+    <div class="dt-slider-track" data-dt-slider-track>
+      <div class="dt-slider-range" data-dt-slider-range></div>
+      <div class="dt-slider-handle" role="slider" aria-valuemin="0"
+           aria-valuemax="100" aria-valuenow="40"
+           aria-orientation="horizontal" aria-label="Value" tabindex="0"
+           data-dt-slider-handle></div>
+      [<div class="dt-slider-handle" role="slider" aria-valuemin="0"
+           aria-valuemax="100" aria-valuenow="80" tabindex="-1"
+           data-dt-slider-handle data-dt-slider-handle-max></div>]  (range mode)
+    </div>
+  </div>
+  behaviors.js positions the handles and fills the range, snaps to
+  data-dt-step, drives pointer drag (setPointerCapture) and keyboard
+  (Arrows ±step, Home/End, roving tabindex) and dispatches dt:change
+  (detail.value = number, or {min, max} in range mode). No input box.
+-->
+
+<div class="dt-slider" data-dt-slider data-dt-min="0" data-dt-max="100" data-dt-step="1" data-dt-value="40">
+  <div class="dt-slider-track" data-dt-slider-track>
+    <div class="dt-slider-range" data-dt-slider-range></div>
+    <div class="dt-slider-handle" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40" aria-orientation="horizontal" aria-label="Volume" tabindex="0" data-dt-slider-handle></div>
+  </div>
+</div>
+
+<div class="dt-slider" data-dt-slider data-dt-min="10" data-dt-max="50" data-dt-step="5" data-dt-value="25">
+  <div class="dt-slider-track" data-dt-slider-track>
+    <div class="dt-slider-range" data-dt-slider-range></div>
+    <div class="dt-slider-handle" role="slider" aria-valuemin="10" aria-valuemax="50" aria-valuenow="25" aria-orientation="horizontal" aria-label="Temperature" tabindex="0" data-dt-slider-handle></div>
+  </div>
+</div>
+
+<div class="dt-slider" data-dt-slider data-dt-min="0" data-dt-max="100" data-dt-step="1" data-dt-value-min="20" data-dt-value-max="80" data-dt-range>
+  <div class="dt-slider-track" data-dt-slider-track>
+    <div class="dt-slider-range" data-dt-slider-range></div>
+    <div class="dt-slider-handle" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="20" aria-orientation="horizontal" aria-label="Min price" tabindex="0" data-dt-slider-handle></div>
+    <div class="dt-slider-handle" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" aria-orientation="horizontal" aria-label="Max price" tabindex="-1" data-dt-slider-handle data-dt-slider-handle-max></div>
+  </div>
+</div>
+
+<div class="dt-slider dt-slider--vertical" data-dt-slider data-dt-min="0" data-dt-max="100" data-dt-step="1" data-dt-value="70" data-dt-orientation="vertical">
+  <div class="dt-slider-track" data-dt-slider-track>
+    <div class="dt-slider-range" data-dt-slider-range></div>
+    <div class="dt-slider-handle" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70" aria-orientation="vertical" aria-label="Volume" tabindex="0" data-dt-slider-handle></div>
+  </div>
+</div>
+
+<div class="dt-slider dt-slider--disabled" data-dt-slider data-dt-min="0" data-dt-max="100" data-dt-step="1" data-dt-value="35" data-dt-disabled>
+  <div class="dt-slider-track" data-dt-slider-track>
+    <div class="dt-slider-range" data-dt-slider-range></div>
+    <div class="dt-slider-handle" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="35" aria-orientation="horizontal" aria-label="Disabled" tabindex="0" data-dt-slider-handle></div>
+  </div>
+</div>

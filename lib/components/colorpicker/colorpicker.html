@@ -1,0 +1,203 @@
+<!--
+  Colorpicker — reference markup for server templates.
+  Root: <div class="dt-colorpicker" data-dt-colorpicker
+        [data-dt-value="#ff2800"] [data-dt-palette='["#ff2800", ...]']
+        [data-dt-show-saturation] [data-dt-show-rgba] [data-dt-show-palette]
+        [data-dt-show-button] [data-dt-show-arrow] [data-dt-inline]>
+    <button type="button" role="button" class="dt-colorpicker-trigger
+            dt-colorpicker-trigger--<size>" data-dt-colorpicker-trigger
+            aria-haspopup="dialog" aria-expanded="false"
+            aria-controls="<popup-id>" aria-label="Pick a color">
+      <span class="dt-colorpicker-value" data-dt-colorpicker-value></span>
+      [<span class="dt-colorpicker-chevron" data-dt-colorpicker-chevron
+            aria-hidden="true"><svg chevron-down/></span>]
+    </button>
+    <div class="dt-colorpicker-popup" id="<popup-id>" role="dialog"
+         aria-label="Choose color" data-dt-colorpicker-popup hidden>
+      [<div class="dt-saturation-picker" role="slider"
+            aria-roledescription="2D slider" aria-valuemin="0"
+            aria-valuemax="100" aria-valuenow aria-valuetext
+            data-dt-colorpicker-saturation tabindex="0">
+        <span class="dt-saturation-indicator" aria-hidden="true"></span>
+      </div>]
+      [<div class="dt-hue-picker" role="slider" aria-label="Hue"
+            aria-valuemin="0" aria-valuemax="360" aria-valuenow
+            data-dt-colorpicker-hue tabindex="0">
+        <span class="dt-hue-indicator" aria-hidden="true"></span>
+      </div>]
+      [<div class="dt-alpha-picker" role="slider" aria-label="Alpha"
+            aria-valuemin="0" aria-valuemax="100" aria-valuenow
+            data-dt-colorpicker-alpha tabindex="0">
+        <span class="dt-alpha-indicator" aria-hidden="true"></span>
+      </div>]
+      [<div class="dt-colorpicker-rgba" data-dt-colorpicker-rgba>
+        <label class="dt-colorpicker-rgba-field">
+          <span class="dt-colorpicker-rgba-label">Hex</span>
+          <input type="text" class="dt-colorpicker-rgba-input" maxlength="7"
+                 data-dt-colorpicker-rgba-input data-dt-colorpicker-rgba-channel="hex"
+                 aria-label="Hex" />
+        </label>
+        ... R/G/B/A (data-dt-colorpicker-rgba-channel="r|g|b|a")
+      </div>]
+      [<div class="dt-colorpicker-palette" data-dt-colorpicker-palette>
+        <button type="button" role="button" class="dt-colorpicker-swatch"
+                data-dt-colorpicker-swatch data-dt-colorpicker-swatch-value="#ff2800"
+                aria-label="#ff2800" tabindex="0"></button>
+        ... (rendered by behaviors.js from data-dt-palette; default =
+        the Radzen 22-swatch grid)
+      </div>]
+      [<div class="dt-colorpicker-footer" data-dt-colorpicker-footer>
+        <button type="button" class="dt-colorpicker-ok" data-dt-colorpicker-ok>OK</button>
+      </div>]
+    </div>
+  </div>
+  HSV state is staged in the popup; with data-dt-show-button it commits on
+  OK (outside click / Escape revert), otherwise every change commits.
+  Commits fire dt:change (detail.value = normalized "rgb(r, g, b)" or
+  "rgba(r, g, b, a)"). Trigger shows the current color chip.
+  data-dt-show-saturation / -rgba / -palette hide those sections.
+-->
+
+<div class="dt-colorpicker" data-dt-colorpicker data-dt-value="#2563eb" data-dt-show-saturation data-dt-show-rgba data-dt-show-palette data-dt-show-arrow>
+  <button type="button" role="button" class="dt-colorpicker-trigger" data-dt-colorpicker-trigger aria-haspopup="dialog" aria-expanded="false" aria-controls="cp1-popup" aria-label="Pick a color">
+    <span class="dt-colorpicker-value" data-dt-colorpicker-value></span>
+    <span class="dt-colorpicker-chevron" data-dt-colorpicker-chevron aria-hidden="true">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M6 9l6 6 6-6" /></svg>
+    </span>
+  </button>
+  <div class="dt-colorpicker-popup" id="cp1-popup" role="dialog" aria-label="Choose color" data-dt-colorpicker-popup hidden>
+    <div class="dt-saturation-picker" role="slider" aria-roledescription="2D slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="Saturation 0%, value 0%" data-dt-colorpicker-saturation tabindex="0">
+      <span class="dt-saturation-indicator" aria-hidden="true"></span>
+    </div>
+    <div class="dt-hue-picker" role="slider" aria-label="Hue" aria-valuemin="0" aria-valuemax="360" aria-valuenow="0" data-dt-colorpicker-hue tabindex="0">
+      <span class="dt-hue-indicator" aria-hidden="true"></span>
+    </div>
+    <div class="dt-alpha-picker" role="slider" aria-label="Alpha" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" data-dt-colorpicker-alpha tabindex="0">
+      <span class="dt-alpha-indicator" aria-hidden="true"></span>
+    </div>
+    <div class="dt-colorpicker-rgba" data-dt-colorpicker-rgba>
+      <label class="dt-colorpicker-rgba-field">
+        <span class="dt-colorpicker-rgba-label">Hex</span>
+        <input type="text" class="dt-colorpicker-rgba-input" maxlength="7" data-dt-colorpicker-rgba-input data-dt-colorpicker-rgba-channel="hex" aria-label="Hex" />
+      </label>
+      <label class="dt-colorpicker-rgba-field">
+        <span class="dt-colorpicker-rgba-label">R</span>
+        <input type="text" inputmode="numeric" class="dt-colorpicker-rgba-input" maxlength="3" data-dt-colorpicker-rgba-input data-dt-colorpicker-rgba-channel="r" aria-label="Red" />
+      </label>
+      <label class="dt-colorpicker-rgba-field">
+        <span class="dt-colorpicker-rgba-label">G</span>
+        <input type="text" inputmode="numeric" class="dt-colorpicker-rgba-input" maxlength="3" data-dt-colorpicker-rgba-input data-dt-colorpicker-rgba-channel="g" aria-label="Green" />
+      </label>
+      <label class="dt-colorpicker-rgba-field">
+        <span class="dt-colorpicker-rgba-label">B</span>
+        <input type="text" inputmode="numeric" class="dt-colorpicker-rgba-input" maxlength="3" data-dt-colorpicker-rgba-input data-dt-colorpicker-rgba-channel="b" aria-label="Blue" />
+      </label>
+      <label class="dt-colorpicker-rgba-field">
+        <span class="dt-colorpicker-rgba-label">A</span>
+        <input type="text" inputmode="decimal" class="dt-colorpicker-rgba-input" maxlength="4" data-dt-colorpicker-rgba-input data-dt-colorpicker-rgba-channel="a" aria-label="Alpha" />
+      </label>
+    </div>
+    <div class="dt-colorpicker-palette" data-dt-colorpicker-palette></div>
+  </div>
+</div>
+
+<div class="dt-colorpicker" data-dt-colorpicker data-dt-value="rgba(255, 40, 0, 1)" data-dt-show-saturation data-dt-show-rgba data-dt-show-palette data-dt-show-button data-dt-show-arrow>
+  <button type="button" role="button" class="dt-colorpicker-trigger dt-colorpicker-trigger--sm" data-dt-colorpicker-trigger aria-haspopup="dialog" aria-expanded="false" aria-controls="cp2-popup" aria-label="Pick a color">
+    <span class="dt-colorpicker-value" data-dt-colorpicker-value></span>
+    <span class="dt-colorpicker-chevron" data-dt-colorpicker-chevron aria-hidden="true">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M6 9l6 6 6-6" /></svg>
+    </span>
+  </button>
+  <div class="dt-colorpicker-popup" id="cp2-popup" role="dialog" aria-label="Choose color" data-dt-colorpicker-popup hidden>
+    <div class="dt-saturation-picker" role="slider" aria-roledescription="2D slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="Saturation 0%, value 0%" data-dt-colorpicker-saturation tabindex="0">
+      <span class="dt-saturation-indicator" aria-hidden="true"></span>
+    </div>
+    <div class="dt-hue-picker" role="slider" aria-label="Hue" aria-valuemin="0" aria-valuemax="360" aria-valuenow="0" data-dt-colorpicker-hue tabindex="0">
+      <span class="dt-hue-indicator" aria-hidden="true"></span>
+    </div>
+    <div class="dt-alpha-picker" role="slider" aria-label="Alpha" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" data-dt-colorpicker-alpha tabindex="0">
+      <span class="dt-alpha-indicator" aria-hidden="true"></span>
+    </div>
+    <div class="dt-colorpicker-rgba" data-dt-colorpicker-rgba>
+      <label class="dt-colorpicker-rgba-field">
+        <span class="dt-colorpicker-rgba-label">Hex</span>
+        <input type="text" class="dt-colorpicker-rgba-input" maxlength="7" data-dt-colorpicker-rgba-input data-dt-colorpicker-rgba-channel="hex" aria-label="Hex" />
+      </label>
+      <label class="dt-colorpicker-rgba-field">
+        <span class="dt-colorpicker-rgba-label">R</span>
+        <input type="text" inputmode="numeric" class="dt-colorpicker-rgba-input" maxlength="3" data-dt-colorpicker-rgba-input data-dt-colorpicker-rgba-channel="r" aria-label="Red" />
+      </label>
+      <label class="dt-colorpicker-rgba-field">
+        <span class="dt-colorpicker-rgba-label">G</span>
+        <input type="text" inputmode="numeric" class="dt-colorpicker-rgba-input" maxlength="3" data-dt-colorpicker-rgba-input data-dt-colorpicker-rgba-channel="g" aria-label="Green" />
+      </label>
+      <label class="dt-colorpicker-rgba-field">
+        <span class="dt-colorpicker-rgba-label">B</span>
+        <input type="text" inputmode="numeric" class="dt-colorpicker-rgba-input" maxlength="3" data-dt-colorpicker-rgba-input data-dt-colorpicker-rgba-channel="b" aria-label="Blue" />
+      </label>
+      <label class="dt-colorpicker-rgba-field">
+        <span class="dt-colorpicker-rgba-label">A</span>
+        <input type="text" inputmode="decimal" class="dt-colorpicker-rgba-input" maxlength="4" data-dt-colorpicker-rgba-input data-dt-colorpicker-rgba-channel="a" aria-label="Alpha" />
+      </label>
+    </div>
+    <div class="dt-colorpicker-palette" data-dt-colorpicker-palette></div>
+    <div class="dt-colorpicker-footer" data-dt-colorpicker-footer>
+      <button type="button" class="dt-colorpicker-ok" data-dt-colorpicker-ok>OK</button>
+    </div>
+  </div>
+</div>
+
+<div class="dt-colorpicker" data-dt-colorpicker data-dt-value="#0428ff" data-dt-palette='["#ff2800","#fe9300","#fefb00","#02f900","#00fdff","#0433ff","#ff40ff","#942292","#aa7942","#ffffff","#000000","#53d5fd","#73a7fe","#874efe","#d357fe","#ed719e","#ff8c82","#ffa57d","#ffc677","#fff995","#ebf38f","#b1dd8c"]'>
+  <button type="button" role="button" class="dt-colorpicker-trigger" data-dt-colorpicker-trigger aria-haspopup="dialog" aria-expanded="false" aria-controls="cp3-popup" aria-label="Pick a color">
+    <span class="dt-colorpicker-value" data-dt-colorpicker-value></span>
+  </button>
+  <div class="dt-colorpicker-popup" id="cp3-popup" role="dialog" aria-label="Choose color" data-dt-colorpicker-popup hidden>
+    <div class="dt-colorpicker-palette" data-dt-colorpicker-palette></div>
+  </div>
+</div>
+
+<div class="dt-colorpicker" data-dt-colorpicker data-dt-value="#12843c">
+  <button type="button" role="button" class="dt-colorpicker-trigger" data-dt-colorpicker-trigger aria-haspopup="dialog" aria-expanded="false" aria-controls="cp4-popup" aria-label="Pick a color" disabled>
+    <span class="dt-colorpicker-value" data-dt-colorpicker-value></span>
+  </button>
+  <div class="dt-colorpicker-popup" id="cp4-popup" role="dialog" aria-label="Choose color" data-dt-colorpicker-popup hidden>
+    <div class="dt-colorpicker-palette" data-dt-colorpicker-palette></div>
+  </div>
+</div>
+
+<div class="dt-colorpicker" data-dt-colorpicker data-dt-value="#b16105" data-dt-show-saturation data-dt-show-rgba data-dt-show-palette data-dt-show-button data-dt-inline>
+  <div class="dt-colorpicker-popup" role="dialog" aria-label="Choose color" data-dt-colorpicker-popup>
+    <div class="dt-saturation-picker" role="slider" aria-roledescription="2D slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="Saturation 0%, value 0%" data-dt-colorpicker-saturation tabindex="0">
+      <span class="dt-saturation-indicator" aria-hidden="true"></span>
+    </div>
+    <div class="dt-hue-picker" role="slider" aria-label="Hue" aria-valuemin="0" aria-valuemax="360" aria-valuenow="0" data-dt-colorpicker-hue tabindex="0">
+      <span class="dt-hue-indicator" aria-hidden="true"></span>
+    </div>
+    <div class="dt-alpha-picker" role="slider" aria-label="Alpha" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" data-dt-colorpicker-alpha tabindex="0">
+      <span class="dt-alpha-indicator" aria-hidden="true"></span>
+    </div>
+    <div class="dt-colorpicker-rgba" data-dt-colorpicker-rgba>
+      <label class="dt-colorpicker-rgba-field">
+        <span class="dt-colorpicker-rgba-label">Hex</span>
+        <input type="text" class="dt-colorpicker-rgba-input" maxlength="7" data-dt-colorpicker-rgba-input data-dt-colorpicker-rgba-channel="hex" aria-label="Hex" />
+      </label>
+      <label class="dt-colorpicker-rgba-field">
+        <span class="dt-colorpicker-rgba-label">R</span>
+        <input type="text" inputmode="numeric" class="dt-colorpicker-rgba-input" maxlength="3" data-dt-colorpicker-rgba-input data-dt-colorpicker-rgba-channel="r" aria-label="Red" />
+      </label>
+      <label class="dt-colorpicker-rgba-field">
+        <span class="dt-colorpicker-rgba-label">G</span>
+        <input type="text" inputmode="numeric" class="dt-colorpicker-rgba-input" maxlength="3" data-dt-colorpicker-rgba-input data-dt-colorpicker-rgba-channel="g" aria-label="Green" />
+      </label>
+      <label class="dt-colorpicker-rgba-field">
+        <span class="dt-colorpicker-rgba-label">B</span>
+        <input type="text" inputmode="numeric" class="dt-colorpicker-rgba-input" maxlength="3" data-dt-colorpicker-rgba-input data-dt-colorpicker-rgba-channel="b" aria-label="Blue" />
+      </label>
+      <label class="dt-colorpicker-rgba-field">
+        <span class="dt-colorpicker-rgba-label">A</span>
+        <input type="text" inputmode="decimal" class="dt-colorpicker-rgba-input" maxlength="4" data-dt-colorpicker-rgba-input data-dt-colorpicker-rgba-channel="a" aria-label="Alpha" />
+      </label>
+    </div>
+    <div class="dt-colorpicker-palette" data-dt-colorpicker-palette></div>
+  </div>
+</div>

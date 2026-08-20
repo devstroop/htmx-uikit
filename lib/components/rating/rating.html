@@ -1,0 +1,173 @@
+<!--
+  Rating — reference markup for server templates.
+  Root: <div class="dt-rating" data-dt-rating role="radiogroup"
+        aria-label="Rating" aria-readonly="false" [data-dt-stars="5"]
+        [data-dt-value="3"] [data-dt-readonly] [data-dt-disabled]>
+    [<button type="button" class="dt-rating-clear" data-dt-rating-clear
+             aria-label="Clear rating" tabindex="0"><svg ban/></button>]
+    <button type="button" class="dt-rating-item [dt-rating-item--filled]"
+            role="radio" aria-checked="true|false" aria-posinset="1"
+            aria-setsize="5" aria-label="1 star" tabindex="0|-1"
+            data-dt-rating-item data-dt-rating-value="1">
+      <svg class="dt-rating-icon--filled" width="20" height="20"
+           viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
+           focusable="false"><path d="..."/></svg>
+      <svg class="dt-rating-icon--empty" width="20" height="20"
+           viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="2" stroke-linejoin="round" aria-hidden="true"
+           focusable="false"><path d="..."/></svg>
+    </button>
+    ... one per star (data-dt-rating-value 1..N)
+  </div>
+  behaviors.js syncs aria-checked, filled/outline icon visibility and the
+  roving tabindex, sets the value on click or Arrow/Home/End keys and
+  dispatches dt:change (detail.value = integer 0..N). data-dt-readonly
+  and data-dt-disabled disable interaction.
+-->
+
+<div class="dt-rating" data-dt-rating role="radiogroup" aria-label="Rating" aria-readonly="false" data-dt-stars="5" data-dt-value="3">
+  <button type="button" class="dt-rating-clear" data-dt-rating-clear aria-label="Clear rating" tabindex="0">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" /><path d="M5.6 5.6l12.8 12.8" /></svg>
+  </button>
+  <button type="button" class="dt-rating-item dt-rating-item--filled" role="radio" aria-checked="true" aria-posinset="1" aria-setsize="5" aria-label="1 star" tabindex="0" data-dt-rating-item data-dt-rating-value="1">
+    <svg class="dt-rating-icon--filled" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+    <svg class="dt-rating-icon--empty" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+  </button>
+  <button type="button" class="dt-rating-item dt-rating-item--filled" role="radio" aria-checked="true" aria-posinset="2" aria-setsize="5" aria-label="2 stars" tabindex="-1" data-dt-rating-item data-dt-rating-value="2">
+    <svg class="dt-rating-icon--filled" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+    <svg class="dt-rating-icon--empty" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+  </button>
+  <button type="button" class="dt-rating-item dt-rating-item--filled" role="radio" aria-checked="true" aria-posinset="3" aria-setsize="5" aria-label="3 stars" tabindex="-1" data-dt-rating-item data-dt-rating-value="3">
+    <svg class="dt-rating-icon--filled" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+    <svg class="dt-rating-icon--empty" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+  </button>
+  <button type="button" class="dt-rating-item" role="radio" aria-checked="false" aria-posinset="4" aria-setsize="5" aria-label="4 stars" tabindex="-1" data-dt-rating-item data-dt-rating-value="4">
+    <svg class="dt-rating-icon--filled" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+    <svg class="dt-rating-icon--empty" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+  </button>
+  <button type="button" class="dt-rating-item" role="radio" aria-checked="false" aria-posinset="5" aria-setsize="5" aria-label="5 stars" tabindex="-1" data-dt-rating-item data-dt-rating-value="5">
+    <svg class="dt-rating-icon--filled" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+    <svg class="dt-rating-icon--empty" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+  </button>
+</div>
+
+<div class="dt-rating" data-dt-rating role="radiogroup" aria-label="Cleanliness" aria-readonly="false" data-dt-stars="10" data-dt-value="7">
+  <button type="button" class="dt-rating-clear" data-dt-rating-clear aria-label="Clear rating" tabindex="0">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" /><path d="M5.6 5.6l12.8 12.8" /></svg>
+  </button>
+  <button type="button" class="dt-rating-item dt-rating-item--filled" role="radio" aria-checked="true" aria-posinset="1" aria-setsize="10" aria-label="1 star" tabindex="0" data-dt-rating-item data-dt-rating-value="1">
+    <svg class="dt-rating-icon--filled" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+    <svg class="dt-rating-icon--empty" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+  </button>
+  <button type="button" class="dt-rating-item dt-rating-item--filled" role="radio" aria-checked="true" aria-posinset="2" aria-setsize="10" aria-label="2 stars" tabindex="-1" data-dt-rating-item data-dt-rating-value="2">
+    <svg class="dt-rating-icon--filled" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+    <svg class="dt-rating-icon--empty" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+  </button>
+  <button type="button" class="dt-rating-item dt-rating-item--filled" role="radio" aria-checked="true" aria-posinset="3" aria-setsize="10" aria-label="3 stars" tabindex="-1" data-dt-rating-item data-dt-rating-value="3">
+    <svg class="dt-rating-icon--filled" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+    <svg class="dt-rating-icon--empty" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+  </button>
+  <button type="button" class="dt-rating-item dt-rating-item--filled" role="radio" aria-checked="true" aria-posinset="4" aria-setsize="10" aria-label="4 stars" tabindex="-1" data-dt-rating-item data-dt-rating-value="4">
+    <svg class="dt-rating-icon--filled" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+    <svg class="dt-rating-icon--empty" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+  </button>
+  <button type="button" class="dt-rating-item dt-rating-item--filled" role="radio" aria-checked="true" aria-posinset="5" aria-setsize="10" aria-label="5 stars" tabindex="-1" data-dt-rating-item data-dt-rating-value="5">
+    <svg class="dt-rating-icon--filled" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+    <svg class="dt-rating-icon--empty" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+  </button>
+  <button type="button" class="dt-rating-item dt-rating-item--filled" role="radio" aria-checked="true" aria-posinset="6" aria-setsize="10" aria-label="6 stars" tabindex="-1" data-dt-rating-item data-dt-rating-value="6">
+    <svg class="dt-rating-icon--filled" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+    <svg class="dt-rating-icon--empty" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+  </button>
+  <button type="button" class="dt-rating-item dt-rating-item--filled" role="radio" aria-checked="true" aria-posinset="7" aria-setsize="10" aria-label="7 stars" tabindex="-1" data-dt-rating-item data-dt-rating-value="7">
+    <svg class="dt-rating-icon--filled" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+    <svg class="dt-rating-icon--empty" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+  </button>
+  <button type="button" class="dt-rating-item" role="radio" aria-checked="false" aria-posinset="8" aria-setsize="10" aria-label="8 stars" tabindex="-1" data-dt-rating-item data-dt-rating-value="8">
+    <svg class="dt-rating-icon--filled" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+    <svg class="dt-rating-icon--empty" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+  </button>
+  <button type="button" class="dt-rating-item" role="radio" aria-checked="false" aria-posinset="9" aria-setsize="10" aria-label="9 stars" tabindex="-1" data-dt-rating-item data-dt-rating-value="9">
+    <svg class="dt-rating-icon--filled" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+    <svg class="dt-rating-icon--empty" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+  </button>
+  <button type="button" class="dt-rating-item" role="radio" aria-checked="false" aria-posinset="10" aria-setsize="10" aria-label="10 stars" tabindex="-1" data-dt-rating-item data-dt-rating-value="10">
+    <svg class="dt-rating-icon--filled" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+    <svg class="dt-rating-icon--empty" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+  </button>
+</div>
+
+<div class="dt-rating" data-dt-rating role="radiogroup" aria-label="Rating (readonly)" aria-readonly="true" data-dt-stars="5" data-dt-value="4" data-dt-readonly>
+  <button type="button" class="dt-rating-item dt-rating-item--filled" role="radio" aria-checked="true" aria-posinset="1" aria-setsize="5" aria-label="1 star" tabindex="-1" data-dt-rating-item data-dt-rating-value="1">
+    <svg class="dt-rating-icon--filled" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+    <svg class="dt-rating-icon--empty" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+  </button>
+  <button type="button" class="dt-rating-item dt-rating-item--filled" role="radio" aria-checked="true" aria-posinset="2" aria-setsize="5" aria-label="2 stars" tabindex="-1" data-dt-rating-item data-dt-rating-value="2">
+    <svg class="dt-rating-icon--filled" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+    <svg class="dt-rating-icon--empty" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+  </button>
+  <button type="button" class="dt-rating-item dt-rating-item--filled" role="radio" aria-checked="true" aria-posinset="3" aria-setsize="5" aria-label="3 stars" tabindex="-1" data-dt-rating-item data-dt-rating-value="3">
+    <svg class="dt-rating-icon--filled" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+    <svg class="dt-rating-icon--empty" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+  </button>
+  <button type="button" class="dt-rating-item dt-rating-item--filled" role="radio" aria-checked="true" aria-posinset="4" aria-setsize="5" aria-label="4 stars" tabindex="0" data-dt-rating-item data-dt-rating-value="4">
+    <svg class="dt-rating-icon--filled" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+    <svg class="dt-rating-icon--empty" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+  </button>
+  <button type="button" class="dt-rating-item" role="radio" aria-checked="false" aria-posinset="5" aria-setsize="5" aria-label="5 stars" tabindex="-1" data-dt-rating-item data-dt-rating-value="5">
+    <svg class="dt-rating-icon--filled" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+    <svg class="dt-rating-icon--empty" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+  </button>
+</div>
+
+<div class="dt-rating dt-state-disabled" data-dt-rating role="radiogroup" aria-label="Rating (disabled)" aria-readonly="false" data-dt-stars="5" data-dt-value="2" data-dt-disabled>
+  <button type="button" class="dt-rating-clear" data-dt-rating-clear aria-label="Clear rating" tabindex="-1" aria-disabled="true">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" /><path d="M5.6 5.6l12.8 12.8" /></svg>
+  </button>
+  <button type="button" class="dt-rating-item dt-rating-item--filled" role="radio" aria-checked="true" aria-posinset="1" aria-setsize="5" aria-label="1 star" tabindex="-1" aria-disabled="true" data-dt-rating-item data-dt-rating-value="1">
+    <svg class="dt-rating-icon--filled" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+    <svg class="dt-rating-icon--empty" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+  </button>
+  <button type="button" class="dt-rating-item dt-rating-item--filled" role="radio" aria-checked="true" aria-posinset="2" aria-setsize="5" aria-label="2 stars" tabindex="-1" aria-disabled="true" data-dt-rating-item data-dt-rating-value="2">
+    <svg class="dt-rating-icon--filled" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+    <svg class="dt-rating-icon--empty" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+  </button>
+  <button type="button" class="dt-rating-item" role="radio" aria-checked="false" aria-posinset="3" aria-setsize="5" aria-label="3 stars" tabindex="-1" aria-disabled="true" data-dt-rating-item data-dt-rating-value="3">
+    <svg class="dt-rating-icon--filled" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+    <svg class="dt-rating-icon--empty" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+  </button>
+  <button type="button" class="dt-rating-item" role="radio" aria-checked="false" aria-posinset="4" aria-setsize="5" aria-label="4 stars" tabindex="-1" aria-disabled="true" data-dt-rating-item data-dt-rating-value="4">
+    <svg class="dt-rating-icon--filled" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+    <svg class="dt-rating-icon--empty" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+  </button>
+  <button type="button" class="dt-rating-item" role="radio" aria-checked="false" aria-posinset="5" aria-setsize="5" aria-label="5 stars" tabindex="-1" aria-disabled="true" data-dt-rating-item data-dt-rating-value="5">
+    <svg class="dt-rating-icon--filled" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+    <svg class="dt-rating-icon--empty" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+  </button>
+</div>
+
+<div class="dt-rating" data-dt-rating role="radiogroup" aria-label="Rating" aria-readonly="false" data-dt-stars="5" data-dt-value="0">
+  <button type="button" class="dt-rating-clear" data-dt-rating-clear aria-label="Clear rating" tabindex="0">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" /><path d="M5.6 5.6l12.8 12.8" /></svg>
+  </button>
+  <button type="button" class="dt-rating-item" role="radio" aria-checked="false" aria-posinset="1" aria-setsize="5" aria-label="1 star" tabindex="-1" data-dt-rating-item data-dt-rating-value="1">
+    <svg class="dt-rating-icon--filled" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+    <svg class="dt-rating-icon--empty" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+  </button>
+  <button type="button" class="dt-rating-item" role="radio" aria-checked="false" aria-posinset="2" aria-setsize="5" aria-label="2 stars" tabindex="-1" data-dt-rating-item data-dt-rating-value="2">
+    <svg class="dt-rating-icon--filled" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+    <svg class="dt-rating-icon--empty" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+  </button>
+  <button type="button" class="dt-rating-item" role="radio" aria-checked="false" aria-posinset="3" aria-setsize="5" aria-label="3 stars" tabindex="-1" data-dt-rating-item data-dt-rating-value="3">
+    <svg class="dt-rating-icon--filled" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+    <svg class="dt-rating-icon--empty" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+  </button>
+  <button type="button" class="dt-rating-item" role="radio" aria-checked="false" aria-posinset="4" aria-setsize="5" aria-label="4 stars" tabindex="-1" data-dt-rating-item data-dt-rating-value="4">
+    <svg class="dt-rating-icon--filled" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+    <svg class="dt-rating-icon--empty" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+  </button>
+  <button type="button" class="dt-rating-item" role="radio" aria-checked="false" aria-posinset="5" aria-setsize="5" aria-label="5 stars" tabindex="-1" data-dt-rating-item data-dt-rating-value="5">
+    <svg class="dt-rating-icon--filled" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+    <svg class="dt-rating-icon--empty" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.26 6.6.7-4.94 4.5 1.36 6.54L12 16.9l-5.92 3.1 1.36-6.54L2.5 8.96l6.6-.7L12 2z" /></svg>
+  </button>
+</div>

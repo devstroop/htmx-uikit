@@ -1,0 +1,231 @@
+<!--
+  Datepicker — reference markup for server templates.
+  Root: <div class="dt-datepicker" data-dt-datepicker
+        [data-dt-format="yyyy-MM-dd"] [data-dt-min="2020-01-01"]
+        [data-dt-max="2030-12-31"] [data-dt-locale="en-US"]
+        [data-dt-show-time] [data-dt-inline] [data-dt-value="2026-08-20"]>
+    <input class="dt-datepicker-input dt-datepicker-input--<size>"
+           type="text" data-dt-datepicker-input [value="2026-08-20"]
+           [aria-label="Date"]>
+    <button class="dt-datepicker-trigger" type="button"
+            data-dt-datepicker-trigger aria-haspopup="dialog"
+            aria-expanded="false" aria-controls="<popup-id>"
+            aria-label="Open calendar"><svg calendar/></button>
+    [<button class="dt-datepicker-clear" type="button"
+             data-dt-datepicker-clear aria-label="Clear date"><svg x/></button>]
+    <div class="dt-datepicker-popup" id="<popup-id>" role="dialog"
+         aria-label="Choose date" data-dt-datepicker-popup hidden>
+      <div class="dt-datepicker-header">
+        <button class="dt-datepicker-nav" type="button"
+                data-dt-datepicker-prev aria-label="Previous month"><svg chevron-left/></button>
+        <div class="dt-datepicker-title" data-dt-datepicker-title aria-live="polite"></div>
+        <button class="dt-datepicker-nav" type="button"
+                data-dt-datepicker-next aria-label="Next month"><svg chevron-right/></button>
+      </div>
+      <div class="dt-datepicker-weekdays" data-dt-datepicker-weekdays></div>
+      <div class="dt-datepicker-grid" role="grid" data-dt-datepicker-grid></div>
+      [<div class="dt-datepicker-time" data-dt-datepicker-time hidden>
+        <div class="dt-datepicker-time-col">
+          <span class="dt-datepicker-time-label">Hour</span>
+          <button type="button" class="dt-datepicker-time-btn"
+                  data-dt-datepicker-time-step data-dt-datepicker-time-step-field="hours"
+                  data-dt-datepicker-time-step-dir="1" aria-label="Increase hour"><svg chevron-up/></button>
+          <input type="text" inputmode="numeric" class="dt-datepicker-time-input"
+                 data-dt-datepicker-time-field="hours" aria-label="Hour" />
+          <button type="button" class="dt-datepicker-time-btn"
+                  data-dt-datepicker-time-step data-dt-datepicker-time-step-field="hours"
+                  data-dt-datepicker-time-step-dir="-1" aria-label="Decrease hour"><svg chevron-down/></button>
+        </div>
+        ... same for minutes / seconds (data-dt-datepicker-time-field="minutes|seconds")
+        <div class="dt-datepicker-footer" data-dt-datepicker-footer hidden>
+          <button type="button" class="dt-datepicker-ok" data-dt-datepicker-ok>OK</button>
+        </div>
+      </div>]
+    </div>
+  </div>
+  The weekday header and the 6x7 day grid are rendered by behaviors.js on
+  init/open (role=gridcell day cells, roving tabindex, aria-selected,
+  aria-disabled, .dt-datepicker-day--today/--outside/--selected).
+  data-dt-format tokens: yyyy/yy/MM/M/dd/d/HH/H/mm/m/ss/s. With
+  data-dt-show-time the time steppers + OK commit appear. data-dt-inline
+  renders the calendar always visible (no input/trigger). Commits fire
+  dt:change (detail.value = ISO date, "yyyy-MM-dd[THH:mm:ss]"); failed
+  typing fires dt:invalid.
+-->
+
+<div class="dt-datepicker" data-dt-datepicker data-dt-format="yyyy-MM-dd" data-dt-locale="en-US">
+  <input class="dt-datepicker-input dt-datepicker-input--md" type="text" data-dt-datepicker-input value="2026-08-20" aria-label="Date" />
+  <button class="dt-datepicker-trigger" type="button" data-dt-datepicker-trigger aria-haspopup="dialog" aria-expanded="false" aria-controls="dp1-popup" aria-label="Open calendar">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" /></svg>
+  </button>
+  <button class="dt-datepicker-clear" type="button" data-dt-datepicker-clear aria-label="Clear date">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6L6 18M6 6l12 12" /></svg>
+  </button>
+  <div class="dt-datepicker-popup" id="dp1-popup" role="dialog" aria-label="Choose date" data-dt-datepicker-popup hidden>
+    <div class="dt-datepicker-header">
+      <button class="dt-datepicker-nav" type="button" data-dt-datepicker-prev aria-label="Previous month">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 18l-6-6 6-6" /></svg>
+      </button>
+      <div class="dt-datepicker-title" data-dt-datepicker-title aria-live="polite"></div>
+      <button class="dt-datepicker-nav" type="button" data-dt-datepicker-next aria-label="Next month">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 18l6-6-6-6" /></svg>
+      </button>
+    </div>
+    <div class="dt-datepicker-weekdays" data-dt-datepicker-weekdays></div>
+    <div class="dt-datepicker-grid" role="grid" data-dt-datepicker-grid></div>
+  </div>
+</div>
+
+<div class="dt-datepicker" data-dt-datepicker data-dt-format="dd.MM.yyyy" data-dt-min="2026-01-01" data-dt-max="2026-12-31" data-dt-show-time data-dt-locale="de-DE">
+  <input class="dt-datepicker-input dt-datepicker-input--md" type="text" data-dt-datepicker-input value="20.08.2026" aria-label="Termin" />
+  <button class="dt-datepicker-trigger" type="button" data-dt-datepicker-trigger aria-haspopup="dialog" aria-expanded="false" aria-controls="dp2-popup" aria-label="Kalender öffnen">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" /></svg>
+  </button>
+  <button class="dt-datepicker-clear" type="button" data-dt-datepicker-clear aria-label="Datum löschen">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6L6 18M6 6l12 12" /></svg>
+  </button>
+  <div class="dt-datepicker-popup" id="dp2-popup" role="dialog" aria-label="Datum wählen" data-dt-datepicker-popup hidden>
+    <div class="dt-datepicker-header">
+      <button class="dt-datepicker-nav" type="button" data-dt-datepicker-prev aria-label="Vorheriger Monat">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 18l-6-6 6-6" /></svg>
+      </button>
+      <div class="dt-datepicker-title" data-dt-datepicker-title aria-live="polite"></div>
+      <button class="dt-datepicker-nav" type="button" data-dt-datepicker-next aria-label="Nächster Monat">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 18l6-6-6-6" /></svg>
+      </button>
+    </div>
+    <div class="dt-datepicker-weekdays" data-dt-datepicker-weekdays></div>
+    <div class="dt-datepicker-grid" role="grid" data-dt-datepicker-grid></div>
+    <div class="dt-datepicker-time" data-dt-datepicker-time hidden>
+      <div class="dt-datepicker-time-col">
+        <span class="dt-datepicker-time-label">Stunde</span>
+        <button type="button" class="dt-datepicker-time-btn" data-dt-datepicker-time-step data-dt-datepicker-time-step-field="hours" data-dt-datepicker-time-step-dir="1" aria-label="Stunde erhöhen">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 15l-6-6-6 6" /></svg>
+        </button>
+        <input type="text" inputmode="numeric" class="dt-datepicker-time-input" data-dt-datepicker-time-field="hours" aria-label="Stunde" />
+        <button type="button" class="dt-datepicker-time-btn" data-dt-datepicker-time-step data-dt-datepicker-time-step-field="hours" data-dt-datepicker-time-step-dir="-1" aria-label="Stunde verringern">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" /></svg>
+        </button>
+      </div>
+      <div class="dt-datepicker-time-col">
+        <span class="dt-datepicker-time-label">Minute</span>
+        <button type="button" class="dt-datepicker-time-btn" data-dt-datepicker-time-step data-dt-datepicker-time-step-field="minutes" data-dt-datepicker-time-step-dir="1" aria-label="Minute erhöhen">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 15l-6-6-6 6" /></svg>
+        </button>
+        <input type="text" inputmode="numeric" class="dt-datepicker-time-input" data-dt-datepicker-time-field="minutes" aria-label="Minute" />
+        <button type="button" class="dt-datepicker-time-btn" data-dt-datepicker-time-step data-dt-datepicker-time-step-field="minutes" data-dt-datepicker-time-step-dir="-1" aria-label="Minute verringern">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" /></svg>
+        </button>
+      </div>
+      <div class="dt-datepicker-time-col">
+        <span class="dt-datepicker-time-label">Sekunde</span>
+        <button type="button" class="dt-datepicker-time-btn" data-dt-datepicker-time-step data-dt-datepicker-time-step-field="seconds" data-dt-datepicker-time-step-dir="1" aria-label="Sekunde erhöhen">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 15l-6-6-6 6" /></svg>
+        </button>
+        <input type="text" inputmode="numeric" class="dt-datepicker-time-input" data-dt-datepicker-time-field="seconds" aria-label="Sekunde" />
+        <button type="button" class="dt-datepicker-time-btn" data-dt-datepicker-time-step data-dt-datepicker-time-step-field="seconds" data-dt-datepicker-time-step-dir="-1" aria-label="Sekunde verringern">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" /></svg>
+        </button>
+      </div>
+    </div>
+    <div class="dt-datepicker-footer" data-dt-datepicker-footer hidden>
+      <button type="button" class="dt-datepicker-ok" data-dt-datepicker-ok>OK</button>
+    </div>
+  </div>
+</div>
+
+<div class="dt-datepicker" data-dt-datepicker data-dt-format="MM/dd/yyyy">
+  <input class="dt-datepicker-input dt-datepicker-input--sm" type="text" data-dt-datepicker-input value="08/20/2026" aria-label="Compact date" />
+  <button class="dt-datepicker-trigger" type="button" data-dt-datepicker-trigger aria-haspopup="dialog" aria-expanded="false" aria-controls="dp3-popup" aria-label="Open calendar">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" /></svg>
+  </button>
+  <div class="dt-datepicker-popup" id="dp3-popup" role="dialog" aria-label="Choose date" data-dt-datepicker-popup hidden>
+    <div class="dt-datepicker-header">
+      <button class="dt-datepicker-nav" type="button" data-dt-datepicker-prev aria-label="Previous month">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 18l-6-6 6-6" /></svg>
+      </button>
+      <div class="dt-datepicker-title" data-dt-datepicker-title aria-live="polite"></div>
+      <button class="dt-datepicker-nav" type="button" data-dt-datepicker-next aria-label="Next month">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 18l6-6-6-6" /></svg>
+      </button>
+    </div>
+    <div class="dt-datepicker-weekdays" data-dt-datepicker-weekdays></div>
+    <div class="dt-datepicker-grid" role="grid" data-dt-datepicker-grid></div>
+  </div>
+</div>
+
+<div class="dt-datepicker" data-dt-datepicker data-dt-format="yyyy-MM-dd">
+  <input class="dt-datepicker-input dt-datepicker-input--md dt-datepicker-input--invalid" type="text" data-dt-datepicker-input aria-invalid="true" aria-label="Invalid date" placeholder="yyyy-MM-dd" />
+  <button class="dt-datepicker-trigger" type="button" data-dt-datepicker-trigger aria-haspopup="dialog" aria-expanded="false" aria-controls="dp4-popup" aria-label="Open calendar">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" /></svg>
+  </button>
+  <div class="dt-datepicker-popup" id="dp4-popup" role="dialog" aria-label="Choose date" data-dt-datepicker-popup hidden>
+    <div class="dt-datepicker-header">
+      <button class="dt-datepicker-nav" type="button" data-dt-datepicker-prev aria-label="Previous month">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 18l-6-6 6-6" /></svg>
+      </button>
+      <div class="dt-datepicker-title" data-dt-datepicker-title aria-live="polite"></div>
+      <button class="dt-datepicker-nav" type="button" data-dt-datepicker-next aria-label="Next month">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 18l6-6-6-6" /></svg>
+      </button>
+    </div>
+    <div class="dt-datepicker-weekdays" data-dt-datepicker-weekdays></div>
+    <div class="dt-datepicker-grid" role="grid" data-dt-datepicker-grid></div>
+  </div>
+</div>
+
+<div class="dt-datepicker" data-dt-datepicker data-dt-format="yyyy-MM-dd">
+  <input class="dt-datepicker-input dt-datepicker-input--md" type="text" data-dt-datepicker-input value="2026-08-20" aria-label="Disabled date" disabled />
+  <button class="dt-datepicker-trigger" type="button" data-dt-datepicker-trigger aria-haspopup="dialog" aria-expanded="false" aria-controls="dp5-popup" aria-label="Open calendar" disabled>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" /></svg>
+  </button>
+  <div class="dt-datepicker-popup" id="dp5-popup" role="dialog" aria-label="Choose date" data-dt-datepicker-popup hidden>
+    <div class="dt-datepicker-header">
+      <button class="dt-datepicker-nav" type="button" data-dt-datepicker-prev aria-label="Previous month">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 18l-6-6 6-6" /></svg>
+      </button>
+      <div class="dt-datepicker-title" data-dt-datepicker-title aria-live="polite"></div>
+      <button class="dt-datepicker-nav" type="button" data-dt-datepicker-next aria-label="Next month">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 18l6-6-6-6" /></svg>
+      </button>
+    </div>
+    <div class="dt-datepicker-weekdays" data-dt-datepicker-weekdays></div>
+    <div class="dt-datepicker-grid" role="grid" data-dt-datepicker-grid></div>
+  </div>
+</div>
+
+<div class="dt-datepicker" data-dt-datepicker data-dt-format="yyyy-MM-dd">
+  <input class="dt-datepicker-input dt-datepicker-input--lg dt-datepicker-input--readonly" type="text" data-dt-datepicker-input value="2026-08-20" readonly aria-label="Readonly date" />
+  <button class="dt-datepicker-trigger" type="button" data-dt-datepicker-trigger aria-haspopup="dialog" aria-expanded="false" aria-controls="dp6-popup" aria-label="Open calendar">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" /></svg>
+  </button>
+  <div class="dt-datepicker-popup" id="dp6-popup" role="dialog" aria-label="Choose date" data-dt-datepicker-popup hidden>
+    <div class="dt-datepicker-header">
+      <button class="dt-datepicker-nav" type="button" data-dt-datepicker-prev aria-label="Previous month">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 18l-6-6 6-6" /></svg>
+      </button>
+      <div class="dt-datepicker-title" data-dt-datepicker-title aria-live="polite"></div>
+      <button class="dt-datepicker-nav" type="button" data-dt-datepicker-next aria-label="Next month">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 18l6-6-6-6" /></svg>
+      </button>
+    </div>
+    <div class="dt-datepicker-weekdays" data-dt-datepicker-weekdays></div>
+    <div class="dt-datepicker-grid" role="grid" data-dt-datepicker-grid></div>
+  </div>
+</div>
+
+<div class="dt-datepicker" data-dt-datepicker data-dt-format="yyyy-MM-dd" data-dt-inline data-dt-value="2026-08-20">
+  <div class="dt-datepicker-popup" role="dialog" aria-label="Choose date" data-dt-datepicker-popup>
+    <div class="dt-datepicker-header">
+      <button class="dt-datepicker-nav" type="button" data-dt-datepicker-prev aria-label="Previous month">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 18l-6-6 6-6" /></svg>
+      </button>
+      <div class="dt-datepicker-title" data-dt-datepicker-title aria-live="polite"></div>
+      <button class="dt-datepicker-nav" type="button" data-dt-datepicker-next aria-label="Next month">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 18l6-6-6-6" /></svg>
+      </button>
+    </div>
+    <div class="dt-datepicker-weekdays" data-dt-datepicker-weekdays></div>
+    <div class="dt-datepicker-grid" role="grid" data-dt-datepicker-grid></div>
+  </div>
+</div>
