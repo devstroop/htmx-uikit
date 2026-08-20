@@ -1,0 +1,24 @@
+<!--
+  Typography — text presentation primitives (Radzen TextStyle parity).
+  Root: <h1 class="dt-typography dt-typography--display-1">
+  Variants:
+    display-1..6  -> h1..h6   fluid clamp() scale with negative letter-spacing
+    body-1        -> p        0.875rem / 1.429
+    body-2        -> p        0.875rem / 1.5
+    caption       -> span     0.75rem / 1.429 + muted color
+    overline      -> span     uppercase, 0.08em tracking, medium weight
+  No JS, no data-* hooks — pure presentation.
+-->
+
+<h1 class="dt-typography dt-typography--display-1">Display 1</h1>
+<h2 class="dt-typography dt-typography--display-2">Display 2</h2>
+<h3 class="dt-typography dt-typography--display-3">Display 3</h3>
+<h4 class="dt-typography dt-typography--display-4">Display 4</h4>
+<h5 class="dt-typography dt-typography--display-5">Display 5</h5>
+<h6 class="dt-typography dt-typography--display-6">Display 6</h6>
+
+<p class="dt-typography dt-typography--body-1">Body 1 — the default text style.</p>
+<p class="dt-typography dt-typography--body-2">Body 2 — relaxed leading for reading.</p>
+
+<span class="dt-typography dt-typography--caption">Caption — muted metadata</span>
+<span class="dt-typography dt-typography--overline">Overline — section label</span>

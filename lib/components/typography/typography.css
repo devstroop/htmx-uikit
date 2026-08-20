@@ -1,0 +1,57 @@
+.dt-typography {
+  font-family: var(--dt-font-sans);
+}
+
+.dt-typography--display-1 {
+  font-size: var(--dt-font-display-1);
+  letter-spacing: var(--dt-letterspacing-display-1);
+}
+
+.dt-typography--display-2 {
+  font-size: var(--dt-font-display-2);
+  letter-spacing: var(--dt-letterspacing-display-2);
+}
+
+.dt-typography--display-3 {
+  font-size: var(--dt-font-display-3);
+  letter-spacing: var(--dt-letterspacing-display-3);
+}
+
+.dt-typography--display-4 {
+  font-size: var(--dt-font-display-4);
+  letter-spacing: var(--dt-letterspacing-display-4);
+}
+
+.dt-typography--display-5 {
+  font-size: var(--dt-font-display-5);
+  letter-spacing: var(--dt-letterspacing-display-5);
+}
+
+.dt-typography--display-6 {
+  font-size: var(--dt-font-display-6);
+  letter-spacing: var(--dt-letterspacing-display-6);
+}
+
+.dt-typography--body-1 {
+  font-size: var(--dt-font-size-sm);
+  line-height: 1.429;
+}
+
+.dt-typography--body-2 {
+  font-size: var(--dt-font-size-sm);
+  line-height: 1.5;
+}
+
+.dt-typography--caption {
+  font-size: var(--dt-font-size-xs);
+  line-height: 1.429;
+  color: var(--dt-color-text-muted);
+}
+
+.dt-typography--overline {
+  font-size: var(--dt-font-size-xs);
+  line-height: 1.429;
+  font-weight: var(--dt-font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--dt-letterspacing-overline);
+}
