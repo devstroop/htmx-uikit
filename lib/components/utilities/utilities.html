@@ -43,6 +43,30 @@
       <div class="dt-h-25" style="padding: 0.5rem">.dt-h-25</div>
       <div class="dt-max-w-50" style="padding: 0.5rem">.dt-max-w-50</div>
 
+      <h2 class="dt-h2">Spacing (margins / padding)</h2>
+      <p class="dt-text-muted">
+        <code>.dt-m-*</code>/<code>.dt-p-*</code> with sizes <code>0</code>,
+        <code>05</code> (2px), <code>1</code>–<code>12</code> (4px … 48px),
+        plus axis (<code>mx</code>/<code>my</code>/<code>px</code>/<code>py</code>)
+        and side variants (<code>mt mr mb ml ms me</code>,
+        <code>pt pr pb pl ps pe</code>). Margins also accept <code>auto</code>.
+        All scale from the <code>--dt-space-*</code> tier tokens.
+      </p>
+      <div class="dt-display-flex dt-mt-2" style="gap: 1rem; flex-wrap: wrap">
+        <div class="dt-p-1" style="background: #e5e7eb">.dt-p-1 (4px)</div>
+        <div class="dt-p-3" style="background: #e5e7eb">.dt-p-3 (12px)</div>
+        <div class="dt-p-6" style="background: #e5e7eb">.dt-p-6 (24px)</div>
+        <div class="dt-p-12" style="background: #e5e7eb">.dt-p-12 (48px)</div>
+      </div>
+      <div class="dt-display-flex dt-mt-3" style="gap: 0; flex-wrap: wrap">
+        <div style="background: #d1d5db; padding: 0.5rem">A</div>
+        <div style="background: #2563eb; color: white; padding: 0.5rem" class="dt-mx-3">.dt-mx-3 on B</div>
+        <div style="background: #d1d5db; padding: 0.5rem">C</div>
+      </div>
+      <div class="dt-mt-4 dt-mb-2">
+        <div class="dt-mt-auto dt-max-w-50" style="padding: 0.5rem">.dt-mt-auto in a stretched row</div>
+      </div>
+
       <h2 class="dt-h2">Breakpoint variants</h2>
       <div class="dt-display-flex dt-display-md-block dt-w-100 dt-w-md-50" style="padding: 0.5rem">
         block at ≥ 768px, width 100% below / 50% from md

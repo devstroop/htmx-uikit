@@ -86,12 +86,20 @@
   --dt-radius-lg: 12px;
   --dt-radius-full: 9999px;
   /* space */
+  --dt-space-0: 0px;
   --dt-space-1: 4px;
   --dt-space-2: 8px;
   --dt-space-3: 12px;
   --dt-space-4: 16px;
-  --dt-space-5: 24px;
-  --dt-space-6: 32px;
+  --dt-space-5: 20px;
+  --dt-space-6: 24px;
+  --dt-space-7: 28px;
+  --dt-space-8: 32px;
+  --dt-space-9: 36px;
+  --dt-space-10: 40px;
+  --dt-space-11: 44px;
+  --dt-space-12: 48px;
+  --dt-space-05: 2px;
   /* font */
   --dt-font-sans: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --dt-font-size-xs: 12px;
