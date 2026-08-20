@@ -5853,8 +5853,6 @@
   border-radius: var(--dt-radius-sm);
   background-color: transparent;
   color: var(--dt-color-text-muted);
-  font-family: var(--dt-font-sans);
-  font-size: var(--dt-font-size-md);
   cursor: pointer;
   transition:
     color var(--dt-transition-fast),
