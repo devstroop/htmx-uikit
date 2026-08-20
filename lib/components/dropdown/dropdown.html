@@ -1,0 +1,219 @@
+<!--
+  Dropdown — reference markup for server templates.
+  Root: <div class="dt-dropdown dt-dropdown--<size>" data-dt-dropdown>
+  Modifiers:
+    size    --xs | --sm | --md | --lg | --xl   (default: --md)
+    state   --invalid   (danger border + ring; pair with aria-invalid on the trigger)
+    state   --open      (added by the behavior)
+  Trigger: <button type="button" role="combobox" aria-haspopup="listbox"
+        aria-expanded="false" aria-controls="<menu-id>"
+        class="dt-dropdown__trigger" data-dt-dropdown-trigger>
+    Label text (or <span class="dt-dropdown__placeholder"> for the
+    placeholder state) plus <span class="dt-dropdown__chevron">.
+  Menu: <div role="listbox" id="<menu-id>" class="dt-dropdown__menu"
+        aria-activedescendant="<active-option-id>" data-dt-dropdown-menu>
+    Options: <div role="option" id class="dt-dropdown__option"
+        data-dt-dropdown-option data-dt-dropdown-value="<value>"
+        aria-selected="true|false">
+    Headers: <div class="dt-dropdown__header" role="presentation"> (non-selectable)
+  Behavior: [data-dt-dropdown] toggles the popup, drives aria-expanded,
+  aria-activedescendant and the --open/--active/--selected classes,
+  handles Arrow keys/Home/End/Enter/Escape, closes on outside click, and
+  dispatches dt:dropdown-change with detail {value}. Selecting also
+  reflects the label on the trigger.
+-->
+
+<div class="dt-dropdown dt-dropdown--md" data-dt-dropdown>
+  <button
+    type="button"
+    role="combobox"
+    aria-haspopup="listbox"
+    aria-expanded="false"
+    aria-controls="dd1-menu"
+    class="dt-dropdown__trigger"
+    data-dt-dropdown-trigger
+  >
+    <span class="dt-dropdown__placeholder">Pick a color</span>
+    <span class="dt-dropdown__chevron" aria-hidden="true"></span>
+  </button>
+  <div
+    role="listbox"
+    id="dd1-menu"
+    class="dt-dropdown__menu"
+    data-dt-dropdown-menu
+    hidden
+  >
+    <div
+      role="option"
+      id="dd1-option-1"
+      class="dt-dropdown__option"
+      data-dt-dropdown-option
+      data-dt-dropdown-value="red"
+      aria-selected="false"
+    >
+      Red
+    </div>
+    <div
+      role="option"
+      id="dd1-option-2"
+      class="dt-dropdown__option"
+      data-dt-dropdown-option
+      data-dt-dropdown-value="green"
+      aria-selected="false"
+    >
+      Green
+    </div>
+    <div
+      role="option"
+      id="dd1-option-3"
+      class="dt-dropdown__option"
+      data-dt-dropdown-option
+      data-dt-dropdown-value="blue"
+      aria-selected="false"
+    >
+      Blue
+    </div>
+    <div
+      role="option"
+      id="dd1-option-4"
+      class="dt-dropdown__option dt-dropdown__option--disabled"
+      data-dt-dropdown-option
+      data-dt-dropdown-value="grey"
+      aria-selected="false"
+      aria-disabled="true"
+    >
+      Grey (unavailable)
+    </div>
+  </div>
+</div>
+
+<div class="dt-dropdown dt-dropdown--sm" data-dt-dropdown>
+  <button
+    type="button"
+    role="combobox"
+    aria-haspopup="listbox"
+    aria-expanded="false"
+    aria-controls="dd2-menu"
+    class="dt-dropdown__trigger"
+    data-dt-dropdown-trigger
+  >
+    <span class="dt-dropdown__label">Small</span>
+    <span class="dt-dropdown__chevron" aria-hidden="true"></span>
+  </button>
+  <div
+    role="listbox"
+    id="dd2-menu"
+    class="dt-dropdown__menu"
+    data-dt-dropdown-menu
+    hidden
+  >
+    <div class="dt-dropdown__header" role="presentation">Size</div>
+    <div
+      role="option"
+      id="dd2-option-1"
+      class="dt-dropdown__option dt-dropdown__option--selected"
+      data-dt-dropdown-option
+      data-dt-dropdown-value="small"
+      aria-selected="true"
+    >
+      Small
+    </div>
+    <div
+      role="option"
+      id="dd2-option-2"
+      class="dt-dropdown__option"
+      data-dt-dropdown-option
+      data-dt-dropdown-value="medium"
+      aria-selected="false"
+    >
+      Medium
+    </div>
+    <div
+      role="option"
+      id="dd2-option-3"
+      class="dt-dropdown__option"
+      data-dt-dropdown-option
+      data-dt-dropdown-value="large"
+      aria-selected="false"
+    >
+      Large
+    </div>
+  </div>
+</div>
+
+<div class="dt-dropdown dt-dropdown--md dt-dropdown--invalid" data-dt-dropdown>
+  <button
+    type="button"
+    role="combobox"
+    aria-haspopup="listbox"
+    aria-expanded="false"
+    aria-controls="dd3-menu"
+    aria-invalid="true"
+    class="dt-dropdown__trigger"
+    data-dt-dropdown-trigger
+  >
+    <span class="dt-dropdown__placeholder">Choose a size</span>
+    <span class="dt-dropdown__chevron" aria-hidden="true"></span>
+  </button>
+  <div
+    role="listbox"
+    id="dd3-menu"
+    class="dt-dropdown__menu"
+    data-dt-dropdown-menu
+    hidden
+  >
+    <div
+      role="option"
+      id="dd3-option-1"
+      class="dt-dropdown__option"
+      data-dt-dropdown-option
+      data-dt-dropdown-value="s"
+      aria-selected="false"
+    >
+      S
+    </div>
+    <div
+      role="option"
+      id="dd3-option-2"
+      class="dt-dropdown__option"
+      data-dt-dropdown-option
+      data-dt-dropdown-value="m"
+      aria-selected="false"
+    >
+      M
+    </div>
+    <div
+      role="option"
+      id="dd3-option-3"
+      class="dt-dropdown__option"
+      data-dt-dropdown-option
+      data-dt-dropdown-value="l"
+      aria-selected="false"
+    >
+      L
+    </div>
+  </div>
+</div>
+
+<div class="dt-dropdown dt-dropdown--md" data-dt-dropdown>
+  <button
+    type="button"
+    role="combobox"
+    aria-haspopup="listbox"
+    aria-expanded="false"
+    aria-controls="dd4-menu"
+    class="dt-dropdown__trigger"
+    data-dt-dropdown-trigger
+    disabled
+  >
+    <span class="dt-dropdown__placeholder">Disabled</span>
+    <span class="dt-dropdown__chevron" aria-hidden="true"></span>
+  </button>
+  <div
+    role="listbox"
+    id="dd4-menu"
+    class="dt-dropdown__menu"
+    data-dt-dropdown-menu
+    hidden
+  ></div>
+</div>

@@ -1,0 +1,61 @@
+.dt-togglebutton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--dt-space-2);
+  border: 1px solid var(--dt-color-border-strong);
+  border-radius: var(--dt-radius-md);
+  background-color: var(--dt-color-surface);
+  color: var(--dt-color-text);
+  font-family: var(--dt-font-sans);
+  font-weight: var(--dt-font-weight-medium);
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background-color var(--dt-transition-fast),
+    border-color var(--dt-transition-fast),
+    color var(--dt-transition-fast);
+}
+
+.dt-togglebutton:hover:not(:disabled) {
+  background-color: var(--dt-color-surface-hover);
+}
+
+.dt-togglebutton:focus-visible {
+  outline: 2px solid var(--dt-color-outline-primary);
+  outline-offset: 2px;
+}
+
+.dt-togglebutton--pressed,
+.dt-togglebutton--pressed:hover:not(:disabled) {
+  background-color: var(--dt-color-primary);
+  border-color: var(--dt-color-primary);
+  color: var(--dt-color-primary-fg);
+}
+
+.dt-togglebutton:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.dt-togglebutton--sm {
+  height: var(--dt-control-height-sm);
+  padding: 0 12px;
+  font-size: var(--dt-font-size-xs);
+}
+
+.dt-togglebutton--md {
+  height: var(--dt-control-height-md);
+  padding: 0 16px;
+  font-size: var(--dt-font-size-sm);
+}
+
+.dt-togglebutton--lg {
+  height: var(--dt-control-height-lg);
+  padding: 0 20px;
+  font-size: var(--dt-font-size-md);
+}
+
+.dt-togglebutton--full-width {
+  width: 100%;
+}

@@ -1,0 +1,92 @@
+.dt-checkboxlist {
+  border: none;
+  margin: 0;
+  padding: 0;
+  font-family: var(--dt-font-sans);
+}
+
+.dt-checkboxlist__legend {
+  padding: 0;
+  margin: 0 0 var(--dt-space-2);
+  font-size: var(--dt-font-size-sm);
+  font-weight: var(--dt-font-weight-medium);
+  color: var(--dt-color-text);
+}
+
+.dt-checkboxlist__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--dt-space-2);
+}
+
+.dt-checkboxlist__item {
+  display: flex;
+  align-items: center;
+  font-size: var(--dt-font-size-sm);
+  color: var(--dt-color-text);
+}
+
+.dt-checkboxlist__item--disabled {
+  color: var(--dt-color-text-muted);
+  cursor: not-allowed;
+}
+
+.dt-checkboxlist__label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--dt-space-2);
+  cursor: pointer;
+}
+
+.dt-checkboxlist__item--disabled .dt-checkboxlist__label {
+  cursor: not-allowed;
+}
+
+.dt-checkboxlist__checkbox {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  flex-shrink: 0;
+  border: 1px solid var(--dt-color-border-strong);
+  border-radius: var(--dt-radius-sm);
+  background-color: var(--dt-color-surface);
+  cursor: pointer;
+  display: inline-grid;
+  place-content: center;
+  transition:
+    background-color var(--dt-transition-fast),
+    border-color var(--dt-transition-fast);
+}
+
+.dt-checkboxlist__checkbox::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  transform: scale(0);
+  transition: transform var(--dt-transition-fast);
+  background-color: var(--dt-color-primary-fg);
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+.dt-checkboxlist__checkbox:checked {
+  background-color: var(--dt-color-primary);
+  border-color: var(--dt-color-primary);
+}
+
+.dt-checkboxlist__checkbox:checked::before {
+  transform: scale(1);
+}
+
+.dt-checkboxlist__checkbox:focus-visible {
+  outline: 2px solid var(--dt-color-outline-primary);
+  outline-offset: 2px;
+}
+
+.dt-checkboxlist__checkbox:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}

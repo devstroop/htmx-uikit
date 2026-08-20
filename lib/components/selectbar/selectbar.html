@@ -1,0 +1,48 @@
+<!--
+  Selectbar — reference markup for server templates.
+  Root: <div role="group" class="dt-selectbar dt-selectbar--<size>" data-dt-selectbar
+        aria-label="...">
+  Modifiers:
+    size    --sm | --md | --lg     (default: --md)
+  Options: <button type="button" class="dt-selectbar__option" aria-pressed="true|false"
+        data-dt-selectbar-option data-dt-selectbar-value="<value>">
+  Behavior: clicking an option presses it and unpresses the others, then
+  dispatches dt:selectbar-change on the group with detail {value}.
+  Single-select; for multi-select use dt-togglebutton buttons.
+-->
+
+<div role="group" class="dt-selectbar dt-selectbar--md" aria-label="Alignment" data-dt-selectbar>
+  <button type="button" class="dt-selectbar__option dt-selectbar__option--selected" aria-pressed="true" data-dt-selectbar-option data-dt-selectbar-value="left">
+    Left
+  </button>
+  <button type="button" class="dt-selectbar__option" aria-pressed="false" data-dt-selectbar-option data-dt-selectbar-value="center">
+    Center
+  </button>
+  <button type="button" class="dt-selectbar__option" aria-pressed="false" data-dt-selectbar-option data-dt-selectbar-value="right">
+    Right
+  </button>
+</div>
+
+<div role="group" class="dt-selectbar dt-selectbar--sm" aria-label="Zoom" data-dt-selectbar>
+  <button type="button" class="dt-selectbar__option dt-selectbar__option--selected" aria-pressed="true" data-dt-selectbar-option data-dt-selectbar-value="50">
+    50%
+  </button>
+  <button type="button" class="dt-selectbar__option" aria-pressed="false" data-dt-selectbar-option data-dt-selectbar-value="100">
+    100%
+  </button>
+  <button type="button" class="dt-selectbar__option" aria-pressed="false" data-dt-selectbar-option data-dt-selectbar-value="200">
+    200%
+  </button>
+</div>
+
+<div role="group" class="dt-selectbar dt-selectbar--lg" aria-label="Density" data-dt-selectbar>
+  <button type="button" class="dt-selectbar__option dt-selectbar__option--selected" aria-pressed="true" data-dt-selectbar-option data-dt-selectbar-value="compact">
+    Compact
+  </button>
+  <button type="button" class="dt-selectbar__option" aria-pressed="false" data-dt-selectbar-option data-dt-selectbar-value="comfortable" disabled>
+    Comfortable
+  </button>
+  <button type="button" class="dt-selectbar__option" aria-pressed="false" data-dt-selectbar-option data-dt-selectbar-value="spacious">
+    Spacious
+  </button>
+</div>

@@ -1,0 +1,107 @@
+<!--
+  Listbox — reference markup for server templates.
+  Root: <div role="listbox" tabindex="0" class="dt-listbox" aria-label="..."
+        aria-activedescendant="<option-id>" data-dt-listbox>
+  Modifiers:
+    mode    data-dt-listbox-multiple   (multi-select; omit for single)
+  Options: <div role="option" id="..." class="dt-listbox__option"
+        data-dt-listbox-option data-dt-listbox-value="<value>"
+        aria-selected="true|false">
+  Behavior: [data-dt-listbox] handles Arrow keys, Home/End, Space to
+  toggle, Enter to commit, and type-ahead. The active option follows
+  aria-activedescendant. On change it dispatches dt:listbox-change with
+  detail {value} (single) or {values} (multiple). The --selected and
+  --active modifiers track aria-selected and the active option.
+-->
+
+<div
+  role="listbox"
+  tabindex="0"
+  class="dt-listbox"
+  aria-label="Destination"
+  aria-activedescendant="lb1-option-1"
+  data-dt-listbox
+>
+  <div
+    role="option"
+    id="lb1-option-1"
+    class="dt-listbox__option dt-listbox__option--selected"
+    data-dt-listbox-option
+    data-dt-listbox-value="red"
+    aria-selected="true"
+  >
+    Red
+  </div>
+  <div
+    role="option"
+    id="lb1-option-2"
+    class="dt-listbox__option"
+    data-dt-listbox-option
+    data-dt-listbox-value="green"
+    aria-selected="false"
+  >
+    Green
+  </div>
+  <div
+    role="option"
+    id="lb1-option-3"
+    class="dt-listbox__option"
+    data-dt-listbox-option
+    data-dt-listbox-value="blue"
+    aria-selected="false"
+  >
+    Blue
+  </div>
+  <div
+    role="option"
+    id="lb1-option-4"
+    class="dt-listbox__option dt-listbox__option--disabled"
+    data-dt-listbox-option
+    data-dt-listbox-value="grey"
+    aria-selected="false"
+    aria-disabled="true"
+  >
+    Grey (unavailable)
+  </div>
+</div>
+
+<div
+  role="listbox"
+  tabindex="0"
+  class="dt-listbox"
+  aria-label="Languages (multiple)"
+  aria-activedescendant="lb2-option-1"
+  data-dt-listbox
+  data-dt-listbox-multiple
+>
+  <div
+    role="option"
+    id="lb2-option-1"
+    class="dt-listbox__option dt-listbox__option--selected"
+    data-dt-listbox-option
+    data-dt-listbox-value="en"
+    aria-selected="true"
+  >
+    English
+  </div>
+  <div
+    role="option"
+    id="lb2-option-2"
+    class="dt-listbox__option"
+    data-dt-listbox-option
+    data-dt-listbox-value="es"
+    aria-selected="false"
+  >
+    Spanish
+  </div>
+  <div
+    role="option"
+    id="lb2-option-3"
+    class="dt-listbox__option dt-listbox__option--selected"
+    data-dt-listbox-option
+    data-dt-listbox-value="fr"
+    aria-selected="true"
+  >
+    French
+  </div>
+</div>

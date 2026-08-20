@@ -1,0 +1,92 @@
+.dt-radiobuttonlist {
+  border: none;
+  margin: 0;
+  padding: 0;
+  font-family: var(--dt-font-sans);
+}
+
+.dt-radiobuttonlist__legend {
+  padding: 0;
+  margin: 0 0 var(--dt-space-2);
+  font-size: var(--dt-font-size-sm);
+  font-weight: var(--dt-font-weight-medium);
+  color: var(--dt-color-text);
+}
+
+.dt-radiobuttonlist__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--dt-space-2);
+}
+
+.dt-radiobuttonlist__item {
+  display: flex;
+  align-items: center;
+  font-size: var(--dt-font-size-sm);
+  color: var(--dt-color-text);
+}
+
+.dt-radiobuttonlist__item--disabled {
+  color: var(--dt-color-text-muted);
+  cursor: not-allowed;
+}
+
+.dt-radiobuttonlist__label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--dt-space-2);
+  cursor: pointer;
+}
+
+.dt-radiobuttonlist__item--disabled .dt-radiobuttonlist__label {
+  cursor: not-allowed;
+}
+
+.dt-radiobuttonlist__radio {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  flex-shrink: 0;
+  border: 1px solid var(--dt-color-border-strong);
+  border-radius: var(--dt-radius-full);
+  background-color: var(--dt-color-surface);
+  cursor: pointer;
+  display: inline-grid;
+  place-content: center;
+  transition:
+    background-color var(--dt-transition-fast),
+    border-color var(--dt-transition-fast);
+}
+
+.dt-radiobuttonlist__radio::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: var(--dt-radius-full);
+  transform: scale(0);
+  transition: transform var(--dt-transition-fast);
+  background-color: var(--dt-color-primary-fg);
+}
+
+.dt-radiobuttonlist__radio:checked {
+  background-color: var(--dt-color-primary);
+  border-color: var(--dt-color-primary);
+}
+
+.dt-radiobuttonlist__radio:checked::before {
+  transform: scale(1);
+}
+
+.dt-radiobuttonlist__radio:focus-visible {
+  outline: 2px solid var(--dt-color-outline-primary);
+  outline-offset: 2px;
+}
+
+.dt-radiobuttonlist__radio:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}

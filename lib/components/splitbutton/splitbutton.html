@@ -1,0 +1,128 @@
+<!--
+  Splitbutton — reference markup for server templates.
+  Root: <div class="dt-splitbutton dt-splitbutton--<size>" data-dt-splitbutton>
+  Modifiers:
+    size    --sm | --md | --lg     (default: --md)
+  Action: <button type="button" class="dt-splitbutton__action"
+        data-dt-splitbutton-action> Label
+  Caret: <button type="button" class="dt-splitbutton__caret" aria-label="More actions"
+        aria-haspopup="menu" aria-expanded="false" aria-controls="<menu-id>"
+        data-dt-splitbutton-caret> (chevron glyph)
+  Menu: <div role="menu" id="<menu-id>" class="dt-splitbutton__menu"
+        aria-activedescendant="<active-item-id>" data-dt-splitbutton-menu hidden>
+    Items: <div role="menuitem" id class="dt-splitbutton__item"
+        data-dt-splitbutton-item data-dt-splitbutton-action="<key>">
+        (add data-dt-splitbutton-danger for the danger variant)
+  Behavior: the caret toggles the menu; Arrow keys/Home/End move the
+  active item, Enter/Space activate it, Escape closes and restores focus
+  to the caret. Activating dispatches dt:splitbutton-activate with detail
+  {key}. Outside clicks close the menu.
+-->
+
+<div class="dt-splitbutton dt-splitbutton--md" data-dt-splitbutton>
+  <button type="button" class="dt-splitbutton__action" data-dt-splitbutton-action>
+    Save
+  </button>
+  <button
+    type="button"
+    class="dt-splitbutton__caret"
+    aria-label="More actions"
+    aria-haspopup="menu"
+    aria-expanded="false"
+    aria-controls="sb1-menu"
+    data-dt-splitbutton-caret
+  >
+    ▾
+  </button>
+  <div
+    role="menu"
+    id="sb1-menu"
+    class="dt-splitbutton__menu"
+    aria-activedescendant="sb1-item-1"
+    data-dt-splitbutton-menu
+    hidden
+  >
+    <div
+      role="menuitem"
+      id="sb1-item-1"
+      class="dt-splitbutton__item"
+      data-dt-splitbutton-item
+      data-dt-splitbutton-action="save-as"
+    >
+      Save as…
+    </div>
+    <div
+      role="menuitem"
+      id="sb1-item-2"
+      class="dt-splitbutton__item"
+      data-dt-splitbutton-item
+      data-dt-splitbutton-action="duplicate"
+    >
+      Duplicate
+    </div>
+    <div
+      role="menuitem"
+      id="sb1-item-3"
+      class="dt-splitbutton__item dt-splitbutton__item--disabled"
+      data-dt-splitbutton-item
+      data-dt-splitbutton-action="archive"
+      aria-disabled="true"
+    >
+      Archive (unavailable)
+    </div>
+    <div
+      role="menuitem"
+      id="sb1-item-4"
+      class="dt-splitbutton__item dt-splitbutton__item--danger"
+      data-dt-splitbutton-item
+      data-dt-splitbutton-action="delete"
+      data-dt-splitbutton-danger
+    >
+      Delete
+    </div>
+  </div>
+</div>
+
+<div class="dt-splitbutton dt-splitbutton--sm" data-dt-splitbutton>
+  <button type="button" class="dt-splitbutton__action" data-dt-splitbutton-action>
+    Share
+  </button>
+  <button
+    type="button"
+    class="dt-splitbutton__caret"
+    aria-label="More actions"
+    aria-haspopup="menu"
+    aria-expanded="false"
+    aria-controls="sb2-menu"
+    data-dt-splitbutton-caret
+  >
+    ▾
+  </button>
+  <div
+    role="menu"
+    id="sb2-menu"
+    class="dt-splitbutton__menu"
+    aria-activedescendant="sb2-item-1"
+    data-dt-splitbutton-menu
+    hidden
+  >
+    <div
+      role="menuitem"
+      id="sb2-item-1"
+      class="dt-splitbutton__item"
+      data-dt-splitbutton-item
+      data-dt-splitbutton-action="link"
+    >
+      Copy link
+    </div>
+    <div
+      role="menuitem"
+      id="sb2-item-2"
+      class="dt-splitbutton__item"
+      data-dt-splitbutton-item
+      data-dt-splitbutton-action="email"
+    >
+      Email
+    </div>
+  </div>
+</div>

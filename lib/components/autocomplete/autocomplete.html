@@ -1,0 +1,139 @@
+<!--
+  Autocomplete — reference markup for server templates.
+  Root: <div class="dt-autocomplete dt-autocomplete--<size>" data-dt-autocomplete>
+  Modifiers:
+    size    --xs | --sm | --md | --lg | --xl   (default: --md)
+    state   --invalid   (danger border + ring; pair with aria-invalid on the input)
+  Input: <input type="text" role="combobox" aria-autocomplete="list"
+        aria-expanded="false" aria-controls="<menu-id>"
+        aria-activedescendant="<active-option-id>"
+        class="dt-autocomplete__input" data-dt-autocomplete-input
+        placeholder autocomplete="off">
+  Clear: <button type="button" class="dt-autocomplete__clear" aria-label="Clear"
+        data-dt-autocomplete-clear hidden>×</button>
+  Menu: <div role="listbox" id="<menu-id>" class="dt-autocomplete__menu"
+        data-dt-autocomplete-menu hidden>
+    Options: <div role="option" id class="dt-autocomplete__option"
+        data-dt-autocomplete-option data-dt-autocomplete-value="<value>"
+        data-dt-autocomplete-label="<label>" hidden>
+    Empty state: <div class="dt-autocomplete__empty" data-dt-autocomplete-empty hidden>
+  Behavior: typing filters options by data-dt-autocomplete-label (case-
+  insensitive substring; empty query shows all), shows the clear button,
+  handles Arrow keys/Enter/Escape, selects via click or Enter, and
+  dispatches dt:autocomplete-select with detail {value, label}. Selecting
+  fills the input with the label.
+-->
+
+<div class="dt-autocomplete dt-autocomplete--md" data-dt-autocomplete>
+  <div class="dt-autocomplete__wrap">
+    <input
+      type="text"
+      role="combobox"
+      aria-autocomplete="list"
+      aria-expanded="false"
+      aria-controls="ac1-menu"
+      aria-label="Pick a fruit"
+      class="dt-autocomplete__input"
+      placeholder="Type to filter…"
+      autocomplete="off"
+      data-dt-autocomplete-input
+    />
+    <button type="button" class="dt-autocomplete__clear" aria-label="Clear" data-dt-autocomplete-clear hidden>
+      ×
+    </button>
+  </div>
+  <div role="listbox" id="ac1-menu" class="dt-autocomplete__menu" data-dt-autocomplete-menu hidden>
+    <div
+      role="option"
+      id="ac1-option-1"
+      class="dt-autocomplete__option"
+      data-dt-autocomplete-option
+      data-dt-autocomplete-value="apple"
+      data-dt-autocomplete-label="Apple"
+      hidden
+    >
+      Apple
+    </div>
+    <div
+      role="option"
+      id="ac1-option-2"
+      class="dt-autocomplete__option"
+      data-dt-autocomplete-option
+      data-dt-autocomplete-value="banana"
+      data-dt-autocomplete-label="Banana"
+      hidden
+    >
+      Banana
+    </div>
+    <div
+      role="option"
+      id="ac1-option-3"
+      class="dt-autocomplete__option"
+      data-dt-autocomplete-option
+      data-dt-autocomplete-value="cherry"
+      data-dt-autocomplete-label="Cherry"
+      hidden
+    >
+      Cherry
+    </div>
+    <div
+      role="option"
+      id="ac1-option-4"
+      class="dt-autocomplete__option dt-autocomplete__option--disabled"
+      data-dt-autocomplete-option
+      data-dt-autocomplete-value="durian"
+      data-dt-autocomplete-label="Durian"
+      aria-disabled="true"
+      hidden
+    >
+      Durian (unavailable)
+    </div>
+    <div class="dt-autocomplete__empty" data-dt-autocomplete-empty hidden>
+      No matches
+    </div>
+  </div>
+</div>
+
+<div class="dt-autocomplete dt-autocomplete--sm" data-dt-autocomplete>
+  <div class="dt-autocomplete__wrap">
+    <input
+      type="text"
+      role="combobox"
+      aria-autocomplete="list"
+      aria-expanded="false"
+      aria-controls="ac2-menu"
+      aria-label="Pick a country"
+      class="dt-autocomplete__input"
+      placeholder="Country…"
+      autocomplete="off"
+      data-dt-autocomplete-input
+    />
+    <button type="button" class="dt-autocomplete__clear" aria-label="Clear" data-dt-autocomplete-clear hidden>
+      ×
+    </button>
+  </div>
+  <div role="listbox" id="ac2-menu" class="dt-autocomplete__menu" data-dt-autocomplete-menu hidden>
+    <div
+      role="option"
+      id="ac2-option-1"
+      class="dt-autocomplete__option"
+      data-dt-autocomplete-option
+      data-dt-autocomplete-value="at"
+      data-dt-autocomplete-label="Austria"
+      hidden
+    >
+      Austria
+    </div>
+    <div
+      role="option"
+      id="ac2-option-2"
+      class="dt-autocomplete__option"
+      data-dt-autocomplete-option
+      data-dt-autocomplete-value="be"
+      data-dt-autocomplete-label="Belgium"
+      hidden
+    >
+      Belgium
+    </div>
+  </div>
+</div>

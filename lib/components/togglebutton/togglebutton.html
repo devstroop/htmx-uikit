@@ -1,0 +1,40 @@
+<!--
+  Togglebutton — reference markup for server templates.
+  Root: <button type="button" class="dt-togglebutton dt-togglebutton--<size>" data-dt-togglebutton>
+  Modifiers:
+    size    --sm | --md | --lg     (default: --md)
+    state   --pressed              (reflects aria-pressed="true")
+            --full-width
+  Behavior: [data-dt-togglebutton] toggles aria-pressed on click and flips
+  the --pressed class; a disabled button stays put.
+  Accessible name via text content or aria-label.
+-->
+
+<button type="button" class="dt-togglebutton dt-togglebutton--md" data-dt-togglebutton>
+  Bold
+</button>
+
+<button
+  type="button"
+  class="dt-togglebutton dt-togglebutton--md dt-togglebutton--pressed"
+  aria-pressed="true"
+  data-dt-togglebutton
+>
+  Italic
+</button>
+
+<button type="button" class="dt-togglebutton dt-togglebutton--sm" data-dt-togglebutton>
+  Small
+</button>
+
+<button type="button" class="dt-togglebutton dt-togglebutton--lg" data-dt-togglebutton>
+  Large
+</button>
+
+<button type="button" class="dt-togglebutton dt-togglebutton--md" disabled data-dt-togglebutton>
+  Disabled
+</button>
+
+<button type="button" class="dt-togglebutton dt-togglebutton--md dt-togglebutton--full-width" data-dt-togglebutton>
+  Full width
+</button>

@@ -1,0 +1,67 @@
+<!--
+  Radiobuttonlist — reference markup for server templates.
+  Root: <fieldset class="dt-radiobuttonlist">
+  Children:
+    <legend class="dt-radiobuttonlist__legend"> (accessible group name)
+    <ul class="dt-radiobuttonlist__list">
+      <li class="dt-radiobuttonlist__item"> with
+        <label class="dt-radiobuttonlist__label"><input type="radio"
+          class="dt-radiobuttonlist__radio" name value> Label text</label>
+  Native input behavior only (same name groups, checked/disabled
+  forwarded); no data hooks. Note the --disabled modifier pairs with the
+  input's disabled attribute.
+-->
+
+<fieldset class="dt-radiobuttonlist">
+  <legend class="dt-radiobuttonlist__legend">Delivery</legend>
+  <ul class="dt-radiobuttonlist__list">
+    <li class="dt-radiobuttonlist__item">
+      <label class="dt-radiobuttonlist__label">
+        <input type="radio" class="dt-radiobuttonlist__radio" name="delivery" value="standard" checked />
+        Standard (2–4 days)
+      </label>
+    </li>
+    <li class="dt-radiobuttonlist__item">
+      <label class="dt-radiobuttonlist__label">
+        <input type="radio" class="dt-radiobuttonlist__radio" name="delivery" value="express" />
+        Express (next day)
+      </label>
+    </li>
+    <li class="dt-radiobuttonlist__item">
+      <label class="dt-radiobuttonlist__label">
+        <input type="radio" class="dt-radiobuttonlist__radio" name="delivery" value="same-day" />
+        Same day
+      </label>
+    </li>
+    <li class="dt-radiobuttonlist__item dt-radiobuttonlist__item--disabled">
+      <label class="dt-radiobuttonlist__label">
+        <input type="radio" class="dt-radiobuttonlist__radio" name="delivery" value="drone" disabled />
+        Drone (unavailable)
+      </label>
+    </li>
+  </ul>
+</fieldset>
+
+<fieldset class="dt-radiobuttonlist">
+  <legend class="dt-radiobuttonlist__legend">Plan</legend>
+  <ul class="dt-radiobuttonlist__list">
+    <li class="dt-radiobuttonlist__item">
+      <label class="dt-radiobuttonlist__label">
+        <input type="radio" class="dt-radiobuttonlist__radio" name="plan" value="free" />
+        Free
+      </label>
+    </li>
+    <li class="dt-radiobuttonlist__item">
+      <label class="dt-radiobuttonlist__label">
+        <input type="radio" class="dt-radiobuttonlist__radio" name="plan" value="pro" checked />
+        Pro
+      </label>
+    </li>
+    <li class="dt-radiobuttonlist__item">
+      <label class="dt-radiobuttonlist__label">
+        <input type="radio" class="dt-radiobuttonlist__radio" name="plan" value="enterprise" />
+        Enterprise
+      </label>
+    </li>
+  </ul>
+</fieldset>
