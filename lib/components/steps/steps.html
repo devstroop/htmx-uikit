@@ -1,0 +1,155 @@
+<!--
+  Steps — reference markup for server templates.
+  Root: <nav class="dt-steps" data-dt-steps [data-dt-linear]
+        [data-dt-selected-index="0"] aria-label="Steps">
+    <ol class="dt-steps-list" role="list" data-dt-steps-list>
+      <li role="listitem" class="dt-steps-item">
+        [<span class="dt-steps-connector" aria-hidden="true"></span>  when index>0]
+        <button type="button" class="dt-steps-step [dt-steps-step--active]
+                [dt-steps-step--completed] [dt-steps-step--disabled]"
+                data-dt-steps-item data-dt-index="0" data-dt-text="Label"
+                [data-dt-icon="icon"] [aria-current="step"]
+                [aria-disabled="true"] [disabled] tabindex="0|-1">
+          <span class="dt-steps-circle" aria-hidden="true">
+            <span class="dt-steps-check" aria-hidden="true">✓</span>  when completed
+            or <span class="dt-steps-icon" aria-hidden="true">icon</span>
+            or <span class="dt-steps-number" aria-hidden="true">1</span>
+          </span>
+          <span class="dt-steps-text">Label</span>
+        </button>
+      </li>
+      ... more items
+    </ol>
+    [<div class="dt-steps-panels" data-dt-steps-panels>
+       <div class="dt-steps-panel" role="tabpanel"
+            data-dt-steps-panel data-dt-index="0" [hidden]>content</div>
+     </div>]
+  </nav>
+  behaviors.js toggles active/completed/disabled classes, aria-current="step",
+  aria-disabled/disabled + tabindex, injects the completed check icon,
+  respects data-dt-linear (only completed + next clickable), moves focus with
+  ArrowLeft/Right, Home/End, and dispatches dt:steps-change{ index } on
+  activation. Content panels (data-dt-steps-panel) are shown/hidden to match
+  the active index. Disabled steps are not focusable or actionable.
+-->
+
+<!-- Default 3-step wizard, first step active -->
+<nav class="dt-steps" data-dt-steps data-dt-selected-index="0" aria-label="Steps">
+  <ol class="dt-steps-list" role="list" data-dt-steps-list>
+    <li role="listitem" class="dt-steps-item">
+      <button type="button" class="dt-steps-step dt-steps-step--active" data-dt-steps-item data-dt-index="0" data-dt-text="Details" aria-current="step" tabindex="0">
+        <span class="dt-steps-circle" aria-hidden="true">
+          <span class="dt-steps-number">1</span>
+        </span>
+        <span class="dt-steps-text">Details</span>
+      </button>
+    </li>
+    <li role="listitem" class="dt-steps-item">
+      <span class="dt-steps-connector" aria-hidden="true"></span>
+      <button type="button" class="dt-steps-step" data-dt-steps-item data-dt-index="1" data-dt-text="Payment" tabindex="0">
+        <span class="dt-steps-circle" aria-hidden="true">
+          <span class="dt-steps-number">2</span>
+        </span>
+        <span class="dt-steps-text">Payment</span>
+      </button>
+    </li>
+    <li role="listitem" class="dt-steps-item">
+      <span class="dt-steps-connector" aria-hidden="true"></span>
+      <button type="button" class="dt-steps-step" data-dt-steps-item data-dt-index="2" data-dt-text="Confirm" tabindex="0">
+        <span class="dt-steps-circle" aria-hidden="true">
+          <span class="dt-steps-number">3</span>
+        </span>
+        <span class="dt-steps-text">Confirm</span>
+      </button>
+    </li>
+  </ol>
+  <div class="dt-steps-panels" data-dt-steps-panels>
+    <div class="dt-steps-panel" role="tabpanel" data-dt-steps-panel data-dt-index="0">Details content</div>
+    <div class="dt-steps-panel" role="tabpanel" data-dt-steps-panel data-dt-index="1" hidden>Payment content</div>
+    <div class="dt-steps-panel" role="tabpanel" data-dt-steps-panel data-dt-index="2" hidden>Confirm content</div>
+  </div>
+</nav>
+
+<!-- Linear wizard with icons, 2nd step active, 3rd blocked by linear -->
+<nav class="dt-steps" data-dt-steps data-dt-linear data-dt-selected-index="1" aria-label="Checkout steps">
+  <ol class="dt-steps-list" role="list" data-dt-steps-list>
+    <li role="listitem" class="dt-steps-item">
+      <button type="button" class="dt-steps-step dt-steps-step--completed" data-dt-steps-item data-dt-index="0" data-dt-text="Cart" data-dt-icon="🛒" tabindex="0">
+        <span class="dt-steps-circle" aria-hidden="true">
+          <span class="dt-steps-check" aria-hidden="true">✓</span>
+        </span>
+        <span class="dt-steps-text">Cart</span>
+      </button>
+    </li>
+    <li role="listitem" class="dt-steps-item">
+      <span class="dt-steps-connector dt-steps-connector--completed" aria-hidden="true"></span>
+      <button type="button" class="dt-steps-step dt-steps-step--active" data-dt-steps-item data-dt-index="1" data-dt-text="Shipping" data-dt-icon="🚚" aria-current="step" tabindex="0">
+        <span class="dt-steps-circle" aria-hidden="true">
+          <span class="dt-steps-icon" aria-hidden="true">🚚</span>
+        </span>
+        <span class="dt-steps-text">Shipping</span>
+      </button>
+    </li>
+    <li role="listitem" class="dt-steps-item">
+      <span class="dt-steps-connector" aria-hidden="true"></span>
+      <button type="button" class="dt-steps-step dt-steps-step--disabled" data-dt-steps-item data-dt-index="2" data-dt-text="Review" aria-disabled="true" disabled tabindex="-1">
+        <span class="dt-steps-circle" aria-hidden="true">
+          <span class="dt-steps-number">3</span>
+        </span>
+        <span class="dt-steps-text">Review</span>
+      </button>
+    </li>
+  </ol>
+  <div class="dt-steps-panels" data-dt-steps-panels>
+    <div class="dt-steps-panel" role="tabpanel" data-dt-steps-panel data-dt-index="0" hidden>Cart content</div>
+    <div class="dt-steps-panel" role="tabpanel" data-dt-steps-panel data-dt-index="1">Shipping content</div>
+    <div class="dt-steps-panel" role="tabpanel" data-dt-steps-panel data-dt-index="2" hidden>Review content</div>
+  </div>
+</nav>
+
+<!-- With icons, disabled middle step, non-linear (completed check on first) -->
+<nav class="dt-steps" data-dt-steps data-dt-selected-index="2" aria-label="Onboarding">
+  <ol class="dt-steps-list" role="list" data-dt-steps-list>
+    <li role="listitem" class="dt-steps-item">
+      <button type="button" class="dt-steps-step dt-steps-step--completed" data-dt-steps-item data-dt-index="0" data-dt-text="Profile" data-dt-icon="👤" tabindex="0">
+        <span class="dt-steps-circle" aria-hidden="true">
+          <span class="dt-steps-check" aria-hidden="true">✓</span>
+        </span>
+        <span class="dt-steps-text">Profile</span>
+      </button>
+    </li>
+    <li role="listitem" class="dt-steps-item">
+      <span class="dt-steps-connector dt-steps-connector--completed" aria-hidden="true"></span>
+      <button type="button" class="dt-steps-step dt-steps-step--disabled" data-dt-steps-item data-dt-index="1" data-dt-text="Team" data-dt-icon="👥" aria-disabled="true" disabled tabindex="-1">
+        <span class="dt-steps-circle" aria-hidden="true">
+          <span class="dt-steps-icon" aria-hidden="true">👥</span>
+        </span>
+        <span class="dt-steps-text">Team</span>
+      </button>
+    </li>
+    <li role="listitem" class="dt-steps-item">
+      <span class="dt-steps-connector" aria-hidden="true"></span>
+      <button type="button" class="dt-steps-step dt-steps-step--active" data-dt-steps-item data-dt-index="2" data-dt-text="Billing" data-dt-icon="💳" aria-current="step" tabindex="0">
+        <span class="dt-steps-circle" aria-hidden="true">
+          <span class="dt-steps-icon" aria-hidden="true">💳</span>
+        </span>
+        <span class="dt-steps-text">Billing</span>
+      </button>
+    </li>
+    <li role="listitem" class="dt-steps-item">
+      <span class="dt-steps-connector" aria-hidden="true"></span>
+      <button type="button" class="dt-steps-step" data-dt-steps-item data-dt-index="3" data-dt-text="Launch" tabindex="0">
+        <span class="dt-steps-circle" aria-hidden="true">
+          <span class="dt-steps-number">4</span>
+        </span>
+        <span class="dt-steps-text">Launch</span>
+      </button>
+    </li>
+  </ol>
+  <div class="dt-steps-panels" data-dt-steps-panels>
+    <div class="dt-steps-panel" role="tabpanel" data-dt-steps-panel data-dt-index="0" hidden>Profile content</div>
+    <div class="dt-steps-panel" role="tabpanel" data-dt-steps-panel data-dt-index="1" hidden>Team content (disabled)</div>
+    <div class="dt-steps-panel" role="tabpanel" data-dt-steps-panel data-dt-index="2">Billing content</div>
+    <div class="dt-steps-panel" role="tabpanel" data-dt-steps-panel data-dt-index="3" hidden>Launch content</div>
+  </div>
+</nav>

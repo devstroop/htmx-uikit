@@ -1,0 +1,121 @@
+.dt-splitter {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  min-height: 120px;
+  border: 1px solid var(--dt-color-border);
+  border-radius: var(--dt-radius-md);
+  overflow: hidden;
+  background-color: var(--dt-color-surface);
+  font-family: var(--dt-font-sans);
+}
+
+.dt-splitter--horizontal {
+  flex-direction: row;
+}
+
+.dt-splitter--vertical {
+  flex-direction: column;
+}
+
+.dt-splitter-pane {
+  position: relative;
+  background-color: var(--dt-color-surface);
+  color: var(--dt-color-text);
+  padding: var(--dt-space-2);
+  overflow: auto;
+  min-width: 0;
+  min-height: 0;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.dt-splitter-pane--collapsed {
+  display: none;
+}
+
+.dt-splitter-content {
+  font-size: var(--dt-font-size-sm);
+  color: var(--dt-color-text);
+}
+
+.dt-splitter-handle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--dt-color-border);
+  flex-shrink: 0;
+  position: relative;
+  transition: background-color var(--dt-transition-fast);
+}
+
+.dt-splitter-handle:hover {
+  background-color: var(--dt-color-border-strong);
+}
+
+.dt-splitter-handle:focus-visible {
+  outline: 2px solid var(--dt-color-outline-primary);
+  outline-offset: -2px;
+  background-color: var(--dt-color-border-strong);
+}
+
+.dt-splitter--horizontal .dt-splitter-handle {
+  width: 8px;
+  cursor: col-resize;
+  flex-direction: column;
+}
+
+.dt-splitter--vertical .dt-splitter-handle {
+  height: 8px;
+  cursor: row-resize;
+  flex-direction: row;
+}
+
+.dt-splitter-grip {
+  width: 2px;
+  height: 24px;
+  background-color: var(--dt-color-border-strong);
+  border-radius: var(--dt-radius-md);
+}
+
+.dt-splitter--vertical .dt-splitter-grip {
+  width: 24px;
+  height: 2px;
+}
+
+.dt-splitter-collapse {
+  position: absolute;
+  top: var(--dt-space-1);
+  right: var(--dt-space-1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--dt-color-border);
+  border-radius: var(--dt-radius-md);
+  background-color: var(--dt-color-surface);
+  color: var(--dt-color-text);
+  font-size: 10px;
+  cursor: pointer;
+  transition:
+    background-color var(--dt-transition-fast),
+    border-color var(--dt-transition-fast);
+}
+
+.dt-splitter-collapse:hover {
+  background-color: var(--dt-color-surface-hover);
+  border-color: var(--dt-color-border-strong);
+}
+
+.dt-splitter-collapse:focus-visible {
+  outline: 2px solid var(--dt-color-outline-primary);
+  outline-offset: 1px;
+}
+
+.dt-splitter-collapse--outside {
+  position: static;
+  align-self: center;
+  margin: var(--dt-space-1);
+  flex-shrink: 0;
+}

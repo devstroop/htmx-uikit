@@ -1,0 +1,119 @@
+<!--
+  Carousel — reference markup for server templates.
+  Root: <div class="dt-carousel" data-dt-carousel
+        [data-dt-selected-index="0"] [data-dt-auto]
+        [data-dt-interval="3000"] [data-dt-pause-on-hover="true"]
+        [data-dt-show-arrows="true|false"] [data-dt-show-indicators="true|false"]
+        role="region" aria-roledescription="carousel" aria-label="Carousel"
+        tabindex="0">
+    <div class="dt-carousel-viewport" data-dt-carousel-viewport
+         id="carousel-viewport">
+      <div class="dt-carousel-slide [dt-carousel-slide--active]"
+           role="group" aria-roledescription="slide"
+           aria-label="Slide 1 of 3" data-dt-carousel-item
+           data-dt-index="0" [hidden]>slide content</div>
+      ... more slides
+    </div>
+    [<button type="button" class="dt-carousel-arrow dt-carousel-prev"
+            data-dt-carousel-prev aria-label="Previous slide"
+            aria-controls="carousel-viewport">‹</button>
+     <button type="button" class="dt-carousel-arrow dt-carousel-next"
+            data-dt-carousel-next aria-label="Next slide"
+            aria-controls="carousel-viewport">›</button>]  when showArrows
+    [<button type="button" class="dt-carousel-pause"
+            data-dt-carousel-pause aria-pressed="true|false"
+            aria-label="Pause|Resume">⏸|▶</button>]  when auto
+    [<div class="dt-carousel-indicators" role="group"
+         aria-label="Slide indicators" data-dt-carousel-indicators>
+       <button type="button" class="dt-carousel-indicator
+               [dt-carousel-indicator--active]"
+               data-dt-carousel-indicator data-dt-index="0"
+               aria-label="Go to slide 1" aria-current="true|false"
+               aria-controls="carousel-viewport"></button>
+       ... more indicators
+     </div>]  when showIndicators
+  </div>
+  behaviors.js manages active slide, arrows/indicators, pause control,
+  keyboard (ArrowLeft/Right, Home/End), auto-play with interval and
+  pauseOnHover (mouseenter/leave + focusin/out), dispatches
+  dt:carousel-change{ index } on change, toggles aria-hidden/hidden and
+  aria-current on indicators, and ensures focus ring via outline-primary.
+-->
+
+<!-- Default manual carousel, 3 slides, arrows + indicators -->
+<div class="dt-carousel" data-dt-carousel data-dt-selected-index="0" role="region" aria-roledescription="carousel" aria-label="Carousel" tabindex="0">
+  <div class="dt-carousel-viewport" data-dt-carousel-viewport id="carousel1-viewport">
+    <div class="dt-carousel-slide dt-carousel-slide--active" role="group" aria-roledescription="slide" aria-label="Slide 1 of 3" data-dt-carousel-item data-dt-index="0">
+      <img src="https://via.placeholder.com/600x250?text=Slide+1" alt="Slide 1" style="width: 100%; display: block" />
+      <p>First slide description</p>
+    </div>
+    <div class="dt-carousel-slide" role="group" aria-roledescription="slide" aria-label="Slide 2 of 3" data-dt-carousel-item data-dt-index="1" aria-hidden="true" hidden>
+      <img src="https://via.placeholder.com/600x250?text=Slide+2" alt="Slide 2" style="width: 100%; display: block" />
+      <p>Second slide description</p>
+    </div>
+    <div class="dt-carousel-slide" role="group" aria-roledescription="slide" aria-label="Slide 3 of 3" data-dt-carousel-item data-dt-index="2" aria-hidden="true" hidden>
+      <img src="https://via.placeholder.com/600x250?text=Slide+3" alt="Slide 3" style="width: 100%; display: block" />
+      <p>Third slide description</p>
+    </div>
+  </div>
+  <button type="button" class="dt-carousel-arrow dt-carousel-prev" data-dt-carousel-prev aria-label="Previous slide" aria-controls="carousel1-viewport">‹</button>
+  <button type="button" class="dt-carousel-arrow dt-carousel-next" data-dt-carousel-next aria-label="Next slide" aria-controls="carousel1-viewport">›</button>
+  <div class="dt-carousel-indicators" role="group" aria-label="Slide indicators" data-dt-carousel-indicators>
+    <button type="button" class="dt-carousel-indicator dt-carousel-indicator--active" data-dt-carousel-indicator data-dt-index="0" aria-label="Go to slide 1" aria-current="true" aria-controls="carousel1-viewport"></button>
+    <button type="button" class="dt-carousel-indicator" data-dt-carousel-indicator data-dt-index="1" aria-label="Go to slide 2" aria-controls="carousel1-viewport"></button>
+    <button type="button" class="dt-carousel-indicator" data-dt-carousel-indicator data-dt-index="2" aria-label="Go to slide 3" aria-controls="carousel1-viewport"></button>
+  </div>
+</div>
+
+<!-- Auto-play carousel with pauseOnHover and pause button -->
+<div class="dt-carousel" data-dt-carousel data-dt-auto data-dt-interval="3000" data-dt-pause-on-hover="true" data-dt-selected-index="0" role="region" aria-roledescription="carousel" aria-label="Featured" tabindex="0">
+  <div class="dt-carousel-viewport" data-dt-carousel-viewport id="carousel2-viewport">
+    <div class="dt-carousel-slide dt-carousel-slide--active" role="group" aria-roledescription="slide" aria-label="Slide 1 of 3" data-dt-carousel-item data-dt-index="0">
+      <div style="height: 180px; background: var(--dt-color-surface-hover); display: flex; align-items: center; justify-content: center">Auto slide 1</div>
+    </div>
+    <div class="dt-carousel-slide" role="group" aria-roledescription="slide" aria-label="Slide 2 of 3" data-dt-carousel-item data-dt-index="1" aria-hidden="true" hidden>
+      <div style="height: 180px; background: var(--dt-color-surface-hover); display: flex; align-items: center; justify-content: center">Auto slide 2</div>
+    </div>
+    <div class="dt-carousel-slide" role="group" aria-roledescription="slide" aria-label="Slide 3 of 3" data-dt-carousel-item data-dt-index="2" aria-hidden="true" hidden>
+      <div style="height: 180px; background: var(--dt-color-surface-hover); display: flex; align-items: center; justify-content: center">Auto slide 3</div>
+    </div>
+  </div>
+  <button type="button" class="dt-carousel-arrow dt-carousel-prev" data-dt-carousel-prev aria-label="Previous slide" aria-controls="carousel2-viewport">‹</button>
+  <button type="button" class="dt-carousel-arrow dt-carousel-next" data-dt-carousel-next aria-label="Next slide" aria-controls="carousel2-viewport">›</button>
+  <button type="button" class="dt-carousel-pause" data-dt-carousel-pause aria-pressed="false" aria-label="Pause">⏸</button>
+  <div class="dt-carousel-indicators" role="group" aria-label="Slide indicators" data-dt-carousel-indicators>
+    <button type="button" class="dt-carousel-indicator dt-carousel-indicator--active" data-dt-carousel-indicator data-dt-index="0" aria-label="Go to slide 1" aria-current="true" aria-controls="carousel2-viewport"></button>
+    <button type="button" class="dt-carousel-indicator" data-dt-carousel-indicator data-dt-index="1" aria-label="Go to slide 2" aria-controls="carousel2-viewport"></button>
+    <button type="button" class="dt-carousel-indicator" data-dt-carousel-indicator data-dt-index="2" aria-label="Go to slide 3" aria-controls="carousel2-viewport"></button>
+  </div>
+</div>
+
+<!-- No arrows, indicators only -->
+<div class="dt-carousel" data-dt-carousel data-dt-show-arrows="false" data-dt-selected-index="1" role="region" aria-roledescription="carousel" aria-label="Gallery" tabindex="0">
+  <div class="dt-carousel-viewport" data-dt-carousel-viewport id="carousel3-viewport">
+    <div class="dt-carousel-slide" role="group" aria-roledescription="slide" aria-label="Slide 1 of 2" data-dt-carousel-item data-dt-index="0" aria-hidden="true" hidden>
+      <div style="height: 140px; background: var(--dt-color-surface-hover); display: flex; align-items: center; justify-content: center">Gallery 1</div>
+    </div>
+    <div class="dt-carousel-slide dt-carousel-slide--active" role="group" aria-roledescription="slide" aria-label="Slide 2 of 2" data-dt-carousel-item data-dt-index="1">
+      <div style="height: 140px; background: var(--dt-color-surface-hover); display: flex; align-items: center; justify-content: center">Gallery 2 (active)</div>
+    </div>
+  </div>
+  <div class="dt-carousel-indicators" role="group" aria-label="Slide indicators" data-dt-carousel-indicators>
+    <button type="button" class="dt-carousel-indicator" data-dt-carousel-indicator data-dt-index="0" aria-label="Go to slide 1" aria-controls="carousel3-viewport"></button>
+    <button type="button" class="dt-carousel-indicator dt-carousel-indicator--active" data-dt-carousel-indicator data-dt-index="1" aria-label="Go to slide 2" aria-current="true" aria-controls="carousel3-viewport"></button>
+  </div>
+</div>
+
+<!-- No indicators, arrows only, vertical content -->
+<div class="dt-carousel" data-dt-carousel data-dt-show-indicators="false" data-dt-selected-index="0" role="region" aria-roledescription="carousel" aria-label="Testimonials" tabindex="0">
+  <div class="dt-carousel-viewport" data-dt-carousel-viewport id="carousel4-viewport">
+    <div class="dt-carousel-slide dt-carousel-slide--active" role="group" aria-roledescription="slide" aria-label="Slide 1 of 2" data-dt-carousel-item data-dt-index="0">
+      <blockquote>"Great product!" — Alice</blockquote>
+    </div>
+    <div class="dt-carousel-slide" role="group" aria-roledescription="slide" aria-label="Slide 2 of 2" data-dt-carousel-item data-dt-index="1" aria-hidden="true" hidden>
+      <blockquote>"Highly recommend." — Bob</blockquote>
+    </div>
+  </div>
+  <button type="button" class="dt-carousel-arrow dt-carousel-prev" data-dt-carousel-prev aria-label="Previous slide" aria-controls="carousel4-viewport">‹</button>
+  <button type="button" class="dt-carousel-arrow dt-carousel-next" data-dt-carousel-next aria-label="Next slide" aria-controls="carousel4-viewport">›</button>
+</div>

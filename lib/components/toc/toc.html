@@ -1,0 +1,81 @@
+<!--
+  Toc — reference markup for server templates.
+  Root: <nav class="dt-toc [dt-toc--vertical|dt-toc--horizontal]"
+        data-dt-toc [data-dt-selector="#content"]
+        [data-dt-orientation="vertical|horizontal"]
+        aria-label="Table of contents">
+    <ol class="dt-toc-list" role="list" data-dt-toc-list>
+      <li class="dt-toc-item" role="listitem">
+        <a href="#section" class="dt-toc-link [dt-toc-link--active]"
+           data-dt-toc-item data-dt-text="Label"
+           data-dt-selector="#section" [aria-current="location"]>Label</a>
+      </li>
+      ... more items
+    </ol>
+  </nav>
+  Each link href points at the target selector. The active link has
+  aria-current="location" and the dt-toc-link--active class. data-dt-selector
+  on the root is the scroll scope (e.g. "#content"); when omitted the window
+  scroll is tracked. data-dt-toc-item carries the link's selector and text
+  for event detail. Click scrolls smoothly to the target, moves focus to the
+  target for screen readers, toggles the active state, and dispatches
+  dt:toc-click{ text, selector } on the root. Focus indicators use
+  outline-primary. Vertical (default) stacks; horizontal renders inline.
+  Scroll-spy updates the active item via IntersectionObserver with a scroll
+  fallback.
+-->
+
+<!-- Vertical toc, window scroll (default) -->
+<nav class="dt-toc dt-toc--vertical" data-dt-toc data-dt-orientation="vertical" aria-label="Table of contents">
+  <ol class="dt-toc-list" role="list" data-dt-toc-list>
+    <li class="dt-toc-item" role="listitem">
+      <a href="#introduction" class="dt-toc-link dt-toc-link--active" data-dt-toc-item data-dt-text="Introduction" data-dt-selector="#introduction" aria-current="location">Introduction</a>
+    </li>
+    <li class="dt-toc-item" role="listitem">
+      <a href="#installation" class="dt-toc-link" data-dt-toc-item data-dt-text="Installation" data-dt-selector="#installation">Installation</a>
+    </li>
+    <li class="dt-toc-item" role="listitem">
+      <a href="#usage" class="dt-toc-link" data-dt-toc-item data-dt-text="Usage" data-dt-selector="#usage">Usage</a>
+    </li>
+    <li class="dt-toc-item" role="listitem">
+      <a href="#api" class="dt-toc-link" data-dt-toc-item data-dt-text="API" data-dt-selector="#api">API</a>
+    </li>
+  </ol>
+</nav>
+
+<!-- Horizontal orientation -->
+<nav class="dt-toc dt-toc--horizontal" data-dt-toc data-dt-orientation="horizontal" aria-label="Page sections">
+  <ol class="dt-toc-list" role="list" data-dt-toc-list>
+    <li class="dt-toc-item" role="listitem">
+      <a href="#overview" class="dt-toc-link dt-toc-link--active" data-dt-toc-item data-dt-text="Overview" data-dt-selector="#overview" aria-current="location">Overview</a>
+    </li>
+    <li class="dt-toc-item" role="listitem">
+      <a href="#details" class="dt-toc-link" data-dt-toc-item data-dt-text="Details" data-dt-selector="#details">Details</a>
+    </li>
+    <li class="dt-toc-item" role="listitem">
+      <a href="#examples" class="dt-toc-link" data-dt-toc-item data-dt-text="Examples" data-dt-selector="#examples">Examples</a>
+    </li>
+  </ol>
+</nav>
+
+<!-- Scoped to a scroll container via selector -->
+<nav class="dt-toc dt-toc--vertical" data-dt-toc data-dt-selector="#content" data-dt-orientation="vertical" aria-label="Table of contents">
+  <ol class="dt-toc-list" role="list" data-dt-toc-list>
+    <li class="dt-toc-item" role="listitem">
+      <a href="#content-intro" class="dt-toc-link dt-toc-link--active" data-dt-toc-item data-dt-text="Intro" data-dt-selector="#content-intro" aria-current="location">Intro</a>
+    </li>
+    <li class="dt-toc-item" role="listitem">
+      <a href="#content-setup" class="dt-toc-link" data-dt-toc-item data-dt-text="Setup" data-dt-selector="#content-setup">Setup</a>
+    </li>
+    <li class="dt-toc-item" role="listitem">
+      <a href="#content-advanced" class="dt-toc-link" data-dt-toc-item data-dt-text="Advanced" data-dt-selector="#content-advanced">Advanced</a>
+    </li>
+  </ol>
+</nav>
+
+<!-- Example scroll target area (for reference, not part of the toc itself) -->
+<div id="content" style="height: 200px; overflow: auto; border: 1px solid var(--dt-color-border); padding: var(--dt-space-2);">
+  <section id="content-intro"><h2>Intro</h2><p>Content…</p></section>
+  <section id="content-setup"><h2>Setup</h2><p>Content…</p></section>
+  <section id="content-advanced"><h2>Advanced</h2><p>Content…</p></section>
+</div>

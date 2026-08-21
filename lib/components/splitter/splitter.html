@@ -1,0 +1,95 @@
+<!--
+  Splitter — reference markup for server templates.
+  Root: <div class="dt-splitter [dt-splitter--horizontal|dt-splitter--vertical]"
+        data-dt-splitter [data-dt-orientation="horizontal|vertical"]
+        aria-label="Splitter">
+    <div class="dt-splitter-pane" role="group"
+         data-dt-splitter-pane data-dt-index="0"
+         [data-dt-size="50%"] [data-dt-min="10%"] [data-dt-max="90%"]
+         [data-dt-collapsible] [data-dt-collapsed]
+         aria-label="Pane 1" style="flex-basis: 50%">
+      ...pane content...
+      [<button type="button" class="dt-splitter-collapse"
+              data-dt-splitter-collapse data-dt-index="0"
+              aria-label="Collapse pane 1" aria-expanded="true|false">◀</button>]
+    </div>
+    <div class="dt-splitter-handle" role="separator"
+         data-dt-splitter-handle data-dt-index="0"
+         aria-orientation="horizontal|vertical"
+         aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"
+         aria-label="Resize handle 1" tabindex="0">
+      <span class="dt-splitter-grip" aria-hidden="true"></span>
+    </div>
+    ... more panes + handles (panes.length -1 handles)
+  </div>
+  Panes use flex-basis percent for size; handles are the draggable separators.
+  Collapsible panes show a collapse button (data-dt-splitter-collapse) with
+  aria-expanded and aria-label. When collapsed the pane is hidden and
+  neighboring pane fills the space. Resize via pointer drag and keyboard:
+  ArrowLeft/Right (h) or ArrowUp/Down (v) resize by 5% within min/max,
+  Home/End jump to min/max, Enter/Space toggles collapse when collapsible.
+  behaviors.js dispatches cancelable dt:splitter-resize{ paneIndex, newSize,
+  cancel } and dt:splitter-collapse{ paneIndex, collapse, cancel } on the
+  root (set cancel=true to prevent). Focus indicators use outline-primary.
+-->
+
+<!-- Horizontal 2 panes, 50/50 -->
+<div class="dt-splitter dt-splitter--horizontal" data-dt-splitter data-dt-orientation="horizontal" aria-label="Splitter">
+  <div class="dt-splitter-pane" role="group" data-dt-splitter-pane data-dt-index="0" data-dt-size="50%" data-dt-min="20%" data-dt-max="80%" aria-label="Pane 1" style="flex-basis: 50%">
+    <div class="dt-splitter-content">Pane 1 content — drag the handle to resize.</div>
+  </div>
+  <div class="dt-splitter-handle" role="separator" data-dt-splitter-handle data-dt-index="0" aria-orientation="horizontal" aria-valuemin="20" aria-valuemax="80" aria-valuenow="50" aria-label="Resize handle 1" tabindex="0">
+    <span class="dt-splitter-grip" aria-hidden="true"></span>
+  </div>
+  <div class="dt-splitter-pane" role="group" data-dt-splitter-pane data-dt-index="1" data-dt-size="50%" data-dt-min="20%" data-dt-max="80%" aria-label="Pane 2" style="flex-basis: 50%">
+    <div class="dt-splitter-content">Pane 2 content</div>
+  </div>
+</div>
+
+<!-- Vertical splitter -->
+<div class="dt-splitter dt-splitter--vertical" data-dt-splitter data-dt-orientation="vertical" aria-label="Vertical splitter">
+  <div class="dt-splitter-pane" role="group" data-dt-splitter-pane data-dt-index="0" data-dt-size="40%" data-dt-min="10%" data-dt-max="70%" aria-label="Top pane" style="flex-basis: 40%">
+    <div class="dt-splitter-content">Top pane</div>
+  </div>
+  <div class="dt-splitter-handle" role="separator" data-dt-splitter-handle data-dt-index="0" aria-orientation="vertical" aria-valuemin="10" aria-valuemax="70" aria-valuenow="40" aria-label="Resize handle 1" tabindex="0">
+    <span class="dt-splitter-grip" aria-hidden="true"></span>
+  </div>
+  <div class="dt-splitter-pane" role="group" data-dt-splitter-pane data-dt-index="1" data-dt-size="60%" data-dt-min="10%" data-dt-max="90%" aria-label="Bottom pane" style="flex-basis: 60%">
+    <div class="dt-splitter-content">Bottom pane — handle responds to ArrowUp/Down 5%.</div>
+  </div>
+</div>
+
+<!-- 3 panes with collapsible first pane, horizontal -->
+<div class="dt-splitter dt-splitter--horizontal" data-dt-splitter data-dt-orientation="horizontal" aria-label="Collapsible splitter">
+  <div class="dt-splitter-pane" role="group" data-dt-splitter-pane data-dt-index="0" data-dt-size="25%" data-dt-min="15%" data-dt-max="50%" data-dt-collapsible aria-label="Navigation" style="flex-basis: 25%">
+    <div class="dt-splitter-content">Navigation pane (collapsible)</div>
+    <button type="button" class="dt-splitter-collapse" data-dt-splitter-collapse data-dt-index="0" aria-label="Collapse pane 1" aria-expanded="true">◀</button>
+  </div>
+  <div class="dt-splitter-handle" role="separator" data-dt-splitter-handle data-dt-index="0" aria-orientation="horizontal" aria-valuemin="15" aria-valuemax="50" aria-valuenow="25" aria-label="Resize handle 1" tabindex="0">
+    <span class="dt-splitter-grip" aria-hidden="true"></span>
+  </div>
+  <div class="dt-splitter-pane" role="group" data-dt-splitter-pane data-dt-index="1" data-dt-size="50%" data-dt-min="20%" aria-label="Content" style="flex-basis: 50%">
+    <div class="dt-splitter-content">Main content</div>
+  </div>
+  <div class="dt-splitter-handle" role="separator" data-dt-splitter-handle data-dt-index="1" aria-orientation="horizontal" aria-valuemin="20" aria-valuemax="80" aria-valuenow="50" aria-label="Resize handle 2" tabindex="0">
+    <span class="dt-splitter-grip" aria-hidden="true"></span>
+  </div>
+  <div class="dt-splitter-pane" role="group" data-dt-splitter-pane data-dt-index="2" data-dt-size="25%" data-dt-min="15%" data-dt-max="40%" data-dt-collapsible aria-label="Details" style="flex-basis: 25%">
+    <div class="dt-splitter-content">Details pane (collapsible)</div>
+    <button type="button" class="dt-splitter-collapse" data-dt-splitter-collapse data-dt-index="2" aria-label="Collapse pane 3" aria-expanded="true">▶</button>
+  </div>
+</div>
+
+<!-- Collapsed state example (first pane collapsed) -->
+<div class="dt-splitter dt-splitter--horizontal" data-dt-splitter data-dt-orientation="horizontal" aria-label="Collapsed splitter">
+  <div class="dt-splitter-pane dt-splitter-pane--collapsed" role="group" data-dt-splitter-pane data-dt-index="0" data-dt-size="0%" data-dt-collapsible data-dt-collapsed aria-label="Pane 1" style="flex-basis: 0%; display: none">
+    <div class="dt-splitter-content">Hidden</div>
+  </div>
+  <button type="button" class="dt-splitter-collapse dt-splitter-collapse--outside" data-dt-splitter-collapse data-dt-index="0" aria-label="Expand pane 1" aria-expanded="false">▶</button>
+  <div class="dt-splitter-handle" role="separator" data-dt-splitter-handle data-dt-index="0" aria-orientation="horizontal" aria-valuemin="15" aria-valuemax="50" aria-valuenow="0" aria-label="Resize handle 1" tabindex="-1">
+    <span class="dt-splitter-grip" aria-hidden="true"></span>
+  </div>
+  <div class="dt-splitter-pane" role="group" data-dt-splitter-pane data-dt-index="1" data-dt-size="100%" aria-label="Pane 2" style="flex-basis: 100%">
+    <div class="dt-splitter-content">Expanded pane fills space. Press Enter on handle to toggle collapse when collapsible.</div>
+  </div>
+</div>
