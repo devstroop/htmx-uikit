@@ -5776,8 +5776,8 @@
 }
 
 .dt-steps-step--active {
-  border-color: var(--dt-color-primary);
-  color: var(--dt-color-primary);
+  border-color: var(--dt-color-border-primary);
+  color: var(--dt-color-text-primary);
   background-color: var(--dt-color-surface);
 }
 
