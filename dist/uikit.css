@@ -3240,6 +3240,57 @@
   font-family: var(--dt-font-sans);
 }
 
+.dt-gantt {
+  font-family: var(--dt-font-sans);
+  border: 1px solid var(--dt-color-border);
+  border-radius: var(--dt-radius-md);
+  background-color: var(--dt-color-surface);
+  overflow: hidden;
+}
+.dt-gantt-header {
+  display: flex;
+  gap: var(--dt-space-2);
+  padding: var(--dt-space-2);
+  border-bottom: 1px solid var(--dt-color-border);
+  background-color: var(--dt-color-surface);
+}
+.dt-gantt-header-cell {
+  flex: 1;
+  font-size: var(--dt-font-size-sm);
+  font-weight: var(--dt-font-weight-medium);
+  color: var(--dt-color-text);
+}
+.dt-gantt-row {
+  display: flex;
+  gap: var(--dt-space-2);
+  padding: var(--dt-space-1) var(--dt-space-2);
+  border-bottom: 1px solid var(--dt-color-border);
+}
+.dt-gantt-cell {
+  flex: 1;
+  font-size: var(--dt-font-size-sm);
+  color: var(--dt-color-text);
+}
+.dt-gantt-bar {
+  flex: 1;
+  height: 20px;
+  border: 1px solid var(--dt-color-primary);
+  border-radius: var(--dt-radius-sm);
+  background-color: var(--dt-color-surface);
+  position: relative;
+  cursor: pointer;
+}
+.dt-gantt-bar:focus-visible {
+  outline: 2px solid var(--dt-color-outline-primary);
+  outline-offset: 1px;
+}
+.dt-gantt-progress {
+  height: 100%;
+  background-color: var(--dt-color-primary);
+  border-radius: var(--dt-radius-sm);
+}
+
+
 .dt-header {
   display: flex;
   flex-shrink: 0;
@@ -4868,6 +4919,100 @@
 
 .dt-row--row-gap-xl {
   row-gap: var(--dt-space-5);
+}
+
+
+.dt-scheduler {
+  font-family: var(--dt-font-sans);
+  border: 1px solid var(--dt-color-border);
+  border-radius: var(--dt-radius-md);
+  background-color: var(--dt-color-surface);
+  overflow: hidden;
+}
+.dt-scheduler-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--dt-space-2);
+  border-bottom: 1px solid var(--dt-color-border);
+}
+.dt-scheduler-title {
+  font-size: var(--dt-font-size-sm);
+  font-weight: var(--dt-font-weight-medium);
+  color: var(--dt-color-text);
+}
+.dt-scheduler-nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--dt-color-border);
+  border-radius: var(--dt-radius-sm);
+  background-color: var(--dt-color-surface);
+  color: var(--dt-color-text);
+  cursor: pointer;
+}
+.dt-scheduler-nav:hover {
+  background-color: var(--dt-color-surface-hover);
+}
+.dt-scheduler-nav:focus-visible {
+  outline: 2px solid var(--dt-color-outline-primary);
+  outline-offset: 1px;
+}
+.dt-scheduler-grid {
+  display: flex;
+  gap: var(--dt-space-1);
+  padding: var(--dt-space-1);
+}
+.dt-scheduler-timecol {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-top: 24px;
+}
+.dt-scheduler-time {
+  font-size: var(--dt-font-size-sm);
+  color: var(--dt-color-text-muted);
+  height: 24px;
+}
+.dt-scheduler-day {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--dt-space-1);
+  min-width: 80px;
+}
+.dt-scheduler-day-header {
+  font-size: var(--dt-font-size-sm);
+  font-weight: var(--dt-font-weight-medium);
+  color: var(--dt-color-text);
+  text-align: center;
+  padding: var(--dt-space-1);
+  border-bottom: 1px solid var(--dt-color-border);
+}
+.dt-scheduler-slot {
+  height: 24px;
+  border: 1px solid var(--dt-color-border);
+  border-radius: var(--dt-radius-sm);
+  background-color: var(--dt-color-surface);
+}
+.dt-scheduler-slot:focus-visible {
+  outline: 2px solid var(--dt-color-outline-primary);
+  outline-offset: 1px;
+}
+.dt-scheduler-event {
+  padding: var(--dt-space-1);
+  border: 1px solid var(--dt-color-primary);
+  border-radius: var(--dt-radius-sm);
+  background-color: var(--dt-color-primary);
+  color: var(--dt-color-primary-fg);
+  font-size: var(--dt-font-size-sm);
+  cursor: pointer;
+}
+.dt-scheduler-event:focus-visible {
+  outline: 2px solid var(--dt-color-outline-primary);
+  outline-offset: 1px;
 }
 
 

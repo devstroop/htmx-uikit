@@ -1,0 +1,49 @@
+.dt-gantt {
+  font-family: var(--dt-font-sans);
+  border: 1px solid var(--dt-color-border);
+  border-radius: var(--dt-radius-md);
+  background-color: var(--dt-color-surface);
+  overflow: hidden;
+}
+.dt-gantt-header {
+  display: flex;
+  gap: var(--dt-space-2);
+  padding: var(--dt-space-2);
+  border-bottom: 1px solid var(--dt-color-border);
+  background-color: var(--dt-color-surface);
+}
+.dt-gantt-header-cell {
+  flex: 1;
+  font-size: var(--dt-font-size-sm);
+  font-weight: var(--dt-font-weight-medium);
+  color: var(--dt-color-text);
+}
+.dt-gantt-row {
+  display: flex;
+  gap: var(--dt-space-2);
+  padding: var(--dt-space-1) var(--dt-space-2);
+  border-bottom: 1px solid var(--dt-color-border);
+}
+.dt-gantt-cell {
+  flex: 1;
+  font-size: var(--dt-font-size-sm);
+  color: var(--dt-color-text);
+}
+.dt-gantt-bar {
+  flex: 1;
+  height: 20px;
+  border: 1px solid var(--dt-color-primary);
+  border-radius: var(--dt-radius-sm);
+  background-color: var(--dt-color-surface);
+  position: relative;
+  cursor: pointer;
+}
+.dt-gantt-bar:focus-visible {
+  outline: 2px solid var(--dt-color-outline-primary);
+  outline-offset: 1px;
+}
+.dt-gantt-progress {
+  height: 100%;
+  background-color: var(--dt-color-primary);
+  border-radius: var(--dt-radius-sm);
+}
