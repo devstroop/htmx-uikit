@@ -1,6 +1,7 @@
 <!--
   Gantt — reference markup for server templates.
   Root: <div class="dt-gantt" data-dt-gantt aria-label="Gantt" role="grid" aria-rowcount="2">
+  (bars are role=button with aria-label including progress; no aria-value* on buttons)
     <div class="dt-gantt-header" role="row">
       <div class="dt-gantt-header-cell" role="columnheader">Task</div>
       <div class="dt-gantt-header-cell" role="columnheader">Timeline</div>
@@ -8,7 +9,7 @@
     <div class="dt-gantt-row" role="row" data-dt-gantt-row aria-selected="false">
       <div class="dt-gantt-cell" role="gridcell">Task 1</div>
       <div class="dt-gantt-cell" role="gridcell">
-        <div class="dt-gantt-bar" role="button" data-dt-gantt-bar data-dt-id="1" aria-label="Task 1 2024-01-01 - 2024-01-05" aria-pressed="false" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" tabindex="0">
+        <div class="dt-gantt-bar" role="button" data-dt-gantt-bar data-dt-id="1" aria-label="Task 1 2024-01-01 - 2024-01-05" aria-pressed="false" tabindex="0">
           <div class="dt-gantt-progress" style="width:50%"></div>
         </div>
       </div>
@@ -25,7 +26,7 @@
   <div class="dt-gantt-row" role="row" data-dt-gantt-row aria-selected="false">
     <div class="dt-gantt-cell" role="gridcell">Task 1</div>
     <div class="dt-gantt-cell" role="gridcell">
-      <div class="dt-gantt-bar" role="button" data-dt-gantt-bar data-dt-id="1" aria-label="Task 1 2024-01-01 - 2024-01-05" aria-pressed="false" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" tabindex="0">
+      <div class="dt-gantt-bar" role="button" data-dt-gantt-bar data-dt-id="1" aria-label="Task 1 2024-01-01 - 2024-01-05" aria-pressed="false" tabindex="0">
         <div class="dt-gantt-progress" style="width:50%"></div>
       </div>
     </div>
@@ -33,7 +34,7 @@
   <div class="dt-gantt-row" role="row" data-dt-gantt-row aria-selected="false">
     <div class="dt-gantt-cell" role="gridcell">Task 2</div>
     <div class="dt-gantt-cell" role="gridcell">
-      <div class="dt-gantt-bar" role="button" data-dt-gantt-bar data-dt-id="2" aria-label="Task 2 2024-01-06 - 2024-01-10" aria-pressed="false" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" tabindex="0">
+      <div class="dt-gantt-bar" role="button" data-dt-gantt-bar data-dt-id="2" aria-label="Task 2 2024-01-06 - 2024-01-10" aria-pressed="false" tabindex="0">
         <div class="dt-gantt-progress" style="width:0%"></div>
       </div>
     </div>

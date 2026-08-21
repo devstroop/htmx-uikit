@@ -1,18 +1,18 @@
 <!--
   Scheduler — reference markup for server templates.
-  Root: <div class="dt-scheduler" data-dt-scheduler [data-dt-view="week"] aria-label="Scheduler" role="grid">
+  Root: <div class="dt-scheduler" data-dt-scheduler [data-dt-view="week"] aria-label="Scheduler" role="group">
     <div class="dt-scheduler-header">
       <button class="dt-scheduler-nav" data-dt-scheduler-prev aria-label="Previous">‹</button>
       <span class="dt-scheduler-title">Jan 2024</span>
       <button class="dt-scheduler-nav" data-dt-scheduler-next aria-label="Next">›</button>
     </div>
-    <div class="dt-scheduler-grid" role="grid">
+    <div class="dt-scheduler-grid" role="presentation">
       <div class="dt-scheduler-timecol">
         <div class="dt-scheduler-time">8:00</div>
       </div>
-      <div class="dt-scheduler-day" role="gridcell" data-dt-scheduler-day tabindex="0">
+      <div class="dt-scheduler-day" data-dt-scheduler-day tabindex="0">
         <div class="dt-scheduler-day-header">Mon Jan 15</div>
-        <div class="dt-scheduler-slot" role="gridcell" data-dt-scheduler-slot tabindex="-1"></div>
+        <div class="dt-scheduler-slot" data-dt-scheduler-slot tabindex="-1"></div>
         <button class="dt-scheduler-event" data-dt-scheduler-event data-dt-id="1" aria-label="Meeting 10:00 - 11:00">Meeting</button>
       </div>
     </div>
@@ -20,26 +20,26 @@
   behaviors.js handles prev/next, slot/event clicks, keyboard, and dispatches dt:scheduler-event-click, dt:scheduler-slot-click, dt:scheduler-date-change.
 -->
 
-<div class="dt-scheduler" data-dt-scheduler data-dt-view="week" role="grid" aria-label="Scheduler">
+<div class="dt-scheduler" data-dt-scheduler data-dt-view="week" role="group" aria-label="Scheduler">
   <div class="dt-scheduler-header">
     <button type="button" class="dt-scheduler-nav" data-dt-scheduler-prev aria-label="Previous">‹</button>
     <span class="dt-scheduler-title">Jan 15, 2024</span>
     <button type="button" class="dt-scheduler-nav" data-dt-scheduler-next aria-label="Next">›</button>
   </div>
-  <div class="dt-scheduler-grid" role="grid">
+  <div class="dt-scheduler-grid" role="presentation">
     <div class="dt-scheduler-timecol">
       <div class="dt-scheduler-time">8:00</div>
       <div class="dt-scheduler-time">9:00</div>
       <div class="dt-scheduler-time">10:00</div>
     </div>
-    <div class="dt-scheduler-day" role="gridcell" data-dt-scheduler-day tabindex="0">
+    <div class="dt-scheduler-day" data-dt-scheduler-day tabindex="0">
       <div class="dt-scheduler-day-header">Mon Jan 15</div>
-      <div class="dt-scheduler-slot" role="gridcell" data-dt-scheduler-slot tabindex="-1"></div>
+      <div class="dt-scheduler-slot" data-dt-scheduler-slot tabindex="-1"></div>
       <button type="button" class="dt-scheduler-event" data-dt-scheduler-event data-dt-id="1" aria-label="Meeting 10:00 - 11:00">Meeting</button>
     </div>
-    <div class="dt-scheduler-day" role="gridcell" data-dt-scheduler-day tabindex="0">
+    <div class="dt-scheduler-day" data-dt-scheduler-day tabindex="0">
       <div class="dt-scheduler-day-header">Tue Jan 16</div>
-      <div class="dt-scheduler-slot" role="gridcell" data-dt-scheduler-slot tabindex="-1"></div>
+      <div class="dt-scheduler-slot" data-dt-scheduler-slot tabindex="-1"></div>
     </div>
   </div>
 </div>
