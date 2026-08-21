@@ -1,0 +1,64 @@
+<!--
+  PickList — reference markup for server templates.
+  Root: <div class="dt-picklist" data-dt-picklist aria-label="PickList">
+    <div class="dt-picklist-panel" data-dt-picklist-source>
+      <div class="dt-picklist-caption">Source</div>
+      <div class="dt-picklist-list" role="listbox" aria-label="Source"
+           aria-multiselectable="true" data-dt-picklist-list data-dt-side="source">
+        <div class="dt-picklist-item" role="option" data-dt-picklist-item
+             data-dt-key="1" data-dt-text="Item 1" aria-selected="false"
+             tabindex="0">Item 1</div>
+        <div class="dt-picklist-item dt-picklist-item--disabled" role="option"
+             data-dt-picklist-item data-dt-key="2" data-dt-text="Item 2"
+             aria-selected="false" aria-disabled="true" tabindex="-1">Item 2</div>
+      </div>
+    </div>
+    <div class="dt-picklist-controls" data-dt-picklist-controls>
+      <button type="button" class="dt-picklist-btn" data-dt-picklist-to-target
+              aria-label="Move selected to target">›</button>
+      <button type="button" class="dt-picklist-btn" data-dt-picklist-to-source
+              aria-label="Move selected to source">‹</button>
+      <button type="button" class="dt-picklist-btn" data-dt-picklist-all-to-target
+              aria-label="Move all to target">≫</button>
+      <button type="button" class="dt-picklist-btn" data-dt-picklist-all-to-source
+              aria-label="Move all to source">≪</button>
+      <button type="button" class="dt-picklist-btn" data-dt-picklist-up
+              aria-label="Move up">↑</button>
+      <button type="button" class="dt-picklist-btn" data-dt-picklist-down
+              aria-label="Move down">↓</button>
+    </div>
+    <div class="dt-picklist-panel" data-dt-picklist-target>
+      <div class="dt-picklist-caption">Target</div>
+      <div class="dt-picklist-list" role="listbox" aria-label="Target"
+           aria-multiselectable="true" data-dt-picklist-list data-dt-side="target">
+      </div>
+    </div>
+  </div>
+  behaviors.js handles selection (Enter/Space, click), move selected/all/up/down,
+  and dispatches dt:picklist-move{ source, target, moved, direction }.
+-->
+
+<div class="dt-picklist" data-dt-picklist aria-label="PickList">
+  <div class="dt-picklist-panel" data-dt-picklist-source>
+    <div class="dt-picklist-caption">Source</div>
+    <div class="dt-picklist-list" role="listbox" aria-label="Source" aria-multiselectable="true" data-dt-picklist-list data-dt-side="source">
+      <div class="dt-picklist-item" role="option" data-dt-picklist-item data-dt-key="1" data-dt-text="Apple" aria-selected="true" tabindex="0">Apple</div>
+      <div class="dt-picklist-item" role="option" data-dt-picklist-item data-dt-key="2" data-dt-text="Banana" aria-selected="false" tabindex="-1">Banana</div>
+      <div class="dt-picklist-item dt-picklist-item--disabled" role="option" data-dt-picklist-item data-dt-key="3" data-dt-text="Cherry" aria-selected="false" aria-disabled="true" tabindex="-1">Cherry (disabled)</div>
+    </div>
+  </div>
+  <div class="dt-picklist-controls" data-dt-picklist-controls>
+    <button type="button" class="dt-picklist-btn" data-dt-picklist-to-target aria-label="Move selected to target">›</button>
+    <button type="button" class="dt-picklist-btn" data-dt-picklist-to-source aria-label="Move selected to source">‹</button>
+    <button type="button" class="dt-picklist-btn" data-dt-picklist-all-to-target aria-label="Move all to target">≫</button>
+    <button type="button" class="dt-picklist-btn" data-dt-picklist-all-to-source aria-label="Move all to source">≪</button>
+    <button type="button" class="dt-picklist-btn" data-dt-picklist-up aria-label="Move up">↑</button>
+    <button type="button" class="dt-picklist-btn" data-dt-picklist-down aria-label="Move down">↓</button>
+  </div>
+  <div class="dt-picklist-panel" data-dt-picklist-target>
+    <div class="dt-picklist-caption">Target</div>
+    <div class="dt-picklist-list" role="listbox" aria-label="Target" aria-multiselectable="true" data-dt-picklist-list data-dt-side="target">
+      <div class="dt-picklist-item" role="option" data-dt-picklist-item data-dt-key="4" data-dt-text="Date" aria-selected="false" tabindex="-1">Date</div>
+    </div>
+  </div>
+</div>

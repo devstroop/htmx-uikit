@@ -1,0 +1,59 @@
+<!--
+  Tree — reference markup for server templates.
+  Root: <div class="dt-tree" data-dt-tree [data-dt-selection-mode="single|multiple"]
+        aria-label="Tree" role="tree" aria-multiselectable="false|true">
+    <div class="dt-tree-children" role="group" data-dt-tree-children>
+      <div class="dt-tree-item" role="treeitem" data-dt-tree-item
+           data-dt-key="id" data-dt-text="Label" [data-dt-disabled]
+           aria-level="1" aria-setsize="3" aria-posinset="1"
+           [aria-expanded="true|false"] [aria-selected="true|false"]
+           [aria-busy="true"] tabindex="0|-1">
+        <button type="button" class="dt-tree-caret" data-dt-tree-caret
+                aria-label="Expand Label" aria-expanded="true|false"
+                [hidden] when leaf>▸</button>
+        <span class="dt-tree-label">Label</span>
+        [<div class="dt-tree-children" role="group" data-dt-tree-children>
+           ... nested items
+         </div> when expanded]
+      </div>
+      ... more items
+    </div>
+  </div>
+  behaviors.js handles expand/collapse via caret clicks, keyboard
+  (ArrowUp/Down, ArrowRight expand or go to child, ArrowLeft collapse or go to parent,
+   Home/End, Enter/Space toggle selection, typeahead), lazy children via
+  data-dt-load-child-data (hx-get), and dispatches dt:tree-select{key,text,selected},
+  dt:tree-expand{key}, dt:tree-collapse{key}.
+-->
+
+<!-- Default single selection -->
+<div class="dt-tree" data-dt-tree data-dt-selection-mode="single" role="tree" aria-label="Tree" aria-multiselectable="false">
+  <div class="dt-tree-children" role="group" data-dt-tree-children>
+    <div class="dt-tree-item" role="treeitem" data-dt-tree-item data-dt-key="1" data-dt-text="Documents" aria-level="1" aria-setsize="2" aria-posinset="1" aria-expanded="true" aria-selected="false" tabindex="0">
+      <button type="button" class="dt-tree-caret" data-dt-tree-caret aria-label="Collapse Documents" aria-expanded="true">▾</button>
+      <span class="dt-tree-label">Documents</span>
+      <div class="dt-tree-children" role="group" data-dt-tree-children>
+        <div class="dt-tree-item" role="treeitem" data-dt-tree-item data-dt-key="1-1" data-dt-text="Resume.pdf" aria-level="2" aria-setsize="2" aria-posinset="1" aria-selected="false" tabindex="-1">
+          <span class="dt-tree-label">Resume.pdf</span>
+        </div>
+        <div class="dt-tree-item" role="treeitem" data-dt-tree-item data-dt-key="1-2" data-dt-text="Cover.pdf" aria-level="2" aria-setsize="2" aria-posinset="2" aria-selected="true" tabindex="-1">
+          <span class="dt-tree-label">Cover.pdf</span>
+        </div>
+      </div>
+    </div>
+    <div class="dt-tree-item" role="treeitem" data-dt-tree-item data-dt-key="2" data-dt-text="Pictures" aria-level="1" aria-setsize="2" aria-posinset="2" aria-expanded="false" aria-selected="false" tabindex="-1">
+      <button type="button" class="dt-tree-caret" data-dt-tree-caret aria-label="Expand Pictures" aria-expanded="false">▸</button>
+      <span class="dt-tree-label">Pictures</span>
+    </div>
+  </div>
+</div>
+
+<!-- Lazy loading -->
+<div class="dt-tree" data-dt-tree data-dt-load-child-data="/api/tree/children" role="tree" aria-label="Lazy tree">
+  <div class="dt-tree-children" role="group" data-dt-tree-children>
+    <div class="dt-tree-item" role="treeitem" data-dt-tree-item data-dt-key="root" data-dt-text="Root" aria-level="1" aria-expanded="false" tabindex="0">
+      <button type="button" class="dt-tree-caret" data-dt-tree-caret aria-label="Expand Root" aria-expanded="false">▸</button>
+      <span class="dt-tree-label">Root</span>
+    </div>
+  </div>
+</div>

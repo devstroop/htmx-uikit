@@ -1,0 +1,68 @@
+.dt-tree {
+  font-family: var(--dt-font-sans);
+  font-size: var(--dt-font-size-sm);
+  font-weight: var(--dt-font-weight-medium);
+  background-color: var(--dt-color-surface);
+  border: 1px solid var(--dt-color-border);
+  border-radius: var(--dt-radius-md);
+  transition: background-color var(--dt-transition-fast);
+}
+
+.dt-tree-children {
+  list-style: none;
+  margin: 0;
+  padding-left: var(--dt-space-2);
+}
+
+.dt-tree-item {
+  display: flex;
+  align-items: center;
+  gap: var(--dt-space-1);
+  padding: var(--dt-space-1);
+  border-radius: var(--dt-radius-sm);
+  cursor: pointer;
+}
+
+.dt-tree-item[aria-selected="true"] {
+  background-color: var(--dt-color-primary);
+  color: var(--dt-color-primary-fg);
+  border: 1px solid var(--dt-color-border-primary);
+}
+
+.dt-tree-item:focus-visible {
+  outline: 2px solid var(--dt-color-outline-primary);
+  outline-offset: 1px;
+}
+
+.dt-tree-item[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.dt-tree-caret {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: transparent;
+  color: var(--dt-color-text-muted);
+  cursor: pointer;
+  border-radius: var(--dt-radius-sm);
+}
+
+.dt-tree-caret:hover {
+  background-color: var(--dt-color-surface-hover);
+  color: var(--dt-color-text);
+}
+
+.dt-tree-caret:focus-visible {
+  outline: 2px solid var(--dt-color-outline-primary);
+  outline-offset: 1px;
+}
+
+.dt-tree-label {
+  flex: 1;
+  white-space: nowrap;
+}
