@@ -1,0 +1,125 @@
+<!--
+  PanelMenu — reference markup for server templates.
+  Root: <nav class="dt-panelmenu [dt-panelmenu--icon-only]"
+        data-dt-panelmenu [data-dt-multiple] [data-dt-show-arrow="true|false"]
+        [data-dt-display-style="icon|iconAndText"] aria-label="Panel menu">
+    <div class="dt-panelmenu-list" role="presentation"
+         data-dt-panelmenu-list>
+      <div class="dt-panelmenu-item" data-dt-panelmenu-item-wrapper>
+        <button type="button" class="dt-panelmenu-trigger"
+                data-dt-panelmenu-trigger data-dt-panelmenu-item
+                data-dt-text="Item" [data-dt-value="val"]
+                [data-dt-path="/path"] [data-index="0"]
+                [aria-haspopup] [aria-expanded] [aria-controls]
+                [aria-disabled] [disabled] tabindex>
+          [<span class="dt-panelmenu-icon" aria-hidden="true">icon</span>]
+          <span class="dt-panelmenu-text">Label</span>
+          [<span class="dt-panelmenu-caret" aria-hidden="true">▾</span>]
+        </button>
+        [<div id role="menu" class="dt-panelmenu-submenu"
+              data-dt-panelmenu-submenu aria-labelledby>
+           <div role="menuitem" class="dt-panelmenu-submenu-item"
+                data-dt-panelmenu-item data-dt-text="Child" tabindex>
+                ... child triggers or leaf ...
+           </div>
+         </div>]
+      </div>
+    </div>
+  </nav>
+  behaviors.js toggles aria-expanded and hidden on triggers/submenus, respects
+  data-dt-multiple (allow many open) versus single-open, honors
+  data-dt-show-arrow to hide carets, handles displayStyle icon/iconAndText
+  (iconOnly hides text), and dispatches dt:panelmenu-click{ text, value, path }
+  on leaf activation. Keyboard: Enter/Space toggles or activates, ArrowUp/Down
+  moves, Escape collapses, Home/End.
+-->
+
+<!-- Default single-expand -->
+<nav class="dt-panelmenu" data-dt-panelmenu aria-label="Panel menu">
+  <div class="dt-panelmenu-list" data-dt-panelmenu-list role="presentation">
+    <div class="dt-panelmenu-item" data-dt-panelmenu-item-wrapper>
+      <button type="button" class="dt-panelmenu-trigger" data-dt-panelmenu-trigger data-dt-panelmenu-item data-dt-text="Dashboard" data-dt-value="dashboard" data-index="0" tabindex="0">
+        <span class="dt-panelmenu-icon" aria-hidden="true">▦</span>
+        <span class="dt-panelmenu-text">Dashboard</span>
+      </button>
+    </div>
+    <div class="dt-panelmenu-item" data-dt-panelmenu-item-wrapper>
+      <button type="button" class="dt-panelmenu-trigger" data-dt-panelmenu-trigger data-dt-panelmenu-item data-dt-text="Reports" data-index="1" aria-haspopup="menu" aria-expanded="false" aria-controls="pm-submenu-1" tabindex="0">
+        <span class="dt-panelmenu-icon" aria-hidden="true">📊</span>
+        <span class="dt-panelmenu-text">Reports</span>
+        <span class="dt-panelmenu-caret" aria-hidden="true">▾</span>
+      </button>
+      <div id="pm-submenu-1" role="menu" class="dt-panelmenu-submenu" data-dt-panelmenu-submenu aria-labelledby="pm-trigger-1" hidden>
+        <div role="menuitem" class="dt-panelmenu-submenu-item" data-dt-panelmenu-item data-dt-text="Monthly" data-dt-value="monthly" tabindex="-1">Monthly</div>
+        <div role="menuitem" class="dt-panelmenu-submenu-item" data-dt-panelmenu-item data-dt-text="Annual" data-dt-value="annual" tabindex="-1">Annual</div>
+        <div role="menuitem" class="dt-panelmenu-submenu-item dt-panelmenu-item--disabled" data-dt-panelmenu-item data-dt-text="Custom" aria-disabled="true" tabindex="-1">Custom</div>
+      </div>
+    </div>
+    <div class="dt-panelmenu-item" data-dt-panelmenu-item-wrapper>
+      <button type="button" class="dt-panelmenu-trigger" data-dt-panelmenu-trigger data-dt-panelmenu-item data-dt-text="Settings" data-dt-value="settings" data-index="2" aria-haspopup="menu" aria-expanded="false" aria-controls="pm-submenu-2" tabindex="0">
+        <span class="dt-panelmenu-icon" aria-hidden="true">⚙</span>
+        <span class="dt-panelmenu-text">Settings</span>
+        <span class="dt-panelmenu-caret" aria-hidden="true">▾</span>
+      </button>
+      <div id="pm-submenu-2" role="menu" class="dt-panelmenu-submenu" data-dt-panelmenu-submenu aria-labelledby="pm-trigger-2" hidden>
+        <div role="menuitem" class="dt-panelmenu-submenu-item" data-dt-panelmenu-item data-dt-text="General" data-dt-value="general" tabindex="-1">General</div>
+        <div role="menuitem" class="dt-panelmenu-submenu-item" data-dt-panelmenu-item data-dt-text="Security" data-dt-value="security" tabindex="-1">Security</div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Multiple expand + showArrow false -->
+<nav class="dt-panelmenu" data-dt-panelmenu data-dt-multiple aria-label="Panel menu (multiple)">
+  <div class="dt-panelmenu-list" data-dt-panelmenu-list role="presentation">
+    <div class="dt-panelmenu-item" data-dt-panelmenu-item-wrapper>
+      <button type="button" class="dt-panelmenu-trigger" data-dt-panelmenu-trigger data-dt-panelmenu-item data-dt-text="Projects" data-index="0" aria-haspopup="menu" aria-expanded="true" aria-controls="pm2-submenu-0" tabindex="0">
+        <span class="dt-panelmenu-icon" aria-hidden="true">📁</span>
+        <span class="dt-panelmenu-text">Projects</span>
+      </button>
+      <div id="pm2-submenu-0" role="menu" class="dt-panelmenu-submenu" data-dt-panelmenu-submenu>
+        <div role="menuitem" class="dt-panelmenu-submenu-item" data-dt-panelmenu-item data-dt-text="Active" data-dt-value="active" tabindex="0">Active</div>
+        <div role="menuitem" class="dt-panelmenu-submenu-item" data-dt-panelmenu-item data-dt-text="Archived" data-dt-value="archived" tabindex="0">Archived</div>
+      </div>
+    </div>
+    <div class="dt-panelmenu-item" data-dt-panelmenu-item-wrapper>
+      <button type="button" class="dt-panelmenu-trigger" data-dt-panelmenu-trigger data-dt-panelmenu-item data-dt-text="Team" data-index="1" aria-haspopup="menu" aria-expanded="true" aria-controls="pm2-submenu-1" tabindex="0">
+        <span class="dt-panelmenu-icon" aria-hidden="true">👥</span>
+        <span class="dt-panelmenu-text">Team</span>
+      </button>
+      <div id="pm2-submenu-1" role="menu" class="dt-panelmenu-submenu" data-dt-panelmenu-submenu>
+        <div role="menuitem" class="dt-panelmenu-submenu-item" data-dt-panelmenu-item data-dt-text="Members" data-dt-value="members" tabindex="0">Members</div>
+        <div role="menuitem" class="dt-panelmenu-submenu-item" data-dt-panelmenu-item data-dt-text="Invites" data-dt-value="invites" tabindex="0">Invites</div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Icon-only displayStyle with disabled -->
+<nav class="dt-panelmenu dt-panelmenu--icon-only" data-dt-panelmenu data-dt-display-style="icon" aria-label="Icon panel menu">
+  <div class="dt-panelmenu-list" data-dt-panelmenu-list role="presentation">
+    <div class="dt-panelmenu-item" data-dt-panelmenu-item-wrapper>
+      <button type="button" class="dt-panelmenu-trigger" data-dt-panelmenu-trigger data-dt-panelmenu-item data-dt-text="Home" data-dt-value="home" tabindex="0" aria-label="Home">
+        <span class="dt-panelmenu-icon" aria-hidden="true">⌂</span>
+        <span class="dt-panelmenu-text">Home</span>
+      </button>
+    </div>
+    <div class="dt-panelmenu-item" data-dt-panelmenu-item-wrapper>
+      <button type="button" class="dt-panelmenu-trigger dt-panelmenu-trigger--disabled" data-dt-panelmenu-trigger data-dt-panelmenu-item data-dt-text="Reports" aria-disabled="true" disabled tabindex="-1">
+        <span class="dt-panelmenu-icon" aria-hidden="true">📊</span>
+        <span class="dt-panelmenu-text">Reports</span>
+        <span class="dt-panelmenu-caret" aria-hidden="true">▾</span>
+      </button>
+    </div>
+    <div class="dt-panelmenu-item" data-dt-panelmenu-item-wrapper>
+      <button type="button" class="dt-panelmenu-trigger" data-dt-panelmenu-trigger data-dt-panelmenu-item data-dt-text="Settings" data-index="2" aria-haspopup="menu" aria-expanded="false" aria-controls="pm3-submenu-2" tabindex="0" aria-label="Settings">
+        <span class="dt-panelmenu-icon" aria-hidden="true">⚙</span>
+        <span class="dt-panelmenu-text">Settings</span>
+        <span class="dt-panelmenu-caret" aria-hidden="true">▾</span>
+      </button>
+      <div id="pm3-submenu-2" role="menu" class="dt-panelmenu-submenu" data-dt-panelmenu-submenu hidden>
+        <div role="menuitem" class="dt-panelmenu-submenu-item" data-dt-panelmenu-item data-dt-text="General" tabindex="-1">General</div>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,82 @@
+<!--
+  Breadcrumb — reference markup for server templates.
+  Root: <nav class="dt-breadcrumb" data-dt-breadcrumb aria-label="Breadcrumb">
+    <ol class="dt-breadcrumb-list" data-dt-breadcrumb-list>
+      <li class="dt-breadcrumb-item" data-dt-breadcrumb-item>
+        <a href="/path" class="dt-breadcrumb-link" data-dt-breadcrumb-link
+           data-dt-text="Label" [data-dt-path="/path"]
+           [data-dt-icon="icon"]>...</a>
+        <span class="dt-breadcrumb-separator" aria-hidden="true">/</span>
+      </li>
+      ... separator is aria-hidden; last <li> contains:
+        <a ... aria-current="page"> or <span class="dt-breadcrumb-current"
+           data-dt-breadcrumb-current aria-current="page">
+        disabled items: aria-disabled="true" tabindex="-1"
+      </li>
+    </ol>
+  </nav>
+  behaviors.js dispatches dt:breadcrumb-click{ text, path } on enabled
+  item activation (click or Enter/Space). Disabled items are skipped;
+  the last item has aria-current="page". Separators are aria-hidden.
+-->
+
+<!-- Default breadcrumb with links -->
+<nav class="dt-breadcrumb" data-dt-breadcrumb aria-label="Breadcrumb">
+  <ol class="dt-breadcrumb-list" data-dt-breadcrumb-list>
+    <li class="dt-breadcrumb-item" data-dt-breadcrumb-item>
+      <a href="/" class="dt-breadcrumb-link" data-dt-breadcrumb-link data-dt-text="Home" data-dt-path="/">Home</a>
+      <span class="dt-breadcrumb-separator" aria-hidden="true">/</span>
+    </li>
+    <li class="dt-breadcrumb-item" data-dt-breadcrumb-item>
+      <a href="/products" class="dt-breadcrumb-link" data-dt-breadcrumb-link data-dt-text="Products" data-dt-path="/products">Products</a>
+      <span class="dt-breadcrumb-separator" aria-hidden="true">/</span>
+    </li>
+    <li class="dt-breadcrumb-item" data-dt-breadcrumb-item>
+      <span class="dt-breadcrumb-current" data-dt-breadcrumb-current data-dt-text="Laptops" aria-current="page">Laptops</span>
+    </li>
+  </ol>
+</nav>
+
+<!-- Breadcrumb with icons -->
+<nav class="dt-breadcrumb" data-dt-breadcrumb aria-label="Breadcrumb">
+  <ol class="dt-breadcrumb-list" data-dt-breadcrumb-list>
+    <li class="dt-breadcrumb-item" data-dt-breadcrumb-item>
+      <a href="/" class="dt-breadcrumb-link" data-dt-breadcrumb-link data-dt-text="Home" data-dt-path="/">
+        <span class="dt-breadcrumb-icon" aria-hidden="true">⌂</span><span>Home</span>
+      </a>
+      <span class="dt-breadcrumb-separator" aria-hidden="true">/</span>
+    </li>
+    <li class="dt-breadcrumb-item" data-dt-breadcrumb-item>
+      <a href="/library" class="dt-breadcrumb-link" data-dt-breadcrumb-link data-dt-text="Library" data-dt-path="/library">
+        <span class="dt-breadcrumb-icon" aria-hidden="true">📚</span><span>Library</span>
+      </a>
+      <span class="dt-breadcrumb-separator" aria-hidden="true">/</span>
+    </li>
+    <li class="dt-breadcrumb-item" data-dt-breadcrumb-item>
+      <span class="dt-breadcrumb-current" data-dt-breadcrumb-current data-dt-text="Data" aria-current="page">
+        <span class="dt-breadcrumb-icon" aria-hidden="true">📄</span><span>Data</span>
+      </span>
+    </li>
+  </ol>
+</nav>
+
+<!-- Breadcrumb with disabled and pathless clickable (button) -->
+<nav class="dt-breadcrumb" data-dt-breadcrumb aria-label="Breadcrumb">
+  <ol class="dt-breadcrumb-list" data-dt-breadcrumb-list>
+    <li class="dt-breadcrumb-item" data-dt-breadcrumb-item>
+      <a href="/" class="dt-breadcrumb-link" data-dt-breadcrumb-link data-dt-text="Home" data-dt-path="/">Home</a>
+      <span class="dt-breadcrumb-separator" aria-hidden="true">/</span>
+    </li>
+    <li class="dt-breadcrumb-item" data-dt-breadcrumb-item>
+      <span class="dt-breadcrumb-link dt-breadcrumb-link--disabled" data-dt-breadcrumb-link data-dt-text="Reports" aria-disabled="true" tabindex="-1">Reports</span>
+      <span class="dt-breadcrumb-separator" aria-hidden="true">/</span>
+    </li>
+    <li class="dt-breadcrumb-item" data-dt-breadcrumb-item>
+      <button type="button" class="dt-breadcrumb-link dt-breadcrumb-link--button" data-dt-breadcrumb-link data-dt-text="Monthly" tabindex="0">Monthly</button>
+      <span class="dt-breadcrumb-separator" aria-hidden="true">/</span>
+    </li>
+    <li class="dt-breadcrumb-item" data-dt-breadcrumb-item>
+      <span class="dt-breadcrumb-current" data-dt-breadcrumb-current data-dt-text="Details" aria-current="page">Details</span>
+    </li>
+  </ol>
+</nav>

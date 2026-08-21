@@ -1,0 +1,121 @@
+<!--
+  Menu — reference markup for server templates.
+  Root: <nav class="dt-menu [dt-menu--vertical]" data-dt-menu
+        [data-dt-orientation="horizontal|vertical"] aria-label="Menu">
+    <div class="dt-menu-menubar" role="menubar" aria-label="Menu"
+         data-dt-menu-menubar>
+      <div class="dt-menu-item-wrapper" data-dt-menu-item-wrapper>
+        <button type="button" class="dt-menu-item" role="menuitem"
+                data-dt-menu-item data-dt-text="Home" data-dt-value="home"
+                [data-dt-path="/"] data-top="true" data-index="0"
+                [aria-haspopup="menu"] [aria-expanded="true|false"]
+                [aria-controls="submenu-id"] [aria-disabled="true"]
+                [aria-current="page"] [disabled] tabindex="0|-1">
+          [<span class="dt-menu-icon" aria-hidden="true">icon</span>]
+          <span class="dt-menu-text">Label</span>
+          [<span class="dt-menu-caret" aria-hidden="true">▾</span>]
+        </button>
+        [<div id="submenu-id" role="menu" class="dt-menu-submenu"
+              data-dt-menu-submenu aria-label="Parent label" [hidden]>
+           <button type="button" role="menuitem" class="dt-menu-submenu-item"
+                   data-dt-menu-item data-dt-text="Child" data-dt-value="child"
+                   [data-dt-path="/child"] [aria-disabled="true"] [disabled]
+                   tabindex="0|-1">...</button>
+         </div>]
+      </div>
+      ... more wrappers
+    </div>
+  </nav>
+  behaviors.js toggles submenu open state (aria-expanded/hidden), handles
+  hover (horizontal) and click, keyboard (ArrowLeft/Right, ArrowDown to
+  open, ArrowUp/Down within submenu, Enter/Space activate, Escape closes,
+  Home/End) and dispatches dt:menu-click{ text, value, path } on leaf
+  activation. Disabled items have aria-disabled and are not focusable or
+  actionable. Active link uses aria-current="page".
+-->
+
+<!-- Default horizontal menu -->
+<nav class="dt-menu" data-dt-menu aria-label="Menu">
+  <div class="dt-menu-menubar" role="menubar" aria-label="Menu" data-dt-menu-menubar>
+    <div class="dt-menu-item-wrapper" data-dt-menu-item-wrapper>
+      <button type="button" class="dt-menu-item" role="menuitem" data-dt-menu-item data-dt-text="Home" data-dt-value="home" data-dt-path="/" data-top="true" data-index="0" tabindex="0">
+        <span class="dt-menu-text">Home</span>
+      </button>
+    </div>
+    <div class="dt-menu-item-wrapper" data-dt-menu-item-wrapper>
+      <button type="button" class="dt-menu-item" role="menuitem" data-dt-menu-item data-dt-text="Products" data-top="true" data-index="1" aria-haspopup="menu" aria-expanded="false" aria-controls="menu-submenu-1" tabindex="0">
+        <span class="dt-menu-text">Products</span>
+        <span class="dt-menu-caret" aria-hidden="true">▾</span>
+      </button>
+      <div id="menu-submenu-1" role="menu" class="dt-menu-submenu" data-dt-menu-submenu aria-label="Products" hidden>
+        <button type="button" role="menuitem" class="dt-menu-submenu-item" data-dt-menu-item data-dt-text="Laptops" data-dt-value="laptops" data-dt-path="/products/laptops" tabindex="-1">Laptops</button>
+        <button type="button" role="menuitem" class="dt-menu-submenu-item" data-dt-menu-item data-dt-text="Phones" data-dt-value="phones" data-dt-path="/products/phones" tabindex="-1">Phones</button>
+        <button type="button" role="menuitem" class="dt-menu-submenu-item" data-dt-menu-item data-dt-text="Accessories" data-dt-value="accessories" tabindex="-1">Accessories</button>
+      </div>
+    </div>
+    <div class="dt-menu-item-wrapper" data-dt-menu-item-wrapper>
+      <button type="button" class="dt-menu-item" role="menuitem" data-dt-menu-item data-dt-text="About" data-dt-value="about" data-dt-path="/about" data-top="true" data-index="2" tabindex="0">
+        <span class="dt-menu-text">About</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Menu with disabled and icons -->
+<nav class="dt-menu" data-dt-menu aria-label="Main menu">
+  <div class="dt-menu-menubar" role="menubar" aria-label="Main menu" data-dt-menu-menubar>
+    <div class="dt-menu-item-wrapper" data-dt-menu-item-wrapper>
+      <button type="button" class="dt-menu-item" role="menuitem" data-dt-menu-item data-dt-text="Dashboard" data-dt-value="dashboard" data-top="true" data-index="0" tabindex="0">
+        <span class="dt-menu-icon" aria-hidden="true">▦</span>
+        <span class="dt-menu-text">Dashboard</span>
+      </button>
+    </div>
+    <div class="dt-menu-item-wrapper" data-dt-menu-item-wrapper>
+      <button type="button" class="dt-menu-item" role="menuitem" data-dt-menu-item data-dt-text="Reports" data-top="true" data-index="1" aria-haspopup="menu" aria-expanded="false" aria-controls="menu2-submenu-1" tabindex="0">
+        <span class="dt-menu-icon" aria-hidden="true">📊</span>
+        <span class="dt-menu-text">Reports</span>
+        <span class="dt-menu-caret" aria-hidden="true">▾</span>
+      </button>
+      <div id="menu2-submenu-1" role="menu" class="dt-menu-submenu" data-dt-menu-submenu aria-label="Reports" hidden>
+        <button type="button" role="menuitem" class="dt-menu-submenu-item" data-dt-menu-item data-dt-text="Monthly" data-dt-value="monthly" tabindex="-1">
+          <span class="dt-menu-icon" aria-hidden="true">📅</span><span>Monthly</span>
+        </button>
+        <button type="button" role="menuitem" class="dt-menu-submenu-item" data-dt-menu-item data-dt-text="Annual" data-dt-value="annual" aria-disabled="true" disabled tabindex="-1">
+          <span class="dt-menu-icon" aria-hidden="true">📈</span><span>Annual</span>
+        </button>
+      </div>
+    </div>
+    <div class="dt-menu-item-wrapper" data-dt-menu-item-wrapper>
+      <button type="button" class="dt-menu-item" role="menuitem" data-dt-menu-item data-dt-text="Settings" data-dt-value="settings" data-top="true" data-index="2" aria-disabled="true" disabled tabindex="-1">
+        <span class="dt-menu-icon" aria-hidden="true">⚙</span>
+        <span class="dt-menu-text">Settings</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Vertical orientation with active state -->
+<nav class="dt-menu dt-menu--vertical" data-dt-menu data-dt-orientation="vertical" aria-label="Sidebar menu">
+  <div class="dt-menu-menubar" role="menubar" aria-label="Sidebar menu" data-dt-menu-menubar>
+    <div class="dt-menu-item-wrapper" data-dt-menu-item-wrapper>
+      <button type="button" class="dt-menu-item" role="menuitem" data-dt-menu-item data-dt-text="Overview" data-dt-value="overview" data-top="true" data-index="0" aria-current="page" tabindex="0">
+        <span class="dt-menu-text">Overview</span>
+      </button>
+    </div>
+    <div class="dt-menu-item-wrapper" data-dt-menu-item-wrapper>
+      <button type="button" class="dt-menu-item" role="menuitem" data-dt-menu-item data-dt-text="Projects" data-top="true" data-index="1" aria-haspopup="menu" aria-expanded="false" aria-controls="menu3-submenu-1" tabindex="0">
+        <span class="dt-menu-text">Projects</span>
+        <span class="dt-menu-caret" aria-hidden="true">▾</span>
+      </button>
+      <div id="menu3-submenu-1" role="menu" class="dt-menu-submenu" data-dt-menu-submenu aria-label="Projects" hidden>
+        <button type="button" role="menuitem" class="dt-menu-submenu-item" data-dt-menu-item data-dt-text="Active" data-dt-value="active" data-dt-path="/projects/active" tabindex="-1">Active</button>
+        <button type="button" role="menuitem" class="dt-menu-submenu-item" data-dt-menu-item data-dt-text="Archived" data-dt-value="archived" tabindex="-1">Archived</button>
+      </div>
+    </div>
+    <div class="dt-menu-item-wrapper" data-dt-menu-item-wrapper>
+      <button type="button" class="dt-menu-item" role="menuitem" data-dt-menu-item data-dt-text="Team" data-dt-value="team" data-top="true" data-index="2" tabindex="0">
+        <span class="dt-menu-text">Team</span>
+      </button>
+    </div>
+  </div>
+</nav>

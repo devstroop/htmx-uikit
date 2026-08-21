@@ -1,0 +1,86 @@
+<!--
+  ProfileMenu — reference markup for server templates.
+  Root: <div class="dt-profilemenu" data-dt-profilemenu>
+    <nav aria-label="Profile menu">
+      <button type="button" class="dt-profilemenu-trigger"
+              data-dt-profilemenu-trigger aria-haspopup="menu"
+              aria-expanded="true|false" aria-controls="menu-id"
+              aria-label="Profile menu">
+        <!-- custom template: avatar + email or fallback -->
+        <span class="dt-profilemenu-trigger-content">
+          <span class="dt-profilemenu-avatar" aria-hidden="true">●</span>
+          <span>user@example.com</span>
+        </span>
+      </button>
+      <div id="menu-id" role="menu" class="dt-profilemenu-menu"
+           data-dt-profilemenu-menu aria-label="Profile menu"
+           aria-activedescendant="item-id" [hidden]>
+        <div role="menuitem" id class="dt-profilemenu-item"
+             data-dt-profilemenu-item data-dt-text="Label"
+             [data-dt-path="/path"] [data-dt-value="val"]
+             [aria-disabled="true"] tabindex="0|-1">
+          [<span class="dt-profilemenu-item-icon" aria-hidden="true">icon</span>]
+          <span class="dt-profilemenu-item-text">Label</span>
+        </div>
+        ... more items
+      </div>
+    </nav>
+  </div>
+  behaviors.js toggles aria-expanded and hidden on the trigger/menu,
+  drives aria-activedescendant and the --active class, handles
+  keyboard (ArrowUp/Down, Home/End, Enter/Space activate, Escape
+  closes and returns focus, Tab closes), outside click to close, and
+  dispatches dt:profilemenu-click{ text, path } on item activation.
+-->
+
+<!-- Default with avatar/email trigger -->
+<div class="dt-profilemenu" data-dt-profilemenu>
+  <nav aria-label="Profile menu">
+    <button type="button" class="dt-profilemenu-trigger" data-dt-profilemenu-trigger aria-haspopup="menu" aria-expanded="false" aria-controls="pm-menu-1" aria-label="Profile menu">
+      <span class="dt-profilemenu-trigger-content">
+        <span class="dt-profilemenu-avatar" aria-hidden="true">JD</span>
+        <span>jane.doe@example.com</span>
+      </span>
+    </button>
+    <div id="pm-menu-1" role="menu" class="dt-profilemenu-menu" data-dt-profilemenu-menu aria-label="Profile menu" hidden>
+      <div role="menuitem" id="pm-menu-1-item-0" class="dt-profilemenu-item" data-dt-profilemenu-item data-dt-text="My profile" data-dt-path="/profile" tabindex="-1">My profile</div>
+      <div role="menuitem" id="pm-menu-1-item-1" class="dt-profilemenu-item" data-dt-profilemenu-item data-dt-text="Settings" data-dt-path="/settings" tabindex="-1">
+        <span class="dt-profilemenu-item-icon" aria-hidden="true">⚙</span><span>Settings</span>
+      </div>
+      <div role="menuitem" id="pm-menu-1-item-2" class="dt-profilemenu-item" data-dt-profilemenu-item data-dt-text="Sign out" data-dt-path="/logout" tabindex="-1">Sign out</div>
+    </div>
+  </nav>
+</div>
+
+<!-- Open state with disabled item and icons -->
+<div class="dt-profilemenu" data-dt-profilemenu>
+  <nav aria-label="Profile menu">
+    <button type="button" class="dt-profilemenu-trigger" data-dt-profilemenu-trigger aria-haspopup="menu" aria-expanded="true" aria-controls="pm-menu-2" aria-label="Profile menu">
+      <span class="dt-profilemenu-trigger-content">
+        <span class="dt-profilemenu-avatar" aria-hidden="true">●</span>
+        <span>Profile</span>
+      </span>
+    </button>
+    <div id="pm-menu-2" role="menu" class="dt-profilemenu-menu" data-dt-profilemenu-menu aria-label="Profile menu" aria-activedescendant="pm-menu-2-item-0">
+      <div role="menuitem" id="pm-menu-2-item-0" class="dt-profilemenu-item dt-profilemenu-item--active" data-dt-profilemenu-item data-dt-text="My profile" data-dt-path="/profile" tabindex="0">My profile</div>
+      <div role="menuitem" id="pm-menu-2-item-1" class="dt-profilemenu-item" data-dt-profilemenu-item data-dt-text="Billing" data-dt-path="/billing" tabindex="-1">
+        <span class="dt-profilemenu-item-icon" aria-hidden="true">💳</span><span>Billing</span>
+      </div>
+      <div role="menuitem" id="pm-menu-2-item-2" class="dt-profilemenu-item dt-profilemenu-item--disabled" data-dt-profilemenu-item data-dt-text="Admin" aria-disabled="true" tabindex="-1">Admin (unavailable)</div>
+      <div role="menuitem" id="pm-menu-2-item-3" class="dt-profilemenu-item" data-dt-profilemenu-item data-dt-text="Sign out" tabindex="-1">Sign out</div>
+    </div>
+  </nav>
+</div>
+
+<!-- Minimal trigger (no avatar) -->
+<div class="dt-profilemenu" data-dt-profilemenu>
+  <nav aria-label="User menu">
+    <button type="button" class="dt-profilemenu-trigger" data-dt-profilemenu-trigger aria-haspopup="menu" aria-expanded="false" aria-controls="pm-menu-3" aria-label="User menu">
+      <span>Menu</span>
+    </button>
+    <div id="pm-menu-3" role="menu" class="dt-profilemenu-menu" data-dt-profilemenu-menu aria-label="User menu" hidden>
+      <div role="menuitem" id="pm-menu-3-item-0" class="dt-profilemenu-item" data-dt-profilemenu-item data-dt-text="Preferences" tabindex="-1">Preferences</div>
+      <div role="menuitem" id="pm-menu-3-item-1" class="dt-profilemenu-item" data-dt-profilemenu-item data-dt-text="Help" tabindex="-1">Help</div>
+    </div>
+  </nav>
+</div>

@@ -1,0 +1,101 @@
+<!--
+  FabMenu — reference markup for server templates.
+  Root: <div class="dt-fabmenu dt-fabmenu--<position>" data-dt-fabmenu
+        [data-dt-position="bottom-right|bottom-left|top-right|top-left"]
+        [data-dt-icon="+"]>
+    <div role="menu" class="dt-fabmenu-menu" data-dt-fabmenu-menu
+         aria-label="Open menu" [hidden]>
+      <div class="dt-fabmenu-item-wrapper" data-dt-fabmenu-item-wrapper>
+        <span class="dt-fabmenu-tooltip" aria-hidden="true">Label</span>
+        <button type="button" role="menuitem" class="dt-fabmenu-item"
+                data-dt-fabmenu-item data-dt-text="Label"
+                [data-dt-value="val"] [data-dt-icon="icon"]
+                [aria-label="Label"] [title="Label"]
+                [aria-disabled="true"] [disabled] tabindex="0|-1">
+          <span class="dt-fabmenu-item-icon" aria-hidden="true">icon</span>
+        </button>
+      </div>
+      ... more items
+    </div>
+    <button type="button" class="dt-fabmenu-main"
+            data-dt-fabmenu-trigger aria-haspopup="menu"
+            aria-expanded="true|false" aria-controls="menu-id"
+            aria-label="Open menu">
+      <span class="dt-fabmenu-main-icon" aria-hidden="true">+</span>
+    </button>
+  </div>
+  behaviors.js toggles aria-expanded and hidden on the main button/menu,
+  handles outside click and Escape to close, Tab to move within items when
+  open, and dispatches dt:fabmenu-click{ text, value } (and icon/path if
+  present) on item activation. Disabled items are aria-disabled and not
+  actionable. Position is via data-dt-position class modifier.
+-->
+
+<!-- Default bottom-right -->
+<div class="dt-fabmenu dt-fabmenu--bottom-right" data-dt-fabmenu data-dt-position="bottom-right" aria-label="Open menu">
+  <div role="menu" class="dt-fabmenu-menu" data-dt-fabmenu-menu aria-label="Open menu" hidden>
+    <div class="dt-fabmenu-item-wrapper" data-dt-fabmenu-item-wrapper>
+      <span class="dt-fabmenu-tooltip" aria-hidden="true">Create</span>
+      <button type="button" role="menuitem" class="dt-fabmenu-item" data-dt-fabmenu-item data-dt-text="Create" data-dt-value="create" data-dt-icon="+" aria-label="Create" title="Create" tabindex="-1">
+        <span class="dt-fabmenu-item-icon" aria-hidden="true">+</span>
+      </button>
+    </div>
+    <div class="dt-fabmenu-item-wrapper" data-dt-fabmenu-item-wrapper>
+      <span class="dt-fabmenu-tooltip" aria-hidden="true">Edit</span>
+      <button type="button" role="menuitem" class="dt-fabmenu-item" data-dt-fabmenu-item data-dt-text="Edit" data-dt-value="edit" data-dt-icon="✎" aria-label="Edit" title="Edit" tabindex="-1">
+        <span class="dt-fabmenu-item-icon" aria-hidden="true">✎</span>
+      </button>
+    </div>
+    <div class="dt-fabmenu-item-wrapper" data-dt-fabmenu-item-wrapper>
+      <span class="dt-fabmenu-tooltip" aria-hidden="true">Delete</span>
+      <button type="button" role="menuitem" class="dt-fabmenu-item" data-dt-fabmenu-item data-dt-text="Delete" data-dt-value="delete" aria-label="Delete" title="Delete" tabindex="-1">
+        <span class="dt-fabmenu-item-icon" aria-hidden="true">✕</span>
+      </button>
+    </div>
+  </div>
+  <button type="button" class="dt-fabmenu-main" data-dt-fabmenu-trigger aria-haspopup="menu" aria-expanded="false" aria-controls="fab-menu-1" aria-label="Open menu">
+    <span class="dt-fabmenu-main-icon" aria-hidden="true">+</span>
+  </button>
+</div>
+
+<!-- Open state bottom-left with disabled item -->
+<div class="dt-fabmenu dt-fabmenu--bottom-left dt-fabmenu--open" data-dt-fabmenu data-dt-position="bottom-left">
+  <div role="menu" class="dt-fabmenu-menu" data-dt-fabmenu-menu aria-label="Open menu">
+    <div class="dt-fabmenu-item-wrapper" data-dt-fabmenu-item-wrapper>
+      <span class="dt-fabmenu-tooltip" aria-hidden="true">Share</span>
+      <button type="button" role="menuitem" class="dt-fabmenu-item" data-dt-fabmenu-item data-dt-text="Share" data-dt-value="share" aria-label="Share" title="Share" tabindex="0">
+        <span class="dt-fabmenu-item-icon" aria-hidden="true">↗</span>
+      </button>
+    </div>
+    <div class="dt-fabmenu-item-wrapper" data-dt-fabmenu-item-wrapper>
+      <span class="dt-fabmenu-tooltip" aria-hidden="true">Export</span>
+      <button type="button" role="menuitem" class="dt-fabmenu-item dt-fabmenu-item--disabled" data-dt-fabmenu-item data-dt-text="Export" data-dt-value="export" aria-label="Export" title="Export" aria-disabled="true" disabled tabindex="-1">
+        <span class="dt-fabmenu-item-icon" aria-hidden="true">⤓</span>
+      </button>
+    </div>
+  </div>
+  <button type="button" class="dt-fabmenu-main" data-dt-fabmenu-trigger aria-haspopup="menu" aria-expanded="true" aria-controls="fab-menu-2" aria-label="Open menu">
+    <span class="dt-fabmenu-main-icon dt-fabmenu-main-icon--open" aria-hidden="true">+</span>
+  </button>
+</div>
+
+<!-- Top-right position with icons -->
+<div class="dt-fabmenu dt-fabmenu--top-right" data-dt-fabmenu data-dt-position="top-right">
+  <button type="button" class="dt-fabmenu-main" data-dt-fabmenu-trigger aria-haspopup="menu" aria-expanded="false" aria-controls="fab-menu-3" aria-label="Quick actions">
+    <span class="dt-fabmenu-main-icon" aria-hidden="true">⚡</span>
+  </button>
+  <div role="menu" class="dt-fabmenu-menu" data-dt-fabmenu-menu aria-label="Quick actions" hidden>
+    <div class="dt-fabmenu-item-wrapper" data-dt-fabmenu-item-wrapper>
+      <span class="dt-fabmenu-tooltip" aria-hidden="true">New file</span>
+      <button type="button" role="menuitem" class="dt-fabmenu-item" data-dt-fabmenu-item data-dt-text="New file" data-dt-value="new-file" data-dt-icon="📄" aria-label="New file" title="New file" tabindex="-1">
+        <span class="dt-fabmenu-item-icon" aria-hidden="true">📄</span>
+      </button>
+    </div>
+    <div class="dt-fabmenu-item-wrapper" data-dt-fabmenu-item-wrapper>
+      <span class="dt-fabmenu-tooltip" aria-hidden="true">Upload</span>
+      <button type="button" role="menuitem" class="dt-fabmenu-item" data-dt-fabmenu-item data-dt-text="Upload" data-dt-value="upload" data-dt-icon="⤒" aria-label="Upload" title="Upload" tabindex="-1">
+        <span class="dt-fabmenu-item-icon" aria-hidden="true">⤒</span>
+      </button>
+    </div>
+  </div>
+</div>

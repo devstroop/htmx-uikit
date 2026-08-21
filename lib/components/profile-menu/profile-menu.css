@@ -1,0 +1,123 @@
+.dt-profilemenu {
+  position: relative;
+  display: inline-block;
+  font-family: var(--dt-font-sans);
+}
+
+.dt-profilemenu-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--dt-space-2);
+  padding: var(--dt-space-1) var(--dt-space-2);
+  border: 1px solid var(--dt-color-border);
+  border-radius: var(--dt-radius-md);
+  background-color: var(--dt-color-surface);
+  color: var(--dt-color-text);
+  font-family: var(--dt-font-sans);
+  font-size: var(--dt-font-size-sm);
+  font-weight: var(--dt-font-weight-medium);
+  cursor: pointer;
+  transition:
+    background-color var(--dt-transition-fast),
+    border-color var(--dt-transition-fast);
+}
+
+.dt-profilemenu-trigger:hover {
+  background-color: var(--dt-color-surface-hover);
+  border-color: var(--dt-color-border);
+}
+
+.dt-profilemenu-trigger:focus-visible {
+  outline: 2px solid var(--dt-color-outline-primary);
+  outline-offset: 1px;
+}
+
+.dt-profilemenu-trigger[aria-expanded="true"] {
+  background-color: var(--dt-color-surface-hover);
+  border-color: var(--dt-color-border);
+}
+
+.dt-profilemenu-trigger-content {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--dt-space-2);
+}
+
+.dt-profilemenu-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--dt-radius-full);
+  background-color: var(--dt-color-primary);
+  color: var(--dt-color-primary-fg);
+  font-size: var(--dt-font-size-sm);
+  font-weight: var(--dt-font-weight-medium);
+}
+
+.dt-profilemenu-menu {
+  position: absolute;
+  top: calc(100% + var(--dt-space-2));
+  right: 0;
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--dt-space-1);
+  padding: var(--dt-space-1);
+  background-color: var(--dt-color-surface);
+  border: 1px solid var(--dt-color-border);
+  border-radius: var(--dt-radius-md);
+  box-shadow: var(--dt-shadow-sm);
+  z-index: var(--dt-z-popover);
+}
+
+.dt-profilemenu-menu[hidden] {
+  display: none;
+}
+
+.dt-profilemenu-item {
+  display: flex;
+  align-items: center;
+  gap: var(--dt-space-2);
+  padding: var(--dt-space-2) var(--dt-space-3);
+  border-radius: var(--dt-radius-sm);
+  color: var(--dt-color-text);
+  font-family: var(--dt-font-sans);
+  font-size: var(--dt-font-size-sm);
+  font-weight: var(--dt-font-weight-medium);
+  cursor: pointer;
+  transition: background-color var(--dt-transition-fast);
+  outline: none;
+}
+
+.dt-profilemenu-item:hover:not(.dt-profilemenu-item--disabled):not([aria-disabled="true"]) {
+  background-color: var(--dt-color-surface-hover);
+}
+
+.dt-profilemenu-item:focus-visible {
+  outline: 2px solid var(--dt-color-outline-primary);
+  outline-offset: 1px;
+}
+
+.dt-profilemenu-item--active {
+  background-color: var(--dt-color-surface-hover);
+}
+
+.dt-profilemenu-item[aria-disabled="true"],
+.dt-profilemenu-item--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.dt-profilemenu-item-icon {
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--dt-font-size-sm);
+  color: var(--dt-color-text-muted);
+}
+
+.dt-profilemenu-item-text {
+  flex: 1;
+  white-space: nowrap;
+}
