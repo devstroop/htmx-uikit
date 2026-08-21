@@ -1,0 +1,7 @@
+.dt-qrcode {
+  display: block;
+}
+
+.dt-qrcode {
+  font-family: var(--dt-font-sans);
+}

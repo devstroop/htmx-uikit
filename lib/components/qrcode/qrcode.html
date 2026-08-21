@@ -1,0 +1,20 @@
+<!--
+  QRCode — reference markup for server templates (server renders matrix).
+  <svg class="dt-qrcode" data-dt-qrcode role="img" aria-label="QR code for https://example.com"
+       width="128" height="128" viewBox="0 0 25 25" shape-rendering="crispEdges">
+    <rect width="25" height="25" fill="var(--dt-color-surface)"/>
+    <path fill="var(--dt-color-text)" d="M0 0h7v7H0z M2 2h3v3H2z ..."/>
+  </svg>
+  Static image; no behavior needed. Server templates emit the path d from a
+  QR library at render time.
+-->
+
+<svg class="dt-qrcode" data-dt-qrcode role="img" aria-label="QR code for https://example.com" width="128" height="128" viewBox="0 0 25 25" shape-rendering="crispEdges">
+  <rect width="25" height="25" fill="var(--dt-color-surface)"></rect>
+  <g fill="var(--dt-color-text)">
+    <path d="M0 0h7v7H0zM1 1v5h5V1zM2 2h3v3H2z"></path>
+    <path d="M18 0h7v7h-7zM19 1v5h5V1zM20 2h3v3h-3z"></path>
+    <path d="M0 18h7v7H0zM1 19v5h5v-5zM2 20h3v3H2z"></path>
+    <path d="M8 0h1v1H8zM10 2h1v1h-1zM4 8h1v1H4zM12 12h1v1h-1z"></path>
+  </g>
+</svg>

@@ -1,0 +1,37 @@
+<!--
+  Timeline — reference markup for server templates.
+  Root: <ol class="dt-timeline" data-dt-timeline role="list" aria-label="Timeline"
+        [data-dt-reverse]>
+    <li class="dt-timeline-item">
+      <span class="dt-timeline-marker" aria-hidden="true"></span>
+      <div class="dt-timeline-body">
+        <div class="dt-timeline-label">Created</div>
+        <div class="dt-timeline-content">Jan 2024</div>
+      </div>
+    </li>
+    ...
+  </ol>
+  Static; behaviors only apply reverse via [data-dt-reverse] CSS. No events.
+-->
+
+<ol class="dt-timeline" data-dt-timeline role="list" aria-label="Timeline">
+  <li class="dt-timeline-item">
+    <span class="dt-timeline-marker" aria-hidden="true"></span>
+    <div class="dt-timeline-body">
+      <div class="dt-timeline-label">Created</div>
+      <div class="dt-timeline-content">Jan 2024</div>
+    </div>
+  </li>
+  <li class="dt-timeline-item">
+    <span class="dt-timeline-marker" aria-hidden="true"></span>
+    <div class="dt-timeline-body">
+      <div class="dt-timeline-label">Shipped</div>
+      <div class="dt-timeline-content">Feb 2024</div>
+    </div>
+  </li>
+</ol>
+
+<ol class="dt-timeline" data-dt-timeline data-dt-reverse role="list" aria-label="Timeline (reverse)">
+  <li class="dt-timeline-item"><span class="dt-timeline-marker" aria-hidden="true"></span><div class="dt-timeline-body"><div class="dt-timeline-label">Latest first</div></div></li>
+  <li class="dt-timeline-item"><span class="dt-timeline-marker" aria-hidden="true"></span><div class="dt-timeline-body"><div class="dt-timeline-label">Older</div></div></li>
+</ol>

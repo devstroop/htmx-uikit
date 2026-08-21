@@ -1,0 +1,56 @@
+.dt-timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: var(--dt-font-sans);
+  display: flex;
+  flex-direction: column;
+}
+
+.dt-timeline[data-dt-reverse] {
+  flex-direction: column-reverse;
+}
+
+.dt-timeline-item {
+  position: relative;
+  display: flex;
+  gap: var(--dt-space-2);
+  padding-bottom: var(--dt-space-3);
+}
+
+.dt-timeline-item::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 5px;
+  top: 14px;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--dt-color-border);
+}
+
+.dt-timeline-item:last-child::before {
+  display: none;
+}
+
+.dt-timeline-marker {
+  width: 12px;
+  height: 12px;
+  border-radius: var(--dt-radius-full);
+  background-color: var(--dt-color-primary);
+  border: 2px solid var(--dt-color-surface);
+  box-shadow: 0 0 0 1px var(--dt-color-primary);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.dt-timeline-label {
+  color: var(--dt-color-text);
+  font-size: var(--dt-font-size-sm);
+  font-weight: var(--dt-font-weight-medium);
+}
+
+.dt-timeline-content {
+  color: var(--dt-color-text-muted);
+  font-size: var(--dt-font-size-sm);
+  padding-top: var(--dt-space-1);
+}

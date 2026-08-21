@@ -1,0 +1,46 @@
+.dt-virtual-grid {
+  overflow: auto;
+  height: 320px;
+  font-family: var(--dt-font-sans);
+  border: 1px solid var(--dt-color-border);
+  background-color: var(--dt-color-surface);
+}
+
+.dt-virtual-grid:focus-visible {
+  outline: 2px solid var(--dt-color-outline-primary);
+  outline-offset: 1px;
+}
+
+.dt-virtual-header {
+  display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: var(--dt-color-surface);
+  border-bottom: 1px solid var(--dt-color-border-strong);
+}
+
+.dt-virtual-head-cell {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 var(--dt-space-2);
+  color: var(--dt-color-text-muted);
+  font-size: var(--dt-font-size-sm);
+}
+
+.dt-virtual-row {
+  display: flex;
+  height: 40px;
+  border-bottom: 1px solid var(--dt-color-border);
+}
+
+.dt-virtual-cell {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--dt-space-2);
+  color: var(--dt-color-text);
+  font-size: var(--dt-font-size-sm);
+}

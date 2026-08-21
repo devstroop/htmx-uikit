@@ -1,0 +1,38 @@
+<!--
+  Pivot — reference markup for server templates.
+  Root: <div class="dt-pivot" data-dt-pivot>
+    <div class="dt-pivot-fields" data-dt-pivot-fields>
+      <button type="button" class="dt-pivot-chip" data-dt-pivot-chip
+              data-dt-zone="row|col|agg" data-dt-property="region"
+              aria-label="Remove row field Region">Region</button>
+      ...
+    </div>
+    <table class="dt-pivot-table" role="grid" aria-label="Pivot table">
+      <thead><tr><th scope="col">Region</th><th scope="col">Total</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">East</th><td>30</td><td>30</td></tr>
+        <tr class="dt-pivot-total-row"><th scope="row">Total</th><td>100</td><td>100</td></tr>
+      </tbody>
+    </table>
+  </div>
+  behaviors.js dispatches dt:pivot-field-remove{zone, property} when a chip
+  is clicked (server re-renders the pivot via hx-get/hx-post).
+-->
+
+<div class="dt-pivot" data-dt-pivot>
+  <div class="dt-pivot-fields" data-dt-pivot-fields>
+    <button type="button" class="dt-pivot-chip" data-dt-pivot-chip data-dt-zone="row" data-dt-property="region" aria-label="Remove row field Region">Region</button>
+    <button type="button" class="dt-pivot-chip" data-dt-pivot-chip data-dt-zone="col" data-dt-property="product" aria-label="Remove col field Product">Product</button>
+    <button type="button" class="dt-pivot-chip" data-dt-pivot-chip data-dt-zone="agg" data-dt-property="amount" aria-label="Remove agg field amount (Sum)">amount (Sum)</button>
+  </div>
+  <table class="dt-pivot-table" role="grid" aria-label="Pivot table">
+    <thead>
+      <tr><th scope="col">Region</th><th scope="col">A</th><th scope="col">B</th><th scope="col">Total</th></tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">East</th><td>10</td><td>20</td><td>30</td></tr>
+      <tr><th scope="row">West</th><td>30</td><td>40</td><td>70</td></tr>
+      <tr class="dt-pivot-total-row"><th scope="row">Total</th><td>40</td><td>60</td><td>100</td></tr>
+    </tbody>
+  </table>
+</div>

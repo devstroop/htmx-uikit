@@ -1,0 +1,34 @@
+<!--
+  Barcode — reference markup for server templates (Code 128, server-rendered).
+  <span class="dt-barcode" data-dt-barcode>
+    <svg role="img" aria-label="Barcode DEV-123" width="100%" height="60"
+         viewBox="0 0 202 60" preserveAspectRatio="none">
+      <rect width="202" height="60" fill="var(--dt-color-surface)"/>
+      <g fill="var(--dt-color-text)"><rect x="0" width="2" height="60"/>...</g>
+    </svg>
+    [<span class="dt-barcode-value">DEV-123</span>]
+  </span>
+  Static image + optional visible value; no behavior needed.
+-->
+
+<span class="dt-barcode" data-dt-barcode>
+  <svg role="img" aria-label="Barcode DEV-123" width="100%" height="60" viewBox="0 0 202 60" preserveAspectRatio="none">
+    <rect width="202" height="60" fill="var(--dt-color-surface)"></rect>
+    <g fill="var(--dt-color-text)">
+      <rect x="0" y="0" width="2" height="60"></rect>
+      <rect x="4" y="0" width="1" height="60"></rect>
+      <rect x="7" y="0" width="1" height="60"></rect>
+      <rect x="11" y="0" width="2" height="60"></rect>
+      <rect x="15" y="0" width="1" height="60"></rect>
+      <rect x="18" y="0" width="3" height="60"></rect>
+    </g>
+  </svg>
+  <span class="dt-barcode-value">DEV-123</span>
+</span>
+
+<span class="dt-barcode" data-dt-barcode>
+  <svg role="img" aria-label="Barcode ABC" width="100%" height="60" viewBox="0 0 160 60" preserveAspectRatio="none">
+    <rect width="160" height="60" fill="var(--dt-color-surface)"></rect>
+    <g fill="var(--dt-color-text)"><rect x="0" width="2" height="60"></rect><rect x="5" width="1" height="60"></rect></g>
+  </svg>
+</span>

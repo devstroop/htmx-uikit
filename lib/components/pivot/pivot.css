@@ -1,0 +1,57 @@
+.dt-pivot {
+  font-family: var(--dt-font-sans);
+  overflow: auto;
+}
+
+.dt-pivot-fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--dt-space-1);
+  padding: var(--dt-space-2);
+}
+
+.dt-pivot-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 var(--dt-space-2);
+  height: 24px;
+  border: 1px solid var(--dt-color-border);
+  border-radius: var(--dt-radius-sm);
+  background-color: var(--dt-color-surface);
+  color: var(--dt-color-text);
+  font-size: var(--dt-font-size-sm);
+  cursor: pointer;
+}
+
+.dt-pivot-chip:hover {
+  background-color: var(--dt-color-surface-hover);
+}
+
+.dt-pivot-chip:focus-visible {
+  outline: 2px solid var(--dt-color-outline-primary);
+  outline-offset: 1px;
+}
+
+.dt-pivot-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: var(--dt-font-size-sm);
+}
+
+.dt-pivot-table th,
+.dt-pivot-table td {
+  border: 1px solid var(--dt-color-border);
+  padding: var(--dt-space-1) var(--dt-space-2);
+  text-align: start;
+  color: var(--dt-color-text);
+}
+
+.dt-pivot-table thead th {
+  font-weight: var(--dt-font-weight-medium);
+  color: var(--dt-color-text-muted);
+}
+
+.dt-pivot-total-row th,
+.dt-pivot-total-row td {
+  font-weight: var(--dt-font-weight-medium);
+}

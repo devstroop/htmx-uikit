@@ -1,0 +1,36 @@
+<!--
+  VirtualGrid — reference markup for server templates (htmx paging pattern).
+  Root: <div class="dt-virtual-grid" data-dt-virtual-grid role="grid"
+        aria-label="Virtual grid" aria-rowcount="1000" tabindex="0"
+        hx-get="/rows?skip=0&top=20" hx-trigger="revealed" hx-target="[data-dt-virtual-rows]" hx-swap="beforeend">
+    <div class="dt-virtual-header" role="row">
+      <div class="dt-virtual-head-cell" role="columnheader">Name</div>
+    </div>
+    <div data-dt-virtual-rows>
+      <div class="dt-virtual-row" role="row" style="--row-h: 40px">
+        <div class="dt-virtual-cell" role="gridcell">Row 1</div>
+      </div>
+    </div>
+    <div class="dt-virtual-spacer" style="--spacer-h: 9920px"></div>
+  </div>
+  Server-driven windowing: htmx loads the next slice on reveal; the spacer
+  preserves scroll height for the full count.
+-->
+
+<div class="dt-virtual-grid" data-dt-virtual-grid role="grid" aria-label="Virtual grid" aria-rowcount="1000" tabindex="0">
+  <div class="dt-virtual-header" role="row">
+    <div class="dt-virtual-head-cell" role="columnheader">ID</div>
+    <div class="dt-virtual-head-cell" role="columnheader">Name</div>
+  </div>
+  <div data-dt-virtual-rows>
+    <div class="dt-virtual-row" role="row">
+      <div class="dt-virtual-cell" role="gridcell">1</div>
+      <div class="dt-virtual-cell" role="gridcell">Row 1</div>
+    </div>
+    <div class="dt-virtual-row" role="row">
+      <div class="dt-virtual-cell" role="gridcell">2</div>
+      <div class="dt-virtual-cell" role="gridcell">Row 2</div>
+    </div>
+  </div>
+  <div class="dt-virtual-spacer"></div>
+</div>
