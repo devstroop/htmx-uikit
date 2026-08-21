@@ -1,0 +1,92 @@
+<!--
+  Pager — reference markup for server templates.
+  Root: <nav class="dt-pager [dt-pager--left|center|right|justify]"
+        data-dt-pager [data-dt-count="35"] [data-dt-page-size="10"]
+        [data-dt-page="1"] [data-dt-page-numbers-count="5"]
+        [data-dt-page-size-options="10,20,50"] [data-dt-always-visible]
+        [data-dt-horizontal-align="left|center|right|justify"]
+        [data-dt-paging-summary-format="Page {0} of {1} ({2} items)"]
+        [data-dt-show-paging-summary="true|false"] aria-label="Pagination">
+    <span class="dt-pager-summary" data-dt-pager-summary role="status"
+          aria-live="polite">Page 1 of 4 (35 items)</span>
+    <div class="dt-pager-controls" data-dt-pager-controls role="group"
+         aria-label="Pagination">
+      <button type="button" class="dt-pager-button" data-dt-pager-first
+              aria-label="First page" title="First page">«</button>
+      <button type="button" class="dt-pager-button" data-dt-pager-prev
+              aria-label="Previous page" title="Previous page">‹</button>
+      <button type="button" class="dt-pager-button dt-pager-button--active"
+              data-dt-pager-page data-dt-page="1" aria-current="page"
+              aria-label="Page 1" title="Page 1">1</button>
+      ... page buttons + ellipsis spans ...
+      <button type="button" class="dt-pager-button" data-dt-pager-next
+              aria-label="Next page" title="Next page">›</button>
+      <button type="button" class="dt-pager-button" data-dt-pager-last
+              aria-label="Last page" title="Last page">»</button>
+    </div>
+    <label class="dt-pager-size" data-dt-pager-size>
+      Items per page
+      <select data-dt-pager-size-select aria-label="Items per page">
+        <option value="10">10</option><option value="20">20</option>
+      </select>
+    </label>
+  </nav>
+  behaviors.js wires first/prev/page/next/last clicks (disabled handling,
+  active aria-current) and the page-size select, dispatching
+  dt:page-change{page, skip, top, pageCount, pageSize} and
+  dt:page-size-change{pageSize} on the root. When not alwaysVisible and
+  pageCount<=1 the root is hidden.
+-->
+
+<nav class="dt-pager dt-pager--left" data-dt-pager data-dt-count="35" data-dt-page-size="10" data-dt-page="1" data-dt-page-numbers-count="5" aria-label="Pagination">
+  <span class="dt-pager-summary" data-dt-pager-summary role="status" aria-live="polite">Page 1 of 4 (35 items)</span>
+  <div class="dt-pager-controls" data-dt-pager-controls role="group" aria-label="Pagination">
+    <button type="button" class="dt-pager-button" data-dt-pager-first aria-label="First page" title="First page" disabled>«</button>
+    <button type="button" class="dt-pager-button" data-dt-pager-prev aria-label="Previous page" title="Previous page" disabled>‹</button>
+    <button type="button" class="dt-pager-button dt-pager-button--active" data-dt-pager-page data-dt-page="1" aria-current="page" aria-label="Page 1" title="Page 1">1</button>
+    <button type="button" class="dt-pager-button" data-dt-pager-page data-dt-page="2" aria-label="Page 2" title="Page 2">2</button>
+    <button type="button" class="dt-pager-button" data-dt-pager-page data-dt-page="3" aria-label="Page 3" title="Page 3">3</button>
+    <button type="button" class="dt-pager-button" data-dt-pager-page data-dt-page="4" aria-label="Page 4" title="Page 4">4</button>
+    <button type="button" class="dt-pager-button" data-dt-pager-next aria-label="Next page" title="Next page">›</button>
+    <button type="button" class="dt-pager-button" data-dt-pager-last aria-label="Last page" title="Last page">»</button>
+  </div>
+</nav>
+
+<nav class="dt-pager dt-pager--left" data-dt-pager data-dt-count="1000" data-dt-page-size="10" data-dt-page="5" data-dt-page-numbers-count="5" aria-label="Pagination">
+  <span class="dt-pager-summary" data-dt-pager-summary role="status" aria-live="polite">Page 5 of 100 (1000 items)</span>
+  <div class="dt-pager-controls" data-dt-pager-controls role="group" aria-label="Pagination">
+    <button type="button" class="dt-pager-button" data-dt-pager-first aria-label="First page" title="First page">«</button>
+    <button type="button" class="dt-pager-button" data-dt-pager-prev aria-label="Previous page" title="Previous page">‹</button>
+    <button type="button" class="dt-pager-button" data-dt-pager-page data-dt-page="1" aria-label="Page 1" title="Page 1">1</button>
+    <span class="dt-pager-ellipsis" aria-hidden="true">…</span>
+    <button type="button" class="dt-pager-button" data-dt-pager-page data-dt-page="4" aria-label="Page 4" title="Page 4">4</button>
+    <button type="button" class="dt-pager-button dt-pager-button--active" data-dt-pager-page data-dt-page="5" aria-current="page" aria-label="Page 5" title="Page 5">5</button>
+    <button type="button" class="dt-pager-button" data-dt-pager-page data-dt-page="6" aria-label="Page 6" title="Page 6">6</button>
+    <span class="dt-pager-ellipsis" aria-hidden="true">…</span>
+    <button type="button" class="dt-pager-button" data-dt-pager-page data-dt-page="100" aria-label="Page 100" title="Page 100">100</button>
+    <button type="button" class="dt-pager-button" data-dt-pager-next aria-label="Next page" title="Next page">›</button>
+    <button type="button" class="dt-pager-button" data-dt-pager-last aria-label="Last page" title="Last page">»</button>
+  </div>
+  <label class="dt-pager-size" data-dt-pager-size>
+    Items per page
+    <select data-dt-pager-size-select aria-label="Items per page">
+      <option value="10" selected>10</option>
+      <option value="20">20</option>
+      <option value="50">50</option>
+    </select>
+  </label>
+</nav>
+
+<nav class="dt-pager dt-pager--center" data-dt-pager data-dt-count="35" data-dt-page-size="10" data-dt-page="2" data-dt-always-visible aria-label="Pagination">
+  <span class="dt-pager-summary" data-dt-pager-summary role="status" aria-live="polite">Page 2 of 4 (35 items)</span>
+  <div class="dt-pager-controls" data-dt-pager-controls role="group" aria-label="Pagination">
+    <button type="button" class="dt-pager-button" data-dt-pager-first aria-label="First page" title="First page">«</button>
+    <button type="button" class="dt-pager-button" data-dt-pager-prev aria-label="Previous page" title="Previous page">‹</button>
+    <button type="button" class="dt-pager-button" data-dt-pager-page data-dt-page="1" aria-label="Page 1" title="Page 1">1</button>
+    <button type="button" class="dt-pager-button dt-pager-button--active" data-dt-pager-page data-dt-page="2" aria-current="page" aria-label="Page 2" title="Page 2">2</button>
+    <button type="button" class="dt-pager-button" data-dt-pager-page data-dt-page="3" aria-label="Page 3" title="Page 3">3</button>
+    <button type="button" class="dt-pager-button" data-dt-pager-page data-dt-page="4" aria-label="Page 4" title="Page 4">4</button>
+    <button type="button" class="dt-pager-button" data-dt-pager-next aria-label="Next page" title="Next page">›</button>
+    <button type="button" class="dt-pager-button" data-dt-pager-last aria-label="Last page" title="Last page">»</button>
+  </div>
+</nav>
