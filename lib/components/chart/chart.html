@@ -1,0 +1,32 @@
+<!--
+  Chart — reference markup for server templates (RadzenChart parity subset).
+  <div class="dt-chart" data-dt-chart
+       data-dt-width="600" data-dt-height="400"
+       data-dt-series='[{"type":"line","title":"Sales","data":[{"month":"Jan","value":10}],"categoryProperty":"month","valueProperty":"value"}]'
+       data-dt-value-axis='{"gridlines":true}' data-dt-category-axis='{"gridlines":false}'
+       data-dt-show-legend="true" data-dt-tooltip-visible="true"
+       aria-label="Chart" role="img">
+    <figure role="img" aria-label="Chart">
+      <svg width="600" height="400" data-dt-chart-svg> ... same as React ... </svg>
+      <table class="dt-chart-a11y-table" aria-hidden="true"> ... hidden table ... </table>
+    </figure>
+  </div>
+  behaviors.js parses data-dt-series JSON, computes nice ticks, renders the same SVG client-side, wires hit rects/circles for tooltip and dt:chart-point-click{seriesTitle,category,value}.
+-->
+<div class="dt-chart" data-dt-chart data-dt-width="600" data-dt-height="400"
+     data-dt-series='[{"type":"column","title":"Sales","data":[{"month":"Jan","value":10},{"month":"Feb","value":20}],"categoryProperty":"month","valueProperty":"value"}]'
+     aria-label="Demo chart" role="img">
+  <figure role="img" aria-label="Demo chart">
+    <svg width="600" height="400" data-dt-chart-svg>
+      <line x1="56" x2="556" y1="100" y2="100" class="dt-chart-gridline"></line>
+      <text x="48" y="104" text-anchor="end" class="dt-chart-tick">20</text>
+      <rect x="100" y="200" width="40" height="80" fill="var(--dt-color-palette-0)" rx="2"></rect>
+      <rect x="160" y="150" width="40" height="130" fill="var(--dt-color-palette-0)" rx="2"></rect>
+    </svg>
+    <div class="dt-chart-tooltip" data-dt-chart-tooltip hidden>Sales: 10</div>
+    <div class="dt-chart-legend">
+      <span class="dt-chart-legend-item"><span class="dt-chart-swatch" style="background-color:var(--dt-color-palette-0)"></span>Sales</span>
+    </div>
+    <table class="dt-chart-a11y-table"><caption>Demo chart</caption><thead><tr><th>Series</th><th>Category</th><th>Value</th></tr></thead><tbody><tr><td>Sales</td><td>Jan</td><td>10</td></tr><tr><td>Sales</td><td>Feb</td><td>20</td></tr></tbody></table>
+  </figure>
+</div>
