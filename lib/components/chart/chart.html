@@ -30,3 +30,34 @@
     <table class="dt-chart-a11y-table"><caption>Demo chart</caption><thead><tr><th>Series</th><th>Category</th><th>Value</th></tr></thead><tbody><tr><td>Sales</td><td>Jan</td><td>10</td></tr><tr><td>Sales</td><td>Feb</td><td>20</td></tr></tbody></table>
   </figure>
 </div>
+
+<!-- Stacked bar -->
+<div class="dt-chart" data-dt-chart data-dt-series='[{"type":"bar","title":"A","stack":"s","data":[{"cat":"X","val":10}],"categoryProperty":"cat","valueProperty":"val"},{"type":"bar","title":"B","stack":"s","data":[{"cat":"X","val":20}],"categoryProperty":"cat","valueProperty":"val"}]' aria-label="Stacked bar" role="img">
+  <figure role="img" aria-label="Stacked bar">
+    <svg width="600" height="400" data-dt-chart-svg>
+      <rect x="100" y="200" width="40" height="40" fill="var(--dt-color-palette-0)" rx="2"></rect>
+      <rect x="100" y="160" width="40" height="80" fill="var(--dt-color-palette-1)" rx="2"></rect>
+    </svg>
+  </figure>
+</div>
+
+<!-- Scatter -->
+<div class="dt-chart" data-dt-chart data-dt-series='[{"type":"scatter","title":"S","data":[{"x":1,"y":10},{"x":2,"y":20}],"categoryProperty":"x","valueProperty":"y"}]' aria-label="Scatter" role="img">
+  <figure role="img" aria-label="Scatter">
+    <svg width="600" height="400" data-dt-chart-svg>
+      <circle cx="100" cy="200" r="4" fill="var(--dt-color-palette-2)"></circle>
+      <circle cx="200" cy="100" r="4" fill="var(--dt-color-palette-2)"></circle>
+    </svg>
+  </figure>
+</div>
+
+<!-- Pie -->
+<div class="dt-chart" data-dt-chart data-dt-series='[{"type":"pie","title":"P","data":[{"cat":"A","val":30},{"cat":"B","val":70}],"categoryProperty":"cat","valueProperty":"val"}]' aria-label="Pie" role="img">
+  <figure role="img" aria-label="Pie">
+    <svg width="600" height="400" data-dt-chart-svg>
+      <path d="M 300 200 L 400 200 A 100 100 0 0 1 200 200 Z" fill="var(--dt-color-palette-0)"></path>
+      <path d="M 300 200 L 200 200 A 100 100 0 0 1 400 200 Z" fill="var(--dt-color-palette-1)"></path>
+    </svg>
+  </figure>
+</div>
+
