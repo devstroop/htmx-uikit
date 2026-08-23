@@ -95,3 +95,6 @@
   padding: var(--dt-space-3) var(--dt-space-5);
   border-top: 1px solid var(--dt-color-border);
 }
+
+dialog[open] { display: block; }
+
