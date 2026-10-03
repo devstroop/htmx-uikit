@@ -6,19 +6,30 @@
  * --dx-shadow-0..10, --dx-ripple-*), while every theme file only carries
  * the tiered names (--dx-color-*, --dx-shadow-sm|md|lg). Bundling this
  * layer with dist/uikit.css keeps the utilities live under any paired
- * theme, exactly like react-uikit's hand-maintained tokens.css does.
+ * theme.
+ *
+ * Colors whose tiered name exists in all six themes alias it with var()
+ * instead of a literal, so the active theme flows through (fluent/github/
+ * material/material-3/shadcn previously fell back to the default palette
+ * for every flat-consuming utility). The remaining legacy tiers
+ * (lighter/light/dark/darker, *-container, on-*, text-info) have no
+ * tiered counterpart yet and stay literal until the schema grows them;
+ * radius/shadow scales and the ripple timing are theme-independent.
+ * --dx-light-color is the fixed light ink behind the on-*-dark aliases
+ * (referenced but never defined before).
  *
  * Paired with a theme's tokens.css: uikit.css + themes/<name>/tokens.css.
  */
 :root {
   /* migrated tokens */
-  --dx-text-color: #0f172a;
-  --dx-text-muted-color: #475569;
-  --dx-text-primary-color: #1759ea;
-  --dx-text-success-color: #107736;
-  --dx-text-warning-color: #9d5604;
-  --dx-text-danger-color: #c42020;
+  --dx-text-color: var(--dx-color-text);
+  --dx-text-muted-color: var(--dx-color-text-muted);
+  --dx-text-primary-color: var(--dx-color-text-primary);
+  --dx-text-success-color: var(--dx-color-text-success);
+  --dx-text-warning-color: var(--dx-color-text-warning);
+  --dx-text-danger-color: var(--dx-color-text-danger);
   --dx-text-info-color: #0a6a94;
+  --dx-light-color: #f1f5f9;
   --dx-shadow-0: none;
   --dx-shadow-1: 0px 1px 1px rgb(0 0 0 / 0.14), 0px 2px 1px rgb(0 0 0 / 0.12),
     0px 1px 3px rgb(0 0 0 / 0.14);
@@ -95,24 +106,24 @@
   --dx-warn-container-color: #ffdf9e;
   --dx-error-container-color: #ffdad6;
   --dx-info-container-color: #c1e8fb;
-  --dx-border-primary-color: #2563eb;
-  --dx-border-primary-light-color: #5b8aef;
-  --dx-border-primary-darker-color: #184099;
-  --dx-border-secondary-color: #64748b;
-  --dx-border-secondary-light-color: #828fa2;
-  --dx-border-secondary-darker-color: #414b5a;
-  --dx-border-success-color: #12843c;
-  --dx-border-success-light-color: #529d6f;
-  --dx-border-success-darker-color: #0c5627;
-  --dx-border-warning-color: #b16105;
-  --dx-border-warning-light-color: #bb803c;
-  --dx-border-warning-darker-color: #733f03;
-  --dx-border-danger-color: #dc2626;
-  --dx-border-danger-light-color: #e46666;
-  --dx-border-danger-darker-color: #8f1919;
-  --dx-border-info-color: #0b7caf;
-  --dx-border-info-light-color: #3f97c0;
-  --dx-border-info-darker-color: #075172;
+  --dx-border-primary-color: var(--dx-color-border-primary);
+  --dx-border-primary-light-color: var(--dx-color-border-primary-light);
+  --dx-border-primary-darker-color: var(--dx-color-border-primary-darker);
+  --dx-border-secondary-color: var(--dx-color-border-secondary);
+  --dx-border-secondary-light-color: var(--dx-color-border-secondary-light);
+  --dx-border-secondary-darker-color: var(--dx-color-border-secondary-darker);
+  --dx-border-success-color: var(--dx-color-border-success);
+  --dx-border-success-light-color: var(--dx-color-border-success-light);
+  --dx-border-success-darker-color: var(--dx-color-border-success-darker);
+  --dx-border-warning-color: var(--dx-color-border-warning);
+  --dx-border-warning-light-color: var(--dx-color-border-warning-light);
+  --dx-border-warning-darker-color: var(--dx-color-border-warning-darker);
+  --dx-border-danger-color: var(--dx-color-border-danger);
+  --dx-border-danger-light-color: var(--dx-color-border-danger-light);
+  --dx-border-danger-darker-color: var(--dx-color-border-danger-darker);
+  --dx-border-info-color: var(--dx-color-border-info);
+  --dx-border-info-light-color: var(--dx-color-border-info-light);
+  --dx-border-info-darker-color: var(--dx-color-border-info-darker);
   --dx-border-primary-lighter-color: #87a9f4;
   --dx-border-primary-dark-color: #1f54c8;
   --dx-border-secondary-lighter-color: #aab3bf;
@@ -141,13 +152,14 @@
 
 [data-theme="dark"] {
   /* migrated tokens */
-  --dx-text-color: #f1f5f9;
-  --dx-text-muted-color: #cbd5e1;
-  --dx-text-primary-color: #7098f2;
-  --dx-text-success-color: #19b552;
-  --dx-text-warning-color: #ed8207;
-  --dx-text-danger-color: #e87171;
+  --dx-text-color: var(--dx-color-text);
+  --dx-text-muted-color: var(--dx-color-text-muted);
+  --dx-text-primary-color: var(--dx-color-text-primary);
+  --dx-text-success-color: var(--dx-color-text-success);
+  --dx-text-warning-color: var(--dx-color-text-warning);
+  --dx-text-danger-color: var(--dx-color-text-danger);
   --dx-text-info-color: #38bdf8;
+  --dx-light-color: #f1f5f9;
   --dx-primary-lighter-color: #87a9f4;
   --dx-primary-light-color: #6692f1;
   --dx-primary-dark-color: #1f54c8;
@@ -202,24 +214,24 @@
   --dx-warn-container-color: #5c4300;
   --dx-error-container-color: #93000a;
   --dx-info-container-color: #254c5a;
-  --dx-border-primary-color: #336dec;
-  --dx-border-primary-light-color: #3e70de;
-  --dx-border-primary-darker-color: #3c6fe0;
-  --dx-border-secondary-color: #66768e;
-  --dx-border-secondary-light-color: #657794;
-  --dx-border-secondary-darker-color: #65758c;
-  --dx-border-success-color: #17a84c;
-  --dx-border-success-light-color: #168546;
-  --dx-border-success-darker-color: #13883e;
-  --dx-border-warning-color: #d97706;
-  --dx-border-warning-light-color: #aa6212;
-  --dx-border-warning-darker-color: #b06005;
-  --dx-border-danger-color: #dd2f2f;
-  --dx-border-danger-light-color: #d5383f;
-  --dx-border-danger-darker-color: #dc3232;
-  --dx-border-info-color: #0b7caf;
-  --dx-border-info-light-color: #107bb1;
-  --dx-border-info-darker-color: #0b7db0;
+  --dx-border-primary-color: var(--dx-color-border-primary);
+  --dx-border-primary-light-color: var(--dx-color-border-primary-light);
+  --dx-border-primary-darker-color: var(--dx-color-border-primary-darker);
+  --dx-border-secondary-color: var(--dx-color-border-secondary);
+  --dx-border-secondary-light-color: var(--dx-color-border-secondary-light);
+  --dx-border-secondary-darker-color: var(--dx-color-border-secondary-darker);
+  --dx-border-success-color: var(--dx-color-border-success);
+  --dx-border-success-light-color: var(--dx-color-border-success-light);
+  --dx-border-success-darker-color: var(--dx-color-border-success-darker);
+  --dx-border-warning-color: var(--dx-color-border-warning);
+  --dx-border-warning-light-color: var(--dx-color-border-warning-light);
+  --dx-border-warning-darker-color: var(--dx-color-border-warning-darker);
+  --dx-border-danger-color: var(--dx-color-border-danger);
+  --dx-border-danger-light-color: var(--dx-color-border-danger-light);
+  --dx-border-danger-darker-color: var(--dx-color-border-danger-darker);
+  --dx-border-info-color: var(--dx-color-border-info);
+  --dx-border-info-light-color: var(--dx-color-border-info-light);
+  --dx-border-info-darker-color: var(--dx-color-border-info-darker);
   --dx-border-primary-lighter-color: #8faff5;
   --dx-border-primary-dark-color: #2b5dc9;
   --dx-border-secondary-lighter-color: #abb4c1;
