@@ -1,7 +1,8 @@
 /* layout utilities — Radzen theme utilities parity (issues #75, #79)
  * Flex/grid/overflow/sizing/spacing helpers as class names with breakpoint
  * suffixes. Spacing scale mirrors Radzen: 0..12 in 4px steps ("05" = 2px)
- * plus auto margins.
+ * plus auto margins. Shadow scale mirrors rz-shadow-0..10; .dx-ripple
+ * mirrors the rz-ripple press feedback (both non-responsive by design).
  * Breakpoint map (Radzen): xs 576, sm 768, md 1024, lg 1280, xl 1920, xx 2560.
  */
 
@@ -335,6 +336,17 @@
 .dx-pe-10 { padding-inline-end: var(--dx-space-10) !important; }
 .dx-pe-11 { padding-inline-end: var(--dx-space-11) !important; }
 .dx-pe-12 { padding-inline-end: var(--dx-space-12) !important; }
+
+/* Text color utilities — Radzen rz-text-* parity. No breakpoint variants
+ * (color never responds to viewport). Pair with Typography variants
+ * instead of ad-hoc muted/brand text classes in products. */
+.dx-text-default { color: var(--dx-text-color) !important; }
+.dx-text-muted { color: var(--dx-text-muted-color) !important; }
+.dx-text-primary { color: var(--dx-text-primary-color) !important; }
+.dx-text-success { color: var(--dx-text-success-color) !important; }
+.dx-text-warning { color: var(--dx-text-warning-color) !important; }
+.dx-text-danger { color: var(--dx-text-danger-color) !important; }
+.dx-text-info { color: var(--dx-text-info-color) !important; }
 
 @media (min-width: 576px) {
   .dx-display-xs-none { display: none !important; }
@@ -2333,3 +2345,270 @@
   .dx-pe-xx-11 { padding-inline-end: var(--dx-space-11) !important; }
   .dx-pe-xx-12 { padding-inline-end: var(--dx-space-12) !important; }
 }
+
+/* Shadow scale (Radzen rz-shadow-0..10 parity; like Radzen, these are
+ * not responsive — pick elevation per element, not per breakpoint). */
+.dx-shadow-0 { box-shadow: var(--dx-shadow-0) !important; }
+.dx-shadow-1 { box-shadow: var(--dx-shadow-1) !important; }
+.dx-shadow-2 { box-shadow: var(--dx-shadow-2) !important; }
+.dx-shadow-3 { box-shadow: var(--dx-shadow-3) !important; }
+.dx-shadow-4 { box-shadow: var(--dx-shadow-4) !important; }
+.dx-shadow-5 { box-shadow: var(--dx-shadow-5) !important; }
+.dx-shadow-6 { box-shadow: var(--dx-shadow-6) !important; }
+.dx-shadow-7 { box-shadow: var(--dx-shadow-7) !important; }
+.dx-shadow-8 { box-shadow: var(--dx-shadow-8) !important; }
+.dx-shadow-9 { box-shadow: var(--dx-shadow-9) !important; }
+.dx-shadow-10 { box-shadow: var(--dx-shadow-10) !important; }
+
+/* Ripple press feedback (Radzen rz-ripple parity, pseudo-element
+ * variant: no JS needed — a currentColor radial blooms on :active.
+ * Honors --dx-ripple-duration and prefers-reduced-motion; stays off
+ * on disabled controls via :disabled / aria-disabled. */
+.dx-ripple { position: relative; overflow: hidden; }
+.dx-ripple::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background: radial-gradient(circle, currentColor 1%, transparent 1%) center/15000%;
+  background-position: center;
+  transition: background-size var(--dx-ripple-duration, 0.8s), opacity var(--dx-ripple-duration, 0.8s);
+  pointer-events: none;
+}
+.dx-ripple:active::before {
+  transition: background-size 0s, opacity 0s;
+  opacity: 0.32;
+  background-size: 0%;
+}
+.dx-ripple:disabled::before,
+.dx-ripple[aria-disabled="true"]::before {
+  background: transparent;
+}
+@media (prefers-reduced-motion: reduce) {
+  .dx-ripple::before {
+    transition: none;
+  }
+}
+
+/* Text alignment (Radzen rz-text-align-* parity: base without
+ * !important, responsive tiers with — mirroring Radzen exactly). */
+.dx-text-align-start { text-align: start; }
+.dx-text-align-end { text-align: end; }
+.dx-text-align-left { text-align: left; }
+.dx-text-align-right { text-align: right; }
+.dx-text-align-center { text-align: center; }
+.dx-text-align-justify { text-align: justify; }
+.dx-text-align-justify-all { text-align: justify-all; }
+.dx-text-align-match-parent { text-align: match-parent; }
+
+@media (min-width: 576px) {
+  .dx-text-align-xs-start { text-align: start !important; }
+  .dx-text-align-xs-end { text-align: end !important; }
+  .dx-text-align-xs-left { text-align: left !important; }
+  .dx-text-align-xs-right { text-align: right !important; }
+  .dx-text-align-xs-center { text-align: center !important; }
+  .dx-text-align-xs-justify { text-align: justify !important; }
+  .dx-text-align-xs-justify-all { text-align: justify-all !important; }
+  .dx-text-align-xs-match-parent { text-align: match-parent !important; }
+}
+
+@media (min-width: 768px) {
+  .dx-text-align-sm-start { text-align: start !important; }
+  .dx-text-align-sm-end { text-align: end !important; }
+  .dx-text-align-sm-left { text-align: left !important; }
+  .dx-text-align-sm-right { text-align: right !important; }
+  .dx-text-align-sm-center { text-align: center !important; }
+  .dx-text-align-sm-justify { text-align: justify !important; }
+  .dx-text-align-sm-justify-all { text-align: justify-all !important; }
+  .dx-text-align-sm-match-parent { text-align: match-parent !important; }
+}
+
+@media (min-width: 1024px) {
+  .dx-text-align-md-start { text-align: start !important; }
+  .dx-text-align-md-end { text-align: end !important; }
+  .dx-text-align-md-left { text-align: left !important; }
+  .dx-text-align-md-right { text-align: right !important; }
+  .dx-text-align-md-center { text-align: center !important; }
+  .dx-text-align-md-justify { text-align: justify !important; }
+  .dx-text-align-md-justify-all { text-align: justify-all !important; }
+  .dx-text-align-md-match-parent { text-align: match-parent !important; }
+}
+
+@media (min-width: 1280px) {
+  .dx-text-align-lg-start { text-align: start !important; }
+  .dx-text-align-lg-end { text-align: end !important; }
+  .dx-text-align-lg-left { text-align: left !important; }
+  .dx-text-align-lg-right { text-align: right !important; }
+  .dx-text-align-lg-center { text-align: center !important; }
+  .dx-text-align-lg-justify { text-align: justify !important; }
+  .dx-text-align-lg-justify-all { text-align: justify-all !important; }
+  .dx-text-align-lg-match-parent { text-align: match-parent !important; }
+}
+
+@media (min-width: 1920px) {
+  .dx-text-align-xl-start { text-align: start !important; }
+  .dx-text-align-xl-end { text-align: end !important; }
+  .dx-text-align-xl-left { text-align: left !important; }
+  .dx-text-align-xl-right { text-align: right !important; }
+  .dx-text-align-xl-center { text-align: center !important; }
+  .dx-text-align-xl-justify { text-align: justify !important; }
+  .dx-text-align-xl-justify-all { text-align: justify-all !important; }
+  .dx-text-align-xl-match-parent { text-align: match-parent !important; }
+}
+
+@media (min-width: 2560px) {
+  .dx-text-align-xx-start { text-align: start !important; }
+  .dx-text-align-xx-end { text-align: end !important; }
+  .dx-text-align-xx-left { text-align: left !important; }
+  .dx-text-align-xx-right { text-align: right !important; }
+  .dx-text-align-xx-center { text-align: center !important; }
+  .dx-text-align-xx-justify { text-align: justify !important; }
+  .dx-text-align-xx-justify-all { text-align: justify-all !important; }
+  .dx-text-align-xx-match-parent { text-align: match-parent !important; }
+}
+
+/* Text wrap / truncate (Radzen rz-text-wrap/nowrap/truncate parity). */
+.dx-text-wrap { white-space: normal !important; }
+.dx-text-nowrap { white-space: nowrap !important; }
+.dx-text-truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* Text transform (Radzen rz-text-capitalize/uppercase/lowercase parity). */
+.dx-text-capitalize { text-transform: capitalize; }
+.dx-text-uppercase { text-transform: uppercase; }
+.dx-text-lowercase { text-transform: lowercase; }
+
+/* Tone color utilities (Radzen background/color/border-color parity,
+ * mapped onto dx roles: bare-tone backgrounds use the soft container
+ * tint (warning → warn, danger → error containers); text shades and
+ * on-shades pair readable text with those tints. Border shades follow
+ * the tokens that exist (base + light/darker). */
+.dx-text-primary-lighter { color: var(--dx-primary-lighter-color) !important; }
+.dx-text-primary-light { color: var(--dx-primary-light-color) !important; }
+.dx-text-primary-dark { color: var(--dx-primary-dark-color) !important; }
+.dx-text-primary-darker { color: var(--dx-primary-darker-color) !important; }
+.dx-text-secondary-lighter { color: var(--dx-secondary-lighter-color) !important; }
+.dx-text-secondary-light { color: var(--dx-secondary-light-color) !important; }
+.dx-text-secondary-dark { color: var(--dx-secondary-dark-color) !important; }
+.dx-text-secondary-darker { color: var(--dx-secondary-darker-color) !important; }
+.dx-text-success-lighter { color: var(--dx-success-lighter-color) !important; }
+.dx-text-success-light { color: var(--dx-success-light-color) !important; }
+.dx-text-success-dark { color: var(--dx-success-dark-color) !important; }
+.dx-text-success-darker { color: var(--dx-success-darker-color) !important; }
+.dx-text-warning-lighter { color: var(--dx-warning-lighter-color) !important; }
+.dx-text-warning-light { color: var(--dx-warning-light-color) !important; }
+.dx-text-warning-dark { color: var(--dx-warning-dark-color) !important; }
+.dx-text-warning-darker { color: var(--dx-warning-darker-color) !important; }
+.dx-text-danger-lighter { color: var(--dx-danger-lighter-color) !important; }
+.dx-text-danger-light { color: var(--dx-danger-light-color) !important; }
+.dx-text-danger-dark { color: var(--dx-danger-dark-color) !important; }
+.dx-text-danger-darker { color: var(--dx-danger-darker-color) !important; }
+.dx-text-info-lighter { color: var(--dx-info-lighter-color) !important; }
+.dx-text-info-light { color: var(--dx-info-light-color) !important; }
+.dx-text-info-dark { color: var(--dx-info-dark-color) !important; }
+.dx-text-info-darker { color: var(--dx-info-darker-color) !important; }
+.dx-text-on-primary-lighter { color: var(--dx-on-primary-lighter-color) !important; }
+.dx-text-on-primary-light { color: var(--dx-on-primary-light-color) !important; }
+.dx-text-on-primary-dark { color: var(--dx-on-primary-dark-color) !important; }
+.dx-text-on-primary-darker { color: var(--dx-on-primary-darker-color) !important; }
+.dx-text-on-secondary-lighter { color: var(--dx-on-secondary-lighter-color) !important; }
+.dx-text-on-secondary-light { color: var(--dx-on-secondary-light-color) !important; }
+.dx-text-on-secondary-dark { color: var(--dx-on-secondary-dark-color) !important; }
+.dx-text-on-secondary-darker { color: var(--dx-on-secondary-darker-color) !important; }
+.dx-text-on-success-lighter { color: var(--dx-on-success-lighter-color) !important; }
+.dx-text-on-success-light { color: var(--dx-on-success-light-color) !important; }
+.dx-text-on-success-dark { color: var(--dx-on-success-dark-color) !important; }
+.dx-text-on-success-darker { color: var(--dx-on-success-darker-color) !important; }
+.dx-text-on-warning-lighter { color: var(--dx-on-warning-lighter-color) !important; }
+.dx-text-on-warning-light { color: var(--dx-on-warning-light-color) !important; }
+.dx-text-on-warning-dark { color: var(--dx-on-warning-dark-color) !important; }
+.dx-text-on-warning-darker { color: var(--dx-on-warning-darker-color) !important; }
+.dx-text-on-danger-lighter { color: var(--dx-on-danger-lighter-color) !important; }
+.dx-text-on-danger-light { color: var(--dx-on-danger-light-color) !important; }
+.dx-text-on-danger-dark { color: var(--dx-on-danger-dark-color) !important; }
+.dx-text-on-danger-darker { color: var(--dx-on-danger-darker-color) !important; }
+.dx-text-on-info-lighter { color: var(--dx-on-info-lighter-color) !important; }
+.dx-text-on-info-light { color: var(--dx-on-info-light-color) !important; }
+.dx-text-on-info-dark { color: var(--dx-on-info-dark-color) !important; }
+.dx-text-on-info-darker { color: var(--dx-on-info-darker-color) !important; }
+.dx-background-primary { background-color: var(--dx-primary-container-color) !important; }
+.dx-background-primary-lighter { background-color: var(--dx-primary-lighter-color) !important; }
+.dx-background-primary-light { background-color: var(--dx-primary-light-color) !important; }
+.dx-background-primary-dark { background-color: var(--dx-primary-dark-color) !important; }
+.dx-background-primary-darker { background-color: var(--dx-primary-darker-color) !important; }
+.dx-background-secondary { background-color: var(--dx-secondary-container-color) !important; }
+.dx-background-secondary-lighter { background-color: var(--dx-secondary-lighter-color) !important; }
+.dx-background-secondary-light { background-color: var(--dx-secondary-light-color) !important; }
+.dx-background-secondary-dark { background-color: var(--dx-secondary-dark-color) !important; }
+.dx-background-secondary-darker { background-color: var(--dx-secondary-darker-color) !important; }
+.dx-background-success { background-color: var(--dx-success-container-color) !important; }
+.dx-background-success-lighter { background-color: var(--dx-success-lighter-color) !important; }
+.dx-background-success-light { background-color: var(--dx-success-light-color) !important; }
+.dx-background-success-dark { background-color: var(--dx-success-dark-color) !important; }
+.dx-background-success-darker { background-color: var(--dx-success-darker-color) !important; }
+.dx-background-warning { background-color: var(--dx-warn-container-color) !important; }
+.dx-background-warning-lighter { background-color: var(--dx-warning-lighter-color) !important; }
+.dx-background-warning-light { background-color: var(--dx-warning-light-color) !important; }
+.dx-background-warning-dark { background-color: var(--dx-warning-dark-color) !important; }
+.dx-background-warning-darker { background-color: var(--dx-warning-darker-color) !important; }
+.dx-background-danger { background-color: var(--dx-error-container-color) !important; }
+.dx-background-danger-lighter { background-color: var(--dx-danger-lighter-color) !important; }
+.dx-background-danger-light { background-color: var(--dx-danger-light-color) !important; }
+.dx-background-danger-dark { background-color: var(--dx-danger-dark-color) !important; }
+.dx-background-danger-darker { background-color: var(--dx-danger-darker-color) !important; }
+.dx-background-info { background-color: var(--dx-info-container-color) !important; }
+.dx-background-info-lighter { background-color: var(--dx-info-lighter-color) !important; }
+.dx-background-info-light { background-color: var(--dx-info-light-color) !important; }
+.dx-background-info-dark { background-color: var(--dx-info-dark-color) !important; }
+.dx-background-info-darker { background-color: var(--dx-info-darker-color) !important; }
+.dx-border-primary { border-color: var(--dx-border-primary-color) !important; }
+.dx-border-primary-light { border-color: var(--dx-border-primary-light-color) !important; }
+.dx-border-primary-darker { border-color: var(--dx-border-primary-darker-color) !important; }
+.dx-border-secondary { border-color: var(--dx-border-secondary-color) !important; }
+.dx-border-secondary-light { border-color: var(--dx-border-secondary-light-color) !important; }
+.dx-border-secondary-darker { border-color: var(--dx-border-secondary-darker-color) !important; }
+.dx-border-success { border-color: var(--dx-border-success-color) !important; }
+.dx-border-success-light { border-color: var(--dx-border-success-light-color) !important; }
+.dx-border-success-darker { border-color: var(--dx-border-success-darker-color) !important; }
+.dx-border-warning { border-color: var(--dx-border-warning-color) !important; }
+.dx-border-warning-light { border-color: var(--dx-border-warning-light-color) !important; }
+.dx-border-warning-darker { border-color: var(--dx-border-warning-darker-color) !important; }
+.dx-border-danger { border-color: var(--dx-border-danger-color) !important; }
+.dx-border-danger-light { border-color: var(--dx-border-danger-light-color) !important; }
+.dx-border-danger-darker { border-color: var(--dx-border-danger-darker-color) !important; }
+.dx-border-info { border-color: var(--dx-border-info-color) !important; }
+.dx-border-info-light { border-color: var(--dx-border-info-light-color) !important; }
+.dx-border-info-darker { border-color: var(--dx-border-info-darker-color) !important; }
+.dx-border-primary-lighter { border-color: var(--dx-border-primary-lighter-color) !important; }
+.dx-border-primary-dark { border-color: var(--dx-border-primary-dark-color) !important; }
+.dx-border-secondary-lighter { border-color: var(--dx-border-secondary-lighter-color) !important; }
+.dx-border-secondary-dark { border-color: var(--dx-border-secondary-dark-color) !important; }
+.dx-border-success-lighter { border-color: var(--dx-border-success-lighter-color) !important; }
+.dx-border-success-dark { border-color: var(--dx-border-success-dark-color) !important; }
+.dx-border-warning-lighter { border-color: var(--dx-border-warning-lighter-color) !important; }
+.dx-border-warning-dark { border-color: var(--dx-border-warning-dark-color) !important; }
+.dx-border-danger-lighter { border-color: var(--dx-border-danger-lighter-color) !important; }
+.dx-border-danger-dark { border-color: var(--dx-border-danger-dark-color) !important; }
+.dx-border-info-lighter { border-color: var(--dx-border-info-lighter-color) !important; }
+.dx-border-info-dark { border-color: var(--dx-border-info-dark-color) !important; }
+
+/* Radius utilities off the radius tokens (base + 0..10 rungs + pill). */
+.dx-radius { border-radius: var(--dx-radius) !important; }
+.dx-radius-0 { border-radius: var(--dx-radius-0) !important; }
+.dx-radius-1 { border-radius: var(--dx-radius-1) !important; }
+.dx-radius-2 { border-radius: var(--dx-radius-2) !important; }
+.dx-radius-3 { border-radius: var(--dx-radius-3) !important; }
+.dx-radius-4 { border-radius: var(--dx-radius-4) !important; }
+.dx-radius-5 { border-radius: var(--dx-radius-5) !important; }
+.dx-radius-6 { border-radius: var(--dx-radius-6) !important; }
+.dx-radius-7 { border-radius: var(--dx-radius-7) !important; }
+.dx-radius-8 { border-radius: var(--dx-radius-8) !important; }
+.dx-radius-9 { border-radius: var(--dx-radius-9) !important; }
+.dx-radius-10 { border-radius: var(--dx-radius-10) !important; }
+.dx-radius-full { border-radius: var(--dx-radius-full) !important; }
+
+/* Flex-direction raw utilities (Radzen rz-flex-* parity; the Stack
+ * component covers the same ground for component-style layout). */
+.dx-flex-row { flex-direction: row !important; }
+.dx-flex-row-reverse { flex-direction: row-reverse !important; }
+.dx-flex-column { flex-direction: column !important; }
+.dx-flex-column-reverse { flex-direction: column-reverse !important; }
