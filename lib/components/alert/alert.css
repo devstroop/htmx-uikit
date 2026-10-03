@@ -1,101 +1,101 @@
-.dt-alert {
-  --alert-pad: var(--dt-space-3);
-  --alert-gap: var(--dt-space-2);
-  --alert-radius: var(--dt-radius-md);
-  --alert-title-size: var(--dt-font-size-md);
-  --alert-body-size: var(--dt-font-size-sm);
+.dx-alert {
+  --alert-pad: var(--dx-space-3);
+  --alert-gap: var(--dx-space-2);
+  --alert-radius: var(--dx-radius-md);
+  --alert-title-size: var(--dx-font-size-md);
+  --alert-body-size: var(--dx-font-size-sm);
   --alert-dismiss-size: 22px;
-  --alert-dismiss-font: var(--dt-font-size-md);
+  --alert-dismiss-font: var(--dx-font-size-md);
   display: flex;
   align-items: flex-start;
   gap: var(--alert-gap);
   padding: var(--alert-pad);
-  margin: 0 0 var(--dt-space-3);
+  margin: 0 0 var(--dx-space-3);
   border-radius: var(--alert-radius);
-  border: 1px solid var(--dt-color-border);
-  background: var(--dt-color-surface);
-  color: var(--dt-color-text);
-  font-size: var(--dt-font-size-sm);
+  border: 1px solid var(--dx-color-border);
+  background: var(--dx-color-surface);
+  color: var(--dx-color-text);
+  font-size: var(--dx-font-size-sm);
 }
 
 /* Size tiers scale the whole banner (shared ComponentSize scale) */
-.dt-alert--xs {
-  --alert-pad: var(--dt-space-2);
-  --alert-gap: var(--dt-space-1);
-  --alert-radius: var(--dt-radius-sm);
-  --alert-title-size: var(--dt-font-size-sm);
-  --alert-body-size: var(--dt-font-size-xs);
+.dx-alert--xs {
+  --alert-pad: var(--dx-space-2);
+  --alert-gap: var(--dx-space-1);
+  --alert-radius: var(--dx-radius-sm);
+  --alert-title-size: var(--dx-font-size-sm);
+  --alert-body-size: var(--dx-font-size-xs);
   --alert-dismiss-size: 18px;
-  --alert-dismiss-font: var(--dt-font-size-xs);
+  --alert-dismiss-font: var(--dx-font-size-xs);
 }
 
-.dt-alert--sm {
-  --alert-pad: var(--dt-space-2);
-  --alert-gap: var(--dt-space-1);
-  --alert-radius: var(--dt-radius-sm);
-  --alert-title-size: var(--dt-font-size-sm);
-  --alert-body-size: var(--dt-font-size-xs);
+.dx-alert--sm {
+  --alert-pad: var(--dx-space-2);
+  --alert-gap: var(--dx-space-1);
+  --alert-radius: var(--dx-radius-sm);
+  --alert-title-size: var(--dx-font-size-sm);
+  --alert-body-size: var(--dx-font-size-xs);
   --alert-dismiss-size: 20px;
-  --alert-dismiss-font: var(--dt-font-size-sm);
+  --alert-dismiss-font: var(--dx-font-size-sm);
 }
 
-.dt-alert--lg {
-  --alert-pad: var(--dt-space-4);
-  --alert-gap: var(--dt-space-2);
-  --alert-radius: var(--dt-radius-lg);
-  --alert-title-size: var(--dt-font-size-lg);
-  --alert-body-size: var(--dt-font-size-sm);
+.dx-alert--lg {
+  --alert-pad: var(--dx-space-4);
+  --alert-gap: var(--dx-space-2);
+  --alert-radius: var(--dx-radius-lg);
+  --alert-title-size: var(--dx-font-size-lg);
+  --alert-body-size: var(--dx-font-size-sm);
   --alert-dismiss-size: 26px;
-  --alert-dismiss-font: var(--dt-font-size-lg);
+  --alert-dismiss-font: var(--dx-font-size-lg);
 }
 
-.dt-alert--xl {
-  --alert-pad: var(--dt-space-4);
-  --alert-gap: var(--dt-space-3);
-  --alert-radius: var(--dt-radius-lg);
-  --alert-title-size: var(--dt-font-size-lg);
-  --alert-body-size: var(--dt-font-size-md);
+.dx-alert--xl {
+  --alert-pad: var(--dx-space-4);
+  --alert-gap: var(--dx-space-3);
+  --alert-radius: var(--dx-radius-lg);
+  --alert-title-size: var(--dx-font-size-lg);
+  --alert-body-size: var(--dx-font-size-md);
   --alert-dismiss-size: 30px;
-  --alert-dismiss-font: var(--dt-font-size-lg);
+  --alert-dismiss-font: var(--dx-font-size-lg);
 }
 
 /* Tones define the palette and the soft paint (default).
    Variant modifiers --outline | --solid override the paint.
    (Badge-language parity) */
-.dt-alert--info {
-  --alert-tone: var(--dt-color-primary);
-  --alert-fg: var(--dt-color-text-primary);
-  background-color: color-mix(in srgb, var(--dt-color-primary) 12%, transparent);
-  border-color: var(--dt-color-primary);
-  color: var(--dt-color-text-primary);
+.dx-alert--info {
+  --alert-tone: var(--dx-color-primary);
+  --alert-fg: var(--dx-color-text-primary);
+  background-color: color-mix(in srgb, var(--dx-color-primary) 12%, transparent);
+  border-color: var(--dx-color-primary);
+  color: var(--dx-color-text-primary);
 }
 
-.dt-alert--success {
-  --alert-tone: var(--dt-color-success);
-  --alert-fg: var(--dt-color-text-success);
-  background-color: color-mix(in srgb, var(--dt-color-success) 12%, transparent);
-  border-color: var(--dt-color-success);
-  color: var(--dt-color-text-success);
+.dx-alert--success {
+  --alert-tone: var(--dx-color-success);
+  --alert-fg: var(--dx-color-text-success);
+  background-color: color-mix(in srgb, var(--dx-color-success) 12%, transparent);
+  border-color: var(--dx-color-success);
+  color: var(--dx-color-text-success);
 }
 
-.dt-alert--warning {
-  --alert-tone: var(--dt-color-warning);
-  --alert-fg: var(--dt-color-text-warning);
-  background-color: color-mix(in srgb, var(--dt-color-warning) 12%, transparent);
-  border-color: var(--dt-color-warning);
-  color: var(--dt-color-text-warning);
+.dx-alert--warning {
+  --alert-tone: var(--dx-color-warning);
+  --alert-fg: var(--dx-color-text-warning);
+  background-color: color-mix(in srgb, var(--dx-color-warning) 12%, transparent);
+  border-color: var(--dx-color-warning);
+  color: var(--dx-color-text-warning);
 }
 
-.dt-alert--danger {
-  --alert-tone: var(--dt-color-danger);
-  --alert-fg: var(--dt-color-text-danger);
-  background-color: color-mix(in srgb, var(--dt-color-danger) 12%, transparent);
-  border-color: var(--dt-color-danger);
-  color: var(--dt-color-text-danger);
+.dx-alert--danger {
+  --alert-tone: var(--dx-color-danger);
+  --alert-fg: var(--dx-color-text-danger);
+  background-color: color-mix(in srgb, var(--dx-color-danger) 12%, transparent);
+  border-color: var(--dx-color-danger);
+  color: var(--dx-color-text-danger);
 }
 
 /* outline: no fill, tone border, text-{tone} foreground */
-.dt-alert--outline {
+.dx-alert--outline {
   background-color: transparent;
   border-color: var(--alert-tone);
   color: var(--alert-fg);
@@ -103,74 +103,74 @@
 
 /* solid: tone fill; primary/danger use their dedicated contrast tokens,
    success/warning use surface (Badge solid pattern) */
-.dt-alert--solid {
+.dx-alert--solid {
   background-color: var(--alert-tone);
   border-color: var(--alert-tone);
-  color: var(--dt-color-surface);
+  color: var(--dx-color-surface);
 }
 
-.dt-alert--info.dt-alert--solid {
-  color: var(--dt-color-primary-fg);
+.dx-alert--info.dx-alert--solid {
+  color: var(--dx-color-primary-fg);
 }
 
-.dt-alert--danger.dt-alert--solid {
-  color: var(--dt-color-danger-fg);
+.dx-alert--danger.dx-alert--solid {
+  color: var(--dx-color-danger-fg);
 }
 
-.dt-alert-icon {
+.dx-alert-icon {
   flex-shrink: 0;
   display: flex;
   margin-top: 1px;
 }
 
-.dt-alert-content {
+.dx-alert-content {
   flex: 1;
   min-width: 0;
 }
 
-.dt-alert-title {
+.dx-alert-title {
   font-size: var(--alert-title-size);
-  font-weight: var(--dt-font-weight-bold);
+  font-weight: var(--dx-font-weight-bold);
   line-height: 1.4;
 }
 
-.dt-alert-body {
-  margin-top: var(--dt-space-1);
+.dx-alert-body {
+  margin-top: var(--dx-space-1);
   font-size: var(--alert-body-size);
   line-height: 1.5;
 }
 
-.dt-alert-dismiss {
+.dx-alert-dismiss {
   flex-shrink: 0;
   width: var(--alert-dismiss-size);
   height: var(--alert-dismiss-size);
   margin-top: calc(-1 * var(--alert-pad) / 2);
   margin-right: calc(-1 * var(--alert-gap));
   border: none;
-  border-radius: var(--dt-radius-md);
+  border-radius: var(--dx-radius-md);
   background: transparent;
-  color: var(--dt-color-text-muted);
+  color: var(--dx-color-text-muted);
   font-size: var(--alert-dismiss-font);
   line-height: 1;
   cursor: pointer;
-  transition: background var(--dt-transition-fast), color var(--dt-transition-fast);
+  transition: background var(--dx-transition-fast), color var(--dx-transition-fast);
 }
 
-.dt-alert-dismiss:hover {
-  background: var(--dt-color-surface-hover);
-  color: var(--dt-color-text);
+.dx-alert-dismiss:hover {
+  background: var(--dx-color-surface-hover);
+  color: var(--dx-color-text);
 }
 
-.dt-alert-dismiss:focus-visible {
-  outline: 2px solid var(--dt-color-focus);
+.dx-alert-dismiss:focus-visible {
+  outline: 2px solid var(--dx-color-focus);
   outline-offset: 2px;
 }
 
-.dt-alert--solid .dt-alert-dismiss {
+.dx-alert--solid .dx-alert-dismiss {
   color: color-mix(in srgb, currentColor 75%, transparent);
 }
 
-.dt-alert--solid .dt-alert-dismiss:hover {
+.dx-alert--solid .dx-alert-dismiss:hover {
   background: color-mix(in srgb, currentColor 15%, transparent);
   color: currentColor;
 }

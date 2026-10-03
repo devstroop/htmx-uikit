@@ -1,76 +1,76 @@
-.dt-signaturepad {
+.dx-signaturepad {
   display: block;
   width: 100%;
   max-width: 100%;
 }
 
-.dt-signaturepad-header {
+.dx-signaturepad-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--dt-space-2);
-  margin-bottom: var(--dt-space-05);
+  gap: var(--dx-space-2);
+  margin-bottom: var(--dx-space-05);
 }
 
-.dt-signaturepad-label {
-  color: var(--dt-color-text-muted);
-  font-family: var(--dt-font-sans);
-  font-size: var(--dt-font-size-sm);
-  font-weight: var(--dt-font-weight-medium);
+.dx-signaturepad-label {
+  color: var(--dx-color-text-muted);
+  font-family: var(--dx-font-sans);
+  font-size: var(--dx-font-size-sm);
+  font-weight: var(--dx-font-weight-medium);
 }
 
-.dt-signaturepad-clear {
+.dx-signaturepad-clear {
   display: inline-flex;
   align-items: center;
   border: none;
-  border-radius: var(--dt-radius-sm);
+  border-radius: var(--dx-radius-sm);
   background-color: transparent;
-  color: var(--dt-color-text-muted);
-  font-family: var(--dt-font-sans);
-  font-size: var(--dt-font-size-sm);
+  color: var(--dx-color-text-muted);
+  font-family: var(--dx-font-sans);
+  font-size: var(--dx-font-size-sm);
   cursor: pointer;
-  padding: var(--dt-space-05) var(--dt-space-1);
+  padding: var(--dx-space-05) var(--dx-space-1);
   transition:
-    color var(--dt-transition-fast),
-    background-color var(--dt-transition-fast);
+    color var(--dx-transition-fast),
+    background-color var(--dx-transition-fast);
 }
 
-.dt-signaturepad-clear:hover:not(:disabled) {
-  color: var(--dt-color-text);
-  background-color: var(--dt-color-surface-hover);
+.dx-signaturepad-clear:hover:not(:disabled) {
+  color: var(--dx-color-text);
+  background-color: var(--dx-color-surface-hover);
 }
 
-.dt-signaturepad-clear:focus-visible {
-  outline: 2px solid var(--dt-color-outline-primary);
+.dx-signaturepad-clear:focus-visible {
+  outline: 2px solid var(--dx-color-outline-primary);
   outline-offset: 1px;
 }
 
-.dt-signaturepad-clear:disabled {
+.dx-signaturepad-clear:disabled {
   opacity: 0.55;
   cursor: not-allowed;
 }
 
-.dt-signaturepad-canvas {
+.dx-signaturepad-canvas {
   display: block;
   width: 100%;
   height: 140px;
   box-sizing: border-box;
-  border: 1px dashed var(--dt-color-border-strong);
-  border-radius: var(--dt-radius-md);
-  background-color: var(--dt-color-surface);
+  border: 1px dashed var(--dx-color-border-strong);
+  border-radius: var(--dx-radius-md);
+  background-color: var(--dx-color-surface);
   touch-action: none;
   cursor: crosshair;
 }
 
-.dt-signaturepad-canvas:focus-visible {
-  outline: 3px solid var(--dt-color-outline-primary);
+.dx-signaturepad-canvas:focus-visible {
+  outline: 3px solid var(--dx-color-outline-primary);
   outline-offset: 1px;
 }
 
-.dt-signaturepad[data-dt-disabled] {
+.dx-signaturepad[data-dx-disabled] {
   opacity: 0.55;
 }
 
-.dt-signaturepad[data-dt-disabled] .dt-signaturepad-canvas {
+.dx-signaturepad[data-dx-disabled] .dx-signaturepad-canvas {
   cursor: not-allowed;
 }

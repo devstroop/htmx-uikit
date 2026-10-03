@@ -5,6 +5,10 @@ framework ships components as JS; this framework ships **HTML fragments +
 plain CSS + a tiny behaviors script**, so any server-side language (Go,
 Python, Rails, …) can render the same contracts.
 
+> **Upgrading from ≤ 0.27?** v0.28.0 renames the `dt` prefix to `dx`
+> (tokens, classes, data attributes, events, globals) and renames the
+> typography component to `text` — see [MIGRATION.md](MIGRATION.md).
+
 ## Layout
 
 ```
@@ -21,17 +25,17 @@ dist/                   esbuild output: uikit.js + uikit.css
 
 ## Conventions
 
-- **Class naming** — `dt-<name>` for the root, `dt-<name>--<modifier>` for
-  variants/sizes/states, `dt-<name>-<part>` for sub-elements
-  (`dt-button--primary`, `dt-card-header`).
-- **Tokens only** — components consume `var(--dt-*)` exclusively; the
+- **Class naming** — `dx-<name>` for the root, `dx-<name>--<modifier>` for
+  variants/sizes/states, `dx-<name>-<part>` for sub-elements
+  (`dx-button--primary`, `dx-card-header`).
+- **Tokens only** — components consume `var(--dx-*)` exclusively; the
   parity validator (root `npm run parity:validate`) enforces that the CSS
   uses exactly the tokens each spec declares.
 - **A11y is structural** — the HTML fragments carry the roles, labels,
   aria-describedby wiring, and keyboard behavior that the specs require;
   `behaviors.js` only adds what HTML cannot express.
 - **No build-time CSS transforms** — plain CSS, hand-written selectors.
-- **Interactivity via data attributes** — `data-dt-*` hooks are the only
+- **Interactivity via data attributes** — `data-dx-*` hooks are the only
   JS contract; htmx attributes handle server-driven swaps in consuming
   apps.
 
@@ -39,14 +43,14 @@ dist/                   esbuild output: uikit.js + uikit.css
 
 `behaviors.js` (2 KB, no deps, optional to load) drives:
 
-- `data-dt-tabs` / `data-dt-tab` / `data-dt-tabpanel` — ARIA tabs pattern,
+- `data-dx-tabs` / `data-dx-tab` / `data-dx-tabpanel` — ARIA tabs pattern,
   arrow/Home/End keys
-- `data-dt-accordion` / `data-dt-accordion-trigger` — single/multiple
-- `data-dt-tooltip` — hover/focus with Escape, `aria-describedby` wiring
-- `data-dt-dialog-open` + `<dialog data-dt-dialog>` — native dialog with
+- `data-dx-accordion` / `data-dx-accordion-trigger` — single/multiple
+- `data-dx-tooltip` — hover/focus with Escape, `aria-describedby` wiring
+- `data-dx-dialog-open` + `<dialog data-dx-dialog>` — native dialog with
   focus return
-- `data-dt-toast` + `window.dtToast()` — stacked toasts
-- `data-dt-dismiss` — remove an alert/toast element
+- `data-dx-toast` + `window.dxToast()` — stacked toasts
+- `data-dx-dismiss` — remove an alert/toast element
 
 ## Consuming
 

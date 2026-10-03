@@ -1,65 +1,65 @@
-.dt-selectbar {
+.dx-selectbar {
   display: inline-flex;
   align-items: center;
-  gap: var(--dt-space-1);
-  border: 1px solid var(--dt-color-border-strong);
-  border-radius: var(--dt-radius-md);
-  background-color: var(--dt-color-surface);
-  padding: var(--dt-space-1);
-  font-family: var(--dt-font-sans);
+  gap: var(--dx-space-1);
+  border: 1px solid var(--dx-color-border-strong);
+  border-radius: var(--dx-radius-md);
+  background-color: var(--dx-color-surface);
+  padding: var(--dx-space-1);
+  font-family: var(--dx-font-sans);
 }
 
-.dt-selectbar__option {
+.dx-selectbar__option {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border: 1px solid transparent;
-  border-radius: var(--dt-radius-md);
+  border-radius: var(--dx-radius-md);
   background-color: transparent;
-  color: var(--dt-color-text);
+  color: var(--dx-color-text);
   font-family: inherit;
-  font-weight: var(--dt-font-weight-medium);
+  font-weight: var(--dx-font-weight-medium);
   line-height: 1;
   cursor: pointer;
   transition:
-    background-color var(--dt-transition-fast),
-    color var(--dt-transition-fast);
+    background-color var(--dx-transition-fast),
+    color var(--dx-transition-fast);
 }
 
-.dt-selectbar__option:hover:not(:disabled) {
-  background-color: var(--dt-color-surface-hover);
+.dx-selectbar__option:hover:not(:disabled) {
+  background-color: var(--dx-color-surface-hover);
 }
 
-.dt-selectbar__option--selected,
-.dt-selectbar__option--selected:hover:not(:disabled) {
-  background-color: var(--dt-color-primary);
-  color: var(--dt-color-primary-fg);
+.dx-selectbar__option--selected,
+.dx-selectbar__option--selected:hover:not(:disabled) {
+  background-color: var(--dx-color-primary);
+  color: var(--dx-color-primary-fg);
 }
 
-.dt-selectbar__option:focus-visible {
-  outline: 2px solid var(--dt-color-outline-primary);
+.dx-selectbar__option:focus-visible {
+  outline: 2px solid var(--dx-color-outline-primary);
   outline-offset: 2px;
 }
 
-.dt-selectbar__option:disabled {
+.dx-selectbar__option:disabled {
   opacity: 0.55;
   cursor: not-allowed;
 }
 
-.dt-selectbar--sm .dt-selectbar__option {
-  height: var(--dt-control-height-sm);
+.dx-selectbar--sm .dx-selectbar__option {
+  height: var(--dx-control-height-sm);
   padding: 0 12px;
-  font-size: var(--dt-font-size-xs);
+  font-size: var(--dx-font-size-xs);
 }
 
-.dt-selectbar--md .dt-selectbar__option {
-  height: var(--dt-control-height-md);
+.dx-selectbar--md .dx-selectbar__option {
+  height: var(--dx-control-height-md);
   padding: 0 16px;
-  font-size: var(--dt-font-size-sm);
+  font-size: var(--dx-font-size-sm);
 }
 
-.dt-selectbar--lg .dt-selectbar__option {
-  height: var(--dt-control-height-lg);
+.dx-selectbar--lg .dx-selectbar__option {
+  height: var(--dx-control-height-lg);
   padding: 0 20px;
-  font-size: var(--dt-font-size-md);
+  font-size: var(--dx-font-size-md);
 }

@@ -1,33 +1,33 @@
 <!--
   Accordion — reference markup for server templates.
-  Root: <div class="dt-accordion" data-dt-accordion [data-dt-accordion-multiple]>
-  Item: <div class="dt-accordion-item" data-dt-accordion-item>
-  Trigger: <button class="dt-accordion-trigger [dt-accordion-trigger--disabled]"
-           type="button" data-dt-accordion-trigger
+  Root: <div class="dx-accordion" data-dx-accordion [data-dx-accordion-multiple]>
+  Item: <div class="dx-accordion-item" data-dx-accordion-item>
+  Trigger: <button class="dx-accordion-trigger [dx-accordion-trigger--disabled]"
+           type="button" data-dx-accordion-trigger
            id="<id>" aria-expanded="true|false" aria-controls="<panel-id>" [disabled]>
-  Panel: <div class="dt-accordion-panel" id="<panel-id>"
+  Panel: <div class="dx-accordion-panel" id="<panel-id>"
           role="region" aria-labelledby="<trigger-id>" [open]>
   behaviors.js toggles aria-expanded + the open attribute (single-open
-  mode by default, multiple when data-dt-accordion-multiple).
+  mode by default, multiple when data-dx-accordion-multiple).
 -->
 
-<div class="dt-accordion" data-dt-accordion>
-  <div class="dt-accordion-item" data-dt-accordion-item>
-    <h3 class="dt-accordion-heading">
+<div class="dx-accordion" data-dx-accordion>
+  <div class="dx-accordion-item" data-dx-accordion-item>
+    <h3 class="dx-accordion-heading">
       <button
-        class="dt-accordion-trigger"
+        class="dx-accordion-trigger"
         type="button"
-        data-dt-accordion-trigger
+        data-dx-accordion-trigger
         id="acc1-trigger-what"
         aria-expanded="true"
         aria-controls="acc1-panel-what"
       >
-        <span class="dt-accordion-title">What is uikit?</span>
-        <span class="dt-accordion-chevron dt-accordion-chevron--open" aria-hidden="true">▾</span>
+        <span class="dx-accordion-title">What is uikit?</span>
+        <span class="dx-accordion-chevron dx-accordion-chevron--open" aria-hidden="true">▾</span>
       </button>
     </h3>
     <div
-      class="dt-accordion-panel"
+      class="dx-accordion-panel"
       id="acc1-panel-what"
       role="region"
       aria-labelledby="acc1-trigger-what"
@@ -36,46 +36,46 @@
       <p>One contract — many deliveries: specs, tokens, and frameworks.</p>
     </div>
   </div>
-  <div class="dt-accordion-item" data-dt-accordion-item>
-    <h3 class="dt-accordion-heading">
+  <div class="dx-accordion-item" data-dx-accordion-item>
+    <h3 class="dx-accordion-heading">
       <button
-        class="dt-accordion-trigger"
+        class="dx-accordion-trigger"
         type="button"
-        data-dt-accordion-trigger
+        data-dx-accordion-trigger
         id="acc1-trigger-how"
         aria-expanded="false"
         aria-controls="acc1-panel-how"
       >
-        <span class="dt-accordion-title">How do themes work?</span>
-        <span class="dt-accordion-chevron" aria-hidden="true">▾</span>
+        <span class="dx-accordion-title">How do themes work?</span>
+        <span class="dx-accordion-chevron" aria-hidden="true">▾</span>
       </button>
     </h3>
     <div
-      class="dt-accordion-panel"
+      class="dx-accordion-panel"
       id="acc1-panel-how"
       role="region"
       aria-labelledby="acc1-trigger-how"
     >
-      <p>Import any theme's tokens.css — components consume --dt-* only.</p>
+      <p>Import any theme's tokens.css — components consume --dx-* only.</p>
     </div>
   </div>
-  <div class="dt-accordion-item" data-dt-accordion-item>
-    <h3 class="dt-accordion-heading">
+  <div class="dx-accordion-item" data-dx-accordion-item>
+    <h3 class="dx-accordion-heading">
       <button
-        class="dt-accordion-trigger dt-accordion-trigger--disabled"
+        class="dx-accordion-trigger dx-accordion-trigger--disabled"
         type="button"
-        data-dt-accordion-trigger
+        data-dx-accordion-trigger
         id="acc1-trigger-when"
         aria-expanded="false"
         aria-controls="acc1-panel-when"
         disabled
       >
-        <span class="dt-accordion-title">Roadmap (disabled)</span>
-        <span class="dt-accordion-chevron" aria-hidden="true">▾</span>
+        <span class="dx-accordion-title">Roadmap (disabled)</span>
+        <span class="dx-accordion-chevron" aria-hidden="true">▾</span>
       </button>
     </h3>
     <div
-      class="dt-accordion-panel"
+      class="dx-accordion-panel"
       id="acc1-panel-when"
       role="region"
       aria-labelledby="acc1-trigger-when"
@@ -85,23 +85,23 @@
   </div>
 </div>
 
-<div class="dt-accordion" data-dt-accordion data-dt-accordion-multiple>
-  <div class="dt-accordion-item" data-dt-accordion-item>
-    <h3 class="dt-accordion-heading">
+<div class="dx-accordion" data-dx-accordion data-dx-accordion-multiple>
+  <div class="dx-accordion-item" data-dx-accordion-item>
+    <h3 class="dx-accordion-heading">
       <button
-        class="dt-accordion-trigger"
+        class="dx-accordion-trigger"
         type="button"
-        data-dt-accordion-trigger
+        data-dx-accordion-trigger
         id="acc2-trigger-a"
         aria-expanded="false"
         aria-controls="acc2-panel-a"
       >
-        <span class="dt-accordion-title">Multiple open</span>
-        <span class="dt-accordion-chevron" aria-hidden="true">▾</span>
+        <span class="dx-accordion-title">Multiple open</span>
+        <span class="dx-accordion-chevron" aria-hidden="true">▾</span>
       </button>
     </h3>
     <div
-      class="dt-accordion-panel"
+      class="dx-accordion-panel"
       id="acc2-panel-a"
       role="region"
       aria-labelledby="acc2-trigger-a"
@@ -109,22 +109,22 @@
       <p>Both panels can stay open at once.</p>
     </div>
   </div>
-  <div class="dt-accordion-item" data-dt-accordion-item>
-    <h3 class="dt-accordion-heading">
+  <div class="dx-accordion-item" data-dx-accordion-item>
+    <h3 class="dx-accordion-heading">
       <button
-        class="dt-accordion-trigger"
+        class="dx-accordion-trigger"
         type="button"
-        data-dt-accordion-trigger
+        data-dx-accordion-trigger
         id="acc2-trigger-b"
         aria-expanded="false"
         aria-controls="acc2-panel-b"
       >
-        <span class="dt-accordion-title">And another</span>
-        <span class="dt-accordion-chevron" aria-hidden="true">▾</span>
+        <span class="dx-accordion-title">And another</span>
+        <span class="dx-accordion-chevron" aria-hidden="true">▾</span>
       </button>
     </h3>
     <div
-      class="dt-accordion-panel"
+      class="dx-accordion-panel"
       id="acc2-panel-b"
       role="region"
       aria-labelledby="acc2-trigger-b"

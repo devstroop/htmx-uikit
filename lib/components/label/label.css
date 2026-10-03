@@ -1,9 +1,9 @@
-.dt-label {
+.dx-label {
   display: inline-flex;
   align-items: center;
-  gap: var(--dt-space-2);
-  font-family: var(--dt-font-sans);
-  font-size: var(--dt-font-size-sm);
-  font-weight: var(--dt-font-weight-medium);
-  color: var(--dt-color-text);
+  gap: var(--dx-space-2);
+  font-family: var(--dx-font-sans);
+  font-size: var(--dx-font-size-sm);
+  font-weight: var(--dx-font-weight-medium);
+  color: var(--dx-color-text);
 }

@@ -5,6 +5,8 @@
 #   description one-liner
 #   tokens.sync path (relative to this file) where the generated tokens.css
 #                is synced — see scripts/generate-css.mjs
+#   tokens.prefix css custom-property prefix ("dx" | "dt", default "dt")
+#                the synced tokens.css is rendered with — see scripts/generate-css.mjs
 #   commands    local development commands (run from this directory)
 
 name: "@devstroop/htmx-uikit"
@@ -13,6 +15,7 @@ description: Server-rendered htmx implementation of the uikit specs — HTML fra
 
 tokens:
   sync: lib/styles/tokens.css
+  prefix: dx
 
 commands:
   install: npm ci

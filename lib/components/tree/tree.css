@@ -1,45 +1,45 @@
-.dt-tree {
-  font-family: var(--dt-font-sans);
-  font-size: var(--dt-font-size-sm);
-  font-weight: var(--dt-font-weight-medium);
-  background-color: var(--dt-color-surface);
-  border: 1px solid var(--dt-color-border);
-  border-radius: var(--dt-radius-md);
-  transition: background-color var(--dt-transition-fast);
+.dx-tree {
+  font-family: var(--dx-font-sans);
+  font-size: var(--dx-font-size-sm);
+  font-weight: var(--dx-font-weight-medium);
+  background-color: var(--dx-color-surface);
+  border: 1px solid var(--dx-color-border);
+  border-radius: var(--dx-radius-md);
+  transition: background-color var(--dx-transition-fast);
 }
 
-.dt-tree-children {
+.dx-tree-children {
   list-style: none;
   margin: 0;
-  padding-left: var(--dt-space-2);
+  padding-left: var(--dx-space-2);
 }
 
-.dt-tree-item {
+.dx-tree-item {
   display: flex;
   align-items: center;
-  gap: var(--dt-space-1);
-  padding: var(--dt-space-1);
-  border-radius: var(--dt-radius-sm);
+  gap: var(--dx-space-1);
+  padding: var(--dx-space-1);
+  border-radius: var(--dx-radius-sm);
   cursor: pointer;
 }
 
-.dt-tree-item[aria-selected="true"] {
-  background-color: var(--dt-color-primary);
-  color: var(--dt-color-primary-fg);
-  border: 1px solid var(--dt-color-border-primary);
+.dx-tree-item[aria-selected="true"] {
+  background-color: var(--dx-color-primary);
+  color: var(--dx-color-primary-fg);
+  border: 1px solid var(--dx-color-border-primary);
 }
 
-.dt-tree-item:focus-visible {
-  outline: 2px solid var(--dt-color-outline-primary);
+.dx-tree-item:focus-visible {
+  outline: 2px solid var(--dx-color-outline-primary);
   outline-offset: 1px;
 }
 
-.dt-tree-item[aria-disabled="true"] {
+.dx-tree-item[aria-disabled="true"] {
   opacity: 0.5;
   cursor: not-allowed;
 }
 
-.dt-tree-caret {
+.dx-tree-caret {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -47,22 +47,22 @@
   height: 20px;
   border: none;
   background: transparent;
-  color: var(--dt-color-text-muted);
+  color: var(--dx-color-text-muted);
   cursor: pointer;
-  border-radius: var(--dt-radius-sm);
+  border-radius: var(--dx-radius-sm);
 }
 
-.dt-tree-caret:hover {
-  background-color: var(--dt-color-surface-hover);
-  color: var(--dt-color-text);
+.dx-tree-caret:hover {
+  background-color: var(--dx-color-surface-hover);
+  color: var(--dx-color-text);
 }
 
-.dt-tree-caret:focus-visible {
-  outline: 2px solid var(--dt-color-outline-primary);
+.dx-tree-caret:focus-visible {
+  outline: 2px solid var(--dx-color-outline-primary);
   outline-offset: 1px;
 }
 
-.dt-tree-label {
+.dx-tree-label {
   flex: 1;
   white-space: nowrap;
 }

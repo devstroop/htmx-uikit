@@ -1,6 +1,6 @@
 <!--
   Avatar — reference markup for server templates.
-  Root: <span class="dt-avatar dt-avatar--<size> [dt-avatar--<status>]"
+  Root: <span class="dx-avatar dx-avatar--<size> [dx-avatar--<status>]"
         role="img" aria-label="<name>">
   Modifiers:
     size     --sm (28px) | --md (36px) | --lg (48px)   (default: --md)
@@ -8,44 +8,44 @@
     palette  --palette-0..--palette-5                  (hash of the name,
              selects one of the six per-mode palette tokens)
   Parts:
-    initials  <span class="dt-avatar-initials" aria-hidden="true">
-    image     <img class="dt-avatar-image">
-    status    <span class="dt-avatar-status" aria-hidden="true">
+    initials  <span class="dx-avatar-initials" aria-hidden="true">
+    image     <img class="dx-avatar-image">
+    status    <span class="dx-avatar-status" aria-hidden="true">
   The server template derives the initials (first letters of up to the
   first two whitespace-separated words, uppercased; "?" when no name) and
   the palette index (the react hash: h = (h*31 + c) >>> 0 over the name,
-  then h % 6). The palette resolves per-mode via --dt-color-palette-0..5
+  then h % 6). The palette resolves per-mode via --dx-color-palette-0..5
   tokens (see scripts/derive-tone-tokens.mjs).
 -->
 
-<span class="dt-avatar dt-avatar--md dt-avatar--palette-1" role="img" aria-label="Jane Doe">
-  <span class="dt-avatar-initials" aria-hidden="true">JD</span>
+<span class="dx-avatar dx-avatar--md dx-avatar--palette-1" role="img" aria-label="Jane Doe">
+  <span class="dx-avatar-initials" aria-hidden="true">JD</span>
 </span>
 
-<span class="dt-avatar dt-avatar--sm dt-avatar--palette-3" role="img" aria-label="Alfred Aku">
-  <span class="dt-avatar-initials" aria-hidden="true">AA</span>
-  <span class="dt-avatar-status" aria-hidden="true"></span>
+<span class="dx-avatar dx-avatar--sm dx-avatar--palette-3" role="img" aria-label="Alfred Aku">
+  <span class="dx-avatar-initials" aria-hidden="true">AA</span>
+  <span class="dx-avatar-status" aria-hidden="true"></span>
 </span>
 
-<span class="dt-avatar dt-avatar--md dt-avatar--online dt-avatar--palette-0" role="img" aria-label="Ada Lovelace">
-  <span class="dt-avatar-initials" aria-hidden="true">AL</span>
-  <span class="dt-avatar-status" aria-hidden="true"></span>
+<span class="dx-avatar dx-avatar--md dx-avatar--online dx-avatar--palette-0" role="img" aria-label="Ada Lovelace">
+  <span class="dx-avatar-initials" aria-hidden="true">AL</span>
+  <span class="dx-avatar-status" aria-hidden="true"></span>
 </span>
 
-<span class="dt-avatar dt-avatar--md dt-avatar--offline dt-avatar--palette-4" role="img" aria-label="Grace Hopper">
-  <span class="dt-avatar-initials" aria-hidden="true">GH</span>
-  <span class="dt-avatar-status" aria-hidden="true"></span>
+<span class="dx-avatar dx-avatar--md dx-avatar--offline dx-avatar--palette-4" role="img" aria-label="Grace Hopper">
+  <span class="dx-avatar-initials" aria-hidden="true">GH</span>
+  <span class="dx-avatar-status" aria-hidden="true"></span>
 </span>
 
-<span class="dt-avatar dt-avatar--lg dt-avatar--away dt-avatar--palette-5" role="img" aria-label="Katherine Johnson">
-  <span class="dt-avatar-initials" aria-hidden="true">KJ</span>
-  <span class="dt-avatar-status" aria-hidden="true"></span>
+<span class="dx-avatar dx-avatar--lg dx-avatar--away dx-avatar--palette-5" role="img" aria-label="Katherine Johnson">
+  <span class="dx-avatar-initials" aria-hidden="true">KJ</span>
+  <span class="dx-avatar-status" aria-hidden="true"></span>
 </span>
 
-<span class="dt-avatar dt-avatar--lg dt-avatar--palette-2" role="img" aria-label="No Name">
-  <span class="dt-avatar-initials" aria-hidden="true">?</span>
+<span class="dx-avatar dx-avatar--lg dx-avatar--palette-2" role="img" aria-label="No Name">
+  <span class="dx-avatar-initials" aria-hidden="true">?</span>
 </span>
 
-<span class="dt-avatar dt-avatar--lg" role="img" aria-label="Jane Doe">
-  <img class="dt-avatar-image" src="https://example.com/jane.jpg" alt="Jane Doe" />
+<span class="dx-avatar dx-avatar--lg" role="img" aria-label="Jane Doe">
+  <img class="dx-avatar-image" src="https://example.com/jane.jpg" alt="Jane Doe" />
 </span>

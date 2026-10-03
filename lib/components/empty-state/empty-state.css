@@ -1,32 +1,32 @@
-.dt-empty-state {
+.dx-empty-state {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--dt-space-2);
-  padding: var(--dt-space-6);
+  gap: var(--dx-space-2);
+  padding: var(--dx-space-6);
   width: 100%;
   box-sizing: border-box;
   text-align: center;
-  font-family: var(--dt-font-sans);
+  font-family: var(--dx-font-sans);
 }
 
-.dt-empty-state-icon {
-  color: var(--dt-color-text-muted);
-  margin-bottom: var(--dt-space-1);
+.dx-empty-state-icon {
+  color: var(--dx-color-text-muted);
+  margin-bottom: var(--dx-space-1);
 }
 
-.dt-empty-state-title {
-  font-size: var(--dt-font-size-md);
-  font-weight: var(--dt-font-weight-bold);
-  color: var(--dt-color-text);
+.dx-empty-state-title {
+  font-size: var(--dx-font-size-md);
+  font-weight: var(--dx-font-weight-bold);
+  color: var(--dx-color-text);
 }
 
-.dt-empty-state-description {
-  font-size: var(--dt-font-size-sm);
-  color: var(--dt-color-text-muted);
+.dx-empty-state-description {
+  font-size: var(--dx-font-size-sm);
+  color: var(--dx-color-text-muted);
   max-width: 40ch;
 }
 
-.dt-empty-state-action {
-  margin-top: var(--dt-space-3);
+.dx-empty-state-action {
+  margin-top: var(--dx-space-3);
 }

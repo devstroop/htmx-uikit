@@ -1,7 +1,7 @@
-.dt-qrcode {
+.dx-qrcode {
   display: block;
 }
 
-.dt-qrcode {
-  font-family: var(--dt-font-sans);
+.dx-qrcode {
+  font-family: var(--dx-font-sans);
 }

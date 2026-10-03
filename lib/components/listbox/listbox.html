@@ -1,15 +1,18 @@
 <!--
   Listbox — reference markup for server templates.
-  Root: <div role="listbox" tabindex="0" class="dt-listbox" aria-label="..."
-        aria-activedescendant="<option-id>" data-dt-listbox>
+  Root: <div role="listbox" tabindex="0" class="dx-listbox" aria-label="..."
+        aria-activedescendant="<option-id>" aria-multiselectable="false|true"
+        data-dx-listbox>
   Modifiers:
-    mode    data-dt-listbox-multiple   (multi-select; omit for single)
-  Options: <div role="option" id="..." class="dt-listbox__option"
-        data-dt-listbox-option data-dt-listbox-value="<value>"
+    mode    data-dx-listbox-multiple   (multi-select; omit for single)
+            aria-multiselectable must be "true" with the multiple modifier
+            and "false" otherwise (required by the listbox a11y contract)
+  Options: <div role="option" id="..." class="dx-listbox__option"
+        data-dx-listbox-option data-dx-listbox-value="<value>"
         aria-selected="true|false">
-  Behavior: [data-dt-listbox] handles Arrow keys, Home/End, Space to
+  Behavior: [data-dx-listbox] handles Arrow keys, Home/End, Space to
   toggle, Enter to commit, and type-ahead. The active option follows
-  aria-activedescendant. On change it dispatches dt:listbox-change with
+  aria-activedescendant. On change it dispatches dx:listbox-change with
   detail {value} (single) or {values} (multiple). The --selected and
   --active modifiers track aria-selected and the active option.
 -->
@@ -17,17 +20,18 @@
 <div
   role="listbox"
   tabindex="0"
-  class="dt-listbox"
+  class="dx-listbox"
   aria-label="Destination"
   aria-activedescendant="lb1-option-1"
-  data-dt-listbox
+  aria-multiselectable="false"
+  data-dx-listbox
 >
   <div
     role="option"
     id="lb1-option-1"
-    class="dt-listbox__option dt-listbox__option--selected"
-    data-dt-listbox-option
-    data-dt-listbox-value="red"
+    class="dx-listbox__option dx-listbox__option--selected"
+    data-dx-listbox-option
+    data-dx-listbox-value="red"
     aria-selected="true"
   >
     Red
@@ -35,9 +39,9 @@
   <div
     role="option"
     id="lb1-option-2"
-    class="dt-listbox__option"
-    data-dt-listbox-option
-    data-dt-listbox-value="green"
+    class="dx-listbox__option"
+    data-dx-listbox-option
+    data-dx-listbox-value="green"
     aria-selected="false"
   >
     Green
@@ -45,9 +49,9 @@
   <div
     role="option"
     id="lb1-option-3"
-    class="dt-listbox__option"
-    data-dt-listbox-option
-    data-dt-listbox-value="blue"
+    class="dx-listbox__option"
+    data-dx-listbox-option
+    data-dx-listbox-value="blue"
     aria-selected="false"
   >
     Blue
@@ -55,9 +59,9 @@
   <div
     role="option"
     id="lb1-option-4"
-    class="dt-listbox__option dt-listbox__option--disabled"
-    data-dt-listbox-option
-    data-dt-listbox-value="grey"
+    class="dx-listbox__option dx-listbox__option--disabled"
+    data-dx-listbox-option
+    data-dx-listbox-value="grey"
     aria-selected="false"
     aria-disabled="true"
   >
@@ -68,18 +72,18 @@
 <div
   role="listbox"
   tabindex="0"
-  class="dt-listbox"
+  class="dx-listbox"
   aria-label="Languages (multiple)"
   aria-activedescendant="lb2-option-1"
-  data-dt-listbox
-  data-dt-listbox-multiple
+  data-dx-listbox
+  data-dx-listbox-multiple
 >
   <div
     role="option"
     id="lb2-option-1"
-    class="dt-listbox__option dt-listbox__option--selected"
-    data-dt-listbox-option
-    data-dt-listbox-value="en"
+    class="dx-listbox__option dx-listbox__option--selected"
+    data-dx-listbox-option
+    data-dx-listbox-value="en"
     aria-selected="true"
   >
     English
@@ -87,9 +91,9 @@
   <div
     role="option"
     id="lb2-option-2"
-    class="dt-listbox__option"
-    data-dt-listbox-option
-    data-dt-listbox-value="es"
+    class="dx-listbox__option"
+    data-dx-listbox-option
+    data-dx-listbox-value="es"
     aria-selected="false"
   >
     Spanish
@@ -97,9 +101,9 @@
   <div
     role="option"
     id="lb2-option-3"
-    class="dt-listbox__option dt-listbox__option--selected"
-    data-dt-listbox-option
-    data-dt-listbox-value="fr"
+    class="dx-listbox__option dx-listbox__option--selected"
+    data-dx-listbox-option
+    data-dx-listbox-value="fr"
     aria-selected="true"
   >
     French

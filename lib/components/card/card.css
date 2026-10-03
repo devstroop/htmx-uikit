@@ -1,60 +1,60 @@
-.dt-card {
-  border-radius: var(--dt-radius-lg);
-  background-color: var(--dt-color-surface);
-  font-family: var(--dt-font-sans);
+.dx-card {
+  border-radius: var(--dx-radius-lg);
+  background-color: var(--dx-color-surface);
+  font-family: var(--dx-font-sans);
   overflow: hidden;
 }
 
-.dt-card--elevated {
-  box-shadow: var(--dt-shadow-md);
-  border: 1px solid var(--dt-color-border);
+.dx-card--elevated {
+  box-shadow: var(--dx-shadow-md);
+  border: 1px solid var(--dx-color-border);
 }
 
-.dt-card--outlined {
-  border: 1px solid var(--dt-color-border);
+.dx-card--outlined {
+  border: 1px solid var(--dx-color-border);
 }
 
-.dt-card--interactive {
-  border: 1px solid var(--dt-color-border);
+.dx-card--interactive {
+  border: 1px solid var(--dx-color-border);
   cursor: pointer;
   transition:
-    border-color var(--dt-transition-fast),
-    box-shadow var(--dt-transition-fast);
+    border-color var(--dx-transition-fast),
+    box-shadow var(--dx-transition-fast);
 }
 
-.dt-card--text {
+.dx-card--text {
   border: none;
   box-shadow: none;
   background-color: transparent;
 }
 
-.dt-card--interactive:hover {
-  border-color: var(--dt-color-border-strong);
-  box-shadow: var(--dt-shadow-sm);
+.dx-card--interactive:hover {
+  border-color: var(--dx-color-border-strong);
+  box-shadow: var(--dx-shadow-sm);
 }
 
-.dt-card--interactive:focus-visible {
-  outline: 2px solid var(--dt-color-focus);
+.dx-card--interactive:focus-visible {
+  outline: 2px solid var(--dx-color-focus);
   outline-offset: 2px;
 }
 
-.dt-card-header {
-  padding: var(--dt-space-4) var(--dt-space-4) 0;
-  font-size: var(--dt-font-size-md);
-  font-weight: var(--dt-font-weight-bold);
-  color: var(--dt-color-text);
+.dx-card-header {
+  padding: var(--dx-space-4) var(--dx-space-4) 0;
+  font-size: var(--dx-font-size-md);
+  font-weight: var(--dx-font-weight-bold);
+  color: var(--dx-color-text);
 }
 
-.dt-card-body {
-  padding: var(--dt-space-4);
-  font-size: var(--dt-font-size-sm);
-  color: var(--dt-color-text);
+.dx-card-body {
+  padding: var(--dx-space-4);
+  font-size: var(--dx-font-size-sm);
+  color: var(--dx-color-text);
 }
 
-.dt-card-header + .dt-card-body {
-  padding-top: var(--dt-space-3);
+.dx-card-header + .dx-card-body {
+  padding-top: var(--dx-space-3);
 }
 
-.dt-card-footer {
-  padding: 0 var(--dt-space-4) var(--dt-space-4);
+.dx-card-footer {
+  padding: 0 var(--dx-space-4) var(--dx-space-4);
 }

@@ -1,63 +1,63 @@
-.dt-progress {
+.dx-progress {
   position: relative;
   width: 100%;
   height: 6px;
-  border-radius: var(--dt-radius-full);
-  background: var(--dt-color-surface-hover);
+  border-radius: var(--dx-radius-full);
+  background: var(--dx-color-surface-hover);
   overflow: hidden;
 }
 
 /* Linear thickness tiers */
-.dt-progress--xs {
+.dx-progress--xs {
   height: 4px;
 }
 
-.dt-progress--sm {
+.dx-progress--sm {
   height: 5px;
 }
 
-.dt-progress--md {
+.dx-progress--md {
   height: 6px;
 }
 
-.dt-progress--lg {
+.dx-progress--lg {
   height: 8px;
 }
 
-.dt-progress--xl {
+.dx-progress--xl {
   height: 10px;
 }
 
-.dt-progress-bar {
+.dx-progress-bar {
   position: absolute;
   inset: 0 auto 0 0;
   height: 100%;
-  border-radius: var(--dt-radius-full);
-  transition: width var(--dt-transition-base) var(--dt-ease-out);
+  border-radius: var(--dx-radius-full);
+  transition: width var(--dx-transition-base) var(--dx-ease-out);
 }
 
-.dt-progress--primary .dt-progress-bar {
-  background: var(--dt-color-primary);
+.dx-progress--primary .dx-progress-bar {
+  background: var(--dx-color-primary);
 }
 
-.dt-progress--success .dt-progress-bar {
-  background: var(--dt-color-success);
+.dx-progress--success .dx-progress-bar {
+  background: var(--dx-color-success);
 }
 
-.dt-progress--warning .dt-progress-bar {
-  background: var(--dt-color-warning);
+.dx-progress--warning .dx-progress-bar {
+  background: var(--dx-color-warning);
 }
 
-.dt-progress--danger .dt-progress-bar {
-  background: var(--dt-color-danger);
+.dx-progress--danger .dx-progress-bar {
+  background: var(--dx-color-danger);
 }
 
-.dt-progress--indeterminate .dt-progress-bar {
+.dx-progress--indeterminate .dx-progress-bar {
   width: 40%;
-  animation: dt-progress-slide var(--dt-motion-sweep) infinite;
+  animation: dx-progress-slide var(--dx-motion-sweep) infinite;
 }
 
-@keyframes dt-progress-slide {
+@keyframes dx-progress-slide {
   from {
     transform: translateX(-100%);
   }
@@ -66,70 +66,70 @@
   }
 }
 
-.dt-progress-circular {
+.dx-progress-circular {
   transform: rotate(-90deg);
-  width: var(--dt-control-height-md);
-  height: var(--dt-control-height-md);
+  width: var(--dx-control-height-md);
+  height: var(--dx-control-height-md);
   stroke-width: 2px;
 }
 
 /* Circular diameter tiers — control-height scale */
-.dt-progress-circular.dt-progress--xs {
-  width: var(--dt-control-height-xs);
-  height: var(--dt-control-height-xs);
+.dx-progress-circular.dx-progress--xs {
+  width: var(--dx-control-height-xs);
+  height: var(--dx-control-height-xs);
 }
 
-.dt-progress-circular.dt-progress--sm {
-  width: var(--dt-control-height-sm);
-  height: var(--dt-control-height-sm);
+.dx-progress-circular.dx-progress--sm {
+  width: var(--dx-control-height-sm);
+  height: var(--dx-control-height-sm);
 }
 
-.dt-progress-circular.dt-progress--md {
-  width: var(--dt-control-height-md);
-  height: var(--dt-control-height-md);
+.dx-progress-circular.dx-progress--md {
+  width: var(--dx-control-height-md);
+  height: var(--dx-control-height-md);
 }
 
-.dt-progress-circular.dt-progress--lg {
-  width: var(--dt-control-height-lg);
-  height: var(--dt-control-height-lg);
+.dx-progress-circular.dx-progress--lg {
+  width: var(--dx-control-height-lg);
+  height: var(--dx-control-height-lg);
 }
 
-.dt-progress-circular.dt-progress--xl {
-  width: var(--dt-control-height-xl);
-  height: var(--dt-control-height-xl);
+.dx-progress-circular.dx-progress--xl {
+  width: var(--dx-control-height-xl);
+  height: var(--dx-control-height-xl);
 }
 
-.dt-progress-circular circle {
+.dx-progress-circular circle {
   fill: none;
   stroke-width: 2px;
 }
 
-.dt-progress-circular .dt-progress-track {
-  stroke: var(--dt-color-surface-hover);
+.dx-progress-circular .dx-progress-track {
+  stroke: var(--dx-color-surface-hover);
 }
 
-.dt-progress-circular .dt-progress-fill {
-  stroke: var(--dt-color-primary);
-  transition: stroke-dashoffset var(--dt-transition-base) var(--dt-ease-out);
+.dx-progress-circular .dx-progress-fill {
+  stroke: var(--dx-color-primary);
+  transition: stroke-dashoffset var(--dx-transition-base) var(--dx-ease-out);
 }
 
-.dt-progress-circular.dt-progress--success .dt-progress-fill {
-  stroke: var(--dt-color-success);
+.dx-progress-circular.dx-progress--success .dx-progress-fill {
+  stroke: var(--dx-color-success);
 }
 
-.dt-progress-circular.dt-progress--warning .dt-progress-fill {
-  stroke: var(--dt-color-warning);
+.dx-progress-circular.dx-progress--warning .dx-progress-fill {
+  stroke: var(--dx-color-warning);
 }
 
-.dt-progress-circular.dt-progress--danger .dt-progress-fill {
-  stroke: var(--dt-color-danger);
+.dx-progress-circular.dx-progress--danger .dx-progress-fill {
+  stroke: var(--dx-color-danger);
 }
 
-.dt-progress-circular.dt-progress--indeterminate {
-  animation: dt-progress-spin var(--dt-motion-sweep) linear infinite;
+.dx-progress-circular.dx-progress--indeterminate {
+  animation: dx-progress-spin var(--dx-motion-sweep) linear infinite;
 }
 
-@keyframes dt-progress-spin {
+@keyframes dx-progress-spin {
   from {
     transform: rotate(-90deg);
   }

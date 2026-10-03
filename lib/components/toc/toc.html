@@ -1,80 +1,80 @@
 <!--
   Toc — reference markup for server templates.
-  Root: <nav class="dt-toc [dt-toc--vertical|dt-toc--horizontal]"
-        data-dt-toc [data-dt-selector="#content"]
-        [data-dt-orientation="vertical|horizontal"]
+  Root: <nav class="dx-toc [dx-toc--vertical|dx-toc--horizontal]"
+        data-dx-toc [data-dx-selector="#content"]
+        [data-dx-orientation="vertical|horizontal"]
         aria-label="Table of contents">
-    <ol class="dt-toc-list" role="list" data-dt-toc-list>
-      <li class="dt-toc-item" role="listitem">
-        <a href="#section" class="dt-toc-link [dt-toc-link--active]"
-           data-dt-toc-item data-dt-text="Label"
-           data-dt-selector="#section" [aria-current="location"]>Label</a>
+    <ol class="dx-toc-list" role="list" data-dx-toc-list>
+      <li class="dx-toc-item" role="listitem">
+        <a href="#section" class="dx-toc-link [dx-toc-link--active]"
+           data-dx-toc-item data-dx-text="Label"
+           data-dx-selector="#section" [aria-current="location"]>Label</a>
       </li>
       ... more items
     </ol>
   </nav>
   Each link href points at the target selector. The active link has
-  aria-current="location" and the dt-toc-link--active class. data-dt-selector
+  aria-current="location" and the dx-toc-link--active class. data-dx-selector
   on the root is the scroll scope (e.g. "#content"); when omitted the window
-  scroll is tracked. data-dt-toc-item carries the link's selector and text
+  scroll is tracked. data-dx-toc-item carries the link's selector and text
   for event detail. Click scrolls smoothly to the target, moves focus to the
   target for screen readers, toggles the active state, and dispatches
-  dt:toc-click{ text, selector } on the root. Focus indicators use
+  dx:toc-click{ text, selector } on the root. Focus indicators use
   outline-primary. Vertical (default) stacks; horizontal renders inline.
   Scroll-spy updates the active item via IntersectionObserver with a scroll
   fallback.
 -->
 
 <!-- Vertical toc, window scroll (default) -->
-<nav class="dt-toc dt-toc--vertical" data-dt-toc data-dt-orientation="vertical" aria-label="Table of contents">
-  <ol class="dt-toc-list" role="list" data-dt-toc-list>
-    <li class="dt-toc-item" role="listitem">
-      <a href="#introduction" class="dt-toc-link dt-toc-link--active" data-dt-toc-item data-dt-text="Introduction" data-dt-selector="#introduction" aria-current="location">Introduction</a>
+<nav class="dx-toc dx-toc--vertical" data-dx-toc data-dx-orientation="vertical" aria-label="Table of contents">
+  <ol class="dx-toc-list" role="list" data-dx-toc-list>
+    <li class="dx-toc-item" role="listitem">
+      <a href="#introduction" class="dx-toc-link dx-toc-link--active" data-dx-toc-item data-dx-text="Introduction" data-dx-selector="#introduction" aria-current="location">Introduction</a>
     </li>
-    <li class="dt-toc-item" role="listitem">
-      <a href="#installation" class="dt-toc-link" data-dt-toc-item data-dt-text="Installation" data-dt-selector="#installation">Installation</a>
+    <li class="dx-toc-item" role="listitem">
+      <a href="#installation" class="dx-toc-link" data-dx-toc-item data-dx-text="Installation" data-dx-selector="#installation">Installation</a>
     </li>
-    <li class="dt-toc-item" role="listitem">
-      <a href="#usage" class="dt-toc-link" data-dt-toc-item data-dt-text="Usage" data-dt-selector="#usage">Usage</a>
+    <li class="dx-toc-item" role="listitem">
+      <a href="#usage" class="dx-toc-link" data-dx-toc-item data-dx-text="Usage" data-dx-selector="#usage">Usage</a>
     </li>
-    <li class="dt-toc-item" role="listitem">
-      <a href="#api" class="dt-toc-link" data-dt-toc-item data-dt-text="API" data-dt-selector="#api">API</a>
+    <li class="dx-toc-item" role="listitem">
+      <a href="#api" class="dx-toc-link" data-dx-toc-item data-dx-text="API" data-dx-selector="#api">API</a>
     </li>
   </ol>
 </nav>
 
 <!-- Horizontal orientation -->
-<nav class="dt-toc dt-toc--horizontal" data-dt-toc data-dt-orientation="horizontal" aria-label="Page sections">
-  <ol class="dt-toc-list" role="list" data-dt-toc-list>
-    <li class="dt-toc-item" role="listitem">
-      <a href="#overview" class="dt-toc-link dt-toc-link--active" data-dt-toc-item data-dt-text="Overview" data-dt-selector="#overview" aria-current="location">Overview</a>
+<nav class="dx-toc dx-toc--horizontal" data-dx-toc data-dx-orientation="horizontal" aria-label="Page sections">
+  <ol class="dx-toc-list" role="list" data-dx-toc-list>
+    <li class="dx-toc-item" role="listitem">
+      <a href="#overview" class="dx-toc-link dx-toc-link--active" data-dx-toc-item data-dx-text="Overview" data-dx-selector="#overview" aria-current="location">Overview</a>
     </li>
-    <li class="dt-toc-item" role="listitem">
-      <a href="#details" class="dt-toc-link" data-dt-toc-item data-dt-text="Details" data-dt-selector="#details">Details</a>
+    <li class="dx-toc-item" role="listitem">
+      <a href="#details" class="dx-toc-link" data-dx-toc-item data-dx-text="Details" data-dx-selector="#details">Details</a>
     </li>
-    <li class="dt-toc-item" role="listitem">
-      <a href="#examples" class="dt-toc-link" data-dt-toc-item data-dt-text="Examples" data-dt-selector="#examples">Examples</a>
+    <li class="dx-toc-item" role="listitem">
+      <a href="#examples" class="dx-toc-link" data-dx-toc-item data-dx-text="Examples" data-dx-selector="#examples">Examples</a>
     </li>
   </ol>
 </nav>
 
 <!-- Scoped to a scroll container via selector -->
-<nav class="dt-toc dt-toc--vertical" data-dt-toc data-dt-selector="#content" data-dt-orientation="vertical" aria-label="Table of contents">
-  <ol class="dt-toc-list" role="list" data-dt-toc-list>
-    <li class="dt-toc-item" role="listitem">
-      <a href="#content-intro" class="dt-toc-link dt-toc-link--active" data-dt-toc-item data-dt-text="Intro" data-dt-selector="#content-intro" aria-current="location">Intro</a>
+<nav class="dx-toc dx-toc--vertical" data-dx-toc data-dx-selector="#content" data-dx-orientation="vertical" aria-label="Table of contents">
+  <ol class="dx-toc-list" role="list" data-dx-toc-list>
+    <li class="dx-toc-item" role="listitem">
+      <a href="#content-intro" class="dx-toc-link dx-toc-link--active" data-dx-toc-item data-dx-text="Intro" data-dx-selector="#content-intro" aria-current="location">Intro</a>
     </li>
-    <li class="dt-toc-item" role="listitem">
-      <a href="#content-setup" class="dt-toc-link" data-dt-toc-item data-dt-text="Setup" data-dt-selector="#content-setup">Setup</a>
+    <li class="dx-toc-item" role="listitem">
+      <a href="#content-setup" class="dx-toc-link" data-dx-toc-item data-dx-text="Setup" data-dx-selector="#content-setup">Setup</a>
     </li>
-    <li class="dt-toc-item" role="listitem">
-      <a href="#content-advanced" class="dt-toc-link" data-dt-toc-item data-dt-text="Advanced" data-dt-selector="#content-advanced">Advanced</a>
+    <li class="dx-toc-item" role="listitem">
+      <a href="#content-advanced" class="dx-toc-link" data-dx-toc-item data-dx-text="Advanced" data-dx-selector="#content-advanced">Advanced</a>
     </li>
   </ol>
 </nav>
 
 <!-- Example scroll target area (for reference, not part of the toc itself) -->
-<div id="content" style="height: 200px; overflow: auto; border: 1px solid var(--dt-color-border); padding: var(--dt-space-2);">
+<div id="content" style="height: 200px; overflow: auto; border: 1px solid var(--dx-color-border); padding: var(--dx-space-2);">
   <section id="content-intro"><h2>Intro</h2><p>Content…</p></section>
   <section id="content-setup"><h2>Setup</h2><p>Content…</p></section>
   <section id="content-advanced"><h2>Advanced</h2><p>Content…</p></section>

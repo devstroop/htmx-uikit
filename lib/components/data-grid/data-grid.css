@@ -1,37 +1,37 @@
-.dt-datagrid {
+.dx-datagrid {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   font-size: 0.875rem;
 }
 
-.dt-datagrid-toolbar {
+.dx-datagrid-toolbar {
   display: flex;
   justify-content: flex-end;
   position: relative;
 }
 
-.dt-datagrid-picker-button {
-  border: 1px solid var(--dt-color-border, currentColor);
+.dx-datagrid-picker-button {
+  border: 1px solid var(--dx-color-border, currentColor);
   background: none;
-  color: var(--dt-color-fg, inherit);
+  color: var(--dx-color-text, inherit);
   padding: 0.375rem 0.75rem;
   border-radius: 0.375rem;
   cursor: pointer;
   font-size: 0.875rem;
 }
 
-.dt-datagrid-picker-button:hover {
-  background: var(--dt-color-surface-raised, transparent);
+.dx-datagrid-picker-button:hover {
+  background: var(--dx-color-surface-raised, transparent);
 }
 
-.dt-datagrid-picker-panel {
+.dx-datagrid-picker-panel {
   position: absolute;
   right: 0;
   top: calc(100% + 0.25rem);
   min-width: 12rem;
-  background: var(--dt-color-surface, var(--dt-color-bg, white));
-  border: 1px solid var(--dt-color-border, currentColor);
+  background: var(--dx-color-surface, var(--dx-color-bg, white));
+  border: 1px solid var(--dx-color-border, currentColor);
   border-radius: 0.5rem;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   padding: 0.375rem;
@@ -40,7 +40,7 @@
   flex-direction: column;
 }
 
-.dt-datagrid-picker-item {
+.dx-datagrid-picker-item {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -49,37 +49,37 @@
   cursor: pointer;
 }
 
-.dt-datagrid-group-panel {
+.dx-datagrid-group-panel {
   flex: 1;
-  border: 1px dashed var(--dt-color-border, currentColor);
+  border: 1px dashed var(--dx-color-border, currentColor);
   border-radius: 0.375rem;
   padding: 0.375rem 0.75rem;
   min-height: 2rem;
   display: flex;
   align-items: center;
-  color: var(--dt-color-fg-muted, currentColor);
+  color: var(--dx-color-text-muted, currentColor);
 }
 
-.dt-datagrid-group-panel--active {
+.dx-datagrid-group-panel--active {
   border-style: solid;
 }
 
-.dt-datagrid-group-hint {
+.dx-datagrid-group-hint {
   font-size: 0.75rem;
 }
 
-.dt-datagrid-group-chip {
+.dx-datagrid-group-chip {
   display: inline-flex;
   align-items: center;
   gap: 0.375rem;
-  background: var(--dt-color-surface-raised, transparent);
-  border: 1px solid var(--dt-color-border, currentColor);
+  background: var(--dx-color-surface-raised, transparent);
+  border: 1px solid var(--dx-color-border, currentColor);
   border-radius: 999px;
   padding: 0.125rem 0.5rem;
   font-size: 0.75rem;
 }
 
-.dt-datagrid-group-clear {
+.dx-datagrid-group-clear {
   border: none;
   background: none;
   color: inherit;
@@ -89,16 +89,16 @@
   padding: 0;
 }
 
-.dt-datagrid-group-row {
-  background: var(--dt-color-surface-raised, transparent);
+.dx-datagrid-group-row {
+  background: var(--dx-color-surface-raised, transparent);
 }
 
-.dt-datagrid-group-cell {
+.dx-datagrid-group-cell {
   padding: 0.375rem 0.75rem;
-  border-bottom: 1px solid var(--dt-color-border, currentColor);
+  border-bottom: 1px solid var(--dx-color-border, currentColor);
 }
 
-.dt-datagrid-group-toggle {
+.dx-datagrid-group-toggle {
   border: none;
   background: none;
   color: inherit;
@@ -111,30 +111,30 @@
   padding: 0;
 }
 
-.dt-datagrid-row--editing {
-  background: var(--dt-color-surface-raised, transparent);
+.dx-datagrid-row--editing {
+  background: var(--dx-color-surface-raised, transparent);
 }
 
-.dt-datagrid-edit-input {
-  border: 1px solid var(--dt-color-border, currentColor);
+.dx-datagrid-edit-input {
+  border: 1px solid var(--dx-color-border, currentColor);
   background: none;
-  color: var(--dt-color-fg, inherit);
+  color: var(--dx-color-text, inherit);
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
   font-size: 0.875rem;
   width: 100%;
 }
 
-.dt-datagrid-command-cell {
+.dx-datagrid-command-cell {
   padding: 0.375rem 0.5rem;
-  border-bottom: 1px solid var(--dt-color-border, currentColor);
+  border-bottom: 1px solid var(--dx-color-border, currentColor);
   white-space: nowrap;
 }
 
-.dt-datagrid-command-button {
-  border: 1px solid var(--dt-color-border, currentColor);
+.dx-datagrid-command-button {
+  border: 1px solid var(--dx-color-border, currentColor);
   background: none;
-  color: var(--dt-color-fg, inherit);
+  color: var(--dx-color-text, inherit);
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
   cursor: pointer;
@@ -142,43 +142,43 @@
   margin-right: 0.25rem;
 }
 
-.dt-datagrid-command-button:hover {
-  background: var(--dt-color-surface-raised, transparent);
+.dx-datagrid-command-button:hover {
+  background: var(--dx-color-surface-raised, transparent);
 }
 
-.dt-datagrid-data {
+.dx-datagrid-data {
   overflow-x: auto;
-  border: 1px solid var(--dt-color-border, currentColor);
+  border: 1px solid var(--dx-color-border, currentColor);
   border-radius: 0.5rem;
   position: relative;
 }
 
-.dt-datagrid-table {
+.dx-datagrid-table {
   border-collapse: collapse;
   width: 100%;
-  background: var(--dt-color-surface, transparent);
+  background: var(--dx-color-surface, transparent);
 }
 
-.dt-datagrid-table th {
+.dx-datagrid-table th {
   text-align: left;
   padding: 0.5rem 0.75rem;
-  border-bottom: 1px solid var(--dt-color-border, currentColor);
+  border-bottom: 1px solid var(--dx-color-border, currentColor);
   font-weight: 600;
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   white-space: nowrap;
-  background: var(--dt-color-surface-raised, transparent);
+  background: var(--dx-color-surface-raised, transparent);
   position: relative;
 }
 
-.dt-datagrid-cell--frozen {
+.dx-datagrid-cell--frozen {
   position: sticky;
   z-index: 1;
-  background: var(--dt-color-surface, var(--dt-color-bg, inherit));
+  background: var(--dx-color-surface, var(--dx-color-bg, inherit));
 }
 
-.dt-datagrid-resize-handle {
+.dx-datagrid-resize-handle {
   display: inline-block;
   width: 0.375rem;
   margin-left: 0.25rem;
@@ -188,33 +188,33 @@
   border-right: 1px solid transparent;
 }
 
-.dt-datagrid-resize-handle:hover {
-  border-right-color: var(--dt-color-primary, currentColor);
+.dx-datagrid-resize-handle:hover {
+  border-right-color: var(--dx-color-primary, currentColor);
 }
 
-.dt-datagrid-row--selected {
-  background: color-mix(in srgb, var(--dt-color-primary, currentColor) 8%, transparent);
+.dx-datagrid-row--selected {
+  background: color-mix(in srgb, var(--dx-color-primary, currentColor) 8%, transparent);
 }
 
-.dt-datagrid-table td {
+.dx-datagrid-table td {
   padding: 0.5rem 0.75rem;
-  border-bottom: 1px solid var(--dt-color-border, currentColor);
+  border-bottom: 1px solid var(--dx-color-border, currentColor);
   vertical-align: middle;
 }
 
-.dt-datagrid-table tbody tr:hover {
-  background: var(--dt-color-surface-raised, transparent);
+.dx-datagrid-table tbody tr:hover {
+  background: var(--dx-color-surface-raised, transparent);
 }
 
-.dt-datagrid-cell--center {
+.dx-datagrid-cell--center {
   text-align: center;
 }
 
-.dt-datagrid-cell--right {
+.dx-datagrid-cell--right {
   text-align: right;
 }
 
-.dt-datagrid-sort {
+.dx-datagrid-sort {
   border: none;
   background: none;
   cursor: pointer;
@@ -228,58 +228,58 @@
   padding: 0;
 }
 
-.dt-datagrid-sort:hover {
-  color: var(--dt-color-primary, inherit);
+.dx-datagrid-sort:hover {
+  color: var(--dx-color-primary, inherit);
 }
 
-.dt-datagrid-sort-indicator {
+.dx-datagrid-sort-indicator {
   font-size: 0.625rem;
 }
 
-.dt-datagrid-filter-cell {
+.dx-datagrid-filter-cell {
   display: flex;
   gap: 0.375rem;
   align-items: center;
   padding: 0.375rem 0.5rem;
-  border-bottom: 1px solid var(--dt-color-border, currentColor);
+  border-bottom: 1px solid var(--dx-color-border, currentColor);
 }
 
-.dt-datagrid-filter-select,
-.dt-datagrid-filter-input {
-  border: 1px solid var(--dt-color-border, currentColor);
+.dx-datagrid-filter-select,
+.dx-datagrid-filter-input {
+  border: 1px solid var(--dx-color-border, currentColor);
   background: none;
-  color: var(--dt-color-fg, inherit);
+  color: var(--dx-color-text, inherit);
   padding: 0.25rem 0.375rem;
   border-radius: 0.25rem;
   font-size: 0.75rem;
 }
 
-.dt-datagrid-filter-select {
+.dx-datagrid-filter-select {
   min-width: 7.5rem;
 }
 
-.dt-datagrid-filter-input {
+.dx-datagrid-filter-input {
   min-width: 6rem;
   flex: 1;
 }
 
-.dt-datagrid-empty {
+.dx-datagrid-empty {
   padding: 1.5rem;
   text-align: center;
-  color: var(--dt-color-fg-muted, currentColor);
+  color: var(--dx-color-text-muted, currentColor);
 }
 
-.dt-datagrid-loading {
+.dx-datagrid-loading {
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: color-mix(in srgb, var(--dt-color-bg, white) 70%, transparent);
-  color: var(--dt-color-fg, inherit);
+  background: color-mix(in srgb, var(--dx-color-bg, white) 70%, transparent);
+  color: var(--dx-color-text, inherit);
 }
 
-.dt-datagrid-pager {
+.dx-datagrid-pager {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -287,21 +287,21 @@
   padding: 0.5rem 0;
 }
 
-.dt-datagrid-pager-summary {
+.dx-datagrid-pager-summary {
   font-size: 0.75rem;
-  color: var(--dt-color-fg-muted, currentColor);
+  color: var(--dx-color-text-muted, currentColor);
 }
 
-.dt-datagrid-pager-controls {
+.dx-datagrid-pager-controls {
   display: flex;
   align-items: center;
   gap: 0.25rem;
 }
 
-.dt-datagrid-pager-button {
-  border: 1px solid var(--dt-color-border, currentColor);
+.dx-datagrid-pager-button {
+  border: 1px solid var(--dx-color-border, currentColor);
   background: none;
-  color: var(--dt-color-fg, inherit);
+  color: var(--dx-color-text, inherit);
   min-width: 2rem;
   height: 2rem;
   padding: 0 0.375rem;
@@ -310,44 +310,44 @@
   font-size: 0.875rem;
 }
 
-.dt-datagrid-pager-button:hover:not(:disabled) {
-  background: var(--dt-color-surface-raised, transparent);
+.dx-datagrid-pager-button:hover:not(:disabled) {
+  background: var(--dx-color-surface-raised, transparent);
 }
 
-.dt-datagrid-pager-button:disabled {
+.dx-datagrid-pager-button:disabled {
   opacity: 0.45;
   cursor: not-allowed;
 }
 
-.dt-datagrid-pager-button--active {
-  border-color: var(--dt-color-primary, currentColor);
-  color: var(--dt-color-primary, inherit);
+.dx-datagrid-pager-button--active {
+  border-color: var(--dx-color-primary, currentColor);
+  color: var(--dx-color-primary, inherit);
   font-weight: 600;
 }
 
-.dt-datagrid-pager-ellipsis {
-  color: var(--dt-color-fg-muted, currentColor);
+.dx-datagrid-pager-ellipsis {
+  color: var(--dx-color-text-muted, currentColor);
   padding: 0 0.25rem;
 }
 
-.dt-datagrid-pager-size {
+.dx-datagrid-pager-size {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   font-size: 0.75rem;
-  color: var(--dt-color-fg-muted, currentColor);
+  color: var(--dx-color-text-muted, currentColor);
 }
 
-.dt-datagrid-pager-size select {
-  border: 1px solid var(--dt-color-border, currentColor);
+.dx-datagrid-pager-size select {
+  border: 1px solid var(--dx-color-border, currentColor);
   background: none;
-  color: var(--dt-color-fg, inherit);
+  color: var(--dx-color-text, inherit);
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
   font-size: 0.875rem;
 }
 
-.dt-visually-hidden {
+.dx-visually-hidden {
   position: absolute;
   width: 1px;
   height: 1px;

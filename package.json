@@ -1,15 +1,17 @@
 {
   "name": "@devstroop/htmx-uikit",
-  "version": "0.27.0",
-  "description": "Server-rendered htmx implementation of the uikit specs — HTML fragments, plain CSS, tiny behaviors.",
+  "version": "0.28.0",
+  "description": "Server-rendered htmx implementation of the uikit specs \u2014 HTML fragments, plain CSS, tiny behaviors.",
   "type": "module",
   "license": "MIT",
   "files": [
-    "lib"
+    "lib",
+    "dist",
+    "MIGRATION.md"
   ],
   "exports": {
     ".": "./lib/behaviors.js",
-    "./style.css": "./lib/uikit.css",
+    "./style.css": "./dist/uikit.css",
     "./tokens.css": "./lib/styles/tokens.css"
   },
   "scripts": {
