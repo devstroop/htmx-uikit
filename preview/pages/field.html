@@ -1,0 +1,33 @@
+      <div class="page-head">
+        <h1>Field</h1>
+        <p class="page-sub">Label, control, hint, and error wired with aria-describedby.</p>
+      </div>
+      <section class="demo-section" id="field">
+        <div class="demo-card">
+<div class="demo-area dx-form-grid">
+<div class="dx-field">
+            <label class="dx-field-label" for="htmx-name">Display name <span class="dx-field-required" aria-hidden="true">*</span></label>
+            <input class="dx-input dx-input--md dx-input--invalid" id="htmx-name" aria-invalid="true" aria-describedby="htmx-name-error" value="" />
+            <div class="dx-field-error" id="htmx-name-error" role="alert">Name is required</div>
+          </div>
+<div class="dx-field">
+  <label class="dx-field-label" for="htmx-disabled">Disabled</label>
+  <input class="dx-input dx-input--md" id="htmx-disabled" value="Locked" disabled />
+  <select class="dx-select dx-select--md" id="htmx-disabled-select" aria-label="Disabled select" disabled>
+    <option>Locked</option>
+  </select>
+  <div class="dx-field-hint">Not editable.</div>
+</div>
+        </div>
+          <div class="kbd-block">
+            <h3 class="kbd-title">Keyboard</h3>
+            <table class="dx-table kbd-table">
+              <thead><tr><th scope="col">Key</th><th scope="col">Action</th></tr></thead>
+              <tbody>
+                <tr><td class="kbd-keys"><kbd>Tab</kbd></td><td>Focus the field input</td></tr>
+                <tr><td class="kbd-keys"><kbd>Shift+Tab</kbd></td><td>Step back to the previous control</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>

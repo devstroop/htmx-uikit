@@ -1,0 +1,79 @@
+      <div class="page-head">
+        <h1>Theme</h1>
+        <p class="page-sub">Pick a palette, flip dark mode, and inspect the token contract behind both.</p>
+      </div>
+      <section class="demo-section" id="themeswitcher">
+        <h2 class="demo-h">ThemeSwitcher</h2>
+        <div class="demo-card">
+          <p class="demo-desc">
+            Palette selection is application chrome — the docs header owns it.
+            The library ships the <code>dx-theme-switcher</code> surface; wire
+            it to your palette driver (here: toggling <code>&lt;link&gt;</code>
+            tags with <code>disabled</code>).
+          </p>
+          <div class="demo-area">
+            <label class="dx-theme-switcher">
+              <span>Dark mode</span>
+              <input type="checkbox" class="dx-switch" data-dx-theme-switch />
+            </label>
+            <label class="dark-toggle">
+              <span class="demo-label">Palette</span>
+              <select class="dx-select dx-select--md" id="theme-select-demo" aria-label="Palette (demo)">
+                <option value="default">Default</option>
+                <option value="fluent">Fluent 2</option>
+                <option value="github">GitHub (Primer)</option>
+                <option value="material">Material 2</option>
+                <option value="material-3">Material 3</option>
+                <option value="shadcn">shadcn/ui</option>
+              </select>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo-section" id="themetoggle">
+        <h2 class="demo-h">ThemeToggle</h2>
+        <div class="demo-card">
+          <p class="demo-desc">
+            The dark-mode toggle reads and writes
+            <code>document.documentElement.dataset.theme</code> — flip it in
+            the header or here; both stay in sync.
+          </p>
+          <div class="demo-area demo-stack">
+            <label class="dx-label">
+              <input type="checkbox" class="dx-switch" data-dx-theme-switch role="switch" />
+              Dark theme
+            </label>
+            <span class="dx-badge dx-badge--neutral dx-badge--soft">data-theme: <code id="theme-state">light</code></span>
+          </div>
+        </div>
+      </section>
+      <section class="demo-section" id="tokens">
+        <h2 class="demo-h">Border / outline tokens</h2>
+        <div class="demo-card">
+<div class="demo-area">
+          <div class="layout-grid">
+            <div class="dx-display-flex" style="gap: 0.5rem; flex-wrap: wrap">
+              <span class="u-cell" style="border: 2px solid var(--dx-color-border-primary)">border-primary</span>
+              <span class="u-cell" style="border: 2px solid var(--dx-color-border-secondary)">border-secondary</span>
+              <span class="u-cell" style="border: 2px solid var(--dx-color-border-info)">border-info</span>
+              <span class="u-cell" style="border: 2px solid var(--dx-color-border-success)">border-success</span>
+              <span class="u-cell" style="border: 2px solid var(--dx-color-border-warning)">border-warning</span>
+              <span class="u-cell" style="border: 2px solid var(--dx-color-border-danger)">border-danger</span>
+            </div>
+            <div class="dx-display-flex" style="gap: 0.5rem; flex-wrap: wrap">
+              <span class="u-cell" style="border: 2px dashed var(--dx-color-outline-primary)">outline-primary</span>
+              <span class="u-cell" style="border: 2px dashed var(--dx-color-outline-secondary)">outline-secondary</span>
+              <span class="u-cell" style="border: 2px dashed var(--dx-color-outline-info)">outline-info</span>
+              <span class="u-cell" style="border: 2px dashed var(--dx-color-outline-success)">outline-success</span>
+              <span class="u-cell" style="border: 2px dashed var(--dx-color-outline-warning)">outline-warning</span>
+              <span class="u-cell" style="border: 2px dashed var(--dx-color-outline-danger)">outline-danger</span>
+            </div>
+            <p style="font-size: var(--dx-font-size-sm); color: var(--dx-color-text-muted)">
+              Focus-visible rings on tonal controls use <code>outline-*</code> tokens. All border/outline
+              tokens hold ≥ 3:1 vs bg/surface (WCAG 1.4.11).
+            </p>
+          </div>
+        </div>
+        </div>
+      </section>

@@ -1,0 +1,111 @@
+      <div class="page-head">
+        <h1>Alert</h1>
+        <p class="page-sub">Inline status messages in four severities and three tones.</p>
+      </div>
+      <section class="demo-section" id="alert">
+        <div class="demo-card">
+<div class="demo-area"><div class="layout-grid">
+<div role="alert" class="dx-alert dx-alert--info">
+            <span class="dx-alert-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><path d="M12 16v-4M12 8h.01" /></svg></span>
+            <div class="dx-alert-content">
+              <div class="dx-alert-title">Heads up</div>
+              <div class="dx-alert-body">A new version is available.</div>
+            </div>
+          </div>
+<div role="alert" class="dx-alert dx-alert--success" data-dx-dismissable>
+            <span class="dx-alert-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><path d="M8 12.5l2.5 2.5L16 9.5" /></svg></span>
+            <div class="dx-alert-content">
+              <div class="dx-alert-title">Deployed</div>
+              <div class="dx-alert-body">The release is live.</div>
+            </div>
+            <button class="dx-alert-dismiss" type="button" data-dx-dismiss aria-label="Dismiss alert">×</button>
+          </div>
+<div role="alert" class="dx-alert dx-alert--warning">
+            <span class="dx-alert-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z" /><path d="M12 9v4M12 17h.01" /></svg></span>
+            <div class="dx-alert-content">
+              <div class="dx-alert-title">Storage at 90%</div>
+              <div class="dx-alert-body">Clean up soon.</div>
+            </div>
+          </div>
+<div role="alert" class="dx-alert dx-alert--danger">
+            <span class="dx-alert-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><path d="M15 9l-6 6M9 9l6 6" /></svg></span>
+            <div class="dx-alert-content">
+              <div class="dx-alert-title">Build failed</div>
+              <div class="dx-alert-body">Check the pipeline logs.</div>
+            </div>
+          </div>
+<div role="alert" class="dx-alert dx-alert--info dx-alert--outline">
+  <span class="dx-alert-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><path d="M12 16v-4M12 8h.01" /></svg></span>
+  <div class="dx-alert-content">
+    <div class="dx-alert-title">Outline</div>
+    <div class="dx-alert-body">Tone border, no tint.</div>
+  </div>
+</div>
+<div role="alert" class="dx-alert dx-alert--warning dx-alert--outline">
+  <span class="dx-alert-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z" /><path d="M12 9v4M12 17h.01" /></svg></span>
+  <div class="dx-alert-content">
+    <div class="dx-alert-title">Warning outline</div>
+    <div class="dx-alert-body">Tone border, no tint.</div>
+  </div>
+</div>
+<div role="alert" class="dx-alert dx-alert--danger dx-alert--outline">
+  <span class="dx-alert-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><path d="M15 9l-6 6M9 9l6 6" /></svg></span>
+  <div class="dx-alert-content">
+    <div class="dx-alert-title">Danger outline</div>
+    <div class="dx-alert-body">Tone border, no tint.</div>
+  </div>
+</div>
+<div role="alert" class="dx-alert dx-alert--success dx-alert--solid">
+  <span class="dx-alert-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><path d="M8 12.5l2.5 2.5L16 9.5" /></svg></span>
+  <div class="dx-alert-content">
+    <div class="dx-alert-title">Solid</div>
+    <div class="dx-alert-body">Tone fill, contrast text.</div>
+  </div>
+</div>
+<div role="alert" class="dx-alert dx-alert--info dx-alert--solid">
+  <span class="dx-alert-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><path d="M12 16v-4M12 8h.01" /></svg></span>
+  <div class="dx-alert-content">
+    <div class="dx-alert-title">Info solid</div>
+    <div class="dx-alert-body">Tone fill, contrast text.</div>
+  </div>
+</div>
+<div role="alert" class="dx-alert dx-alert--warning dx-alert--solid">
+  <span class="dx-alert-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z" /><path d="M12 9v4M12 17h.01" /></svg></span>
+  <div class="dx-alert-content">
+    <div class="dx-alert-title">Warning solid</div>
+    <div class="dx-alert-body">Tone fill, contrast text.</div>
+  </div>
+</div>
+<div role="alert" class="dx-alert dx-alert--danger dx-alert--solid" data-dx-dismissable>
+            <span class="dx-alert-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><path d="M15 9l-6 6M9 9l6 6" /></svg></span>
+            <div class="dx-alert-content">
+              <div class="dx-alert-title">Solid danger</div>
+              <div class="dx-alert-body">Uses --dx-color-danger-fg.</div>
+            </div>
+            <button class="dx-alert-dismiss" type="button" data-dx-dismiss aria-label="Dismiss alert">×</button>
+          </div>
+<div role="alert" class="dx-alert dx-alert--info dx-alert--xs">
+            <div class="dx-alert-content">
+              <div class="dx-alert-title">xs</div>
+            </div>
+          </div>
+<div role="alert" class="dx-alert dx-alert--info dx-alert--lg">
+            <div class="dx-alert-content">
+              <div class="dx-alert-title">lg</div>
+              <div class="dx-alert-body">Tiered padding · type · radius.</div>
+            </div>
+          </div>
+          </div>
+        </div>
+          <div class="kbd-block">
+            <h3 class="kbd-title">Keyboard</h3>
+            <table class="dx-table kbd-table">
+              <thead><tr><th scope="col">Key</th><th scope="col">Action</th></tr></thead>
+              <tbody>
+                <tr><td class="kbd-keys"><kbd>Tab</kbd></td><td>Move focus to the Dismiss button</td></tr>
+                <tr><td class="kbd-keys"><kbd>Enter</kbd><span class="kbd-sep">/</span><kbd>Space</kbd></td><td>Dismiss the alert (remove or hide the banner)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
