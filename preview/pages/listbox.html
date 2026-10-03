@@ -1,0 +1,35 @@
+      <div class="page-head">
+        <h1>ListBox</h1>
+        <p class="page-sub">Multi-selectable option list with active-descendant.</p>
+      </div>
+      <section class="demo-section" id="listbox">
+        <div class="demo-card">
+<div class="demo-area">
+          <div class="preview-grid">
+            <div role="listbox" tabindex="0" class="dx-listbox" aria-label="Destination" aria-activedescendant="pv-lb1-1" data-dx-listbox style="max-height: 180px">
+              <div role="option" id="pv-lb1-1" class="dx-listbox__option dx-listbox__option--selected" data-dx-listbox-option data-dx-listbox-value="red" aria-selected="true">Red</div>
+              <div role="option" id="pv-lb1-2" class="dx-listbox__option" data-dx-listbox-option data-dx-listbox-value="green" aria-selected="false">Green</div>
+              <div role="option" id="pv-lb1-3" class="dx-listbox__option" data-dx-listbox-option data-dx-listbox-value="blue" aria-selected="false">Blue</div>
+              <div role="option" id="pv-lb1-4" class="dx-listbox__option dx-listbox__option--disabled" data-dx-listbox-option data-dx-listbox-value="grey" aria-selected="false" aria-disabled="true">Grey (unavailable)</div>
+            </div>
+            <div role="listbox" tabindex="0" class="dx-listbox" aria-label="Languages (multiple)" aria-activedescendant="pv-lb2-1" data-dx-listbox data-dx-listbox-multiple style="max-height: 180px">
+              <div role="option" id="pv-lb2-1" class="dx-listbox__option dx-listbox__option--selected" data-dx-listbox-option data-dx-listbox-value="en" aria-selected="true">English</div>
+              <div role="option" id="pv-lb2-2" class="dx-listbox__option" data-dx-listbox-option data-dx-listbox-value="es" aria-selected="false">Spanish</div>
+              <div role="option" id="pv-lb2-3" class="dx-listbox__option dx-listbox__option--selected" data-dx-listbox-option data-dx-listbox-value="fr" aria-selected="true">French</div>
+              <div role="option" id="pv-lb2-4" class="dx-listbox__option dx-listbox__option--disabled" data-dx-listbox-option data-dx-listbox-value="de" aria-selected="false" aria-disabled="true">German (unavailable)</div>
+            </div>
+          </div>
+        </div>
+          <div class="kbd-block">
+            <h3 class="kbd-title">Keyboard</h3>
+            <table class="dx-table kbd-table">
+              <thead><tr><th scope="col">Key</th><th scope="col">Action</th></tr></thead>
+              <tbody>
+                <tr><td class="kbd-keys"><kbd>ArrowDown</kbd><span class="kbd-sep">/</span><kbd>ArrowUp</kbd></td><td>Move — single mode commits the selection as focus moves</td></tr>
+                <tr><td class="kbd-keys"><kbd>Space</kbd></td><td>Toggle the focused option (multiple mode)</td></tr>
+                <tr><td class="kbd-keys"><kbd>Tab</kbd></td><td>Leave the listbox</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>

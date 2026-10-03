@@ -1,0 +1,188 @@
+      <div class="page-head hero">
+        <p class="hero-kicker">One contract — many deliveries</p>
+        <h1>htmx-uikit</h1>
+        <p class="page-sub">
+          Server-rendered implementation of the uikit specs: HTML fragments,
+          plain CSS, and a ~4 KB behaviors file. Same 6 design themes, same
+          token contract, no framework at runtime.
+        </p>
+        <div class="hero-badges">
+          <span class="dx-badge dx-badge--primary dx-badge--soft" id="hero-count">82 components</span>
+          <span class="dx-badge dx-badge--neutral dx-badge--outline">v0.28.0</span>
+          <span class="dx-badge dx-badge--success dx-badge--outline">htmx 1.x</span>
+        </div>
+        <pre class="hero-code"><code>npm i @devstroop/htmx-uikit</code></pre>
+      </div>
+
+      <section class="demo-section" id="featured">
+        <h2 class="demo-h">Try it live</h2>
+        <div class="demo-card">
+          <div class="demo-area">
+            <div class="preview-grid" style="width: 100%">
+              <div>
+                <strong class="demo-label">Buttons</strong>
+                <div class="demo-stack">
+                  <button class="dx-button dx-button--primary" type="button">Primary</button>
+                  <button class="dx-button dx-button--secondary" type="button">Secondary</button>
+                  <button class="dx-button dx-button--ghost" type="button">Ghost</button>
+                </div>
+              </div>
+              <div>
+                <strong class="demo-label">Field with error</strong>
+                <div class="dx-field">
+                  <label class="dx-field-label" for="home-name">Name</label>
+                  <input class="dx-input dx-input--md dx-input--invalid" id="home-name" aria-invalid="true" aria-describedby="home-name-error" value="" placeholder="Required" />
+                  <div class="dx-field-error" id="home-name-error" role="alert">Name is required</div>
+                </div>
+              </div>
+              <div>
+                <strong class="demo-label">Feedback</strong>
+                <div class="demo-stack">
+                  <div class="dx-alert dx-alert--success" role="status">
+                    <span>Changes are synced.</span>
+                  </div>
+                  <button class="dx-button dx-button--secondary" id="home-toast-btn" type="button">Show toast</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo-section" id="catalog">
+        <h2 class="demo-h">Browse the kit</h2>
+        <div class="catalog-grid">
+        <div class="demo-card catalog-card">
+          <h3>Layout <span class="dx-badge dx-badge--neutral dx-badge--soft">9</span></h3>
+          <ul class="catalog-list">
+            <li><a href="#/layout">Layout</a></li>
+            <li><a href="#/header">Header</a></li>
+            <li><a href="#/body">Body</a></li>
+            <li><a href="#/footer">Footer</a></li>
+            <li><a href="#/sidebar">Sidebar</a></li>
+            <li><a href="#/sidebartoggle">SidebarToggle</a></li>
+            <li><a href="#/row">Row</a></li>
+            <li><a href="#/column">Column</a></li>
+            <li><a href="#/stack">Stack</a></li>
+          </ul>
+        </div>
+        <div class="demo-card catalog-card">
+          <h3>Typography <span class="dx-badge dx-badge--neutral dx-badge--soft">2</span></h3>
+          <ul class="catalog-list">
+            <li><a href="#/text">Text</a></li>
+            <li><a href="#/icon">Icon</a></li>
+          </ul>
+        </div>
+        <div class="demo-card catalog-card">
+          <h3>Buttons <span class="dx-badge dx-badge--neutral dx-badge--soft">4</span></h3>
+          <ul class="catalog-list">
+            <li><a href="#/button">Button</a></li>
+            <li><a href="#/togglebutton">ToggleButton</a></li>
+            <li><a href="#/splitbutton">SplitButton</a></li>
+            <li><a href="#/fabmenu">FabMenu</a></li>
+          </ul>
+        </div>
+        <div class="demo-card catalog-card">
+          <h3>Forms <span class="dx-badge dx-badge--neutral dx-badge--soft">27</span></h3>
+          <ul class="catalog-list">
+            <li><a href="#/form">Form</a></li>
+            <li><a href="#/field">Field</a></li>
+            <li><a href="#/input">Input</a></li>
+            <li><a href="#/textbox">TextBox</a></li>
+            <li><a href="#/textarea">TextArea</a></li>
+            <li><a href="#/password">Password</a></li>
+            <li><a href="#/mask">Mask</a></li>
+            <li><a href="#/numeric">Numeric</a></li>
+            <li><a href="#/select">Select</a></li>
+            <li><a href="#/dropdown">DropDown</a></li>
+            <li><a href="#/autocomplete">AutoComplete</a></li>
+            <li><a href="#/listbox">ListBox</a></li>
+            <li><a href="#/checkbox">CheckBox</a></li>
+            <li><a href="#/checkboxlist">CheckBoxList</a></li>
+            <li><a href="#/radiobuttonlist">RadioButtonList</a></li>
+            <li><a href="#/switch">Switch</a></li>
+            <li><a href="#/slider">Slider</a></li>
+            <li><a href="#/rating">Rating</a></li>
+            <li><a href="#/colorpicker">ColorPicker</a></li>
+            <li><a href="#/datepicker">DatePicker</a></li>
+            <li><a href="#/timespanpicker">TimeSpanPicker</a></li>
+            <li><a href="#/securitycode">SecurityCode</a></li>
+            <li><a href="#/upload">Upload</a></li>
+            <li><a href="#/dropzone">DropZone</a></li>
+            <li><a href="#/signaturepad">SignaturePad</a></li>
+            <li><a href="#/selectbar">SelectBar</a></li>
+            <li><a href="#/label">Label</a></li>
+          </ul>
+        </div>
+        <div class="demo-card catalog-card">
+          <h3>Feedback <span class="dx-badge dx-badge--neutral dx-badge--soft">7</span></h3>
+          <ul class="catalog-list">
+            <li><a href="#/alert">Alert</a></li>
+            <li><a href="#/progress">Progress</a></li>
+            <li><a href="#/skeleton">Skeleton</a></li>
+            <li><a href="#/emptystate">EmptyState</a></li>
+            <li><a href="#/toast">Toast</a></li>
+            <li><a href="#/dialog">Dialog</a></li>
+            <li><a href="#/tooltip">Tooltip</a></li>
+          </ul>
+        </div>
+        <div class="demo-card catalog-card">
+          <h3>Navigation <span class="dx-badge dx-badge--neutral dx-badge--soft">8</span></h3>
+          <ul class="catalog-list">
+            <li><a href="#/breadcrumb">Breadcrumb</a></li>
+            <li><a href="#/menu">Menu</a></li>
+            <li><a href="#/panelmenu">PanelMenu</a></li>
+            <li><a href="#/profilemenu">ProfileMenu</a></li>
+            <li><a href="#/tabs">Tabs</a></li>
+            <li><a href="#/steps">Steps</a></li>
+            <li><a href="#/toc">Toc</a></li>
+            <li><a href="#/pager">Pager</a></li>
+          </ul>
+        </div>
+        <div class="demo-card catalog-card">
+          <h3>Data <span class="dx-badge dx-badge--neutral dx-badge--soft">14</span></h3>
+          <ul class="catalog-list">
+            <li><a href="#/table">Table</a></li>
+            <li><a href="#/datagrid">DataGrid</a></li>
+            <li><a href="#/datalist">DataList</a></li>
+            <li><a href="#/virtualgrid">VirtualGrid</a></li>
+            <li><a href="#/tree">Tree</a></li>
+            <li><a href="#/picklist">PickList</a></li>
+            <li><a href="#/pivot">Pivot</a></li>
+            <li><a href="#/chart">Chart</a></li>
+            <li><a href="#/gantt">Gantt</a></li>
+            <li><a href="#/scheduler">Scheduler</a></li>
+            <li><a href="#/timeline">Timeline</a></li>
+            <li><a href="#/datafilter">DataFilter</a></li>
+            <li><a href="#/qrcode">QRCode</a></li>
+            <li><a href="#/barcode">Barcode</a></li>
+          </ul>
+        </div>
+        <div class="demo-card catalog-card">
+          <h3>Display <span class="dx-badge dx-badge--neutral dx-badge--soft">7</span></h3>
+          <ul class="catalog-list">
+            <li><a href="#/card">Card</a></li>
+            <li><a href="#/badge">Badge</a></li>
+            <li><a href="#/avatar">Avatar</a></li>
+            <li><a href="#/stat">Stat</a></li>
+            <li><a href="#/accordion">Accordion</a></li>
+            <li><a href="#/carousel">Carousel</a></li>
+            <li><a href="#/splitter">Splitter</a></li>
+          </ul>
+        </div>
+        <div class="demo-card catalog-card">
+          <h3>Theme <span class="dx-badge dx-badge--neutral dx-badge--soft">2</span></h3>
+          <ul class="catalog-list">
+            <li><a href="#/themeswitcher">ThemeSwitcher</a></li>
+            <li><a href="#/themetoggle">ThemeToggle</a></li>
+          </ul>
+        </div>
+        <div class="demo-card catalog-card">
+          <h3>Recipes <span class="dx-badge dx-badge--neutral dx-badge--soft">2</span></h3>
+          <ul class="catalog-list">
+            <li><a href="#/recipe-login">Login split card</a></li>
+            <li><a href="#/recipe-404">Bare 404</a></li>
+          </ul>
+        </div>
+        </div>
+      </section>

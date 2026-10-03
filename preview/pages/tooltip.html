@@ -1,0 +1,47 @@
+      <div class="page-head">
+        <h1>Tooltip</h1>
+        <p class="page-sub">Hover and focus affordance with placement variants.</p>
+      </div>
+      <section class="demo-section" id="tooltip">
+        <div class="demo-card">
+<div class="demo-area">
+<span class="dx-tooltip" data-dx-tooltip data-dx-delay-ms="100">
+  <button class="dx-button dx-button--secondary" type="button">Hover me</button>
+  <span class="dx-tooltip-bubble dx-tooltip-bubble--top" role="tooltip" id="preview-tt" data-dx-tooltip-content hidden>More information<span class="dx-tooltip-arrow" aria-hidden="true"></span></span>
+</span>
+<div class="button-row">
+  <span class="dx-tooltip" data-dx-tooltip data-dx-delay-ms="100">
+    <button class="dx-button dx-button--secondary" type="button">top</button>
+    <span class="dx-tooltip-bubble dx-tooltip-bubble--top" role="tooltip" data-dx-tooltip-content hidden>top tooltip<span class="dx-tooltip-arrow" aria-hidden="true"></span></span>
+  </span>
+  <span class="dx-tooltip" data-dx-tooltip data-dx-delay-ms="100">
+    <button class="dx-button dx-button--secondary" type="button">bottom</button>
+    <span class="dx-tooltip-bubble dx-tooltip-bubble--bottom" role="tooltip" data-dx-tooltip-content hidden>bottom tooltip<span class="dx-tooltip-arrow" aria-hidden="true"></span></span>
+  </span>
+  <span class="dx-tooltip" data-dx-tooltip data-dx-delay-ms="100">
+    <button class="dx-button dx-button--secondary" type="button">left</button>
+    <span class="dx-tooltip-bubble dx-tooltip-bubble--left" role="tooltip" data-dx-tooltip-content hidden>left tooltip<span class="dx-tooltip-arrow" aria-hidden="true"></span></span>
+  </span>
+  <span class="dx-tooltip" data-dx-tooltip data-dx-delay-ms="100">
+    <button class="dx-button dx-button--secondary" type="button">right</button>
+    <span class="dx-tooltip-bubble dx-tooltip-bubble--right" role="tooltip" data-dx-tooltip-content hidden>right tooltip<span class="dx-tooltip-arrow" aria-hidden="true"></span></span>
+  </span>
+  <span class="dx-tooltip" data-dx-tooltip data-dx-delay-ms="800">
+    <button class="dx-button dx-button--ghost" type="button">slow tooltip</button>
+    <span class="dx-tooltip-bubble dx-tooltip-bubble--top" role="tooltip" data-dx-tooltip-content hidden>Appears after 800 ms<span class="dx-tooltip-arrow" aria-hidden="true"></span></span>
+  </span>
+</div>
+        </div>
+          <div class="kbd-block">
+            <h3 class="kbd-title">Keyboard</h3>
+            <table class="dx-table kbd-table">
+              <thead><tr><th scope="col">Key</th><th scope="col">Action</th></tr></thead>
+              <tbody>
+                <tr><td class="kbd-keys"><kbd>Tab</kbd></td><td>Show on keyboard focus of the trigger and wire aria-describedby</td></tr>
+                <tr><td class="kbd-keys"><kbd>Shift+Tab</kbd></td><td>Hide when focus leaves the trigger</td></tr>
+                <tr><td class="kbd-keys"><kbd>Esc</kbd></td><td>Dismiss the open tooltip — wrapper and targetSelector modes</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>

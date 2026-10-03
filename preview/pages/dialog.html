@@ -1,0 +1,37 @@
+      <div class="page-head">
+        <h1>Dialog</h1>
+        <p class="page-sub">Modal surfaces with focus trapping and a backdrop.</p>
+      </div>
+      <section class="demo-section" id="dialog">
+        <div class="demo-card">
+<div class="demo-area">
+<button class="dx-button dx-button--primary" type="button" data-dx-dialog-open="#preview-dialog">Open dialog</button>
+<dialog class="dx-dialog dx-dialog--md" data-dx-dialog id="preview-dialog">
+            <div class="dx-dialog-header">
+              <div>
+                <h2 class="dx-dialog-title">Confirm deletion</h2>
+                <p class="dx-dialog-description">This cannot be undone.</p>
+              </div>
+              <button class="dx-dialog-close" type="button" data-dx-dialog-close aria-label="Close dialog">×</button>
+            </div>
+            <div class="dx-dialog-body"><p>The workspace and all of its branches will be removed.</p></div>
+            <div class="dx-dialog-footer">
+              <button class="dx-button dx-button--secondary" type="button" data-dx-dialog-close>Cancel</button>
+              <button class="dx-button dx-button--danger" type="button" data-dx-dialog-close>Delete</button>
+            </div>
+          </dialog>
+        </div>
+          <div class="kbd-block">
+            <h3 class="kbd-title">Keyboard</h3>
+            <table class="dx-table kbd-table">
+              <thead><tr><th scope="col">Key</th><th scope="col">Action</th></tr></thead>
+              <tbody>
+                <tr><td class="kbd-keys"><kbd>Esc</kbd></td><td>Close the dialog (closeOnEsc)</td></tr>
+                <tr><td class="kbd-keys"><kbd>Tab</kbd></td><td>Cycle focus forward inside the modal (native showModal trap; focus starts on Close)</td></tr>
+                <tr><td class="kbd-keys"><kbd>Shift+Tab</kbd></td><td>Cycle focus backwards inside the modal</td></tr>
+                <tr><td class="kbd-keys"><kbd>Enter</kbd><span class="kbd-sep">/</span><kbd>Space</kbd></td><td>Activate the focused Close/footer button</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>

@@ -1,0 +1,75 @@
+      <div class="page-head">
+        <h1>DataGrid</h1>
+        <p class="page-sub">Sortable, pageable data grid with selection.</p>
+      </div>
+      <section class="demo-section" id="datagrid">
+        <div class="demo-card">
+<div class="demo-area">
+          <p class="demo-muted">Client-side grid: sort (multi with <code>data-dx-datagrid-multisort</code>), per-column filter, pager, row selection (<code>data-dx-datagrid-select="multiple"</code> fires <code>dx:grid-select</code>), column picker, resize, drag-to-reorder, drag-to-group, inline edit/add/delete rows, frozen first column. Fires <code>dx:grid-change</code> (pageNumber, sorts, filters, filterString, oDataFilterString) — server round-trips via <code>hx-get</code> swap the <code>data-dx-datagrid-rows</code> region.</p>
+          <div class="dx-datagrid" data-dx-datagrid
+               data-dx-datagrid-properties='[
+                 {"property":"name","title":"Name","type":"string","sortable":true,"frozen":true,"width":"9rem"},
+                 {"property":"age","title":"Age","type":"number","align":"center","sortable":true},
+                 {"property":"role","title":"Role","type":"string","filterable":true},
+                 {"property":"status","title":"Status","type":"enum","filterable":true}
+               ]'
+               data-dx-datagrid-sortable
+               data-dx-datagrid-multisort
+               data-dx-datagrid-filterable
+               data-dx-datagrid-select="multiple"
+               data-dx-datagrid-column-picker
+               data-dx-datagrid-resize
+               data-dx-datagrid-reorder
+               data-dx-datagrid-groupable
+               data-dx-datagrid-edit
+               data-dx-datagrid-delete
+               data-dx-datagrid-create
+               data-dx-datagrid-pagesize="3"
+               data-dx-datagrid-pagesize-options="[3,5,10]"
+               data-dx-datagrid-pagenumbers="5"
+               aria-label="People">
+            <div class="dx-datagrid-toolbar" data-dx-datagrid-toolbar></div>
+            <div class="dx-datagrid-data" data-dx-datagrid-data>
+              <table class="dx-datagrid-table" role="grid" aria-rowcount="6" aria-label="People">
+                <colgroup data-dx-datagrid-cols></colgroup>
+                <thead data-dx-datagrid-head></thead>
+                <tbody data-dx-datagrid-rows>
+                  <tr data-dx-row data-dx-row-key="1" data-dx-row-value='{"name":"John Carter","age":30,"role":"admin","status":"active"}'>
+                    <td data-dx-col="name">John Carter</td>
+                    <td data-dx-col="age" class="dx-datagrid-cell--center">30</td>
+                    <td data-dx-col="role">admin</td>
+                    <td data-dx-col="status">active</td>
+                  </tr>
+                  <tr data-dx-row data-dx-row-key="2" data-dx-row-value='{"name":"Jane Doe","age":25,"role":"editor","status":"active"}'>
+                    <td data-dx-col="name">Jane Doe</td>
+                    <td data-dx-col="age" class="dx-datagrid-cell--center">25</td>
+                    <td data-dx-col="role">editor</td>
+                    <td data-dx-col="status">active</td>
+                  </tr>
+                  <tr data-dx-row data-dx-row-key="3" data-dx-row-value='{"name":"Bob Vance","age":40,"role":"viewer","status":"paused"}'>
+                    <td data-dx-col="name">Bob Vance</td>
+                    <td data-dx-col="age" class="dx-datagrid-cell--center">40</td>
+                    <td data-dx-col="role">viewer</td>
+                    <td data-dx-col="status">paused</td>
+                  </tr>
+                  <tr data-dx-row data-dx-row-key="4" data-dx-row-value='{"name":"Alice Wong","age":22,"role":"editor","status":"active"}'>
+                    <td data-dx-col="name">Alice Wong</td>
+                    <td data-dx-col="age" class="dx-datagrid-cell--center">22</td>
+                    <td data-dx-col="role">editor</td>
+                    <td data-dx-col="status">active</td>
+                  </tr>
+                  <tr data-dx-row data-dx-row-key="5" data-dx-row-value='{"name":"Charlie Fox","age":35,"role":"viewer","status":"paused"}'>
+                    <td data-dx-col="name">Charlie Fox</td>
+                    <td data-dx-col="age" class="dx-datagrid-cell--center">35</td>
+                    <td data-dx-col="role">viewer</td>
+                    <td data-dx-col="status">paused</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="dx-datagrid-empty" data-dx-datagrid-empty hidden>No records found</div>
+            </div>
+            <div class="dx-datagrid-pager" data-dx-datagrid-pager></div>
+          </div>
+        </div>
+        </div>
+      </section>

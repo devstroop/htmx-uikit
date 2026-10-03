@@ -1,3 +1,6 @@
 .dx-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dx-space-3);
   font-family: var(--dx-font-sans);
 }
