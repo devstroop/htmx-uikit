@@ -3277,8 +3277,12 @@
 }
 
 .dx-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dx-space-3);
   font-family: var(--dx-font-sans);
 }
+
 
 .dx-gantt {
   font-family: var(--dx-font-sans);
@@ -5908,6 +5912,8 @@
 
 .dx-stack {
   display: flex;
+  flex-direction: column;
+  gap: var(--dx-space-4);
 }
 
 .dx-stack--row {
@@ -6510,6 +6516,59 @@
 
 .dx-text {
   font-family: var(--dx-font-sans);
+  margin: 0;
+}
+
+.dx-h1 {
+  margin: 0;
+  font-family: var(--dx-font-sans);
+  font-size: var(--dx-font-display-5);
+  font-weight: var(--dx-font-weight-bold);
+  line-height: 1.25;
+}
+
+.dx-h2 {
+  margin: 0;
+  font-family: var(--dx-font-sans);
+  font-size: var(--dx-font-display-6);
+  font-weight: var(--dx-font-weight-bold);
+  line-height: 1.25;
+}
+
+.dx-h3 {
+  margin: 0;
+  font-family: var(--dx-font-sans);
+  font-size: var(--dx-font-size-xl);
+  font-weight: var(--dx-font-weight-bold);
+  line-height: 1.3;
+}
+
+.dx-h4 {
+  margin: 0;
+  font-family: var(--dx-font-sans);
+  font-size: var(--dx-font-size-lg);
+  font-weight: var(--dx-font-weight-bold);
+  line-height: 1.35;
+}
+
+.dx-h5 {
+  margin: 0;
+  font-family: var(--dx-font-sans);
+  font-size: var(--dx-font-size-md);
+  font-weight: var(--dx-font-weight-medium);
+  line-height: 1.4;
+}
+
+.dx-h6 {
+  margin: 0;
+  font-family: var(--dx-font-sans);
+  font-size: var(--dx-font-size-md);
+  font-weight: var(--dx-font-weight-medium);
+  line-height: 1.4;
+}
+
+.dx-text-muted {
+  color: var(--dx-color-text-muted);
 }
 
 .dx-text--display-1 {
