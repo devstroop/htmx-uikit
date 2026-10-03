@@ -1,0 +1,38 @@
+      <div class="page-head">
+        <h1>Tabs</h1>
+        <p class="page-sub">Tablist with pills, underline, and arrow-key navigation.</p>
+      </div>
+      <section class="demo-section" id="tabs">
+        <div class="demo-card">
+<div class="demo-area">
+<div class="dx-tabs" data-dx-tabs>
+            <div class="dx-tabs-tablist dx-tabs-tablist--pills" role="tablist" data-dx-tablist>
+              <button class="dx-tabs-tab dx-tabs-tab--active" type="button" role="tab" data-dx-tab data-dx-tab-key="one" id="preview-tab-one" aria-selected="true" aria-controls="preview-panel-one" tabindex="0">One</button>
+              <button class="dx-tabs-tab" type="button" role="tab" data-dx-tab data-dx-tab-key="two" id="preview-tab-two" aria-selected="false" aria-controls="preview-panel-two" tabindex="-1">Two</button>
+            </div>
+            <div class="dx-tabs-panel" role="tabpanel" data-dx-tabpanel data-dx-tab-key="one" id="preview-panel-one" aria-labelledby="preview-tab-one"><p>Panel one.</p></div>
+            <div class="dx-tabs-panel" role="tabpanel" data-dx-tabpanel data-dx-tab-key="two" id="preview-panel-two" aria-labelledby="preview-tab-two" hidden><p>Panel two.</p></div>
+          </div>
+<div class="dx-tabs dx-tabs--left" data-dx-tabs>
+            <div class="dx-tabs-tablist dx-tabs-tablist--underline dx-tabs-tablist--left" role="tablist" data-dx-tablist data-dx-tablist-orientation="vertical">
+              <button class="dx-tabs-tab dx-tabs-tab--active" type="button" role="tab" data-dx-tab data-dx-tab-key="design" id="preview-tab-design" aria-selected="true" aria-controls="preview-panel-design" tabindex="0">Design</button>
+              <button class="dx-tabs-tab" type="button" role="tab" data-dx-tab data-dx-tab-key="code" id="preview-tab-code" aria-selected="false" aria-controls="preview-panel-code" tabindex="-1">Code</button>
+            </div>
+            <div class="dx-tabs-panel" role="tabpanel" data-dx-tabpanel data-dx-tab-key="design" id="preview-panel-design" aria-labelledby="preview-tab-design"><p>Left-positioned tabs.</p></div>
+            <div class="dx-tabs-panel" role="tabpanel" data-dx-tabpanel data-dx-tab-key="code" id="preview-panel-code" aria-labelledby="preview-tab-code" hidden><p>Arrow Up/Down navigates.</p></div>
+          </div>
+        </div>
+          <div class="kbd-block">
+            <h3 class="kbd-title">Keyboard</h3>
+            <table class="dx-table kbd-table">
+              <thead><tr><th scope="col">Key</th><th scope="col">Action</th></tr></thead>
+              <tbody>
+                <tr><td class="kbd-keys"><kbd>ArrowRight</kbd><span class="kbd-sep">/</span><kbd>ArrowLeft</kbd></td><td>Move and select the next / previous enabled tab</td></tr>
+                <tr><td class="kbd-keys"><kbd>ArrowDown</kbd><span class="kbd-sep">/</span><kbd>ArrowUp</kbd></td><td>Same movement when position is left or right</td></tr>
+                <tr><td class="kbd-keys"><kbd>Home</kbd><span class="kbd-sep">/</span><kbd>End</kbd></td><td>Select the first / last enabled tab</td></tr>
+                <tr><td class="kbd-keys"><kbd>Tab</kbd></td><td>Leave the tablist — roving tabindex keeps one stop per tablist</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>

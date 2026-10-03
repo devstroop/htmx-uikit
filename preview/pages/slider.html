@@ -1,0 +1,42 @@
+      <div class="page-head">
+        <h1>Slider</h1>
+        <p class="page-sub">Draggable range control with step ticks.</p>
+      </div>
+      <section class="demo-section" id="slider">
+        <div class="demo-card">
+<div class="demo-area">
+          <div class="preview-grid">
+<div class="dx-slider" data-dx-slider data-dx-min="0" data-dx-max="100" data-dx-step="1" data-dx-value="40">
+  <div class="dx-slider-track" data-dx-slider-track>
+    <div class="dx-slider-range" data-dx-slider-range></div>
+    <div class="dx-slider-handle" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40" aria-orientation="horizontal" aria-label="Volume" tabindex="0" data-dx-slider-handle></div>
+  </div>
+</div>
+<div class="dx-slider" data-dx-slider data-dx-min="10" data-dx-max="50" data-dx-step="5" data-dx-value="25">
+  <div class="dx-slider-track" data-dx-slider-track>
+    <div class="dx-slider-range" data-dx-slider-range></div>
+    <div class="dx-slider-handle" role="slider" aria-valuemin="10" aria-valuemax="50" aria-valuenow="25" aria-orientation="horizontal" aria-label="Temperature" tabindex="0" data-dx-slider-handle></div>
+  </div>
+</div>
+<div class="dx-slider" data-dx-slider data-dx-min="0" data-dx-max="100" data-dx-step="1" data-dx-value-min="20" data-dx-value-max="80" data-dx-range>
+  <div class="dx-slider-track" data-dx-slider-track>
+    <div class="dx-slider-range" data-dx-slider-range></div>
+    <div class="dx-slider-handle" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="20" aria-orientation="horizontal" aria-label="Min price" tabindex="0" data-dx-slider-handle></div>
+    <div class="dx-slider-handle" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" aria-orientation="horizontal" aria-label="Max price" tabindex="-1" data-dx-slider-handle data-dx-slider-handle-max></div>
+  </div>
+</div>
+          </div>
+        </div>
+          <div class="kbd-block">
+            <h3 class="kbd-title">Keyboard</h3>
+            <table class="dx-table kbd-table">
+              <thead><tr><th scope="col">Key</th><th scope="col">Action</th></tr></thead>
+              <tbody>
+                <tr><td class="kbd-keys"><kbd>Arrow keys</kbd></td><td>Step by step, clamped to min/max</td></tr>
+                <tr><td class="kbd-keys"><kbd>Home</kbd></td><td>Jump to the minimum</td></tr>
+                <tr><td class="kbd-keys"><kbd>End</kbd></td><td>Jump to the maximum</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>

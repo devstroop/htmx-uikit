@@ -4,12 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Stack</title>
+    <link rel="stylesheet" href="../../../lib/styles/tokens.css" />
     <link rel="stylesheet" href="../../../dist/uikit.css" />
   </head>
   <body>
     <main class="dx-layout dx-layout--padded">
-      <h1 class="dx-h1">Stack</h1>
-      <p class="dx-text-muted">
+      <h1 class="dx-h1 dx-mb-4">Stack</h1>
+      <p class="dx-text dx-text-muted dx-mb-4">
         Radzen RadzenStack parity: <code>.dx-stack</code> + direction/order/wrap
         modifiers (<code>.dx-stack--column</code> default,
         <code>--row</code>/<code>--row-reverse</code>/<code>--column-reverse</code>),
@@ -18,21 +19,21 @@
         modifiers. Presentational only — no JS behavior.
       </p>
 
-      <h2 class="dx-h2">Vertical (default)</h2>
-      <div class="dx-stack dx-stack--gap-md">
+      <h2 class="dx-h2 dx-mt-6 dx-mb-2">Vertical (default)</h2>
+      <div class="dx-stack">
         <div style="padding: 0.5rem">Item 1</div>
         <div style="padding: 0.5rem">Item 2</div>
         <div style="padding: 0.5rem">Item 3</div>
       </div>
 
-      <h2 class="dx-h2">Horizontal, wrap-reverse, justify-between</h2>
+      <h2 class="dx-h2 dx-mt-6 dx-mb-2">Horizontal, wrap-reverse, justify-between</h2>
       <div class="dx-stack dx-stack--row dx-stack--wrap-reverse dx-stack--justify-between dx-stack--gap-sm">
         <div style="padding: 0.5rem">A</div>
         <div style="padding: 0.5rem">B</div>
         <div style="padding: 0.5rem">C</div>
       </div>
 
-      <h2 class="dx-h2">Horizontal reverse with align-center</h2>
+      <h2 class="dx-h2 dx-mt-6 dx-mb-2">Horizontal reverse with align-center</h2>
       <div class="dx-stack dx-stack--row-reverse dx-stack--align-center dx-stack--gap-lg">
         <div style="padding: 0.5rem">First (renders right)</div>
         <div style="padding: 1rem">Second</div>

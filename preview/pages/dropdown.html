@@ -1,0 +1,64 @@
+      <div class="page-head">
+        <h1>DropDown</h1>
+        <p class="page-sub">Menu-style choice list with item states.</p>
+      </div>
+      <section class="demo-section" id="dropdown">
+        <div class="demo-card">
+<div class="demo-area">
+          <div class="preview-grid">
+            <div class="dx-dropdown dx-dropdown--md" data-dx-dropdown>
+              <button type="button" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-controls="pv-dd1-menu" aria-label="Pick a color" class="dx-dropdown__trigger" data-dx-dropdown-trigger>
+                <span class="dx-dropdown__placeholder">Pick a color</span>
+                <span class="dx-dropdown__chevron" aria-hidden="true"></span>
+              </button>
+              <div role="listbox" id="pv-dd1-menu" class="dx-dropdown__menu" data-dx-dropdown-menu hidden>
+                <div role="option" id="pv-dd1-1" class="dx-dropdown__option" data-dx-dropdown-option data-dx-dropdown-value="red" aria-selected="false">Red</div>
+                <div role="option" id="pv-dd1-2" class="dx-dropdown__option" data-dx-dropdown-option data-dx-dropdown-value="green" aria-selected="false">Green</div>
+                <div role="option" id="pv-dd1-3" class="dx-dropdown__option" data-dx-dropdown-option data-dx-dropdown-value="blue" aria-selected="false">Blue</div>
+                <div role="option" id="pv-dd1-4" class="dx-dropdown__option dx-dropdown__option--disabled" data-dx-dropdown-option data-dx-dropdown-value="grey" aria-selected="false" aria-disabled="true">Grey (unavailable)</div>
+              </div>
+            </div>
+            <div class="dx-dropdown dx-dropdown--md" data-dx-dropdown>
+              <button type="button" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-controls="pv-dd2-menu" aria-label="Green" class="dx-dropdown__trigger" data-dx-dropdown-trigger>
+                <span class="dx-dropdown__label">Green</span>
+                <span class="dx-dropdown__chevron" aria-hidden="true"></span>
+              </button>
+              <div role="listbox" id="pv-dd2-menu" class="dx-dropdown__menu" data-dx-dropdown-menu hidden>
+                <div role="option" id="pv-dd2-1" class="dx-dropdown__option" data-dx-dropdown-option data-dx-dropdown-value="red" aria-selected="false">Red</div>
+                <div role="option" id="pv-dd2-2" class="dx-dropdown__option dx-dropdown__option--selected" data-dx-dropdown-option data-dx-dropdown-value="green" aria-selected="true">Green</div>
+                <div role="option" id="pv-dd2-3" class="dx-dropdown__option" data-dx-dropdown-option data-dx-dropdown-value="blue" aria-selected="false">Blue</div>
+              </div>
+            </div>
+            <div class="dx-dropdown dx-dropdown--md dx-dropdown--invalid" data-dx-dropdown>
+              <button type="button" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-controls="pv-dd3-menu" aria-label="Choose a size" aria-invalid="true" class="dx-dropdown__trigger" data-dx-dropdown-trigger>
+                <span class="dx-dropdown__placeholder">Choose a size</span>
+                <span class="dx-dropdown__chevron" aria-hidden="true"></span>
+              </button>
+              <div role="listbox" id="pv-dd3-menu" class="dx-dropdown__menu" data-dx-dropdown-menu hidden>
+                <div role="option" id="pv-dd3-1" class="dx-dropdown__option" data-dx-dropdown-option data-dx-dropdown-value="s" aria-selected="false">S</div>
+                <div role="option" id="pv-dd3-2" class="dx-dropdown__option" data-dx-dropdown-option data-dx-dropdown-value="m" aria-selected="false">M</div>
+                <div role="option" id="pv-dd3-3" class="dx-dropdown__option" data-dx-dropdown-option data-dx-dropdown-value="l" aria-selected="false">L</div>
+              </div>
+            </div>
+            <div class="dx-dropdown dx-dropdown--md" data-dx-dropdown>
+              <button type="button" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-controls="pv-dd4-menu" aria-label="Disabled" class="dx-dropdown__trigger" data-dx-dropdown-trigger disabled>
+                <span class="dx-dropdown__placeholder">Disabled</span>
+                <span class="dx-dropdown__chevron" aria-hidden="true"></span>
+              </button>
+              <div role="listbox" id="pv-dd4-menu" class="dx-dropdown__menu" data-dx-dropdown-menu hidden></div>
+            </div>
+          </div>
+        </div>
+          <div class="kbd-block">
+            <h3 class="kbd-title">Keyboard</h3>
+            <table class="dx-table kbd-table">
+              <thead><tr><th scope="col">Key</th><th scope="col">Action</th></tr></thead>
+              <tbody>
+                <tr><td class="kbd-keys"><kbd>ArrowDown</kbd><span class="kbd-sep">/</span><kbd>ArrowUp</kbd></td><td>Open the popup and move the highlighted option</td></tr>
+                <tr><td class="kbd-keys"><kbd>Enter</kbd></td><td>Select the highlighted option and close</td></tr>
+                <tr><td class="kbd-keys"><kbd>Escape</kbd></td><td>Close and return focus to the trigger</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>

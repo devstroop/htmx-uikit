@@ -1,0 +1,53 @@
+      <div class="page-head">
+        <h1>DataFilter</h1>
+        <p class="page-sub">Predicate builder with grouped conditions.</p>
+      </div>
+      <section class="demo-section" id="datafilter">
+        <div class="demo-card">
+<div class="demo-area">
+          <p class="demo-muted">Builder fires <code>dx:filter-change</code> (filters + filterString + oDataFilterString) on any change; consumers re-request rows via <code>hx-get</code> with the descriptor JSON and swap the result region.</p>
+          <div class="dx-datafilter" data-dx-datafilter
+               data-dx-datafilter-properties='[{"name":"name","title":"Name","type":"string"},{"name":"age","title":"Age","type":"number"},{"name":"status","title":"Status","type":"enum","values":[{"value":"active","label":"Active"},{"value":"paused","label":"Paused"}]}]'
+               data-dx-datafilter-operator="And">
+            <div class="dx-datafilter-rows" data-dx-datafilter-rows>
+              <div class="dx-datafilter-row" data-dx-datafilter-row>
+                <label class="dx-datafilter-label">Name
+                  <select class="dx-select" data-dx-datafilter-property aria-label="Property"></select>
+                </label>
+                <label class="dx-datafilter-label">Operator
+                  <select class="dx-select" data-dx-datafilter-operator aria-label="Operator"></select>
+                </label>
+                <label class="dx-datafilter-label">Value
+                  <input class="dx-input dx-input--md" data-dx-datafilter-value aria-label="Value">
+                </label>
+                <button type="button" class="dx-button dx-button--ghost" data-dx-datafilter-remove aria-label="Remove condition">×</button>
+              </div>
+            </div>
+            <div class="dx-datafilter-bar">
+              <button type="button" class="dx-button dx-button--secondary" data-dx-datafilter-add>Add filter</button>
+              <div class="dx-datafilter-operator-bar" role="radiogroup" aria-label="Join filters">
+                <label><input type="radio" name="df-op" value="And" checked> AND</label>
+                <label><input type="radio" name="df-op" value="Or"> OR</label>
+              </div>
+              <input type="hidden" data-dx-datafilter-output name="filters">
+            </div>
+          </div>
+          <table class="dx-table" style="margin-top: 1rem">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Role</th>
+                <th class="dx-table-cell--center">Age</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>John Carter</td><td>admin</td><td class="dx-table-cell--center">30</td></tr>
+              <tr><td>Jane Doe</td><td>editor</td><td class="dx-table-cell--center">25</td></tr>
+              <tr><td>Bob Vance</td><td>viewer</td><td class="dx-table-cell--center">40</td></tr>
+              <tr><td>Alice Wong</td><td>editor</td><td class="dx-table-cell--center">22</td></tr>
+              <tr><td>Charlie Fox</td><td>viewer</td><td class="dx-table-cell--center">35</td></tr>
+            </tbody>
+          </table>
+        </div>
+        </div>
+      </section>

@@ -1,0 +1,74 @@
+      <div class="page-head">
+        <h1>Recipes</h1>
+        <p class="page-sub">End-to-end patterns: server interactions with htmx, an auth screen, and a 404.</p>
+      </div>
+      <section class="demo-section" id="htmx-patterns">
+        <h2 class="demo-h">htmx patterns</h2>
+        <div class="demo-card">
+<div class="demo-area">
+          <div class="dx-field">
+            <label class="dx-label" for="preview-search">Search projects (server filter)</label>
+            <input class="dx-input dx-input--md" id="preview-search" type="search" name="q" placeholder="Type to search…"
+                   hx-get="/partials/search.html" hx-trigger="input changed delay:300ms"
+                   hx-target="#search-results" hx-swap="innerHTML" />
+          </div>
+          <div id="search-results">
+            <ul class="dx-list">
+              <li>uikit</li>
+              <li>react-uikit</li>
+              <li>htmx-ui</li>
+            </ul>
+          </div>
+          <button class="dx-button dx-button--ghost" type="button"
+                  hx-get="/partials/load-more.html" hx-target="#load-more-target" hx-swap="beforeend">
+            Load more (append)
+          </button>
+          <div id="load-more-target"></div>
+        </div>
+        </div>
+      </section>
+      <section class="demo-section" id="recipe-login">
+        <h2 class="demo-h">Login split card</h2>
+        <div class="demo-card">
+          <p class="demo-desc">
+            Radzen-style split login: brand panel beside the form, one card,
+            pure markup.
+          </p>
+          <div class="demo-area">
+            <div class="dx-card recipe-login">
+              <div class="recipe-login-brand">
+                <span class="dx-badge dx-badge--primary dx-badge--solid">UIKit</span>
+                <h3 class="recipe-login-title">Welcome back</h3>
+                <p class="demo-muted">Sign in to continue to your workspace.</p>
+              </div>
+              <form class="recipe-login-form" action="#" method="post">
+                <div class="dx-field">
+                  <label class="dx-field-label" for="recipe-email">Email</label>
+                  <input class="dx-input dx-input--md" id="recipe-email" type="email" placeholder="you@example.com" autocomplete="username" />
+                </div>
+                <div class="dx-field">
+                  <label class="dx-field-label" for="recipe-password">Password</label>
+                  <input class="dx-input dx-input--md" id="recipe-password" type="password" placeholder="••••••••" autocomplete="current-password" />
+                  <div class="dx-field-hint">Minimum 8 characters.</div>
+                </div>
+                <button class="dx-button dx-button--primary" type="submit">Sign in</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo-section" id="recipe-404">
+        <h2 class="demo-h">Bare 404</h2>
+        <div class="demo-card">
+          <p class="demo-desc">
+            Empty-state driven not-found page: icon, title, one action.
+          </p>
+          <div class="demo-area recipe-404">
+            <span class="recipe-404-code">404</span>
+            <h3>Page not found</h3>
+            <p class="demo-muted">The route you requested does not exist in this demo.</p>
+            <a class="dx-button dx-button--primary" href="#/">Back to the catalog</a>
+          </div>
+        </div>
+      </section>

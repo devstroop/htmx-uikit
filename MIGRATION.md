@@ -96,3 +96,22 @@ Browser globals were renamed:
 
 `window.dxUikit` exposes the same init helpers as before
 (`dxUikit.<component>.init(root)`), under the new prefix.
+
+## 5. Spacing defaults
+
+v0.28.0 codifies the spacing-ownership contract (Radzen parity) — layout
+containers and forms now own their rhythm, so some previously bare markup
+gains default spacing:
+
+| What                          | v0.27 (before)      | v0.28 (after)                                  |
+| ----------------------------- | ------------------- | ---------------------------------------------- |
+| `.dx-stack` (no gap modifier) | no gap (items touch) | `gap: var(--dx-space-4)` (16px) by default     |
+| `.dx-stack` base direction    | row (flex default)  | `flex-direction: column` (spec/react parity — use `--row` for horizontal) |
+| `.dx-form` children           | no spacing           | flex column with `gap: var(--dx-space-3)` (12px) |
+| `.dx-text`                    | UA margins leaked    | `margin: 0` — spacing belongs to the parent    |
+| `.dx-h1`…`.dx-h6`, `.dx-text-muted` | undefined (phantom) | defined heading presets (margin: 0) + muted color |
+
+To restore the old zero-gap behaviour on a stack, set it explicitly:
+`<div class="dx-stack" style="gap: 0">`. Page-level rhythm belongs to the
+`.dx-m-*`/`.dx-p-*` utilities (contract: `specs/tokens.md` → Spacing
+ownership).

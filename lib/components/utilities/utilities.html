@@ -4,12 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Utilities</title>
+    <link rel="stylesheet" href="../../../lib/styles/tokens.css" />
     <link rel="stylesheet" href="../../../dist/uikit.css" />
   </head>
   <body>
     <main class="dx-layout dx-layout--padded">
-      <h1 class="dx-h1">Utilities</h1>
-      <p class="dx-text-muted">
+      <h1 class="dx-h1 dx-mb-4">Utilities</h1>
+      <p class="dx-text dx-text-muted dx-mb-4">
         Radzen theme utility parity: <code>.dx-display-*</code>,
         <code>.dx-justify-content-*</code>, <code>.dx-align-items-*</code>,
         <code>.dx-overflow-*</code>, <code>.dx-w-*</code>/<code>.dx-h-*</code>
@@ -18,33 +19,33 @@
         only — no JS behavior.
       </p>
 
-      <h2 class="dx-h2">Display</h2>
+      <h2 class="dx-h2 dx-mt-6 dx-mb-2">Display</h2>
       <div class="dx-display-flex" style="gap: 0.5rem">
         <div class="dx-display-block" style="padding: 0.5rem">block</div>
         <div class="dx-display-flex" style="padding: 0.5rem">flex</div>
         <div class="dx-display-grid" style="padding: 0.5rem">grid</div>
       </div>
 
-      <h2 class="dx-h2">Justify-content / align-items</h2>
+      <h2 class="dx-h2 dx-mt-6 dx-mb-2">Justify-content / align-items</h2>
       <div class="dx-display-flex dx-justify-content-space-between dx-align-items-center" style="min-height: 64px">
         <span style="padding: 0.5rem">start</span>
         <span style="padding: 0.5rem">middle</span>
         <span style="padding: 0.5rem">end</span>
       </div>
 
-      <h2 class="dx-h2">Overflow</h2>
+      <h2 class="dx-h2 dx-mt-6 dx-mb-2">Overflow</h2>
       <div class="dx-overflow-auto" style="max-height: 4rem; padding: 0.5rem">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
       </div>
 
-      <h2 class="dx-h2">Width / height</h2>
+      <h2 class="dx-h2 dx-mt-6 dx-mb-2">Width / height</h2>
       <div class="dx-w-50" style="padding: 0.5rem">.dx-w-50</div>
       <div class="dx-w-fit-content" style="padding: 0.5rem">.dx-w-fit-content</div>
       <div class="dx-h-25" style="padding: 0.5rem">.dx-h-25</div>
       <div class="dx-max-w-50" style="padding: 0.5rem">.dx-max-w-50</div>
 
-      <h2 class="dx-h2">Spacing (margins / padding)</h2>
-      <p class="dx-text-muted">
+      <h2 class="dx-h2 dx-mt-6 dx-mb-2">Spacing (margins / padding)</h2>
+      <p class="dx-text dx-text-muted dx-mb-4">
         <code>.dx-m-*</code>/<code>.dx-p-*</code> with sizes <code>0</code>,
         <code>05</code> (2px), <code>1</code>–<code>12</code> (4px … 48px),
         plus axis (<code>mx</code>/<code>my</code>/<code>px</code>/<code>py</code>)
@@ -67,7 +68,7 @@
         <div class="dx-mt-auto dx-max-w-50" style="padding: 0.5rem">.dx-mt-auto in a stretched row</div>
       </div>
 
-      <h2 class="dx-h2">Breakpoint variants</h2>
+      <h2 class="dx-h2 dx-mt-6 dx-mb-2">Breakpoint variants</h2>
       <div class="dx-display-flex dx-display-md-block dx-w-100 dx-w-md-50" style="padding: 0.5rem">
         block at ≥ 768px, width 100% below / 50% from md
       </div>

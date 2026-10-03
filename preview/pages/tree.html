@@ -1,0 +1,37 @@
+      <div class="page-head">
+        <h1>Tree</h1>
+        <p class="page-sub">Expandable hierarchy with multi-select.</p>
+      </div>
+      <section class="demo-section" id="tree">
+        <div class="demo-card">
+<div class="demo-area">
+          <div class="preview-grid">
+<div class="dx-tree" data-dx-tree data-dx-selection-mode="single" role="tree" aria-label="Demo tree" aria-multiselectable="false">
+  <div class="dx-tree-children" role="group" data-dx-tree-children>
+    <div class="dx-tree-item" role="treeitem" data-dx-tree-item data-dx-key="1" data-dx-text="Documents" aria-level="1" aria-setsize="2" aria-posinset="1" aria-expanded="true" aria-selected="false" tabindex="0">
+      <button type="button" class="dx-tree-caret" data-dx-tree-caret aria-label="Collapse Documents" aria-expanded="true">▾</button>
+      <span class="dx-tree-label">Documents</span>
+      <div class="dx-tree-children" role="group" data-dx-tree-children>
+        <div class="dx-tree-item" role="treeitem" data-dx-tree-item data-dx-key="1-1" data-dx-text="Resume.pdf" aria-level="2" aria-setsize="2" aria-posinset="1" aria-selected="false" tabindex="-1"><span class="dx-tree-label">Resume.pdf</span></div>
+        <div class="dx-tree-item" role="treeitem" data-dx-tree-item data-dx-key="1-2" data-dx-text="Cover.pdf" aria-level="2" aria-setsize="2" aria-posinset="2" aria-selected="true" tabindex="-1"><span class="dx-tree-label">Cover.pdf</span></div>
+      </div>
+          </div>
+        </div>
+          </div></div></div>
+          <div class="kbd-block">
+            <h3 class="kbd-title">Keyboard</h3>
+            <table class="dx-table kbd-table">
+              <thead><tr><th scope="col">Key</th><th scope="col">Action</th></tr></thead>
+              <tbody>
+                <tr><td class="kbd-keys"><kbd>ArrowDown</kbd><span class="kbd-sep">/</span><kbd>ArrowUp</kbd></td><td>Move focus between visible nodes (wraps around)</td></tr>
+                <tr><td class="kbd-keys"><kbd>ArrowRight</kbd></td><td>Expand the focused node, then move to its first child</td></tr>
+                <tr><td class="kbd-keys"><kbd>ArrowLeft</kbd></td><td>Collapse the focused node, or move to its parent</td></tr>
+                <tr><td class="kbd-keys"><kbd>Home</kbd><span class="kbd-sep">/</span><kbd>End</kbd></td><td>Jump to the first / last visible node</td></tr>
+                <tr><td class="kbd-keys"><kbd>Enter</kbd></td><td>Select the focused node</td></tr>
+                <tr><td class="kbd-keys"><kbd>Space</kbd></td><td>Select — or toggle the focused checkbox when checkboxes are on</td></tr>
+                <tr><td class="kbd-keys"><kbd>a–z</kbd><span class="kbd-sep">/</span><kbd>0–9</kbd></td><td>Type-ahead: jump to the next node matching the typed prefix</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
