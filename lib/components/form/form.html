@@ -1,46 +1,46 @@
 <!--
   Form — reference markup for server templates.
-  Root: <form class="dt-form" data-dt-form [action="..." method="..."]>
-  The data-dt-form behavior (behaviors.js) runs on submit:
-    - rules declared on [data-dt-field] via data-dt-required, data-dt-email,
-      data-dt-pattern, data-dt-min, data-dt-max, data-dt-minlength,
-      data-dt-maxlength (empty values pass all but required); messages via
-      data-dt-<rule>-message, data-dt-error-message, or defaults. Native
+  Root: <form class="dx-form" data-dx-form [action="..." method="..."]>
+  The data-dx-form behavior (behaviors.js) runs on submit:
+    - rules declared on [data-dx-field] via data-dx-required, data-dx-email,
+      data-dx-pattern, data-dx-min, data-dx-max, data-dx-minlength,
+      data-dx-maxlength (empty values pass all but required); messages via
+      data-dx-<rule>-message, data-dx-error-message, or defaults. Native
       constraints (required/min/max/.../type=email) are also respected.
-    - failing fields get aria-invalid="true" + data-dt-invalid and block
-      the submit: dt:invalid fires with detail { fields: [{ name, element,
+    - failing fields get aria-invalid="true" + data-dx-invalid and block
+      the submit: dx:invalid fires with detail { fields: [{ name, element,
       messages }] }.
-    - otherwise dt:submit fires with detail { form, data: FormData } and
+    - otherwise dx:submit fires with detail { form, data: FormData } and
       the native submit proceeds (set action/method for the no-JS path).
   Error rendering and aria-describedby wiring: see specs/components/
-  field.md. Layout is the consumer's job — pair with dt-field, dt-row,
-  dt-column.
+  field.md. Layout is the consumer's job — pair with dx-field, dx-row,
+  dx-column.
 -->
 
-<form class="dt-form" data-dt-form>
-  <div class="dt-field">
-    <label class="dt-field-label" for="contact-email">Email</label>
-    <input id="contact-email" class="dt-input dt-input--md" type="email" name="email" data-dt-field data-dt-required data-dt-email placeholder="you@example.com" />
+<form class="dx-form" data-dx-form>
+  <div class="dx-field">
+    <label class="dx-field-label" for="contact-email">Email</label>
+    <input id="contact-email" class="dx-input dx-input--md" type="email" name="email" data-dx-field data-dx-required data-dx-email placeholder="you@example.com" />
   </div>
-  <div class="dt-field">
-    <label class="dt-field-label" for="contact-name">Name</label>
-    <input id="contact-name" class="dt-input dt-input--md" type="text" name="name" data-dt-field data-dt-required data-dt-minlength="2" placeholder="Full name" />
+  <div class="dx-field">
+    <label class="dx-field-label" for="contact-name">Name</label>
+    <input id="contact-name" class="dx-input dx-input--md" type="text" name="name" data-dx-field data-dx-required data-dx-minlength="2" placeholder="Full name" />
   </div>
-  <button class="dt-button dt-button--primary" type="submit">Submit</button>
+  <button class="dx-button dx-button--primary" type="submit">Submit</button>
 </form>
 
-<form class="dt-form" data-dt-form action="/login" method="post">
-  <div class="dt-field">
-    <label class="dt-field-label" for="login-email">Email</label>
-    <input id="login-email" class="dt-input dt-input--md" type="email" name="email" data-dt-field data-dt-required data-dt-email />
+<form class="dx-form" data-dx-form action="/login" method="post">
+  <div class="dx-field">
+    <label class="dx-field-label" for="login-email">Email</label>
+    <input id="login-email" class="dx-input dx-input--md" type="email" name="email" data-dx-field data-dx-required data-dx-email />
   </div>
-  <div class="dt-field">
-    <label class="dt-field-label" for="login-password">Password</label>
-    <input id="login-password" class="dt-input dt-input--md" type="password" name="password" data-dt-field data-dt-required data-dt-minlength="8" data-dt-minlength-message="At least 8 characters" />
+  <div class="dx-field">
+    <label class="dx-field-label" for="login-password">Password</label>
+    <input id="login-password" class="dx-input dx-input--md" type="password" name="password" data-dx-field data-dx-required data-dx-minlength="8" data-dx-minlength-message="At least 8 characters" />
   </div>
-  <div class="dt-field">
-    <label class="dt-field-label" for="login-age">Age</label>
-    <input id="login-age" class="dt-input dt-input--md" type="number" name="age" data-dt-field data-dt-min="18" data-dt-max="120" placeholder="18–120" />
+  <div class="dx-field">
+    <label class="dx-field-label" for="login-age">Age</label>
+    <input id="login-age" class="dx-input dx-input--md" type="number" name="age" data-dx-field data-dx-min="18" data-dx-max="120" placeholder="18–120" />
   </div>
-  <button class="dt-button dt-button--primary" type="submit">Login</button>
+  <button class="dx-button dx-button--primary" type="submit">Login</button>
 </form>

@@ -1,92 +1,92 @@
-.dt-scheduler {
-  font-family: var(--dt-font-sans);
-  border: 1px solid var(--dt-color-border);
-  border-radius: var(--dt-radius-md);
-  background-color: var(--dt-color-surface);
+.dx-scheduler {
+  font-family: var(--dx-font-sans);
+  border: 1px solid var(--dx-color-border);
+  border-radius: var(--dx-radius-md);
+  background-color: var(--dx-color-surface);
   overflow: hidden;
 }
-.dt-scheduler-header {
+.dx-scheduler-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--dt-space-2);
-  border-bottom: 1px solid var(--dt-color-border);
+  padding: var(--dx-space-2);
+  border-bottom: 1px solid var(--dx-color-border);
 }
-.dt-scheduler-title {
-  font-size: var(--dt-font-size-sm);
-  font-weight: var(--dt-font-weight-medium);
-  color: var(--dt-color-text);
+.dx-scheduler-title {
+  font-size: var(--dx-font-size-sm);
+  font-weight: var(--dx-font-weight-medium);
+  color: var(--dx-color-text);
 }
-.dt-scheduler-nav {
+.dx-scheduler-nav {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 28px;
   height: 28px;
-  border: 1px solid var(--dt-color-border);
-  border-radius: var(--dt-radius-sm);
-  background-color: var(--dt-color-surface);
-  color: var(--dt-color-text);
+  border: 1px solid var(--dx-color-border);
+  border-radius: var(--dx-radius-sm);
+  background-color: var(--dx-color-surface);
+  color: var(--dx-color-text);
   cursor: pointer;
 }
-.dt-scheduler-nav:hover {
-  background-color: var(--dt-color-surface-hover);
+.dx-scheduler-nav:hover {
+  background-color: var(--dx-color-surface-hover);
 }
-.dt-scheduler-nav:focus-visible {
-  outline: 2px solid var(--dt-color-outline-primary);
+.dx-scheduler-nav:focus-visible {
+  outline: 2px solid var(--dx-color-outline-primary);
   outline-offset: 1px;
 }
-.dt-scheduler-grid {
+.dx-scheduler-grid {
   display: flex;
-  gap: var(--dt-space-1);
-  padding: var(--dt-space-1);
+  gap: var(--dx-space-1);
+  padding: var(--dx-space-1);
 }
-.dt-scheduler-timecol {
+.dx-scheduler-timecol {
   display: flex;
   flex-direction: column;
   gap: 24px;
   padding-top: 24px;
 }
-.dt-scheduler-time {
-  font-size: var(--dt-font-size-sm);
-  color: var(--dt-color-text-muted);
+.dx-scheduler-time {
+  font-size: var(--dx-font-size-sm);
+  color: var(--dx-color-text-muted);
   height: 24px;
 }
-.dt-scheduler-day {
+.dx-scheduler-day {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: var(--dt-space-1);
+  gap: var(--dx-space-1);
   min-width: 80px;
 }
-.dt-scheduler-day-header {
-  font-size: var(--dt-font-size-sm);
-  font-weight: var(--dt-font-weight-medium);
-  color: var(--dt-color-text);
+.dx-scheduler-day-header {
+  font-size: var(--dx-font-size-sm);
+  font-weight: var(--dx-font-weight-medium);
+  color: var(--dx-color-text);
   text-align: center;
-  padding: var(--dt-space-1);
-  border-bottom: 1px solid var(--dt-color-border);
+  padding: var(--dx-space-1);
+  border-bottom: 1px solid var(--dx-color-border);
 }
-.dt-scheduler-slot {
+.dx-scheduler-slot {
   height: 24px;
-  border: 1px solid var(--dt-color-border);
-  border-radius: var(--dt-radius-sm);
-  background-color: var(--dt-color-surface);
+  border: 1px solid var(--dx-color-border);
+  border-radius: var(--dx-radius-sm);
+  background-color: var(--dx-color-surface);
 }
-.dt-scheduler-slot:focus-visible {
-  outline: 2px solid var(--dt-color-outline-primary);
+.dx-scheduler-slot:focus-visible {
+  outline: 2px solid var(--dx-color-outline-primary);
   outline-offset: 1px;
 }
-.dt-scheduler-event {
-  padding: var(--dt-space-1);
-  border: 1px solid var(--dt-color-primary);
-  border-radius: var(--dt-radius-sm);
-  background-color: var(--dt-color-primary);
-  color: var(--dt-color-primary-fg);
-  font-size: var(--dt-font-size-sm);
+.dx-scheduler-event {
+  padding: var(--dx-space-1);
+  border: 1px solid var(--dx-color-primary);
+  border-radius: var(--dx-radius-sm);
+  background-color: var(--dx-color-primary);
+  color: var(--dx-color-primary-fg);
+  font-size: var(--dx-font-size-sm);
   cursor: pointer;
 }
-.dt-scheduler-event:focus-visible {
-  outline: 2px solid var(--dt-color-outline-primary);
+.dx-scheduler-event:focus-visible {
+  outline: 2px solid var(--dx-color-outline-primary);
   outline-offset: 1px;
 }

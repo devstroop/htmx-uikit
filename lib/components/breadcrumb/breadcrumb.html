@@ -1,82 +1,82 @@
 <!--
   Breadcrumb — reference markup for server templates.
-  Root: <nav class="dt-breadcrumb" data-dt-breadcrumb aria-label="Breadcrumb">
-    <ol class="dt-breadcrumb-list" data-dt-breadcrumb-list>
-      <li class="dt-breadcrumb-item" data-dt-breadcrumb-item>
-        <a href="/path" class="dt-breadcrumb-link" data-dt-breadcrumb-link
-           data-dt-text="Label" [data-dt-path="/path"]
-           [data-dt-icon="icon"]>...</a>
-        <span class="dt-breadcrumb-separator" aria-hidden="true">/</span>
+  Root: <nav class="dx-breadcrumb" data-dx-breadcrumb aria-label="Breadcrumb">
+    <ol class="dx-breadcrumb-list" data-dx-breadcrumb-list>
+      <li class="dx-breadcrumb-item" data-dx-breadcrumb-item>
+        <a href="/path" class="dx-breadcrumb-link" data-dx-breadcrumb-link
+           data-dx-text="Label" [data-dx-path="/path"]
+           [data-dx-icon="icon"]>...</a>
+        <span class="dx-breadcrumb-separator" aria-hidden="true">/</span>
       </li>
       ... separator is aria-hidden; last <li> contains:
-        <a ... aria-current="page"> or <span class="dt-breadcrumb-current"
-           data-dt-breadcrumb-current aria-current="page">
+        <a ... aria-current="page"> or <span class="dx-breadcrumb-current"
+           data-dx-breadcrumb-current aria-current="page">
         disabled items: aria-disabled="true" tabindex="-1"
       </li>
     </ol>
   </nav>
-  behaviors.js dispatches dt:breadcrumb-click{ text, path } on enabled
+  behaviors.js dispatches dx:breadcrumb-click{ text, path } on enabled
   item activation (click or Enter/Space). Disabled items are skipped;
   the last item has aria-current="page". Separators are aria-hidden.
 -->
 
 <!-- Default breadcrumb with links -->
-<nav class="dt-breadcrumb" data-dt-breadcrumb aria-label="Breadcrumb">
-  <ol class="dt-breadcrumb-list" data-dt-breadcrumb-list>
-    <li class="dt-breadcrumb-item" data-dt-breadcrumb-item>
-      <a href="/" class="dt-breadcrumb-link" data-dt-breadcrumb-link data-dt-text="Home" data-dt-path="/">Home</a>
-      <span class="dt-breadcrumb-separator" aria-hidden="true">/</span>
+<nav class="dx-breadcrumb" data-dx-breadcrumb aria-label="Breadcrumb">
+  <ol class="dx-breadcrumb-list" data-dx-breadcrumb-list>
+    <li class="dx-breadcrumb-item" data-dx-breadcrumb-item>
+      <a href="/" class="dx-breadcrumb-link" data-dx-breadcrumb-link data-dx-text="Home" data-dx-path="/">Home</a>
+      <span class="dx-breadcrumb-separator" aria-hidden="true">/</span>
     </li>
-    <li class="dt-breadcrumb-item" data-dt-breadcrumb-item>
-      <a href="/products" class="dt-breadcrumb-link" data-dt-breadcrumb-link data-dt-text="Products" data-dt-path="/products">Products</a>
-      <span class="dt-breadcrumb-separator" aria-hidden="true">/</span>
+    <li class="dx-breadcrumb-item" data-dx-breadcrumb-item>
+      <a href="/products" class="dx-breadcrumb-link" data-dx-breadcrumb-link data-dx-text="Products" data-dx-path="/products">Products</a>
+      <span class="dx-breadcrumb-separator" aria-hidden="true">/</span>
     </li>
-    <li class="dt-breadcrumb-item" data-dt-breadcrumb-item>
-      <span class="dt-breadcrumb-current" data-dt-breadcrumb-current data-dt-text="Laptops" aria-current="page">Laptops</span>
+    <li class="dx-breadcrumb-item" data-dx-breadcrumb-item>
+      <span class="dx-breadcrumb-current" data-dx-breadcrumb-current data-dx-text="Laptops" aria-current="page">Laptops</span>
     </li>
   </ol>
 </nav>
 
 <!-- Breadcrumb with icons -->
-<nav class="dt-breadcrumb" data-dt-breadcrumb aria-label="Breadcrumb">
-  <ol class="dt-breadcrumb-list" data-dt-breadcrumb-list>
-    <li class="dt-breadcrumb-item" data-dt-breadcrumb-item>
-      <a href="/" class="dt-breadcrumb-link" data-dt-breadcrumb-link data-dt-text="Home" data-dt-path="/">
-        <span class="dt-breadcrumb-icon" aria-hidden="true">⌂</span><span>Home</span>
+<nav class="dx-breadcrumb" data-dx-breadcrumb aria-label="Breadcrumb">
+  <ol class="dx-breadcrumb-list" data-dx-breadcrumb-list>
+    <li class="dx-breadcrumb-item" data-dx-breadcrumb-item>
+      <a href="/" class="dx-breadcrumb-link" data-dx-breadcrumb-link data-dx-text="Home" data-dx-path="/">
+        <span class="dx-breadcrumb-icon" aria-hidden="true">⌂</span><span>Home</span>
       </a>
-      <span class="dt-breadcrumb-separator" aria-hidden="true">/</span>
+      <span class="dx-breadcrumb-separator" aria-hidden="true">/</span>
     </li>
-    <li class="dt-breadcrumb-item" data-dt-breadcrumb-item>
-      <a href="/library" class="dt-breadcrumb-link" data-dt-breadcrumb-link data-dt-text="Library" data-dt-path="/library">
-        <span class="dt-breadcrumb-icon" aria-hidden="true">📚</span><span>Library</span>
+    <li class="dx-breadcrumb-item" data-dx-breadcrumb-item>
+      <a href="/library" class="dx-breadcrumb-link" data-dx-breadcrumb-link data-dx-text="Library" data-dx-path="/library">
+        <span class="dx-breadcrumb-icon" aria-hidden="true">📚</span><span>Library</span>
       </a>
-      <span class="dt-breadcrumb-separator" aria-hidden="true">/</span>
+      <span class="dx-breadcrumb-separator" aria-hidden="true">/</span>
     </li>
-    <li class="dt-breadcrumb-item" data-dt-breadcrumb-item>
-      <span class="dt-breadcrumb-current" data-dt-breadcrumb-current data-dt-text="Data" aria-current="page">
-        <span class="dt-breadcrumb-icon" aria-hidden="true">📄</span><span>Data</span>
+    <li class="dx-breadcrumb-item" data-dx-breadcrumb-item>
+      <span class="dx-breadcrumb-current" data-dx-breadcrumb-current data-dx-text="Data" aria-current="page">
+        <span class="dx-breadcrumb-icon" aria-hidden="true">📄</span><span>Data</span>
       </span>
     </li>
   </ol>
 </nav>
 
 <!-- Breadcrumb with disabled and pathless clickable (button) -->
-<nav class="dt-breadcrumb" data-dt-breadcrumb aria-label="Breadcrumb">
-  <ol class="dt-breadcrumb-list" data-dt-breadcrumb-list>
-    <li class="dt-breadcrumb-item" data-dt-breadcrumb-item>
-      <a href="/" class="dt-breadcrumb-link" data-dt-breadcrumb-link data-dt-text="Home" data-dt-path="/">Home</a>
-      <span class="dt-breadcrumb-separator" aria-hidden="true">/</span>
+<nav class="dx-breadcrumb" data-dx-breadcrumb aria-label="Breadcrumb">
+  <ol class="dx-breadcrumb-list" data-dx-breadcrumb-list>
+    <li class="dx-breadcrumb-item" data-dx-breadcrumb-item>
+      <a href="/" class="dx-breadcrumb-link" data-dx-breadcrumb-link data-dx-text="Home" data-dx-path="/">Home</a>
+      <span class="dx-breadcrumb-separator" aria-hidden="true">/</span>
     </li>
-    <li class="dt-breadcrumb-item" data-dt-breadcrumb-item>
-      <span class="dt-breadcrumb-link dt-breadcrumb-link--disabled" data-dt-breadcrumb-link data-dt-text="Reports" aria-disabled="true" tabindex="-1">Reports</span>
-      <span class="dt-breadcrumb-separator" aria-hidden="true">/</span>
+    <li class="dx-breadcrumb-item" data-dx-breadcrumb-item>
+      <span class="dx-breadcrumb-link dx-breadcrumb-link--disabled" data-dx-breadcrumb-link data-dx-text="Reports" aria-disabled="true" tabindex="-1">Reports</span>
+      <span class="dx-breadcrumb-separator" aria-hidden="true">/</span>
     </li>
-    <li class="dt-breadcrumb-item" data-dt-breadcrumb-item>
-      <button type="button" class="dt-breadcrumb-link dt-breadcrumb-link--button" data-dt-breadcrumb-link data-dt-text="Monthly" tabindex="0">Monthly</button>
-      <span class="dt-breadcrumb-separator" aria-hidden="true">/</span>
+    <li class="dx-breadcrumb-item" data-dx-breadcrumb-item>
+      <button type="button" class="dx-breadcrumb-link dx-breadcrumb-link--button" data-dx-breadcrumb-link data-dx-text="Monthly" tabindex="0">Monthly</button>
+      <span class="dx-breadcrumb-separator" aria-hidden="true">/</span>
     </li>
-    <li class="dt-breadcrumb-item" data-dt-breadcrumb-item>
-      <span class="dt-breadcrumb-current" data-dt-breadcrumb-current data-dt-text="Details" aria-current="page">Details</span>
+    <li class="dx-breadcrumb-item" data-dx-breadcrumb-item>
+      <span class="dx-breadcrumb-current" data-dx-breadcrumb-current data-dx-text="Details" aria-current="page">Details</span>
     </li>
   </ol>
 </nav>

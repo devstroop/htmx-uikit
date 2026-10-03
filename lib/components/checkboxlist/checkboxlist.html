@@ -1,64 +1,64 @@
 <!--
   Checkboxlist — reference markup for server templates.
-  Root: <fieldset class="dt-checkboxlist">
+  Root: <fieldset class="dx-checkboxlist">
   Children:
-    <legend class="dt-checkboxlist__legend"> (accessible group name)
-    <ul class="dt-checkboxlist__list">
-      <li class="dt-checkboxlist__item"> with
-        <label class="dt-checkboxlist__label"><input type="checkbox"
-          class="dt-checkboxlist__checkbox" name value> Label text</label>
+    <legend class="dx-checkboxlist__legend"> (accessible group name)
+    <ul class="dx-checkboxlist__list">
+      <li class="dx-checkboxlist__item"> with
+        <label class="dx-checkboxlist__label"><input type="checkbox"
+          class="dx-checkboxlist__checkbox" name value> Label text</label>
   Native input behavior only (checked/disabled forwarded); no data hooks.
   Note the --disabled modifier pairs with the input's disabled attribute.
 -->
 
-<fieldset class="dt-checkboxlist">
-  <legend class="dt-checkboxlist__legend">Notifications</legend>
-  <ul class="dt-checkboxlist__list">
-    <li class="dt-checkboxlist__item">
-      <label class="dt-checkboxlist__label">
-        <input type="checkbox" class="dt-checkboxlist__checkbox" name="notifications" value="email" checked />
+<fieldset class="dx-checkboxlist">
+  <legend class="dx-checkboxlist__legend">Notifications</legend>
+  <ul class="dx-checkboxlist__list">
+    <li class="dx-checkboxlist__item">
+      <label class="dx-checkboxlist__label">
+        <input type="checkbox" class="dx-checkboxlist__checkbox" name="notifications" value="email" checked />
         Email
       </label>
     </li>
-    <li class="dt-checkboxlist__item">
-      <label class="dt-checkboxlist__label">
-        <input type="checkbox" class="dt-checkboxlist__checkbox" name="notifications" value="sms" />
+    <li class="dx-checkboxlist__item">
+      <label class="dx-checkboxlist__label">
+        <input type="checkbox" class="dx-checkboxlist__checkbox" name="notifications" value="sms" />
         SMS
       </label>
     </li>
-    <li class="dt-checkboxlist__item">
-      <label class="dt-checkboxlist__label">
-        <input type="checkbox" class="dt-checkboxlist__checkbox" name="notifications" value="push" />
+    <li class="dx-checkboxlist__item">
+      <label class="dx-checkboxlist__label">
+        <input type="checkbox" class="dx-checkboxlist__checkbox" name="notifications" value="push" />
         Push
       </label>
     </li>
-    <li class="dt-checkboxlist__item dt-checkboxlist__item--disabled">
-      <label class="dt-checkboxlist__label">
-        <input type="checkbox" class="dt-checkboxlist__checkbox" name="notifications" value="carrier" disabled />
+    <li class="dx-checkboxlist__item dx-checkboxlist__item--disabled">
+      <label class="dx-checkboxlist__label">
+        <input type="checkbox" class="dx-checkboxlist__checkbox" name="notifications" value="carrier" disabled />
         Carrier pigeon (unavailable)
       </label>
     </li>
   </ul>
 </fieldset>
 
-<fieldset class="dt-checkboxlist">
-  <legend class="dt-checkboxlist__legend">Toppings</legend>
-  <ul class="dt-checkboxlist__list">
-    <li class="dt-checkboxlist__item">
-      <label class="dt-checkboxlist__label">
-        <input type="checkbox" class="dt-checkboxlist__checkbox" name="toppings" value="cheese" checked />
+<fieldset class="dx-checkboxlist">
+  <legend class="dx-checkboxlist__legend">Toppings</legend>
+  <ul class="dx-checkboxlist__list">
+    <li class="dx-checkboxlist__item">
+      <label class="dx-checkboxlist__label">
+        <input type="checkbox" class="dx-checkboxlist__checkbox" name="toppings" value="cheese" checked />
         Extra cheese
       </label>
     </li>
-    <li class="dt-checkboxlist__item">
-      <label class="dt-checkboxlist__label">
-        <input type="checkbox" class="dt-checkboxlist__checkbox" name="toppings" value="pepperoni" />
+    <li class="dx-checkboxlist__item">
+      <label class="dx-checkboxlist__label">
+        <input type="checkbox" class="dx-checkboxlist__checkbox" name="toppings" value="pepperoni" />
         Pepperoni
       </label>
     </li>
-    <li class="dt-checkboxlist__item">
-      <label class="dt-checkboxlist__label">
-        <input type="checkbox" class="dt-checkboxlist__checkbox" name="toppings" value="mushroom" checked />
+    <li class="dx-checkboxlist__item">
+      <label class="dx-checkboxlist__label">
+        <input type="checkbox" class="dx-checkboxlist__checkbox" name="toppings" value="mushroom" checked />
         Mushroom
       </label>
     </li>

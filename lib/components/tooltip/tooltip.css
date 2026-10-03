@@ -1,26 +1,26 @@
-.dt-tooltip {
+.dx-tooltip {
   position: relative;
   display: inline-flex;
   align-items: center;
 }
 
-.dt-tooltip-bubble {
+.dx-tooltip-bubble {
   position: absolute;
-  z-index: var(--dt-z-tooltip);
-  background: var(--dt-color-text);
-  color: var(--dt-color-bg);
-  font-size: var(--dt-font-size-xs);
-  font-weight: var(--dt-font-weight-medium);
+  z-index: var(--dx-z-tooltip);
+  background: var(--dx-color-text);
+  color: var(--dx-color-bg);
+  font-size: var(--dx-font-size-xs);
+  font-weight: var(--dx-font-weight-medium);
   line-height: 1.4;
-  padding: var(--dt-space-1) var(--dt-space-2);
-  border-radius: var(--dt-radius-sm);
-  box-shadow: var(--dt-shadow-md);
+  padding: var(--dx-space-1) var(--dx-space-2);
+  border-radius: var(--dx-radius-sm);
+  box-shadow: var(--dx-shadow-md);
   white-space: nowrap;
   pointer-events: none;
-  animation: dt-tooltip-in var(--dt-transition-fast) ease-out;
+  animation: dx-tooltip-in var(--dx-transition-fast) ease-out;
 }
 
-@keyframes dt-tooltip-in {
+@keyframes dx-tooltip-in {
   from {
     opacity: 0;
     transform: translateY(2px);
@@ -31,57 +31,57 @@
   }
 }
 
-.dt-tooltip-bubble--top {
-  bottom: calc(100% + var(--dt-space-2));
+.dx-tooltip-bubble--top {
+  bottom: calc(100% + var(--dx-space-2));
   left: 50%;
   transform: translateX(-50%);
 }
 
-.dt-tooltip-bubble--right {
-  left: calc(100% + var(--dt-space-2));
+.dx-tooltip-bubble--right {
+  left: calc(100% + var(--dx-space-2));
   top: 50%;
   transform: translateY(-50%);
 }
 
-.dt-tooltip-bubble--bottom {
-  top: calc(100% + var(--dt-space-2));
+.dx-tooltip-bubble--bottom {
+  top: calc(100% + var(--dx-space-2));
   left: 50%;
   transform: translateX(-50%);
 }
 
-.dt-tooltip-bubble--left {
-  right: calc(100% + var(--dt-space-2));
+.dx-tooltip-bubble--left {
+  right: calc(100% + var(--dx-space-2));
   top: 50%;
   transform: translateY(-50%);
 }
 
-.dt-tooltip-arrow {
+.dx-tooltip-arrow {
   position: absolute;
   width: 6px;
   height: 6px;
-  background: var(--dt-color-text);
+  background: var(--dx-color-text);
   transform: rotate(45deg);
 }
 
-.dt-tooltip-bubble--top .dt-tooltip-arrow {
+.dx-tooltip-bubble--top .dx-tooltip-arrow {
   top: 100%;
   left: 50%;
   margin: -3px 0 0 -3px;
 }
 
-.dt-tooltip-bubble--right .dt-tooltip-arrow {
+.dx-tooltip-bubble--right .dx-tooltip-arrow {
   right: 100%;
   top: 50%;
   margin: -3px -3px 0 0;
 }
 
-.dt-tooltip-bubble--bottom .dt-tooltip-arrow {
+.dx-tooltip-bubble--bottom .dx-tooltip-arrow {
   bottom: 100%;
   left: 50%;
   margin: 0 0 -3px -3px;
 }
 
-.dt-tooltip-bubble--left .dt-tooltip-arrow {
+.dx-tooltip-bubble--left .dx-tooltip-arrow {
   left: 100%;
   top: 50%;
   margin: -3px 0 0 -3px;

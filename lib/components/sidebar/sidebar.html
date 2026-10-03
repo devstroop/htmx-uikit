@@ -1,28 +1,28 @@
 <!--
   Sidebar — collapsible flank (Radzen RadzenSidebar model).
-  Root: <aside class="dt-sidebar [dt-sidebar--left|--right] [dt-sidebar--collapsed]" data-dt-sidebar>
+  Root: <aside class="dx-sidebar [dx-sidebar--left|--right] [dx-sidebar--collapsed]" data-dx-sidebar>
   Position: --left (default, right border) or --right (left border).
-  Width: var(--dt-layout-sidebar-width, 240px) — override inline or
+  Width: var(--dx-layout-sidebar-width, 240px) — override inline or
   per theme.
-  Collapse: author adds dt-sidebar--collapsed for the initial state;
-  any element with data-dt-sidebar-toggle="#id" flips the class and
+  Collapse: author adds dx-sidebar--collapsed for the initial state;
+  any element with data-dx-sidebar-toggle="#id" flips the class and
   mirrors aria-expanded on itself. Toggle should set aria-controls
   pointing at the sidebar id.
-  Responsive: dt-sidebar--responsive collapses below 768px via media
+  Responsive: dx-sidebar--responsive collapses below 768px via media
   query (RadzenSidebar Responsive parity) — no JS.
-  Overlay (drawer): dt-sidebar--overlay renders the aside absolutely
-  over the body with shadow.lg; the owning .dt-layout-row becomes its
+  Overlay (drawer): dx-sidebar--overlay renders the aside absolutely
+  over the body with shadow.lg; the owning .dx-layout-row becomes its
   positioning context via :has(). Pair it with a scrim:
-    <div class="dt-layout-mask" data-dt-sidebar-mask="#side"></div>
-  The data-dt-sidebar-mask behavior collapses the target sidebar,
+    <div class="dx-layout-mask" data-dx-sidebar-mask="#side"></div>
+  The data-dx-sidebar-mask behavior collapses the target sidebar,
   hides the mask, and mirrors aria-expanded="false" on its toggle.
   Collapse is visual-only: hide the aside (hidden/inert) as well if
   its content must not be reachable while collapsed.
 -->
 
-<aside class="dt-sidebar dt-sidebar--left" id="preview-sidebar" data-dt-sidebar>
+<aside class="dx-sidebar dx-sidebar--left" id="preview-sidebar" data-dx-sidebar>
   <nav aria-label="Preview navigation">
-    <ul class="dt-list" style="display: grid; gap: 4px">
+    <ul class="dx-list" style="display: grid; gap: 4px">
       <li>Dashboard</li>
       <li>Users</li>
       <li>Settings</li>
@@ -30,14 +30,14 @@
   </nav>
 </aside>
 
-<button class="dt-button dt-button--ghost dt-button--sm" type="button" data-dt-sidebar-toggle="#preview-sidebar" aria-expanded="true" aria-controls="preview-sidebar">
+<button class="dx-button dx-button--ghost dx-button--sm" type="button" data-dx-sidebar-toggle="#preview-sidebar" aria-expanded="true" aria-controls="preview-sidebar">
   Toggle sidebar
 </button>
 
 <!-- Responsive: collapses below 768px regardless of expanded state. -->
-<aside class="dt-sidebar dt-sidebar--left dt-sidebar--responsive" id="responsive-sidebar" data-dt-sidebar>
+<aside class="dx-sidebar dx-sidebar--left dx-sidebar--responsive" id="responsive-sidebar" data-dx-sidebar>
   <nav aria-label="Responsive navigation">
-    <ul class="dt-list" style="display: grid; gap: 4px">
+    <ul class="dx-list" style="display: grid; gap: 4px">
       <li>Dashboard</li>
       <li>Users</li>
     </ul>
@@ -47,11 +47,11 @@
 <!-- Overlay drawer: absolute panel + scrim (mask closes the drawer;
      Escape closes it too). Start collapsed with the mask hidden so
      copying this markup does not cover the page. -->
-<div class="dt-layout-row">
-  <div class="dt-layout-mask dt-layout-mask--hidden" data-dt-sidebar-mask="#drawer-sidebar"></div>
-  <aside class="dt-sidebar dt-sidebar--right dt-sidebar--overlay dt-sidebar--collapsed" id="drawer-sidebar" data-dt-sidebar>
+<div class="dx-layout-row">
+  <div class="dx-layout-mask dx-layout-mask--hidden" data-dx-sidebar-mask="#drawer-sidebar"></div>
+  <aside class="dx-sidebar dx-sidebar--right dx-sidebar--overlay dx-sidebar--collapsed" id="drawer-sidebar" data-dx-sidebar>
     <nav aria-label="Drawer navigation">
-      <ul class="dt-list" style="display: grid; gap: 4px">
+      <ul class="dx-list" style="display: grid; gap: 4px">
         <li>Dashboard</li>
         <li>Settings</li>
       </ul>
@@ -59,6 +59,6 @@
   </aside>
 </div>
 
-<button class="dt-button dt-button--ghost dt-button--sm" type="button" data-dt-sidebar-toggle="#drawer-sidebar" aria-expanded="false" aria-controls="drawer-sidebar">
+<button class="dx-button dx-button--ghost dx-button--sm" type="button" data-dx-sidebar-toggle="#drawer-sidebar" aria-expanded="false" aria-controls="drawer-sidebar">
   Toggle drawer
 </button>

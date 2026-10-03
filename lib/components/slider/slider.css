@@ -1,72 +1,72 @@
-.dt-slider {
+.dx-slider {
   position: relative;
   display: block;
   width: 100%;
   min-width: 0;
-  font-family: var(--dt-font-sans);
+  font-family: var(--dx-font-sans);
 }
 
-.dt-slider-track {
+.dx-slider-track {
   position: relative;
   height: 4px;
-  border-radius: var(--dt-radius-full);
-  background-color: var(--dt-color-border);
+  border-radius: var(--dx-radius-full);
+  background-color: var(--dx-color-border);
   touch-action: none;
 }
 
-.dt-slider-range {
+.dx-slider-range {
   position: absolute;
   top: 0;
   height: 100%;
-  border-radius: var(--dt-radius-full);
-  background-color: var(--dt-color-primary);
+  border-radius: var(--dx-radius-full);
+  background-color: var(--dx-color-primary);
   pointer-events: none;
 }
 
-.dt-slider-handle {
+.dx-slider-handle {
   position: absolute;
   top: calc(50% - 8px);
   width: 16px;
   height: 16px;
   box-sizing: border-box;
   border: none;
-  border-radius: var(--dt-radius-full);
-  background-color: var(--dt-color-primary);
-  box-shadow: var(--dt-shadow-sm);
+  border-radius: var(--dx-radius-full);
+  background-color: var(--dx-color-primary);
+  box-shadow: var(--dx-shadow-sm);
   cursor: grab;
   touch-action: none;
 }
 
-.dt-slider-handle:hover:not(:disabled) {
-  background-color: var(--dt-color-primary-hover);
+.dx-slider-handle:hover:not(:disabled) {
+  background-color: var(--dx-color-primary-hover);
 }
 
-.dt-slider-handle:active {
+.dx-slider-handle:active {
   cursor: grabbing;
 }
 
-.dt-slider-handle:focus-visible {
-  outline: 2px solid var(--dt-color-outline-primary);
+.dx-slider-handle:focus-visible {
+  outline: 2px solid var(--dx-color-outline-primary);
   outline-offset: 2px;
 }
 
-.dt-slider-handle:disabled {
+.dx-slider-handle:disabled {
   opacity: 0.55;
   cursor: not-allowed;
 }
 
-.dt-slider--vertical {
+.dx-slider--vertical {
   width: auto;
   height: 160px;
 }
 
-.dt-slider--vertical .dt-slider-track {
+.dx-slider--vertical .dx-slider-track {
   width: 4px;
   height: 100%;
   margin-left: 8px;
 }
 
-.dt-slider--vertical .dt-slider-range {
+.dx-slider--vertical .dx-slider-range {
   top: auto;
   left: 0;
   bottom: 0;
@@ -74,18 +74,18 @@
   height: auto;
 }
 
-.dt-slider--vertical .dt-slider-handle {
+.dx-slider--vertical .dx-slider-handle {
   top: auto;
   left: calc(50% - 8px);
   bottom: calc(50% - 8px);
   margin-left: 8px;
 }
 
-.dt-slider--disabled {
+.dx-slider--disabled {
   opacity: 0.55;
   cursor: not-allowed;
 }
 
-.dt-slider--disabled .dt-slider-handle {
+.dx-slider--disabled .dx-slider-handle {
   cursor: not-allowed;
 }

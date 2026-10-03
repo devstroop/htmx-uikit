@@ -1,0 +1,57 @@
+.dx-text {
+  font-family: var(--dx-font-sans);
+}
+
+.dx-text--display-1 {
+  font-size: var(--dx-font-display-1);
+  letter-spacing: var(--dx-letterspacing-display-1);
+}
+
+.dx-text--display-2 {
+  font-size: var(--dx-font-display-2);
+  letter-spacing: var(--dx-letterspacing-display-2);
+}
+
+.dx-text--display-3 {
+  font-size: var(--dx-font-display-3);
+  letter-spacing: var(--dx-letterspacing-display-3);
+}
+
+.dx-text--display-4 {
+  font-size: var(--dx-font-display-4);
+  letter-spacing: var(--dx-letterspacing-display-4);
+}
+
+.dx-text--display-5 {
+  font-size: var(--dx-font-display-5);
+  letter-spacing: var(--dx-letterspacing-display-5);
+}
+
+.dx-text--display-6 {
+  font-size: var(--dx-font-display-6);
+  letter-spacing: var(--dx-letterspacing-display-6);
+}
+
+.dx-text--body-1 {
+  font-size: var(--dx-font-size-sm);
+  line-height: 1.429;
+}
+
+.dx-text--body-2 {
+  font-size: var(--dx-font-size-sm);
+  line-height: 1.5;
+}
+
+.dx-text--caption {
+  font-size: var(--dx-font-size-xs);
+  line-height: 1.429;
+  color: var(--dx-color-text-muted);
+}
+
+.dx-text--overline {
+  font-size: var(--dx-font-size-xs);
+  line-height: 1.429;
+  font-weight: var(--dx-font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--dx-letterspacing-overline);
+}

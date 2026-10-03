@@ -1,16 +1,16 @@
 <!--
   ThemeSwitcher — reference markup for server templates
   (RadzenAppearanceToggle parity).
-  Root: <label class="dt-theme-switcher">
-  Hook: <input type="checkbox" data-dt-theme-switch>
+  Root: <label class="dx-theme-switcher">
+  Hook: <input type="checkbox" data-dx-theme-switch>
   Behavior: on load, checked is initialized from
   document.documentElement.dataset.theme (dark = checked); on change,
   the attribute flips between "light" and "dark".
-  Use the switch surface (dt-switch) or a plain checkbox — the behavior
+  Use the switch surface (dx-switch) or a plain checkbox — the behavior
   only cares about checked. No persistence is included.
 -->
 
-<label class="dt-theme-switcher">
+<label class="dx-theme-switcher">
   <span>Dark mode</span>
-  <input type="checkbox" data-dt-theme-switch />
+  <input type="checkbox" data-dx-theme-switch />
 </label>

@@ -1,40 +1,40 @@
-.dt-carousel {
+.dx-carousel {
   position: relative;
   display: block;
   width: 100%;
   overflow: hidden;
-  border: 1px solid var(--dt-color-border);
-  border-radius: var(--dt-radius-md);
-  background-color: var(--dt-color-surface);
-  font-family: var(--dt-font-sans);
+  border: 1px solid var(--dx-color-border);
+  border-radius: var(--dx-radius-md);
+  background-color: var(--dx-color-surface);
+  font-family: var(--dx-font-sans);
 }
 
-.dt-carousel:focus-visible {
-  outline: 2px solid var(--dt-color-outline-primary);
+.dx-carousel:focus-visible {
+  outline: 2px solid var(--dx-color-outline-primary);
   outline-offset: 2px;
 }
 
-.dt-carousel-viewport {
+.dx-carousel-viewport {
   position: relative;
   display: block;
   width: 100%;
   min-height: 200px;
 }
 
-.dt-carousel-slide {
+.dx-carousel-slide {
   display: none;
   width: 100%;
-  padding: var(--dt-space-4);
-  color: var(--dt-color-text);
-  font-size: var(--dt-font-size-sm);
-  transition: opacity var(--dt-transition-fast);
+  padding: var(--dx-space-4);
+  color: var(--dx-color-text);
+  font-size: var(--dx-font-size-sm);
+  transition: opacity var(--dx-transition-fast);
 }
 
-.dt-carousel-slide--active {
+.dx-carousel-slide--active {
   display: block;
 }
 
-.dt-carousel-arrow {
+.dx-carousel-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -43,112 +43,112 @@
   justify-content: center;
   width: 36px;
   height: 36px;
-  border: 1px solid var(--dt-color-border);
-  border-radius: var(--dt-radius-md);
-  background-color: var(--dt-color-surface);
-  color: var(--dt-color-text);
+  border: 1px solid var(--dx-color-border);
+  border-radius: var(--dx-radius-md);
+  background-color: var(--dx-color-surface);
+  color: var(--dx-color-text);
   font-size: 20px;
   line-height: 1;
   cursor: pointer;
-  box-shadow: var(--dt-shadow-sm);
+  box-shadow: var(--dx-shadow-sm);
   transition:
-    background-color var(--dt-transition-fast),
-    border-color var(--dt-transition-fast),
-    color var(--dt-transition-fast);
+    background-color var(--dx-transition-fast),
+    border-color var(--dx-transition-fast),
+    color var(--dx-transition-fast);
   z-index: 1;
 }
 
-.dt-carousel-arrow:hover {
-  background-color: var(--dt-color-surface-hover);
-  border-color: var(--dt-color-border-strong);
+.dx-carousel-arrow:hover {
+  background-color: var(--dx-color-surface-hover);
+  border-color: var(--dx-color-border-strong);
 }
 
-.dt-carousel-arrow:focus-visible {
-  outline: 2px solid var(--dt-color-outline-primary);
+.dx-carousel-arrow:focus-visible {
+  outline: 2px solid var(--dx-color-outline-primary);
   outline-offset: 1px;
 }
 
-.dt-carousel-prev {
-  left: var(--dt-space-2);
+.dx-carousel-prev {
+  left: var(--dx-space-2);
 }
 
-.dt-carousel-next {
-  right: var(--dt-space-2);
+.dx-carousel-next {
+  right: var(--dx-space-2);
 }
 
-.dt-carousel-pause {
+.dx-carousel-pause {
   position: absolute;
-  bottom: var(--dt-space-2);
-  right: var(--dt-space-2);
+  bottom: var(--dx-space-2);
+  right: var(--dx-space-2);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 28px;
   height: 28px;
-  border: 1px solid var(--dt-color-border);
-  border-radius: var(--dt-radius-md);
-  background-color: var(--dt-color-surface);
-  color: var(--dt-color-text-muted);
+  border: 1px solid var(--dx-color-border);
+  border-radius: var(--dx-radius-md);
+  background-color: var(--dx-color-surface);
+  color: var(--dx-color-text-muted);
   font-size: 12px;
   cursor: pointer;
   z-index: 1;
   transition:
-    background-color var(--dt-transition-fast),
-    border-color var(--dt-transition-fast);
+    background-color var(--dx-transition-fast),
+    border-color var(--dx-transition-fast);
 }
 
-.dt-carousel-pause:hover {
-  background-color: var(--dt-color-surface-hover);
-  color: var(--dt-color-text);
+.dx-carousel-pause:hover {
+  background-color: var(--dx-color-surface-hover);
+  color: var(--dx-color-text);
 }
 
-.dt-carousel-pause:focus-visible {
-  outline: 2px solid var(--dt-color-outline-primary);
+.dx-carousel-pause:focus-visible {
+  outline: 2px solid var(--dx-color-outline-primary);
   outline-offset: 1px;
 }
 
-.dt-carousel-indicators {
+.dx-carousel-indicators {
   position: absolute;
-  bottom: var(--dt-space-2);
+  bottom: var(--dx-space-2);
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   align-items: center;
-  gap: var(--dt-space-1);
+  gap: var(--dx-space-1);
   z-index: 1;
 }
 
-.dt-carousel-indicator {
+.dx-carousel-indicator {
   width: 10px;
   height: 10px;
-  border-radius: var(--dt-radius-full);
-  border: 1px solid var(--dt-color-border);
-  background-color: var(--dt-color-surface);
+  border-radius: var(--dx-radius-full);
+  border: 1px solid var(--dx-color-border);
+  background-color: var(--dx-color-surface);
   cursor: pointer;
   padding: 0;
   transition:
-    background-color var(--dt-transition-fast),
-    border-color var(--dt-transition-fast),
-    transform var(--dt-transition-fast);
+    background-color var(--dx-transition-fast),
+    border-color var(--dx-transition-fast),
+    transform var(--dx-transition-fast);
 }
 
-.dt-carousel-indicator:hover {
-  background-color: var(--dt-color-surface-hover);
-  border-color: var(--dt-color-border-strong);
+.dx-carousel-indicator:hover {
+  background-color: var(--dx-color-surface-hover);
+  border-color: var(--dx-color-border-strong);
 }
 
-.dt-carousel-indicator:focus-visible {
-  outline: 2px solid var(--dt-color-outline-primary);
+.dx-carousel-indicator:focus-visible {
+  outline: 2px solid var(--dx-color-outline-primary);
   outline-offset: 1px;
 }
 
-.dt-carousel-indicator--active {
-  background-color: var(--dt-color-primary);
-  border-color: var(--dt-color-primary);
+.dx-carousel-indicator--active {
+  background-color: var(--dx-color-primary);
+  border-color: var(--dx-color-primary);
   transform: scale(1.2);
 }
 
-.dt-carousel-indicator[aria-current="true"] {
-  background-color: var(--dt-color-primary);
-  border-color: var(--dt-color-primary);
+.dx-carousel-indicator[aria-current="true"] {
+  background-color: var(--dx-color-primary);
+  border-color: var(--dx-color-primary);
 }

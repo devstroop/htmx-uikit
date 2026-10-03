@@ -1,49 +1,49 @@
-.dt-gantt {
-  font-family: var(--dt-font-sans);
-  border: 1px solid var(--dt-color-border);
-  border-radius: var(--dt-radius-md);
-  background-color: var(--dt-color-surface);
+.dx-gantt {
+  font-family: var(--dx-font-sans);
+  border: 1px solid var(--dx-color-border);
+  border-radius: var(--dx-radius-md);
+  background-color: var(--dx-color-surface);
   overflow: hidden;
 }
-.dt-gantt-header {
+.dx-gantt-header {
   display: flex;
-  gap: var(--dt-space-2);
-  padding: var(--dt-space-2);
-  border-bottom: 1px solid var(--dt-color-border);
-  background-color: var(--dt-color-surface);
+  gap: var(--dx-space-2);
+  padding: var(--dx-space-2);
+  border-bottom: 1px solid var(--dx-color-border);
+  background-color: var(--dx-color-surface);
 }
-.dt-gantt-header-cell {
+.dx-gantt-header-cell {
   flex: 1;
-  font-size: var(--dt-font-size-sm);
-  font-weight: var(--dt-font-weight-medium);
-  color: var(--dt-color-text);
+  font-size: var(--dx-font-size-sm);
+  font-weight: var(--dx-font-weight-medium);
+  color: var(--dx-color-text);
 }
-.dt-gantt-row {
+.dx-gantt-row {
   display: flex;
-  gap: var(--dt-space-2);
-  padding: var(--dt-space-1) var(--dt-space-2);
-  border-bottom: 1px solid var(--dt-color-border);
+  gap: var(--dx-space-2);
+  padding: var(--dx-space-1) var(--dx-space-2);
+  border-bottom: 1px solid var(--dx-color-border);
 }
-.dt-gantt-cell {
+.dx-gantt-cell {
   flex: 1;
-  font-size: var(--dt-font-size-sm);
-  color: var(--dt-color-text);
+  font-size: var(--dx-font-size-sm);
+  color: var(--dx-color-text);
 }
-.dt-gantt-bar {
+.dx-gantt-bar {
   flex: 1;
   height: 20px;
-  border: 1px solid var(--dt-color-primary);
-  border-radius: var(--dt-radius-sm);
-  background-color: var(--dt-color-surface);
+  border: 1px solid var(--dx-color-primary);
+  border-radius: var(--dx-radius-sm);
+  background-color: var(--dx-color-surface);
   position: relative;
   cursor: pointer;
 }
-.dt-gantt-bar:focus-visible {
-  outline: 2px solid var(--dt-color-outline-primary);
+.dx-gantt-bar:focus-visible {
+  outline: 2px solid var(--dx-color-outline-primary);
   outline-offset: 1px;
 }
-.dt-gantt-progress {
+.dx-gantt-progress {
   height: 100%;
-  background-color: var(--dt-color-primary);
-  border-radius: var(--dt-radius-sm);
+  background-color: var(--dx-color-primary);
+  border-radius: var(--dx-radius-sm);
 }

@@ -1,57 +1,57 @@
-.dt-pivot {
-  font-family: var(--dt-font-sans);
+.dx-pivot {
+  font-family: var(--dx-font-sans);
   overflow: auto;
 }
 
-.dt-pivot-fields {
+.dx-pivot-fields {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--dt-space-1);
-  padding: var(--dt-space-2);
+  gap: var(--dx-space-1);
+  padding: var(--dx-space-2);
 }
 
-.dt-pivot-chip {
+.dx-pivot-chip {
   display: inline-flex;
   align-items: center;
-  padding: 0 var(--dt-space-2);
+  padding: 0 var(--dx-space-2);
   height: 24px;
-  border: 1px solid var(--dt-color-border);
-  border-radius: var(--dt-radius-sm);
-  background-color: var(--dt-color-surface);
-  color: var(--dt-color-text);
-  font-size: var(--dt-font-size-sm);
+  border: 1px solid var(--dx-color-border);
+  border-radius: var(--dx-radius-sm);
+  background-color: var(--dx-color-surface);
+  color: var(--dx-color-text);
+  font-size: var(--dx-font-size-sm);
   cursor: pointer;
 }
 
-.dt-pivot-chip:hover {
-  background-color: var(--dt-color-surface-hover);
+.dx-pivot-chip:hover {
+  background-color: var(--dx-color-surface-hover);
 }
 
-.dt-pivot-chip:focus-visible {
-  outline: 2px solid var(--dt-color-outline-primary);
+.dx-pivot-chip:focus-visible {
+  outline: 2px solid var(--dx-color-outline-primary);
   outline-offset: 1px;
 }
 
-.dt-pivot-table {
+.dx-pivot-table {
   border-collapse: collapse;
   width: 100%;
-  font-size: var(--dt-font-size-sm);
+  font-size: var(--dx-font-size-sm);
 }
 
-.dt-pivot-table th,
-.dt-pivot-table td {
-  border: 1px solid var(--dt-color-border);
-  padding: var(--dt-space-1) var(--dt-space-2);
+.dx-pivot-table th,
+.dx-pivot-table td {
+  border: 1px solid var(--dx-color-border);
+  padding: var(--dx-space-1) var(--dx-space-2);
   text-align: start;
-  color: var(--dt-color-text);
+  color: var(--dx-color-text);
 }
 
-.dt-pivot-table thead th {
-  font-weight: var(--dt-font-weight-medium);
-  color: var(--dt-color-text-muted);
+.dx-pivot-table thead th {
+  font-weight: var(--dx-font-weight-medium);
+  color: var(--dx-color-text-muted);
 }
 
-.dt-pivot-total-row th,
-.dt-pivot-total-row td {
-  font-weight: var(--dt-font-weight-medium);
+.dx-pivot-total-row th,
+.dx-pivot-total-row td {
+  font-weight: var(--dx-font-weight-medium);
 }

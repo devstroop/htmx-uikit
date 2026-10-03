@@ -1,65 +1,65 @@
-.dt-textarea {
+.dx-textarea {
   width: 100%;
   min-width: 0;
   box-sizing: border-box;
-  background: var(--dt-color-surface);
-  border: 1px solid var(--dt-color-border-strong);
-  border-radius: var(--dt-radius-md);
-  color: var(--dt-color-text);
-  font-family: var(--dt-font-sans);
-  font-size: var(--dt-font-size-sm);
-  padding: var(--dt-space-2) var(--dt-space-3);
+  background: var(--dx-color-surface);
+  border: 1px solid var(--dx-color-border-strong);
+  border-radius: var(--dx-radius-md);
+  color: var(--dx-color-text);
+  font-family: var(--dx-font-sans);
+  font-size: var(--dx-font-size-sm);
+  padding: var(--dx-space-2) var(--dx-space-3);
   line-height: 1.5;
-  transition: border-color var(--dt-transition-fast), box-shadow var(--dt-transition-fast);
+  transition: border-color var(--dx-transition-fast), box-shadow var(--dx-transition-fast);
 }
 
-.dt-textarea::placeholder {
-  color: var(--dt-color-text-muted);
+.dx-textarea::placeholder {
+  color: var(--dx-color-text-muted);
 }
 
-.dt-textarea:focus-visible {
+.dx-textarea:focus-visible {
   outline: none;
-  border-color: var(--dt-color-primary);
-  box-shadow: 0 0 0 3px var(--dt-color-focus);
+  border-color: var(--dx-color-primary);
+  box-shadow: 0 0 0 3px var(--dx-color-focus);
 }
 
-.dt-textarea--xs {
+.dx-textarea--xs {
   min-height: 40px;
-  font-size: var(--dt-font-size-xs);
+  font-size: var(--dx-font-size-xs);
 }
 
-.dt-textarea--sm {
+.dx-textarea--sm {
   min-height: 56px;
-  font-size: var(--dt-font-size-xs);
+  font-size: var(--dx-font-size-xs);
 }
 
-.dt-textarea--md {
+.dx-textarea--md {
   min-height: 84px;
-  font-size: var(--dt-font-size-sm);
+  font-size: var(--dx-font-size-sm);
 }
 
-.dt-textarea--lg {
+.dx-textarea--lg {
   min-height: 128px;
-  font-size: var(--dt-font-size-md);
+  font-size: var(--dx-font-size-md);
 }
 
-.dt-textarea--xl {
+.dx-textarea--xl {
   min-height: 160px;
-  font-size: var(--dt-font-size-lg);
+  font-size: var(--dx-font-size-lg);
 }
 
-.dt-textarea--resize-none {
+.dx-textarea--resize-none {
   resize: none;
 }
 
-.dt-textarea--resize-vertical {
+.dx-textarea--resize-vertical {
   resize: vertical;
 }
 
-.dt-textarea--resize-horizontal {
+.dx-textarea--resize-horizontal {
   resize: horizontal;
 }
 
-.dt-textarea--resize-both {
+.dx-textarea--resize-both {
   resize: both;
 }

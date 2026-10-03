@@ -1,68 +1,68 @@
 <!--
   Table — reference markup for server templates.
-  Root: <div class="dt-table-wrap">
+  Root: <div class="dx-table-wrap">
   Parts:
-    table  <table class="dt-table">
-    header <thead><tr><th scope="col" [class="dt-table-<align>"]>
-    body   <tbody><tr><td [class="dt-table-<align>"]>
-    empty  <div class="dt-table-empty">          (sibling of the table when
+    table  <table class="dx-table">
+    header <thead><tr><th scope="col" [class="dx-table-<align>"]>
+    body   <tbody><tr><td [class="dx-table-<align>"]>
+    empty  <div class="dx-table-empty">          (sibling of the table when
                                                   there are no rows)
   Modifiers (per cell, on th/td):
-    align  dt-table-start | dt-table-center | dt-table-end
+    align  dx-table-start | dx-table-center | dx-table-end
            (applied when the column defines align; default is left)
   No JS, no data-* hooks. Column headers carry scope="col". The server
   template omits <thead> content handling entirely for empty tables and
   renders the empty slot instead of the tbody.
 -->
 
-<div class="dt-table-wrap">
-  <table class="dt-table">
-    <caption class="dt-table-caption">Team roster</caption>
+<div class="dx-table-wrap">
+  <table class="dx-table">
+    <caption class="dx-table-caption">Team roster</caption>
     <thead>
       <tr>
         <th scope="col">Name</th>
         <th scope="col">Role</th>
-        <th scope="col" class="dt-table-end">Quota</th>
+        <th scope="col" class="dx-table-end">Quota</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>Jane Doe</td>
         <td>Admin</td>
-        <td class="dt-table-end">48 GB</td>
+        <td class="dx-table-end">48 GB</td>
       </tr>
       <tr>
         <td>Alfred Aku</td>
         <td>Member</td>
-        <td class="dt-table-end">12 GB</td>
+        <td class="dx-table-end">12 GB</td>
       </tr>
       <tr>
         <td>Grace Hopper</td>
         <td>Member</td>
-        <td class="dt-table-end">9 GB</td>
+        <td class="dx-table-end">9 GB</td>
       </tr>
     </tbody>
   </table>
 </div>
 
-<div class="dt-table-wrap">
-  <table class="dt-table">
+<div class="dx-table-wrap">
+  <table class="dx-table">
     <thead>
       <tr>
         <th scope="col">Status</th>
-        <th scope="col" class="dt-table-center">Nodes</th>
+        <th scope="col" class="dx-table-center">Nodes</th>
         <th scope="col">Region</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>Healthy</td>
-        <td class="dt-table-center">3</td>
+        <td class="dx-table-center">3</td>
         <td>eu-west-1</td>
       </tr>
       <tr>
         <td>Degraded</td>
-        <td class="dt-table-center">1</td>
+        <td class="dx-table-center">1</td>
         <td>us-east-1</td>
       </tr>
     </tbody>
@@ -70,30 +70,30 @@
 </div>
 
 <!-- grid variants: none / horizontal / vertical; alternating rows are
-     applied by default and can be disabled with dt-table--no-alternating -->
-<div class="dt-table-wrap dt-table--grid-none dt-table--no-alternating">
-  <table class="dt-table">
+     applied by default and can be disabled with dx-table--no-alternating -->
+<div class="dx-table-wrap dx-table--grid-none dx-table--no-alternating">
+  <table class="dx-table">
     <thead>
       <tr>
         <th scope="col">Mode</th>
-        <th scope="col" class="dt-table-end">Limit</th>
+        <th scope="col" class="dx-table-end">Limit</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>Strict</td>
-        <td class="dt-table-end">100%</td>
+        <td class="dx-table-end">100%</td>
       </tr>
       <tr>
         <td>Relaxed</td>
-        <td class="dt-table-end">80%</td>
+        <td class="dx-table-end">80%</td>
       </tr>
     </tbody>
   </table>
 </div>
 
-<div class="dt-table-wrap dt-table--grid-vertical">
-  <table class="dt-table">
+<div class="dx-table-wrap dx-table--grid-vertical">
+  <table class="dx-table">
     <thead>
       <tr>
         <th scope="col">Region</th>
@@ -113,6 +113,6 @@
   </table>
 </div>
 
-<div class="dt-table-wrap">
-  <div class="dt-table-empty">No deployments yet — create your first one.</div>
+<div class="dx-table-wrap">
+  <div class="dx-table-empty">No deployments yet — create your first one.</div>
 </div>

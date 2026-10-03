@@ -1,13 +1,13 @@
 <!--
-  Validators — declarative validation rules for dt-form fields.
-  There is no validator markup: rules are data-dt-* attributes on
-  [data-dt-field] elements inside a [data-dt-form] and are evaluated at
+  Validators — declarative validation rules for dx-form fields.
+  There is no validator markup: rules are data-dx-* attributes on
+  [data-dx-field] elements inside a [data-dx-form] and are evaluated at
   submit time by behaviors.js.
 
-  Rules: data-dt-required, data-dt-email, data-dt-pattern (regexp
-  source), data-dt-min, data-dt-max (numbers), data-dt-minlength,
-  data-dt-maxlength. Messages: data-dt-<rule>-message, else
-  data-dt-error-message, else a default. Native constraints on the same
+  Rules: data-dx-required, data-dx-email, data-dx-pattern (regexp
+  source), data-dx-min, data-dx-max (numbers), data-dx-minlength,
+  data-dx-maxlength. Messages: data-dx-<rule>-message, else
+  data-dx-error-message, else a default. Native constraints on the same
   element (required/min/max/minlength/maxlength/pattern/type=email/
   type=number) are respected via the validity API. Empty values pass
   every rule except required.
@@ -16,19 +16,19 @@
 -->
 
 <!-- Required + email + length with a custom per-rule message. -->
-<form class="dt-form" data-dt-form>
-  <div class="dt-field">
-    <label class="dt-field-label" for="v-name">Name</label>
-    <input id="v-name" class="dt-input dt-input--md" type="text" name="name" data-dt-field data-dt-required data-dt-minlength="2" data-dt-minlength-message="At least 2 characters" />
+<form class="dx-form" data-dx-form>
+  <div class="dx-field">
+    <label class="dx-field-label" for="v-name">Name</label>
+    <input id="v-name" class="dx-input dx-input--md" type="text" name="name" data-dx-field data-dx-required data-dx-minlength="2" data-dx-minlength-message="At least 2 characters" />
   </div>
-  <div class="dt-field">
-    <label class="dt-field-label" for="v-email">Email</label>
-    <input id="v-email" class="dt-input dt-input--md" type="email" name="email" data-dt-field data-dt-required data-dt-email />
-    <div id="v-email-error" class="dt-field-error" aria-live="polite" data-dt-field-error></div>
+  <div class="dx-field">
+    <label class="dx-field-label" for="v-email">Email</label>
+    <input id="v-email" class="dx-input dx-input--md" type="email" name="email" data-dx-field data-dx-required data-dx-email />
+    <div id="v-email-error" class="dx-field-error" aria-live="polite" data-dx-field-error></div>
   </div>
-  <div class="dt-field">
-    <label class="dt-field-label" for="v-age">Age</label>
-    <input id="v-age" class="dt-input dt-input--md" type="number" name="age" data-dt-field data-dt-min="18" data-dt-max="120" />
+  <div class="dx-field">
+    <label class="dx-field-label" for="v-age">Age</label>
+    <input id="v-age" class="dx-input dx-input--md" type="number" name="age" data-dx-field data-dx-min="18" data-dx-max="120" />
   </div>
-  <button class="dt-button dt-button--primary" type="submit">Submit</button>
+  <button class="dx-button dx-button--primary" type="submit">Submit</button>
 </form>

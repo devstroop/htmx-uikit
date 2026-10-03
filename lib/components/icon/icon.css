@@ -2,27 +2,27 @@
    stroke="currentColor". Sizing comes from the width/height attributes on
    the <svg>, or from a size tier modifier when a server prefers classes:
    each tier maps to the font-size scale. Default (no modifier) is md. */
-.dt-icon--xs {
-  width: var(--dt-font-size-xs);
-  height: var(--dt-font-size-xs);
+.dx-icon--xs {
+  width: var(--dx-font-size-xs);
+  height: var(--dx-font-size-xs);
 }
 
-.dt-icon--sm {
-  width: var(--dt-font-size-sm);
-  height: var(--dt-font-size-sm);
+.dx-icon--sm {
+  width: var(--dx-font-size-sm);
+  height: var(--dx-font-size-sm);
 }
 
-.dt-icon--md {
-  width: var(--dt-font-size-md);
-  height: var(--dt-font-size-md);
+.dx-icon--md {
+  width: var(--dx-font-size-md);
+  height: var(--dx-font-size-md);
 }
 
-.dt-icon--lg {
-  width: var(--dt-font-size-lg);
-  height: var(--dt-font-size-lg);
+.dx-icon--lg {
+  width: var(--dx-font-size-lg);
+  height: var(--dx-font-size-lg);
 }
 
-.dt-icon--xl {
-  width: var(--dt-font-size-xl);
-  height: var(--dt-font-size-xl);
+.dx-icon--xl {
+  width: var(--dx-font-size-xl);
+  height: var(--dx-font-size-xl);
 }

@@ -1,50 +1,50 @@
 <!--
   Card — reference markup for server templates.
-  Root: <div class="dt-card dt-card--<variant>" [tabindex="0" when interactive]>
+  Root: <div class="dx-card dx-card--<variant>" [tabindex="0" when interactive]>
   Modifiers:
     variant  --elevated (default) | --outlined | --interactive | --text
   Parts:
-    header  <div class="dt-card-header">   (omitted when absent)
-    body    <div class="dt-card-body">      (always present, wraps children)
-    footer  <div class="dt-card-footer">    (omitted when absent)
-  The interactive variant adds tabindex="0" and data-dt-interactive, which
+    header  <div class="dx-card-header">   (omitted when absent)
+    body    <div class="dx-card-body">      (always present, wraps children)
+    footer  <div class="dx-card-footer">    (omitted when absent)
+  The interactive variant adds tabindex="0" and data-dx-interactive, which
   makes Enter/Space dispatch a click on the card (behaviors.js). A
   consumer wires the click action itself (e.g. hx-get or a link).
   Focus-visible ring handled in CSS.
 -->
 
-<div class="dt-card dt-card--elevated">
-  <div class="dt-card-header">Deployments</div>
-  <div class="dt-card-body">Your deployments are all healthy.</div>
-  <div class="dt-card-footer">
-    <button class="dt-button dt-button--secondary" type="button">View all</button>
+<div class="dx-card dx-card--elevated">
+  <div class="dx-card-header">Deployments</div>
+  <div class="dx-card-body">Your deployments are all healthy.</div>
+  <div class="dx-card-footer">
+    <button class="dx-button dx-button--secondary" type="button">View all</button>
   </div>
 </div>
 
-<div class="dt-card dt-card--elevated">
-  <div class="dt-card-body">Body only.</div>
+<div class="dx-card dx-card--elevated">
+  <div class="dx-card-body">Body only.</div>
 </div>
 
-<div class="dt-card dt-card--outlined">
-  <div class="dt-card-header">Usage</div>
-  <div class="dt-card-body">This month: 48 GB of 100 GB.</div>
+<div class="dx-card dx-card--outlined">
+  <div class="dx-card-header">Usage</div>
+  <div class="dx-card-body">This month: 48 GB of 100 GB.</div>
 </div>
 
-<div class="dt-card dt-card--interactive" tabindex="0" data-dt-interactive>
-  <div class="dt-card-header">Open pull requests</div>
-  <div class="dt-card-body">3 PRs await your review.</div>
+<div class="dx-card dx-card--interactive" tabindex="0" data-dx-interactive>
+  <div class="dx-card-header">Open pull requests</div>
+  <div class="dx-card-body">3 PRs await your review.</div>
 </div>
 
-<div class="dt-card dt-card--interactive" tabindex="0" data-dt-interactive>
-  <div class="dt-card-body">Interactive body only.</div>
+<div class="dx-card dx-card--interactive" tabindex="0" data-dx-interactive>
+  <div class="dx-card-body">Interactive body only.</div>
 </div>
 
-<div class="dt-card dt-card--text">
-  <div class="dt-card-header">Flat text card</div>
-  <div class="dt-card-body">No border, no shadow, transparent background — inherits the parent surface.</div>
+<div class="dx-card dx-card--text">
+  <div class="dx-card-header">Flat text card</div>
+  <div class="dx-card-body">No border, no shadow, transparent background — inherits the parent surface.</div>
 </div>
 
-<div class="dt-card dt-card--outlined">
-  <div class="dt-card-body">Body.</div>
-  <div class="dt-card-footer">Footer only.</div>
+<div class="dx-card dx-card--outlined">
+  <div class="dx-card-body">Body.</div>
+  <div class="dx-card-footer">Footer only.</div>
 </div>

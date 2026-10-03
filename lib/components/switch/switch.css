@@ -1,43 +1,43 @@
-.dt-switch {
+.dx-switch {
   appearance: none;
   position: relative;
   width: 38px;
   height: 22px;
   margin: 0;
-  border-radius: var(--dt-radius-full);
-  background-color: var(--dt-color-border-strong);
+  border-radius: var(--dx-radius-full);
+  background-color: var(--dx-color-border-strong);
   cursor: pointer;
-  transition: background-color var(--dt-transition-fast);
+  transition: background-color var(--dx-transition-fast);
   flex-shrink: 0;
 }
 
-.dt-switch::before {
+.dx-switch::before {
   content: "";
   position: absolute;
   top: 3px;
   left: 3px;
   width: 16px;
   height: 16px;
-  border-radius: var(--dt-radius-full);
-  background-color: var(--dt-color-surface);
-  box-shadow: var(--dt-shadow-sm);
-  transition: transform var(--dt-transition-fast);
+  border-radius: var(--dx-radius-full);
+  background-color: var(--dx-color-surface);
+  box-shadow: var(--dx-shadow-sm);
+  transition: transform var(--dx-transition-fast);
 }
 
-.dt-switch:checked {
-  background-color: var(--dt-color-primary);
+.dx-switch:checked {
+  background-color: var(--dx-color-primary);
 }
 
-.dt-switch:checked::before {
+.dx-switch:checked::before {
   transform: translateX(16px);
 }
 
-.dt-switch:focus-visible {
-  outline: 2px solid var(--dt-color-outline-primary);
+.dx-switch:focus-visible {
+  outline: 2px solid var(--dx-color-outline-primary);
   outline-offset: 2px;
 }
 
-.dt-switch:disabled {
+.dx-switch:disabled {
   opacity: 0.55;
   cursor: not-allowed;
 }

@@ -1,104 +1,104 @@
-.dt-table-wrap {
-  font-family: var(--dt-font-sans);
-  border: 1px solid var(--dt-color-border);
-  border-radius: var(--dt-radius-md);
+.dx-table-wrap {
+  font-family: var(--dx-font-sans);
+  border: 1px solid var(--dx-color-border);
+  border-radius: var(--dx-radius-md);
   overflow: hidden;
 }
 
-.dt-table {
+.dx-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: var(--dt-font-size-sm);
+  font-size: var(--dx-font-size-sm);
 }
 
-.dt-table thead th {
-  background-color: var(--dt-color-surface-hover);
-  color: var(--dt-color-text-muted);
+.dx-table thead th {
+  background-color: var(--dx-color-surface-hover);
+  color: var(--dx-color-text-muted);
   text-align: left;
-  font-weight: var(--dt-font-weight-medium);
-  font-size: var(--dt-font-size-xs);
+  font-weight: var(--dx-font-weight-medium);
+  font-size: var(--dx-font-size-xs);
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  padding: var(--dt-space-2) var(--dt-space-3);
-  border-bottom: 1px solid var(--dt-color-border);
+  padding: var(--dx-space-2) var(--dx-space-3);
+  border-bottom: 1px solid var(--dx-color-border);
 }
 
-.dt-table tbody td {
-  padding: var(--dt-space-3);
-  color: var(--dt-color-text);
-  border-bottom: 1px solid var(--dt-color-border);
+.dx-table tbody td {
+  padding: var(--dx-space-3);
+  color: var(--dx-color-text);
+  border-bottom: 1px solid var(--dx-color-border);
 }
 
-.dt-table tbody tr:last-child td {
+.dx-table tbody tr:last-child td {
   border-bottom: none;
 }
 
-.dt-table tbody tr:hover {
-  background-color: var(--dt-color-surface-hover);
+.dx-table tbody tr:hover {
+  background-color: var(--dx-color-surface-hover);
 }
 
-.dt-table-start {
+.dx-table-start {
   text-align: start;
 }
 
-.dt-table-center {
+.dx-table-center {
   text-align: center;
 }
 
-.dt-table-end {
+.dx-table-end {
   text-align: end;
 }
 
-.dt-table-empty {
-  padding: var(--dt-space-6);
-  color: var(--dt-color-text-muted);
+.dx-table-empty {
+  padding: var(--dx-space-6);
+  color: var(--dx-color-text-muted);
   text-align: center;
 }
 
-.dt-table-caption {
+.dx-table-caption {
   caption-side: top;
   text-align: start;
-  padding: var(--dt-space-2) var(--dt-space-3);
-  font-size: var(--dt-font-size-xs);
-  font-weight: var(--dt-font-weight-medium);
-  color: var(--dt-color-text-muted);
+  padding: var(--dx-space-2) var(--dx-space-3);
+  font-size: var(--dx-font-size-xs);
+  font-weight: var(--dx-font-weight-medium);
+  color: var(--dx-color-text-muted);
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
 
-.dt-table--grid-none .dt-table thead th,
-.dt-table--grid-none .dt-table tbody td {
+.dx-table--grid-none .dx-table thead th,
+.dx-table--grid-none .dx-table tbody td {
   border: none;
 }
 
-.dt-table--grid-horizontal .dt-table thead th,
-.dt-table--grid-horizontal .dt-table tbody td {
+.dx-table--grid-horizontal .dx-table thead th,
+.dx-table--grid-horizontal .dx-table tbody td {
   border-left: none;
   border-right: none;
 }
 
-.dt-table--grid-vertical .dt-table thead th {
-  border-bottom: 1px solid var(--dt-color-border);
-  border-right: 1px solid var(--dt-color-border);
+.dx-table--grid-vertical .dx-table thead th {
+  border-bottom: 1px solid var(--dx-color-border);
+  border-right: 1px solid var(--dx-color-border);
 }
 
-.dt-table--grid-vertical .dt-table thead th:last-child {
+.dx-table--grid-vertical .dx-table thead th:last-child {
   border-right: none;
 }
 
-.dt-table--grid-vertical .dt-table tbody td {
+.dx-table--grid-vertical .dx-table tbody td {
   border-bottom: none;
-  border-right: 1px solid var(--dt-color-border);
+  border-right: 1px solid var(--dx-color-border);
 }
 
-.dt-table--grid-vertical .dt-table tbody td:last-child {
+.dx-table--grid-vertical .dx-table tbody td:last-child {
   border-right: none;
 }
 
-.dt-table--no-alternating .dt-table tbody tr:nth-child(even) {
+.dx-table--no-alternating .dx-table tbody tr:nth-child(even) {
   background-color: initial;
 }
 
-.dt-table tbody tr:nth-child(even) {
-  background-color: var(--dt-color-surface-hover);
+.dx-table tbody tr:nth-child(even) {
+  background-color: var(--dx-color-surface-hover);
 }

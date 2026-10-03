@@ -1,62 +1,62 @@
 <!--
   Chart — reference markup for server templates (RadzenChart parity subset).
-  <div class="dt-chart" data-dt-chart
-       data-dt-width="600" data-dt-height="400"
-       data-dt-series='[{"type":"line","title":"Sales","data":[{"month":"Jan","value":10}],"categoryProperty":"month","valueProperty":"value"}]'
-       data-dt-value-axis='{"gridlines":true}' data-dt-category-axis='{"gridlines":false}'
-       data-dt-show-legend="true" data-dt-tooltip-visible="true"
+  <div class="dx-chart" data-dx-chart
+       data-dx-width="600" data-dx-height="400"
+       data-dx-series='[{"type":"line","title":"Sales","data":[{"month":"Jan","value":10}],"categoryProperty":"month","valueProperty":"value"}]'
+       data-dx-value-axis='{"gridlines":true}' data-dx-category-axis='{"gridlines":false}'
+       data-dx-show-legend="true" data-dx-tooltip-visible="true"
        aria-label="Chart" role="img">
     <figure role="img" aria-label="Chart">
-      <svg width="600" height="400" data-dt-chart-svg> ... same as React ... </svg>
-      <table class="dt-chart-a11y-table" aria-hidden="true"> ... hidden table ... </table>
+      <svg width="600" height="400" data-dx-chart-svg> ... same as React ... </svg>
+      <table class="dx-chart-a11y-table" aria-hidden="true"> ... hidden table ... </table>
     </figure>
   </div>
-  behaviors.js parses data-dt-series JSON, computes nice ticks, renders the same SVG client-side, wires hit rects/circles for tooltip and dt:chart-point-click{seriesTitle,category,value}.
+  behaviors.js parses data-dx-series JSON, computes nice ticks, renders the same SVG client-side, wires hit rects/circles for tooltip and dx:chart-point-click{seriesTitle,category,value}.
 -->
-<div class="dt-chart" data-dt-chart data-dt-width="600" data-dt-height="400"
-     data-dt-series='[{"type":"column","title":"Sales","data":[{"month":"Jan","value":10},{"month":"Feb","value":20}],"categoryProperty":"month","valueProperty":"value"}]'
+<div class="dx-chart" data-dx-chart data-dx-width="600" data-dx-height="400"
+     data-dx-series='[{"type":"column","title":"Sales","data":[{"month":"Jan","value":10},{"month":"Feb","value":20}],"categoryProperty":"month","valueProperty":"value"}]'
      aria-label="Demo chart" role="img">
   <figure role="img" aria-label="Demo chart">
-    <svg width="600" height="400" data-dt-chart-svg>
-      <line x1="56" x2="556" y1="100" y2="100" class="dt-chart-gridline"></line>
-      <text x="48" y="104" text-anchor="end" class="dt-chart-tick">20</text>
-      <rect x="100" y="200" width="40" height="80" fill="var(--dt-color-palette-0)" rx="2"></rect>
-      <rect x="160" y="150" width="40" height="130" fill="var(--dt-color-palette-0)" rx="2"></rect>
+    <svg width="600" height="400" data-dx-chart-svg>
+      <line x1="56" x2="556" y1="100" y2="100" class="dx-chart-gridline"></line>
+      <text x="48" y="104" text-anchor="end" class="dx-chart-tick">20</text>
+      <rect x="100" y="200" width="40" height="80" fill="var(--dx-color-palette-0)" rx="2"></rect>
+      <rect x="160" y="150" width="40" height="130" fill="var(--dx-color-palette-0)" rx="2"></rect>
     </svg>
-    <div class="dt-chart-tooltip" data-dt-chart-tooltip hidden>Sales: 10</div>
-    <div class="dt-chart-legend">
-      <span class="dt-chart-legend-item"><span class="dt-chart-swatch" style="background-color:var(--dt-color-palette-0)"></span>Sales</span>
+    <div class="dx-chart-tooltip" data-dx-chart-tooltip hidden>Sales: 10</div>
+    <div class="dx-chart-legend">
+      <span class="dx-chart-legend-item"><span class="dx-chart-swatch" style="background-color:var(--dx-color-palette-0)"></span>Sales</span>
     </div>
-    <table class="dt-chart-a11y-table"><caption>Demo chart</caption><thead><tr><th>Series</th><th>Category</th><th>Value</th></tr></thead><tbody><tr><td>Sales</td><td>Jan</td><td>10</td></tr><tr><td>Sales</td><td>Feb</td><td>20</td></tr></tbody></table>
+    <table class="dx-chart-a11y-table"><caption>Demo chart</caption><thead><tr><th>Series</th><th>Category</th><th>Value</th></tr></thead><tbody><tr><td>Sales</td><td>Jan</td><td>10</td></tr><tr><td>Sales</td><td>Feb</td><td>20</td></tr></tbody></table>
   </figure>
 </div>
 
 <!-- Stacked bar -->
-<div class="dt-chart" data-dt-chart data-dt-series='[{"type":"bar","title":"A","stack":"s","data":[{"cat":"X","val":10}],"categoryProperty":"cat","valueProperty":"val"},{"type":"bar","title":"B","stack":"s","data":[{"cat":"X","val":20}],"categoryProperty":"cat","valueProperty":"val"}]' aria-label="Stacked bar" role="img">
+<div class="dx-chart" data-dx-chart data-dx-series='[{"type":"bar","title":"A","stack":"s","data":[{"cat":"X","val":10}],"categoryProperty":"cat","valueProperty":"val"},{"type":"bar","title":"B","stack":"s","data":[{"cat":"X","val":20}],"categoryProperty":"cat","valueProperty":"val"}]' aria-label="Stacked bar" role="img">
   <figure role="img" aria-label="Stacked bar">
-    <svg width="600" height="400" data-dt-chart-svg>
-      <rect x="100" y="200" width="40" height="40" fill="var(--dt-color-palette-0)" rx="2"></rect>
-      <rect x="100" y="160" width="40" height="80" fill="var(--dt-color-palette-1)" rx="2"></rect>
+    <svg width="600" height="400" data-dx-chart-svg>
+      <rect x="100" y="200" width="40" height="40" fill="var(--dx-color-palette-0)" rx="2"></rect>
+      <rect x="100" y="160" width="40" height="80" fill="var(--dx-color-palette-1)" rx="2"></rect>
     </svg>
   </figure>
 </div>
 
 <!-- Scatter -->
-<div class="dt-chart" data-dt-chart data-dt-series='[{"type":"scatter","title":"S","data":[{"x":1,"y":10},{"x":2,"y":20}],"categoryProperty":"x","valueProperty":"y"}]' aria-label="Scatter" role="img">
+<div class="dx-chart" data-dx-chart data-dx-series='[{"type":"scatter","title":"S","data":[{"x":1,"y":10},{"x":2,"y":20}],"categoryProperty":"x","valueProperty":"y"}]' aria-label="Scatter" role="img">
   <figure role="img" aria-label="Scatter">
-    <svg width="600" height="400" data-dt-chart-svg>
-      <circle cx="100" cy="200" r="4" fill="var(--dt-color-palette-2)"></circle>
-      <circle cx="200" cy="100" r="4" fill="var(--dt-color-palette-2)"></circle>
+    <svg width="600" height="400" data-dx-chart-svg>
+      <circle cx="100" cy="200" r="4" fill="var(--dx-color-palette-2)"></circle>
+      <circle cx="200" cy="100" r="4" fill="var(--dx-color-palette-2)"></circle>
     </svg>
   </figure>
 </div>
 
 <!-- Pie -->
-<div class="dt-chart" data-dt-chart data-dt-series='[{"type":"pie","title":"P","data":[{"cat":"A","val":30},{"cat":"B","val":70}],"categoryProperty":"cat","valueProperty":"val"}]' aria-label="Pie" role="img">
+<div class="dx-chart" data-dx-chart data-dx-series='[{"type":"pie","title":"P","data":[{"cat":"A","val":30},{"cat":"B","val":70}],"categoryProperty":"cat","valueProperty":"val"}]' aria-label="Pie" role="img">
   <figure role="img" aria-label="Pie">
-    <svg width="600" height="400" data-dt-chart-svg>
-      <path d="M 300 200 L 400 200 A 100 100 0 0 1 200 200 Z" fill="var(--dt-color-palette-0)"></path>
-      <path d="M 300 200 L 200 200 A 100 100 0 0 1 400 200 Z" fill="var(--dt-color-palette-1)"></path>
+    <svg width="600" height="400" data-dx-chart-svg>
+      <path d="M 300 200 L 400 200 A 100 100 0 0 1 200 200 Z" fill="var(--dx-color-palette-0)"></path>
+      <path d="M 300 200 L 200 200 A 100 100 0 0 1 400 200 Z" fill="var(--dx-color-palette-1)"></path>
     </svg>
   </figure>
 </div>

@@ -1,27 +1,27 @@
-.dt-field {
+.dx-field {
   display: flex;
   flex-direction: column;
-  gap: var(--dt-space-1);
-  font-family: var(--dt-font-sans);
+  gap: var(--dx-space-1);
+  font-family: var(--dx-font-sans);
 }
 
-.dt-field-label {
-  font-size: var(--dt-font-size-sm);
-  font-weight: var(--dt-font-weight-medium);
-  color: var(--dt-color-text);
+.dx-field-label {
+  font-size: var(--dx-font-size-sm);
+  font-weight: var(--dx-font-weight-medium);
+  color: var(--dx-color-text);
 }
 
-.dt-field-required {
-  color: var(--dt-color-text-danger);
+.dx-field-required {
+  color: var(--dx-color-text-danger);
   margin-left: 2px;
 }
 
-.dt-field-hint {
-  font-size: var(--dt-font-size-xs);
-  color: var(--dt-color-text-muted);
+.dx-field-hint {
+  font-size: var(--dx-font-size-xs);
+  color: var(--dx-color-text-muted);
 }
 
-.dt-field-error {
-  font-size: var(--dt-font-size-xs);
-  color: var(--dt-color-text-danger);
+.dx-field-error {
+  font-size: var(--dx-font-size-xs);
+  color: var(--dx-color-text-danger);
 }

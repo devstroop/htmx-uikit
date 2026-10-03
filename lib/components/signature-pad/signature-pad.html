@@ -1,38 +1,38 @@
 <!--
   SignaturePad — reference markup for server templates.
-  Root: <div class="dt-signaturepad" data-dt-signaturepad
-        [data-dt-pen-color="#1c1c1c"] [data-dt-pen-width="2.5"]>
-    <div class="dt-signaturepad-header">
-      <span class="dt-signaturepad-label">Signature</span>
-      <button class="dt-signaturepad-clear" type="button"
-              data-dt-signaturepad-clear>Clear</button>
+  Root: <div class="dx-signaturepad" data-dx-signaturepad
+        [data-dx-pen-color="#1c1c1c"] [data-dx-pen-width="2.5"]>
+    <div class="dx-signaturepad-header">
+      <span class="dx-signaturepad-label">Signature</span>
+      <button class="dx-signaturepad-clear" type="button"
+              data-dx-signaturepad-clear>Clear</button>
     </div>
-    <canvas class="dt-signaturepad-canvas" role="img" aria-label="Signature"
-            data-dt-signaturepad-canvas></canvas>
+    <canvas class="dx-signaturepad-canvas" role="img" aria-label="Signature"
+            data-dx-signaturepad-canvas></canvas>
   behaviors.js wires pointer drawing (mouse/pen/touch), DPR-aware sizing,
-  and dispatches dt:signature-change with the PNG data URL on stroke end.
+  and dispatches dx:signature-change with the PNG data URL on stroke end.
 -->
 
-<div class="dt-signaturepad" data-dt-signaturepad>
-  <div class="dt-signaturepad-header">
-    <span class="dt-signaturepad-label">Signature</span>
-    <button class="dt-signaturepad-clear" type="button" data-dt-signaturepad-clear>Clear</button>
+<div class="dx-signaturepad" data-dx-signaturepad>
+  <div class="dx-signaturepad-header">
+    <span class="dx-signaturepad-label">Signature</span>
+    <button class="dx-signaturepad-clear" type="button" data-dx-signaturepad-clear>Clear</button>
   </div>
-  <canvas class="dt-signaturepad-canvas" role="img" aria-label="Signature" data-dt-signaturepad-canvas></canvas>
+  <canvas class="dx-signaturepad-canvas" role="img" aria-label="Signature" data-dx-signaturepad-canvas></canvas>
 </div>
 
-<div class="dt-signaturepad" data-dt-signaturepad data-dt-pen-color="#1d4ed8">
-  <div class="dt-signaturepad-header">
-    <span class="dt-signaturepad-label">Signature (blue)</span>
-    <button class="dt-signaturepad-clear" type="button" data-dt-signaturepad-clear>Clear</button>
+<div class="dx-signaturepad" data-dx-signaturepad data-dx-pen-color="#1d4ed8">
+  <div class="dx-signaturepad-header">
+    <span class="dx-signaturepad-label">Signature (blue)</span>
+    <button class="dx-signaturepad-clear" type="button" data-dx-signaturepad-clear>Clear</button>
   </div>
-  <canvas class="dt-signaturepad-canvas" role="img" aria-label="Signature" data-dt-signaturepad-canvas></canvas>
+  <canvas class="dx-signaturepad-canvas" role="img" aria-label="Signature" data-dx-signaturepad-canvas></canvas>
 </div>
 
-<div class="dt-signaturepad" data-dt-signaturepad>
-  <div class="dt-signaturepad-header">
-    <span class="dt-signaturepad-label">Signature (disabled)</span>
-    <button class="dt-signaturepad-clear" type="button" data-dt-signaturepad-clear disabled>Clear</button>
+<div class="dx-signaturepad" data-dx-signaturepad>
+  <div class="dx-signaturepad-header">
+    <span class="dx-signaturepad-label">Signature (disabled)</span>
+    <button class="dx-signaturepad-clear" type="button" data-dx-signaturepad-clear disabled>Clear</button>
   </div>
-  <canvas class="dt-signaturepad-canvas" role="img" aria-label="Signature" data-dt-signaturepad-canvas data-dt-disabled></canvas>
+  <canvas class="dx-signaturepad-canvas" role="img" aria-label="Signature" data-dx-signaturepad-canvas data-dx-disabled></canvas>
 </div>
