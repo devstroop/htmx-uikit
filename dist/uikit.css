@@ -4767,6 +4767,23 @@
 }
 
 
+/* popup: the anchored panel shell built by the behavior. Position
+   comes from the opener (inline left/top after measuring the anchor +
+   viewport); this file owns surface, border, and elevation only. */
+.dx-popup {
+  position: fixed;
+  z-index: var(--dx-z-popover);
+  min-width: 160px;
+  max-width: min(360px, 90vw);
+  border: 1px solid var(--dx-color-border);
+  border-radius: var(--dx-radius-md);
+  background: var(--dx-color-surface);
+  color: var(--dx-color-text);
+  box-shadow: var(--dx-shadow-md);
+  outline: none;
+}
+
+
 .dx-profilemenu {
   position: relative;
   display: inline-block;
