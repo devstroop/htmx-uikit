@@ -3944,6 +3944,22 @@ textarea[data-dx-htmleditor-source] {
 }
 
 
+/* login: vertical credential form over the shared field/input
+   surfaces. Spacing owns the rhythm. */
+.dx-login {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dx-space-3);
+}
+
+.dx-login-remember {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--dx-space-2);
+  cursor: pointer;
+}
+
+
 /* markdown: rendered document surface. Typography inherits the app
    scale; spacing between blocks only. */
 .dx-markdown > :first-child {
