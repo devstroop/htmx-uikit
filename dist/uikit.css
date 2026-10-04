@@ -3740,6 +3740,30 @@ textarea[data-dx-htmleditor-source] {
   resize: vertical;
 }
 
+.dx-html-editor-tool input[type="color"] {
+  width: 22px;
+  height: 18px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.dx-html-editor-toolbar select {
+  height: 28px;
+  max-width: 92px;
+  border: 1px solid transparent;
+  border-radius: var(--dx-radius-sm);
+  background: transparent;
+  color: var(--dx-color-text);
+  font-size: var(--dx-font-size-sm);
+  cursor: pointer;
+}
+
+.dx-html-editor-toolbar select:hover {
+  background: var(--dx-color-surface-hover);
+}
+
 
 /* Icon — size tier modifiers. The glyph inherits its color via
    stroke="currentColor". Sizing comes from the width/height attributes on
