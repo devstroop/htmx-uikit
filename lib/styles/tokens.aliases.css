@@ -12,7 +12,7 @@
  * instead of a literal, so the active theme flows through (fluent/github/
  * material/material-3/shadcn previously fell back to the default palette
  * for every flat-consuming utility). The remaining legacy tiers
- * (lighter/light/dark/darker, *-container, on-*, text-info) have no
+ * (lighter/light/dark/darker, *-container, on-*) have no
  * tiered counterpart yet and stay literal until the schema grows them;
  * radius/shadow scales and the ripple timing are theme-independent.
  * --dx-light-color is the fixed light ink behind the on-*-dark aliases
@@ -28,7 +28,7 @@
   --dx-text-success-color: var(--dx-color-text-success);
   --dx-text-warning-color: var(--dx-color-text-warning);
   --dx-text-danger-color: var(--dx-color-text-danger);
-  --dx-text-info-color: #0a6a94;
+  --dx-text-info-color: var(--dx-color-text-info);
   --dx-light-color: #f1f5f9;
   --dx-shadow-0: none;
   --dx-shadow-1: 0px 1px 1px rgb(0 0 0 / 0.14), 0px 2px 1px rgb(0 0 0 / 0.12),
@@ -158,7 +158,7 @@
   --dx-text-success-color: var(--dx-color-text-success);
   --dx-text-warning-color: var(--dx-color-text-warning);
   --dx-text-danger-color: var(--dx-color-text-danger);
-  --dx-text-info-color: #38bdf8;
+  --dx-text-info-color: var(--dx-color-text-info);
   --dx-light-color: #f1f5f9;
   --dx-primary-lighter-color: #87a9f4;
   --dx-primary-light-color: #6692f1;

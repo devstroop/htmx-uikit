@@ -80,6 +80,7 @@
   --dx-color-outline-danger: #dc2626;
   --dx-color-outline-danger-light: #e46666;
   --dx-color-outline-danger-darker: #8f1919;
+  --dx-color-text-info: #0a6e9c;
   /* radius */
   --dx-radius-sm: 4px;
   --dx-radius-md: 8px;
@@ -224,6 +225,7 @@
   --dx-color-outline-danger: #dd2f2f;
   --dx-color-outline-danger-light: #d5383f;
   --dx-color-outline-danger-darker: #dc3232;
+  --dx-color-text-info: #0fa5e9;
   /* shadow */
   --dx-shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
   --dx-shadow-md: 0 4px 12px rgb(0 0 0 / 0.5);
