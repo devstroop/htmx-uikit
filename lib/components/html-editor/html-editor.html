@@ -1,0 +1,27 @@
+<!--
+  HtmlEditor — core editing surface reference (react HtmlEditor parity).
+  Root: <div class="dx-html-editor">
+  Host: <div class="dx-html-editor-area" contenteditable data-dx-htmleditor>
+  Toolbar: [data-dx-htmleditor-toolbar] with
+    <button data-dx-htmleditor-tool="bold|italic|underline|strikethrough|
+      undo|redo|removeFormat|source"> buttons.
+  Host input sync: data-dx-htmleditor-input="#id" writes the HTML into a
+  form input; every edit dispatches dx:htmleditor-change{value}.
+  No client-side sanitize — sanitize server-side.
+-->
+
+<div class="dx-html-editor">
+  <div class="dx-html-editor-toolbar" role="toolbar" aria-label="HTML editor toolbar" data-dx-htmleditor-toolbar>
+    <button class="dx-html-editor-tool" type="button" data-dx-htmleditor-tool="bold" aria-label="Bold"><b>B</b></button>
+    <button class="dx-html-editor-tool" type="button" data-dx-htmleditor-tool="italic" aria-label="Italic"><i>I</i></button>
+    <button class="dx-html-editor-tool" type="button" data-dx-htmleditor-tool="underline" aria-label="Underline"><u>U</u></button>
+    <button class="dx-html-editor-tool" type="button" data-dx-htmleditor-tool="strikethrough" aria-label="Strikethrough"><s>S</s></button>
+    <span class="dx-html-editor-separator" role="separator"></span>
+    <button class="dx-html-editor-tool" type="button" data-dx-htmleditor-tool="undo" aria-label="Undo">↺</button>
+    <button class="dx-html-editor-tool" type="button" data-dx-htmleditor-tool="redo" aria-label="Redo">↻</button>
+    <button class="dx-html-editor-tool" type="button" data-dx-htmleditor-tool="removeFormat" aria-label="Remove formatting">Tₓ</button>
+    <span class="dx-html-editor-separator" role="separator"></span>
+    <button class="dx-html-editor-tool" type="button" data-dx-htmleditor-tool="source" aria-label="Source">&lt;/&gt;</button>
+  </div>
+  <div class="dx-html-editor-area" contenteditable="true" role="textbox" aria-label="HTML editor" aria-multiline="true" data-dx-htmleditor><p>hi</p></div>
+</div>
