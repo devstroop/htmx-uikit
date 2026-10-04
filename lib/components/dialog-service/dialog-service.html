@@ -1,0 +1,36 @@
+<!--
+  DialogService — imperative host reference (react DialogProvider parity).
+  No host markup is required: dxDialog.open(...) builds the host below on
+  demand. This file documents the generated structure for server templates
+  and snapshot reference:
+
+    dxDialog.open({ title, content|url, options }) → Promise<result>
+    dxDialog.openSide({ position, ... })           → side-docked Promise
+    dxDialog.close(result?) / closeAll() / refresh(html?)
+    dxDialog.alert({ title?, message?, okText? })
+    dxDialog.confirm({ title?, message?, confirmText?, cancelText?, tone? })
+
+  Every close dispatches `dx:close` with { result } on the host and
+  resolves the open promise; focus returns to the opener (shared close
+  listener). Behavior tests live in tests/behaviors/dialogservice.test.js.
+-->
+
+<dialog class="dx-dialog dx-dialog--md" data-dx-dialog>
+  <div class="dx-dialog-header">
+    <div>
+      <h2 class="dx-dialog-title">Title</h2>
+      <p class="dx-dialog-description">Description.</p>
+    </div>
+    <button class="dx-dialog-close" type="button" data-dx-dialog-close aria-label="Close dialog">
+      ×
+    </button>
+  </div>
+  <div class="dx-dialog-body">
+    <p>Arbitrary content or a fetched fragment (url option).</p>
+  </div>
+  <div class="dx-dialog-footer">
+    <button class="dx-button dx-button--primary" type="button" data-dx-dialog-close>
+      Close
+    </button>
+  </div>
+</dialog>
