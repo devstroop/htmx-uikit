@@ -2,6 +2,53 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import "../../lib/behaviors.js";
 import { fixture } from "../helpers.js";
 
+describe("toast notify API", () => {
+  it("maps summary/detail/duration onto title/description/durationMs", () => {
+    window.dxToast.notify({ summary: "Heads up", detail: "Read this." });
+    const item = document.querySelector("[data-dx-toast] > div");
+    expect(item.querySelector(".dx-toast-title").textContent).toBe("Heads up");
+    expect(item.querySelector(".dx-toast-description").textContent).toBe(
+      "Read this."
+    );
+  });
+
+  it("severity helpers render the matching tone", () => {
+    window.dxToast.notifyError("Boom", "Broke.");
+    const item = document.querySelector("[data-dx-toast] > div");
+    expect(item.className).toBe("dx-toast dx-toast--danger");
+    expect(item.getAttribute("role")).toBe("alert");
+  });
+
+  it("passes payload to click and honors closeOnClick", () => {
+    vi.useFakeTimers();
+    const onClick = vi.fn();
+    window.dxToast.notify({
+      summary: "Clickable",
+      payload: { id: 7 },
+      click: onClick,
+      closeOnClick: true,
+    });
+    const item = document.querySelector("[data-dx-toast] > div");
+    item.click();
+    expect(onClick).toHaveBeenCalledWith({ id: 7 });
+    vi.advanceTimersByTime(200);
+    expect(document.querySelectorAll("[data-dx-toast] > div")).toHaveLength(
+      0
+    );
+  });
+
+  it("click without closeOnClick does not dismiss", () => {
+    const onClick = vi.fn();
+    window.dxToast.notify({ summary: "Stay", click: onClick });
+    const item = document.querySelector("[data-dx-toast] > div");
+    item.click();
+    expect(onClick).toHaveBeenCalledWith(undefined);
+    expect(document.querySelectorAll("[data-dx-toast] > div")).toHaveLength(
+      1
+    );
+  });
+});
+
 describe("toast", () => {
   it("creates a viewport with aria-live when missing", () => {
     window.dxToast({ title: "Hi" });
