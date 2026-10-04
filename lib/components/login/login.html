@@ -1,0 +1,42 @@
+<!--
+  Login — credential form reference (react Login parity). Plain form on
+  purpose: validation + submit gating come from the form behavior
+  ([data-dx-form] + per-input [data-dx-field] rules); a valid submit
+  dispatches dx:submit with the serialized FormData and proceeds
+  natively to `action`. Behavior tests live in
+  tests/behaviors/login.test.js.
+-->
+
+<form class="dx-login" data-dx-form action="/login" method="post">
+  <div class="dx-field">
+    <label class="dx-field-label" for="login-username">Username</label>
+    <input
+      class="dx-input"
+      id="login-username"
+      name="username"
+      type="text"
+      autocomplete="username"
+      data-dx-field
+      data-dx-required
+      data-dx-required-message="Username is required."
+    />
+  </div>
+  <div class="dx-field">
+    <label class="dx-field-label" for="login-password">Password</label>
+    <input
+      class="dx-input"
+      id="login-password"
+      name="password"
+      type="password"
+      autocomplete="current-password"
+      data-dx-field
+      data-dx-required
+      data-dx-required-message="Password is required."
+    />
+  </div>
+  <label class="dx-login-remember">
+    <input type="checkbox" name="rememberMe" />
+    Remember me
+  </label>
+  <button class="dx-button dx-button--primary" type="submit">Sign in</button>
+</form>
