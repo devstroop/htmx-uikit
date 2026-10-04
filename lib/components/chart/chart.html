@@ -41,6 +41,26 @@
   </figure>
 </div>
 
+<!-- Full-stacked bars (percent mode; server normalizes each stack group) -->
+<div class="dx-chart" data-dx-chart data-dx-series='[{"type":"bar","title":"A","stack":"s","data":[{"cat":"X","val":25}],"categoryProperty":"cat","valueProperty":"val"},{"type":"bar","title":"B","stack":"s","data":[{"cat":"X","val":75}],"categoryProperty":"cat","valueProperty":"val"}]' data-dx-stacked-100-percent="true" aria-label="Full-stacked bar" role="img">
+  <figure role="img" aria-label="Full-stacked bar">
+    <svg width="600" height="400" data-dx-chart-svg>
+      <rect x="100" y="280" width="40" height="80" fill="var(--dx-color-palette-0)" rx="2"></rect>
+      <rect x="100" y="40" width="40" height="240" fill="var(--dx-color-palette-1)" rx="2"></rect>
+    </svg>
+  </figure>
+</div>
+
+<!-- Range line (min/max band + square markers, dashed stroke) -->
+<div class="dx-chart" data-dx-chart data-dx-series='[{"type":"line","title":"R","data":[{"cat":"A","val":50,"lo":20,"hi":80}],"categoryProperty":"cat","valueProperty":"val","minProperty":"lo","maxProperty":"hi","markers":{"shape":"square","size":6},"dash":[4,2],"lineWidth":3}]' aria-label="Range line" role="img">
+  <figure role="img" aria-label="Range line">
+    <svg width="600" height="400" data-dx-chart-svg>
+      <path d="M 100 200 L 100 200" fill="none" stroke="var(--dx-color-palette-0)" stroke-width="3" stroke-dasharray="4 2"></path>
+      <rect x="94" y="194" width="12" height="12" fill="var(--dx-color-palette-0)"></rect>
+    </svg>
+  </figure>
+</div>
+
 <!-- Scatter -->
 <div class="dx-chart" data-dx-chart data-dx-series='[{"type":"scatter","title":"S","data":[{"x":1,"y":10},{"x":2,"y":20}],"categoryProperty":"x","valueProperty":"y"}]' aria-label="Scatter" role="img">
   <figure role="img" aria-label="Scatter">
