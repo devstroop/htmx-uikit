@@ -265,6 +265,11 @@ export const NAV = [
         "page": "dialog"
       },
       {
+        "slug": "contextmenu",
+        "title": "ContextMenu",
+        "page": "contextmenu"
+      },
+      {
         "slug": "tooltip",
         "title": "Tooltip",
         "page": "tooltip"
