@@ -1,0 +1,17 @@
+<!--
+  Markdown — rendered document reference (react Markdown parity).
+  Root: <div class="dx-markdown" data-dx-markdown> with inline Markdown
+    source, or data-dx-markdown-source="#id" pointing at a script/text
+    template; data-dx-markdown-allow-html passes raw HTML through.
+  The behavior renders on init (never twice) and exposes
+  window.dxMarkdown.render(source, { allowHtml? }). Behavior tests live
+  in tests/behaviors/markdown.test.js (shared vectors with the react
+  twin — keep both lists in sync).
+-->
+
+<div class="dx-markdown" data-dx-markdown># Hi
+
+**Bold** and *italic*, `code`, and a [link](https://example.com).
+
+- one
+- two</div>
