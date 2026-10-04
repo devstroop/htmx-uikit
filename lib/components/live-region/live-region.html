@@ -1,0 +1,9 @@
+<!--
+  LiveRegion — polite announcement channel (parity with useLiveRegion).
+  Root: <div class="dx-live-region" data-dx-live-region>
+  The behavior (lib/behaviors.js) ensures role="status" and
+  aria-live="polite" on marked elements at load and after htmx swaps.
+  Client actions publish through window.dxLiveRegion.announce(text).
+-->
+
+<div class="dx-live-region" data-dx-live-region></div>
