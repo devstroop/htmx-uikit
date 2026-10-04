@@ -3078,6 +3078,45 @@
   padding: var(--dx-space-3) var(--dx-space-5);
   border-top: 1px solid var(--dx-color-border);
 }
+/* Side-docked panels (service openSide parity with the react Dialog):
+ * the native <dialog> stays modal but docks to an edge. */
+.dx-dialog--side-right {
+  margin: 0 0 0 auto;
+  height: 100dvh;
+  max-height: none;
+  border-radius: 0;
+}
+.dx-dialog--side-left {
+  margin: 0 auto 0 0;
+  height: 100dvh;
+  max-height: none;
+  border-radius: 0;
+}
+.dx-dialog--side-top {
+  margin: 0 auto auto;
+  width: 100%;
+  max-width: none;
+  border-radius: 0;
+}
+.dx-dialog--side-bottom {
+  margin: auto auto 0;
+  width: 100%;
+  max-width: none;
+  border-radius: 0;
+}
+
+/* Undimmed modal: interaction stays trapped, the page stays visible. */
+.dx-dialog--no-mask::backdrop {
+  background: transparent;
+}
+
+
+/* dialog-service: no visual surface of its own. The service builds
+   dialog hosts from the dialog component's classes at runtime
+   (see dialog/dialog.css for the host, side-panel, and no-mask rules).
+   This file exists so the spec's component-dir contract has its css
+   counterpart. */
+
 
 .dx-dropzone {
   display: flex;
