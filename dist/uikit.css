@@ -3851,6 +3851,14 @@
   font-size: var(--dx-font-size-lg);
 }
 
+/* media-query: visibility is driven by the [hidden] attribute, which the
+   behavior flips as the query matches. This class exists as a styling
+   hook for consumers that need to target gated blocks. */
+.dx-media-query {
+  min-width: 0;
+}
+
+
 .dx-menu {
   font-family: var(--dx-font-sans);
 }
@@ -7034,6 +7042,15 @@
   padding: 12px 16px;
   font-size: var(--dx-font-size-lg);
 }
+
+/* theme-service: no visual surface of its own. The service is an
+   imperative API (window.dxTheme); see theme-service.html for reference
+   markup. This file exists so the spec's component-dir contract has its
+   css counterpart. */
+.dx-theme-service {
+  display: inline-flex;
+}
+
 
 .dx-theme-switcher {
   display: inline-flex;

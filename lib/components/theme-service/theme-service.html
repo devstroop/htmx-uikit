@@ -1,0 +1,23 @@
+<!--
+  ThemeService — imperative theme API reference (react ThemeService parity).
+  No host markup is required; apps call window.dxTheme from their own
+  handlers:
+
+    dxTheme.setTheme("github")     → <html data-palette="github"> (+ dx-palette storage)
+    dxTheme.setTheme(null)         → clears the attribute + storage
+    dxTheme.setAppearance("dark")  → <html data-theme="dark"> (+ dx-theme storage)
+    dxTheme.setAppearance(null)    → clears the attribute + storage
+    dxTheme.subscribe(fn)          → fn({ theme, appearance }) on every change
+
+  UI controls stay declarative: the switch below is owned by the
+  [data-dx-theme-switch] behavior, which writes through the service, so
+  flips persist and notify subscribers.
+
+  Root: <label class="dx-theme-service">
+  Hook: <input type="checkbox" data-dx-theme-switch>
+-->
+
+<label class="dx-theme-service">
+  <span>Dark mode</span>
+  <input type="checkbox" data-dx-theme-switch />
+</label>
