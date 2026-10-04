@@ -1,0 +1,19 @@
+<!--
+  ContextMenu — right-click menu reference (react ContextMenuProvider parity).
+  Root: any element with data-dx-contextmenu="[{...items}]" or
+        data-dx-contextmenu-menu="#menu-template".
+  The behavior builds a role=menu popup at the cursor: ArrowUp/Down +
+  Home/End cycle, Enter/Space activate, Escape closes with focus restore.
+  Item activation dispatches `dx:contextmenu-select` with { value, text }.
+  Behavior tests live in tests/behaviors/contextmenu.test.js.
+-->
+
+<div data-dx-contextmenu='[{"text": "Cut", "value": "cut"}, {"text": "Copy", "value": "copy"}, {"text": "Paste", "value": "paste", "disabled": true}]'>
+  Right-click me
+</div>
+
+<!-- Alternate: clone a referenced element as the popup content. -->
+<div data-dx-contextmenu-menu="#context-actions">Right-click me too</div>
+<div id="context-actions" hidden>
+  <p>Shared menu markup lives once and is cloned per open.</p>
+</div>
