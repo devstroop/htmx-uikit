@@ -1,0 +1,16 @@
+<!--
+  NotificationService — imperative notify reference (react notify parity).
+  No host markup is required: dxToast.notify(...) builds items on demand
+  into the [data-dx-toast] viewport. Reference wiring for server templates:
+
+    dxToast.notify({ severity, summary, detail, duration, click, closeOnClick, payload })
+    dxToast.notifyInfo(summary, detail?, options?)
+    dxToast.notifySuccess(summary, detail?, options?)
+    dxToast.notifyWarning(summary, detail?, options?)
+    dxToast.notifyError(summary, detail?, options?)
+
+  Severity maps to tone (info/success/warning/danger); summary/detail map
+  to title/description. Behavior tests live in
+  tests/behaviors/toast.test.js ("toast notify API").
+  (No host markup: the service builds items on demand.)
+-->
