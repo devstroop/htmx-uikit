@@ -1,0 +1,19 @@
+<!--
+  AIChat — non-streaming chat reference (react AIChat parity).
+  Root: <form class="dx-chat" data-dx-chat>
+  List: <div class="dx-chat-messages" data-dx-chat-list aria-live="polite">
+    items: <div class="dx-chat-message dx-chat-message--user|assistant|system">
+  Input: <input class="dx-input" data-dx-chat-input> + submit button.
+  Submit appends the user message and dispatches dx:chat-send{text}; the
+  app answers with dxChat.appendMessage(host|selector, { role, text }).
+  Streaming is deferred (see uikit#100). Behavior tests live in
+  tests/behaviors/chat.test.js.
+-->
+
+<form class="dx-chat" data-dx-chat>
+  <div class="dx-chat-messages" data-dx-chat-list aria-live="polite"></div>
+  <div class="dx-chat-input-row">
+    <input class="dx-input" data-dx-chat-input type="text" placeholder="Type a message…" aria-label="Message" />
+    <button class="dx-button dx-button--primary" type="submit">Send</button>
+  </div>
+</form>
