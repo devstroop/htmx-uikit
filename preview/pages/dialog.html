@@ -34,4 +34,16 @@
             </table>
           </div>
         </div>
+      <section class="demo-section" id="dialog-service">
+        <div class="demo-card">
+<div class="demo-area">
+<!-- Service demo: imperative host via window.dxDialog (no host markup required). -->
+<button class="dx-button dx-button--primary" type="button" onclick="dxDialog.open({ title: 'Custom content', content: '<p>Arbitrary body rendered by the service.</p>' }).then((r) => { document.getElementById('dx-dialog-service-log').textContent = 'open → ' + String(r); })">Open custom</button>
+<button class="dx-button dx-button--secondary" type="button" onclick="dxDialog.alert({ message: 'Everything is saved.' }).then(() => { document.getElementById('dx-dialog-service-log').textContent = 'alert → resolved'; })">Request alert</button>
+<button class="dx-button dx-button--secondary" type="button" onclick="dxDialog.confirm({ title: 'Delete zone?', message: 'This removes the zone and its 3 tasks.', confirmText: 'Delete', tone: 'danger' }).then((ok) => { document.getElementById('dx-dialog-service-log').textContent = 'confirm → ' + ok; })">Request confirm</button>
+<button class="dx-button dx-button--secondary" type="button" onclick="dxDialog.openSide({ position: 'right', title: 'Side rail', content: 'Docked panel content.' }).then(() => { document.getElementById('dx-dialog-service-log').textContent = 'openSide → closed'; })">Open side</button>
+<p class="dx-text-muted" id="dx-dialog-service-log">Request open, alert, confirm, or side to log the resolved promise.</p>
+</div>
+        </div>
+      </section>
       </section>

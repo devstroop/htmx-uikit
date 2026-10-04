@@ -1,0 +1,5 @@
+/* dialog-service: no visual surface of its own. The service builds
+   dialog hosts from the dialog component's classes at runtime
+   (see dialog/dialog.css for the host, side-panel, and no-mask rules).
+   This file exists so the spec's component-dir contract has its css
+   counterpart. */
