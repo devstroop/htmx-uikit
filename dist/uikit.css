@@ -4057,6 +4057,12 @@
 }
 
 
+/* notification-service: no visual surface of its own. Items render
+   through the toast component's classes (see toast/toast.css), so this
+   file carries no rules — it exists so the spec's component-dir contract
+   has its css counterpart. */
+
+
 .dx-numeric {
   position: relative;
   display: block;
