@@ -347,6 +347,57 @@
   }
 }
 
+/* aichat: message list + input row. Role color comes from text
+   tokens; the log announces arrivals via aria-live. */
+.dx-chat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dx-space-2);
+}
+
+.dx-chat-messages {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dx-space-2);
+  min-height: 120px;
+  max-height: 420px;
+  overflow-y: auto;
+  padding: var(--dx-space-2);
+  border: 1px solid var(--dx-color-border);
+  border-radius: var(--dx-radius-md);
+  background: var(--dx-color-surface);
+}
+
+.dx-chat-message {
+  max-width: 85%;
+  padding: var(--dx-space-2) var(--dx-space-3);
+  border-radius: var(--dx-radius-md);
+  color: var(--dx-color-text);
+}
+
+.dx-chat-message--user {
+  align-self: flex-end;
+  background: var(--dx-color-primary);
+  color: var(--dx-color-primary-fg);
+}
+
+.dx-chat-message--assistant {
+  align-self: flex-start;
+  background: var(--dx-color-surface-hover);
+}
+
+.dx-chat-message--system {
+  align-self: center;
+  color: var(--dx-color-text-muted);
+  font-size: var(--dx-font-size-sm);
+}
+
+.dx-chat-input-row {
+  display: flex;
+  gap: var(--dx-space-2);
+}
+
+
 .dx-alert {
   --alert-pad: var(--dx-space-3);
   --alert-gap: var(--dx-space-2);
