@@ -1,0 +1,15 @@
+<!--
+  Gauges — meter reference (react Gauges parity). Gauges are display-only:
+  server-rendered SVG, no behavior, no JS. Reference blocks document the
+  geometry contract; linear/radial gauges follow in later slices.
+  Behavior tests: none (no behavior); the uikit spec asserts the markup
+  contract via the component-dir files.
+-->
+
+<div class="dx-gauge" role="meter" aria-label="Speed" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
+  <svg viewBox="0 0 200 130" width="100%" aria-hidden="true">
+    <path d="M 30 130 A 80 80 0 1 1 170 130" fill="none" stroke="var(--dx-color-border)" stroke-width="16" stroke-linecap="round"></path>
+    <path d="M 30 130 A 80 80 0 0 1 150 60" fill="none" stroke="var(--dx-color-primary)" stroke-width="16" stroke-linecap="round"></path>
+  </svg>
+  <div class="dx-gauge-value">40</div>
+</div>
