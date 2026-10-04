@@ -2,11 +2,17 @@
   HtmlEditor — core editing surface reference (react HtmlEditor parity).
   Root: <div class="dx-html-editor">
   Host: <div class="dx-html-editor-area" contenteditable data-dx-htmleditor>
-  Toolbar: [data-dx-htmleditor-toolbar] with
-    <button data-dx-htmleditor-tool="bold|italic|underline|strikethrough|
-      undo|redo|removeFormat|source"> buttons.
+  Toolbar: [data-dx-htmleditor-toolbar] with tool buttons
+    data-dx-htmleditor-tool="bold|italic|underline|strikethrough|
+      unorderedList|orderedList|indent|outdent|justifyLeft|justifyCenter|
+      justifyRight|justifyFull|link|unlink|image|table|undo|redo|
+      removeFormat|source|custom:<id>"
+    color inputs: <input type="color" data-dx-htmleditor-color="foreColor|background">
+    selects: <select data-dx-htmleditor-select="formatBlock|fontName|fontSize">
   Host input sync: data-dx-htmleditor-input="#id" writes the HTML into a
-  form input; every edit dispatches dx:htmleditor-change{value}.
+  form input; every edit dispatches dx:htmleditor-change{value}. Custom
+  tools dispatch dx:htmleditor-tool{id, host, api}. Image upload via
+  data-dx-htmleditor-upload-url (errors dispatch dx:htmleditor-error).
   No client-side sanitize — sanitize server-side.
 -->
 
@@ -16,6 +22,50 @@
     <button class="dx-html-editor-tool" type="button" data-dx-htmleditor-tool="italic" aria-label="Italic"><i>I</i></button>
     <button class="dx-html-editor-tool" type="button" data-dx-htmleditor-tool="underline" aria-label="Underline"><u>U</u></button>
     <button class="dx-html-editor-tool" type="button" data-dx-htmleditor-tool="strikethrough" aria-label="Strikethrough"><s>S</s></button>
+    <span class="dx-html-editor-separator" role="separator"></span>
+    <label class="dx-html-editor-tool" title="Text color"><span aria-hidden="true">A</span><input type="color" data-dx-htmleditor-color="foreColor" aria-label="Text color"></label>
+    <label class="dx-html-editor-tool" title="Background color"><span aria-hidden="true">A</span><input type="color" data-dx-htmleditor-color="background" aria-label="Background color"></label>
+    <span class="dx-html-editor-separator" role="separator"></span>
+    <select data-dx-htmleditor-select="formatBlock" aria-label="Format block">
+      <option value="">¶</option>
+      <option value="p">p</option>
+      <option value="h1">h1</option>
+      <option value="h2">h2</option>
+      <option value="h3">h3</option>
+      <option value="blockquote">quote</option>
+      <option value="pre">pre</option>
+    </select>
+    <select data-dx-htmleditor-select="fontName" aria-label="Font name">
+      <option value="">Aa</option>
+      <option value="sans-serif">sans-serif</option>
+      <option value="serif">serif</option>
+      <option value="monospace">monospace</option>
+    </select>
+    <select data-dx-htmleditor-select="fontSize" aria-label="Font size">
+      <option value="">12</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+    </select>
+    <span class="dx-html-editor-separator" role="separator"></span>
+    <button class="dx-html-editor-tool" type="button" data-dx-htmleditor-tool="unorderedList" aria-label="Bulleted list">☰</button>
+    <button class="dx-html-editor-tool" type="button" data-dx-htmleditor-tool="orderedList" aria-label="Numbered list">1☰</button>
+    <button class="dx-html-editor-tool" type="button" data-dx-htmleditor-tool="indent" aria-label="Increase indent">→</button>
+    <button class="dx-html-editor-tool" type="button" data-dx-htmleditor-tool="outdent" aria-label="Decrease indent">←</button>
+    <span class="dx-html-editor-separator" role="separator"></span>
+    <button class="dx-html-editor-tool" type="button" data-dx-htmleditor-tool="justifyLeft" aria-label="Align left">≡</button>
+    <button class="dx-html-editor-tool" type="button" data-dx-htmleditor-tool="justifyCenter" aria-label="Align center">≡</button>
+    <button class="dx-html-editor-tool" type="button" data-dx-htmleditor-tool="justifyRight" aria-label="Align right">≡</button>
+    <button class="dx-html-editor-tool" type="button" data-dx-htmleditor-tool="justifyFull" aria-label="Justify">≡</button>
+    <span class="dx-html-editor-separator" role="separator"></span>
+    <button class="dx-html-editor-tool" type="button" data-dx-htmleditor-tool="link" aria-label="Insert link">🔗</button>
+    <button class="dx-html-editor-tool" type="button" data-dx-htmleditor-tool="unlink" aria-label="Remove link">⛓̸</button>
+    <button class="dx-html-editor-tool" type="button" data-dx-htmleditor-tool="image" aria-label="Insert image">🖼</button>
+    <button class="dx-html-editor-tool" type="button" data-dx-htmleditor-tool="table" aria-label="Insert table">▦</button>
     <span class="dx-html-editor-separator" role="separator"></span>
     <button class="dx-html-editor-tool" type="button" data-dx-htmleditor-tool="undo" aria-label="Undo">↺</button>
     <button class="dx-html-editor-tool" type="button" data-dx-htmleditor-tool="redo" aria-label="Redo">↻</button>
