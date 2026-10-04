@@ -7043,6 +7043,15 @@
   font-size: var(--dx-font-size-lg);
 }
 
+/* theme-service: no visual surface of its own. The service is an
+   imperative API (window.dxTheme); see theme-service.html for reference
+   markup. This file exists so the spec's component-dir contract has its
+   css counterpart. */
+.dx-theme-service {
+  display: inline-flex;
+}
+
+
 .dx-theme-switcher {
   display: inline-flex;
   align-items: center;
