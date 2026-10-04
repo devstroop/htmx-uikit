@@ -1,0 +1,14 @@
+<!--
+  Popup — anchored panel reference (react PopupProvider parity).
+  Behavior builds role=dialog panels at runtime via window.dxPopup.open;
+  declarative triggers use data-dx-popup (selector whose innerHTML becomes
+  content) or data-dx-popup-html (inline HTML), opening against themselves.
+  Behavior tests live in tests/behaviors/popup.test.js.
+-->
+
+<button class="dx-button dx-button--secondary" type="button" data-dx-popup="#popup-template">
+  Open popup
+</button>
+<div id="popup-template" hidden>
+  <p>Panel content lives once in the template and is cloned per open.</p>
+</div>
