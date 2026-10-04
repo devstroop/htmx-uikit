@@ -1,8 +1,11 @@
 #!/usr/bin/env node
 /**
  * Build dist/uikit.js (bundled, minified behaviors) and dist/uikit.css
- * (every component stylesheet, deterministic order). Tokens are NOT
- * bundled: consumers pair uikit.css with any theme's tokens.css.
+ * (the legacy alias layer + every component stylesheet, deterministic
+ * order). Palette tokens are NOT bundled: consumers pair uikit.css with
+ * any theme's tokens.css. The alias layer IS bundled — it defines the
+ * flat names the utilities consume, so the utilities stay live however
+ * the library is themed.
  *
  *   node scripts/build.mjs
  */
@@ -32,7 +35,7 @@ await build({
   },
 });
 
-const cssParts = [];
+const cssParts = [join(LIB, "styles", "tokens.aliases.css")];
 for (const name of components) {
   cssParts.push(join(LIB, "components", name, `${name}.css`));
 }

@@ -1,0 +1,261 @@
+/*
+ * Legacy flat-name alias layer — hand-maintained (never generated).
+ *
+ * The utilities surface consumes the flat custom-property names the
+ * pre-monorepo tokens shipped (--dx-text-*-color, --dx-border-*-color,
+ * --dx-shadow-0..10, --dx-ripple-*), while every theme file only carries
+ * the tiered names (--dx-color-*, --dx-shadow-sm|md|lg). Bundling this
+ * layer with dist/uikit.css keeps the utilities live under any paired
+ * theme.
+ *
+ * Colors whose tiered name exists in all six themes alias it with var()
+ * instead of a literal, so the active theme flows through (fluent/github/
+ * material/material-3/shadcn previously fell back to the default palette
+ * for every flat-consuming utility). That now covers the whole tier
+ * ladder: the hue steps ({hue}-lighter|light|dark|darker), their border
+ * companions, the *-container fills and text-info. The on-* names are
+ * var() references into those flats, so they follow automatically; the
+ * legacy error/warn-container spellings map onto schema danger/warning.
+ * radius/shadow scales and the ripple timing are theme-independent.
+ * --dx-light-color is the fixed light ink behind the on-*-dark aliases
+ * (referenced but never defined before).
+ *
+ * Paired with a theme's tokens.css: uikit.css + themes/<name>/tokens.css.
+ */
+:root {
+  /* migrated tokens */
+  --dx-text-color: var(--dx-color-text);
+  --dx-text-muted-color: var(--dx-color-text-muted);
+  --dx-text-primary-color: var(--dx-color-text-primary);
+  --dx-text-success-color: var(--dx-color-text-success);
+  --dx-text-warning-color: var(--dx-color-text-warning);
+  --dx-text-danger-color: var(--dx-color-text-danger);
+  --dx-text-info-color: var(--dx-color-text-info);
+  --dx-light-color: #f1f5f9;
+  --dx-shadow-0: none;
+  --dx-shadow-1: 0px 1px 1px rgb(0 0 0 / 0.14), 0px 2px 1px rgb(0 0 0 / 0.12),
+    0px 1px 3px rgb(0 0 0 / 0.14);
+  --dx-shadow-2: 0px 2px 2px rgb(0 0 0 / 0.14), 0px 3px 1px rgb(0 0 0 / 0.12),
+    0px 1px 5px rgb(0 0 0 / 0.14);
+  --dx-shadow-3: 0px 3px 4px rgb(0 0 0 / 0.14), 0px 3px 3px rgb(0 0 0 / 0.12),
+    0px 1px 8px rgb(0 0 0 / 0.14);
+  --dx-shadow-4: 0px 4px 5px rgb(0 0 0 / 0.14), 0px 1px 10px rgb(0 0 0 / 0.12),
+    0px 2px 4px rgb(0 0 0 / 0.14);
+  --dx-shadow-5: 0px 6px 10px rgb(0 0 0 / 0.14), 0px 1px 18px rgb(0 0 0 / 0.12),
+    0px 3px 5px rgb(0 0 0 / 0.14);
+  --dx-shadow-6: 0px 8px 10px rgb(0 0 0 / 0.14), 0px 3px 14px rgb(0 0 0 / 0.12),
+    0px 5px 5px rgb(0 0 0 / 0.14);
+  --dx-shadow-7: 0px 9px 12px rgb(0 0 0 / 0.14), 0px 3px 16px rgb(0 0 0 / 0.12),
+    0px 5px 6px rgb(0 0 0 / 0.14);
+  --dx-shadow-8: 0px 12px 17px rgb(0 0 0 / 0.14), 0px 5px 22px rgb(0 0 0 / 0.12),
+    0px 7px 8px rgb(0 0 0 / 0.14);
+  --dx-shadow-9: 0px 16px 24px rgb(0 0 0 / 0.14), 0px 6px 30px rgb(0 0 0 / 0.12),
+    0px 8px 10px rgb(0 0 0 / 0.14);
+  --dx-shadow-10: 0px 24px 38px rgb(0 0 0 / 0.14), 0px 9px 46px rgb(0 0 0 / 0.12),
+    0px 11px 15px rgb(0 0 0 / 0.14);
+  --dx-ripple-duration: 0.8s;
+  --dx-primary-lighter-color: var(--dx-color-primary-lighter);
+  --dx-primary-light-color: var(--dx-color-primary-light);
+  --dx-primary-dark-color: var(--dx-color-primary-dark);
+  --dx-primary-darker-color: var(--dx-color-primary-darker);
+  --dx-secondary-lighter-color: var(--dx-color-secondary-lighter);
+  --dx-secondary-light-color: var(--dx-color-secondary-light);
+  --dx-secondary-dark-color: var(--dx-color-secondary-dark);
+  --dx-secondary-darker-color: var(--dx-color-secondary-darker);
+  --dx-success-lighter-color: var(--dx-color-success-lighter);
+  --dx-success-light-color: var(--dx-color-success-light);
+  --dx-success-dark-color: var(--dx-color-success-dark);
+  --dx-success-darker-color: var(--dx-color-success-darker);
+  --dx-warning-lighter-color: var(--dx-color-warning-lighter);
+  --dx-warning-light-color: var(--dx-color-warning-light);
+  --dx-warning-dark-color: var(--dx-color-warning-dark);
+  --dx-warning-darker-color: var(--dx-color-warning-darker);
+  --dx-danger-lighter-color: var(--dx-color-danger-lighter);
+  --dx-danger-light-color: var(--dx-color-danger-light);
+  --dx-danger-dark-color: var(--dx-color-danger-dark);
+  --dx-danger-darker-color: var(--dx-color-danger-darker);
+  --dx-info-lighter-color: var(--dx-color-info-lighter);
+  --dx-info-light-color: var(--dx-color-info-light);
+  --dx-info-dark-color: var(--dx-color-info-dark);
+  --dx-info-darker-color: var(--dx-color-info-darker);
+  --dx-on-primary-lighter-color: var(--dx-primary-darker-color);
+  --dx-on-primary-light-color: var(--dx-primary-darker-color);
+  --dx-on-primary-dark-color: var(--dx-light-color);
+  --dx-on-primary-darker-color: var(--dx-primary-light-color);
+  --dx-on-secondary-lighter-color: var(--dx-secondary-darker-color);
+  --dx-on-secondary-light-color: var(--dx-secondary-darker-color);
+  --dx-on-secondary-dark-color: var(--dx-light-color);
+  --dx-on-secondary-darker-color: var(--dx-secondary-light-color);
+  --dx-on-success-lighter-color: var(--dx-success-darker-color);
+  --dx-on-success-light-color: var(--dx-success-darker-color);
+  --dx-on-success-dark-color: var(--dx-light-color);
+  --dx-on-success-darker-color: var(--dx-success-light-color);
+  --dx-on-warning-lighter-color: var(--dx-warning-darker-color);
+  --dx-on-warning-light-color: var(--dx-warning-darker-color);
+  --dx-on-warning-dark-color: var(--dx-light-color);
+  --dx-on-warning-darker-color: var(--dx-warning-light-color);
+  --dx-on-danger-lighter-color: var(--dx-danger-darker-color);
+  --dx-on-danger-light-color: var(--dx-danger-darker-color);
+  --dx-on-danger-dark-color: var(--dx-light-color);
+  --dx-on-danger-darker-color: var(--dx-danger-light-color);
+  --dx-on-info-lighter-color: var(--dx-info-darker-color);
+  --dx-on-info-light-color: var(--dx-info-darker-color);
+  --dx-on-info-dark-color: var(--dx-light-color);
+  --dx-on-info-darker-color: var(--dx-info-light-color);
+  --dx-primary-container-color: var(--dx-color-primary-container);
+  --dx-secondary-container-color: var(--dx-color-secondary-container);
+  --dx-success-container-color: var(--dx-color-success-container);
+  --dx-warn-container-color: var(--dx-color-warning-container);
+  --dx-error-container-color: var(--dx-color-danger-container);
+  --dx-info-container-color: var(--dx-color-info-container);
+  --dx-border-primary-color: var(--dx-color-border-primary);
+  --dx-border-primary-light-color: var(--dx-color-border-primary-light);
+  --dx-border-primary-darker-color: var(--dx-color-border-primary-darker);
+  --dx-border-secondary-color: var(--dx-color-border-secondary);
+  --dx-border-secondary-light-color: var(--dx-color-border-secondary-light);
+  --dx-border-secondary-darker-color: var(--dx-color-border-secondary-darker);
+  --dx-border-success-color: var(--dx-color-border-success);
+  --dx-border-success-light-color: var(--dx-color-border-success-light);
+  --dx-border-success-darker-color: var(--dx-color-border-success-darker);
+  --dx-border-warning-color: var(--dx-color-border-warning);
+  --dx-border-warning-light-color: var(--dx-color-border-warning-light);
+  --dx-border-warning-darker-color: var(--dx-color-border-warning-darker);
+  --dx-border-danger-color: var(--dx-color-border-danger);
+  --dx-border-danger-light-color: var(--dx-color-border-danger-light);
+  --dx-border-danger-darker-color: var(--dx-color-border-danger-darker);
+  --dx-border-info-color: var(--dx-color-border-info);
+  --dx-border-info-light-color: var(--dx-color-border-info-light);
+  --dx-border-info-darker-color: var(--dx-color-border-info-darker);
+  --dx-border-primary-lighter-color: var(--dx-color-border-primary-lighter);
+  --dx-border-primary-dark-color: var(--dx-color-border-primary-dark);
+  --dx-border-secondary-lighter-color: var(--dx-color-border-secondary-lighter);
+  --dx-border-secondary-dark-color: var(--dx-color-border-secondary-dark);
+  --dx-border-success-lighter-color: var(--dx-color-border-success-lighter);
+  --dx-border-success-dark-color: var(--dx-color-border-success-dark);
+  --dx-border-warning-lighter-color: var(--dx-color-border-warning-lighter);
+  --dx-border-warning-dark-color: var(--dx-color-border-warning-dark);
+  --dx-border-danger-lighter-color: var(--dx-color-border-danger-lighter);
+  --dx-border-danger-dark-color: var(--dx-color-border-danger-dark);
+  --dx-border-info-lighter-color: var(--dx-color-border-info-lighter);
+  --dx-border-info-dark-color: var(--dx-color-border-info-dark);
+  --dx-radius: 4px;
+  --dx-radius-0: 0;
+  --dx-radius-1: 0.25rem;
+  --dx-radius-2: 0.5rem;
+  --dx-radius-3: 0.75rem;
+  --dx-radius-4: 1rem;
+  --dx-radius-5: 1.25rem;
+  --dx-radius-6: 1.5rem;
+  --dx-radius-7: 1.75rem;
+  --dx-radius-8: 2rem;
+  --dx-radius-9: 2.25rem;
+  --dx-radius-10: 2.5rem;
+}
+
+[data-theme="dark"] {
+  /* migrated tokens */
+  --dx-text-color: var(--dx-color-text);
+  --dx-text-muted-color: var(--dx-color-text-muted);
+  --dx-text-primary-color: var(--dx-color-text-primary);
+  --dx-text-success-color: var(--dx-color-text-success);
+  --dx-text-warning-color: var(--dx-color-text-warning);
+  --dx-text-danger-color: var(--dx-color-text-danger);
+  --dx-text-info-color: var(--dx-color-text-info);
+  --dx-light-color: #f1f5f9;
+  --dx-primary-lighter-color: var(--dx-color-primary-lighter);
+  --dx-primary-light-color: var(--dx-color-primary-light);
+  --dx-primary-dark-color: var(--dx-color-primary-dark);
+  --dx-primary-darker-color: var(--dx-color-primary-darker);
+  --dx-secondary-lighter-color: var(--dx-color-secondary-lighter);
+  --dx-secondary-light-color: var(--dx-color-secondary-light);
+  --dx-secondary-dark-color: var(--dx-color-secondary-dark);
+  --dx-secondary-darker-color: var(--dx-color-secondary-darker);
+  --dx-success-lighter-color: var(--dx-color-success-lighter);
+  --dx-success-light-color: var(--dx-color-success-light);
+  --dx-success-dark-color: var(--dx-color-success-dark);
+  --dx-success-darker-color: var(--dx-color-success-darker);
+  --dx-warning-lighter-color: var(--dx-color-warning-lighter);
+  --dx-warning-light-color: var(--dx-color-warning-light);
+  --dx-warning-dark-color: var(--dx-color-warning-dark);
+  --dx-warning-darker-color: var(--dx-color-warning-darker);
+  --dx-danger-lighter-color: var(--dx-color-danger-lighter);
+  --dx-danger-light-color: var(--dx-color-danger-light);
+  --dx-danger-dark-color: var(--dx-color-danger-dark);
+  --dx-danger-darker-color: var(--dx-color-danger-darker);
+  --dx-info-lighter-color: var(--dx-color-info-lighter);
+  --dx-info-light-color: var(--dx-color-info-light);
+  --dx-info-dark-color: var(--dx-color-info-dark);
+  --dx-info-darker-color: var(--dx-color-info-darker);
+  --dx-on-primary-lighter-color: var(--dx-primary-darker-color);
+  --dx-on-primary-light-color: var(--dx-primary-darker-color);
+  --dx-on-primary-dark-color: var(--dx-light-color);
+  --dx-on-primary-darker-color: var(--dx-primary-light-color);
+  --dx-on-secondary-lighter-color: var(--dx-secondary-darker-color);
+  --dx-on-secondary-light-color: var(--dx-secondary-darker-color);
+  --dx-on-secondary-dark-color: var(--dx-light-color);
+  --dx-on-secondary-darker-color: var(--dx-secondary-light-color);
+  --dx-on-success-lighter-color: var(--dx-success-darker-color);
+  --dx-on-success-light-color: var(--dx-success-darker-color);
+  --dx-on-success-dark-color: var(--dx-light-color);
+  --dx-on-success-darker-color: var(--dx-success-light-color);
+  --dx-on-warning-lighter-color: var(--dx-warning-darker-color);
+  --dx-on-warning-light-color: var(--dx-warning-darker-color);
+  --dx-on-warning-dark-color: var(--dx-light-color);
+  --dx-on-warning-darker-color: var(--dx-warning-light-color);
+  --dx-on-danger-lighter-color: var(--dx-danger-darker-color);
+  --dx-on-danger-light-color: var(--dx-danger-darker-color);
+  --dx-on-danger-dark-color: var(--dx-light-color);
+  --dx-on-danger-darker-color: var(--dx-danger-light-color);
+  --dx-on-info-lighter-color: var(--dx-info-darker-color);
+  --dx-on-info-light-color: var(--dx-info-darker-color);
+  --dx-on-info-dark-color: var(--dx-light-color);
+  --dx-on-info-darker-color: var(--dx-info-light-color);
+  --dx-primary-container-color: var(--dx-color-primary-container);
+  --dx-secondary-container-color: var(--dx-color-secondary-container);
+  --dx-success-container-color: var(--dx-color-success-container);
+  --dx-warn-container-color: var(--dx-color-warning-container);
+  --dx-error-container-color: var(--dx-color-danger-container);
+  --dx-info-container-color: var(--dx-color-info-container);
+  --dx-border-primary-color: var(--dx-color-border-primary);
+  --dx-border-primary-light-color: var(--dx-color-border-primary-light);
+  --dx-border-primary-darker-color: var(--dx-color-border-primary-darker);
+  --dx-border-secondary-color: var(--dx-color-border-secondary);
+  --dx-border-secondary-light-color: var(--dx-color-border-secondary-light);
+  --dx-border-secondary-darker-color: var(--dx-color-border-secondary-darker);
+  --dx-border-success-color: var(--dx-color-border-success);
+  --dx-border-success-light-color: var(--dx-color-border-success-light);
+  --dx-border-success-darker-color: var(--dx-color-border-success-darker);
+  --dx-border-warning-color: var(--dx-color-border-warning);
+  --dx-border-warning-light-color: var(--dx-color-border-warning-light);
+  --dx-border-warning-darker-color: var(--dx-color-border-warning-darker);
+  --dx-border-danger-color: var(--dx-color-border-danger);
+  --dx-border-danger-light-color: var(--dx-color-border-danger-light);
+  --dx-border-danger-darker-color: var(--dx-color-border-danger-darker);
+  --dx-border-info-color: var(--dx-color-border-info);
+  --dx-border-info-light-color: var(--dx-color-border-info-light);
+  --dx-border-info-darker-color: var(--dx-color-border-info-darker);
+  --dx-border-primary-lighter-color: var(--dx-color-border-primary-lighter);
+  --dx-border-primary-dark-color: var(--dx-color-border-primary-dark);
+  --dx-border-secondary-lighter-color: var(--dx-color-border-secondary-lighter);
+  --dx-border-secondary-dark-color: var(--dx-color-border-secondary-dark);
+  --dx-border-success-lighter-color: var(--dx-color-border-success-lighter);
+  --dx-border-success-dark-color: var(--dx-color-border-success-dark);
+  --dx-border-warning-lighter-color: var(--dx-color-border-warning-lighter);
+  --dx-border-warning-dark-color: var(--dx-color-border-warning-dark);
+  --dx-border-danger-lighter-color: var(--dx-color-border-danger-lighter);
+  --dx-border-danger-dark-color: var(--dx-color-border-danger-dark);
+  --dx-border-info-lighter-color: var(--dx-color-border-info-lighter);
+  --dx-border-info-dark-color: var(--dx-color-border-info-dark);
+  --dx-radius: 4px;
+  --dx-radius-0: 0;
+  --dx-radius-1: 0.25rem;
+  --dx-radius-2: 0.5rem;
+  --dx-radius-3: 0.75rem;
+  --dx-radius-4: 1rem;
+  --dx-radius-5: 1.25rem;
+  --dx-radius-6: 1.5rem;
+  --dx-radius-7: 1.75rem;
+  --dx-radius-8: 2rem;
+  --dx-radius-9: 2.25rem;
+  --dx-radius-10: 2.5rem;
+}

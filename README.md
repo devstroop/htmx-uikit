@@ -14,6 +14,10 @@ Python, Rails, …) can render the same contracts.
 ```
 lib/
   styles/tokens.css     generated from themes/default (synced by scripts/generate-css.mjs)
+  styles/tokens.aliases.css
+                        hand-maintained flat-name aliases (--dx-text-*-color,
+                        --dx-shadow-0..10, …) the utilities consume — bundled
+                        into dist/uikit.css, never generated
   uikit.css             every component's CSS, one rule block per component
   behaviors.js          tiny vanilla JS (no deps) for the interactive bits
   components/<name>/
@@ -62,7 +66,9 @@ dist/                   esbuild output: uikit.js + uikit.css
 ```
 
 Pick a theme: import any `themes/<name>/tokens.css` from the uikit repo
-instead of the default `tokens.css` (see `themes/README.md`).
+instead of the default `tokens.css` (see `themes/README.md`). `uikit.css`
+already carries the flat-name alias layer the utility classes resolve
+against, so the utilities stay live with any paired theme.
 
 ## Building
 
