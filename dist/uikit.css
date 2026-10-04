@@ -2122,6 +2122,28 @@
 }
 
 
+/* contextmenu: the popup shell built by the behavior. Items reuse the
+   menu component's .dx-menu-item surface so both menus stay in sync. */
+.dx-contextmenu-popup {
+  position: fixed;
+  z-index: var(--dx-z-popover);
+  min-width: 180px;
+  max-width: min(320px, 90vw);
+  padding: var(--dx-space-1);
+  border: 1px solid var(--dx-color-border);
+  border-radius: var(--dx-radius-md);
+  background: var(--dx-color-surface);
+  color: var(--dx-color-text);
+  box-shadow: var(--dx-shadow-md);
+}
+
+.dx-contextmenu-popup .dx-menu-item {
+  display: flex;
+  width: 100%;
+  text-align: start;
+}
+
+
 /* DataFilter — filter expression builder (Radzen rz-datafilter parity). */
 
 .dx-datafilter {
