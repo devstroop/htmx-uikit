@@ -3710,6 +3710,22 @@
 }
 
 
+/* gauges: shared shell for gauge components. Geometry lives in SVG;
+   this file owns layout + the value label only. */
+.dx-gauge {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--dx-space-1);
+  color: var(--dx-color-text);
+}
+
+.dx-gauge-value {
+  font-size: var(--dx-font-size-md);
+  font-weight: var(--dx-font-weight-bold);
+}
+
+
 .dx-header {
   display: flex;
   flex-shrink: 0;
