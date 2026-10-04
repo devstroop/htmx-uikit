@@ -273,6 +273,11 @@ export const NAV = [
         "slug": "tooltip",
         "title": "Tooltip",
         "page": "tooltip"
+      },
+      {
+        "slug": "markdown",
+        "title": "Markdown",
+        "page": "markdown"
       }
     ]
   },

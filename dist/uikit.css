@@ -3944,6 +3944,62 @@ textarea[data-dx-htmleditor-source] {
 }
 
 
+/* markdown: rendered document surface. Typography inherits the app
+   scale; spacing between blocks only. */
+.dx-markdown > :first-child {
+  margin-top: 0;
+}
+
+.dx-markdown > :last-child {
+  margin-bottom: 0;
+}
+
+.dx-markdown h1,
+.dx-markdown h2,
+.dx-markdown h3,
+.dx-markdown h4,
+.dx-markdown h5,
+.dx-markdown h6 {
+  margin: var(--dx-space-3) 0 var(--dx-space-2);
+}
+
+.dx-markdown p,
+.dx-markdown ul,
+.dx-markdown ol,
+.dx-markdown blockquote,
+.dx-markdown pre {
+  margin: 0 0 var(--dx-space-2);
+}
+
+.dx-markdown ul,
+.dx-markdown ol {
+  padding-inline-start: var(--dx-space-5);
+}
+
+.dx-markdown blockquote {
+  margin-inline-start: 0;
+  padding-inline-start: var(--dx-space-3);
+  border-inline-start: 1px solid var(--dx-color-border);
+  color: var(--dx-color-text-muted);
+}
+
+.dx-markdown pre {
+  padding: var(--dx-space-2);
+  border-radius: var(--dx-radius-md);
+  background: var(--dx-color-surface-hover);
+  overflow-x: auto;
+}
+
+.dx-markdown code {
+  font-family: monospace;
+  font-size: var(--dx-font-size-sm);
+}
+
+.dx-markdown a {
+  color: var(--dx-color-text-primary);
+}
+
+
 .dx-mask {
   display: block;
   width: 100%;
