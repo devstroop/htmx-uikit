@@ -3851,6 +3851,14 @@
   font-size: var(--dx-font-size-lg);
 }
 
+/* media-query: visibility is driven by the [hidden] attribute, which the
+   behavior flips as the query matches. This class exists as a styling
+   hook for consumers that need to target gated blocks. */
+.dx-media-query {
+  min-width: 0;
+}
+
+
 .dx-menu {
   font-family: var(--dx-font-sans);
 }

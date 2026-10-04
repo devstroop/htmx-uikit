@@ -1,0 +1,10 @@
+<!--
+  MediaQuery — media-query visibility gate (react <MediaQuery> parity).
+  Root: <div class="dx-media-query" data-dx-media-query="(min-width: 768px)">
+  The behavior toggles the `hidden` attribute as the query flips between
+  matching and not, and dispatches `dx:media-change` with
+  { query, matches } on each evaluation. Idempotent: safe to re-init
+  after htmx swaps (each element binds its listener once).
+-->
+
+<div class="dx-media-query" data-dx-media-query="(min-width: 768px)"></div>
