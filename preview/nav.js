@@ -48,6 +48,11 @@ export const NAV = [
         "slug": "stack",
         "title": "Stack",
         "page": "stack"
+      },
+      {
+        "slug": "autogrid",
+        "title": "AutoGrid",
+        "page": "autogrid"
       }
     ]
   },
@@ -103,6 +108,16 @@ export const NAV = [
         "slug": "field",
         "title": "Field",
         "page": "field"
+      },
+      {
+        "slug": "fieldset",
+        "title": "Fieldset",
+        "page": "fieldset"
+      },
+      {
+        "slug": "formfield",
+        "title": "FormField",
+        "page": "formfield"
       },
       {
         "slug": "input",
@@ -290,6 +305,11 @@ export const NAV = [
         "page": "breadcrumb"
       },
       {
+        "slug": "link",
+        "title": "Link",
+        "page": "link"
+      },
+      {
         "slug": "menu",
         "title": "Menu",
         "page": "menu"
@@ -368,12 +388,12 @@ export const NAV = [
         "slug": "chart",
         "title": "Chart",
         "page": "chart"
-      },,
+      },
       {
         "slug": "gauges",
         "title": "Gauges",
         "page": "gauges"
-      }
+      },
       {
         "slug": "gantt",
         "title": "Gantt",
@@ -481,7 +501,7 @@ export const NAV = [
     ]
   }
 ];
-export const COMPONENT_COUNT = 82;
+export const COMPONENT_COUNT = 86;
 export function routeTitle(slug) {
   for (const g of NAV) for (const r of g.routes) if (r.slug === slug) return r.title;
   return slug === "" ? "htmx-uikit preview" : slug;

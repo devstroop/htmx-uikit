@@ -1,0 +1,51 @@
+      <div class="page-head">
+        <h1>FormField</h1>
+        <p class="page-sub">Label + control + helper composition with floating or fixed labels.</p>
+      </div>
+      <section class="demo-section" id="formfield-floating">
+        <div class="demo-card">
+<div class="demo-area">
+          <div class="dx-form-field">
+            <div class="dx-form-field__box">
+              <label class="dx-form-field__label" for="page-ff-name">Full name</label>
+              <input id="page-ff-name" type="text" placeholder=" " />
+            </div>
+            <p class="dx-form-field__helper">As it appears on official mail.</p>
+          </div>
+</div>
+        </div>
+      </section>
+      <section class="demo-section" id="formfield-fixed">
+        <div class="demo-card">
+<div class="demo-area">
+          <div class="dx-form-field dx-form-field--fixed">
+            <label class="dx-form-field__label" for="page-ff-price">Price<span class="dx-form-field__required" aria-hidden="true">*</span></label>
+            <div class="dx-form-field__box">
+              <span class="dx-form-field__start" aria-hidden="true">$</span>
+              <input id="page-ff-price" type="text" inputmode="decimal" />
+              <span class="dx-form-field__end" aria-hidden="true">USD</span>
+            </div>
+          </div>
+</div>
+        </div>
+      </section>
+      <section class="demo-section" id="formfield-invalid">
+        <div class="demo-card">
+<div class="demo-area">
+          <div class="dx-form-field dx-form-field--invalid">
+            <div class="dx-form-field__box">
+              <label class="dx-form-field__label" for="page-ff-email">Email</label>
+              <input
+                id="page-ff-email"
+                type="email"
+                placeholder=" "
+                value="not-an-email"
+                aria-invalid="true"
+                aria-describedby="page-ff-email-hint"
+              />
+            </div>
+            <p class="dx-form-field__helper" id="page-ff-email-hint">Enter a valid email address.</p>
+          </div>
+</div>
+        </div>
+      </section>
