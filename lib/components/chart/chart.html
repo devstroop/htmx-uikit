@@ -91,6 +91,27 @@
   </figure>
 </div>
 
+<!-- Treemap (areas proportional to values) -->
+<div class="dx-chart" data-dx-chart data-dx-series='[{"type":"treemap","title":"T","data":[{"cat":"A","val":30},{"cat":"B","val":70}],"categoryProperty":"cat","valueProperty":"val"}]' aria-label="Treemap" role="img">
+  <figure role="img" aria-label="Treemap">
+    <svg width="600" height="400" data-dx-chart-svg>
+      <rect x="56" y="16" width="158" height="344" fill="var(--dx-color-palette-0)"></rect>
+      <rect x="214" y="16" width="370" height="344" fill="var(--dx-color-palette-1)"></rect>
+    </svg>
+  </figure>
+</div>
+
+<!-- Pyramid (ascending data widens toward the base) -->
+<div class="dx-chart" data-dx-chart data-dx-series='[{"type":"pyramid","title":"P","data":[{"cat":"A","val":30},{"cat":"B","val":60},{"cat":"C","val":100}],"categoryProperty":"cat","valueProperty":"val"}]' aria-label="Pyramid" role="img">
+  <figure role="img" aria-label="Pyramid">
+    <svg width="600" height="400" data-dx-chart-svg>
+      <path d="M 242 16 L 370 16 L 424 124 L 188 124 Z" fill="var(--dx-color-palette-0)"></path>
+      <path d="M 188 124 L 424 124 L 532 232 L 80 232 Z" fill="var(--dx-color-palette-1)"></path>
+      <path d="M 80 232 L 532 232 L 532 340 L 80 340 Z" fill="var(--dx-color-palette-2)"></path>
+    </svg>
+  </figure>
+</div>
+
 <!-- Pie -->
 <div class="dx-chart" data-dx-chart data-dx-series='[{"type":"pie","title":"P","data":[{"cat":"A","val":30},{"cat":"B","val":70}],"categoryProperty":"cat","valueProperty":"val"}]' aria-label="Pie" role="img">
   <figure role="img" aria-label="Pie">
