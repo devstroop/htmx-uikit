@@ -7543,6 +7543,15 @@ textarea[data-dx-htmleditor-source] {
   text-transform: uppercase;
   letter-spacing: var(--dx-letterspacing-overline);
 }
+/* TagName parity: apply any dx-text tier class to any element. */
+p.dx-text--display-6 { font-size: var(--dx-font-display-6); letter-spacing: var(--dx-letterspacing-display-6); }
+
+/* TextAlign parity: composable alignment modifiers. */
+.dx-text--align-left { text-align: left; }
+.dx-text--align-right { text-align: right; }
+.dx-text--align-center { text-align: center; }
+.dx-text--align-justify { text-align: justify; }
+
 
 .dx-textarea {
   width: 100%;
