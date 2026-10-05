@@ -1,0 +1,151 @@
+.dx-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dx-space-1);
+  font-family: var(--dx-font-sans);
+}
+
+.dx-form-field__box {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  border: 1px solid var(--dx-color-border-strong);
+  /* non-token radius: mirrors the react input-radius pairing */
+  border-radius: 6px;
+  background-color: var(--dx-color-surface);
+  transition:
+    border-color var(--dx-transition-fast),
+    box-shadow var(--dx-transition-fast);
+}
+
+.dx-form-field__box:focus-within {
+  border-color: var(--dx-color-primary);
+  box-shadow: 0 0 0 2px var(--dx-color-outline-primary);
+}
+
+.dx-form-field__box > input,
+.dx-form-field__box > textarea,
+.dx-form-field__box > select {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  padding: 20px 12px 6px;
+  font: inherit;
+  color: var(--dx-color-text);
+  outline: none;
+}
+
+/* Floating label: resting state sits inside the box; focus or content
+ * floats it to the top corner. Blank placeholder drives :placeholder-shown. */
+.dx-form-field__label {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: var(--dx-font-size-sm);
+  color: var(--dx-color-text-muted);
+  pointer-events: none;
+  transition:
+    top var(--dx-transition-fast),
+    font-size var(--dx-transition-fast),
+    color var(--dx-transition-fast);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: calc(100% - 24px);
+}
+
+.dx-form-field__box:focus-within .dx-form-field__label,
+.dx-form-field__box:has(input:not(:placeholder-shown)) .dx-form-field__label,
+.dx-form-field__box:has(textarea:not(:placeholder-shown))
+  .dx-form-field__label,
+.dx-form-field__box:has(select) .dx-form-field__label {
+  top: 8px;
+  transform: none;
+  font-size: var(--dx-font-size-xs);
+}
+
+.dx-form-field__box > input::placeholder,
+.dx-form-field__box > textarea::placeholder {
+  color: transparent;
+}
+
+/* The box owns focus indication: inner controls never paint their own. */
+.dx-form-field__box > input:focus-visible,
+.dx-form-field__box > textarea:focus-visible,
+.dx-form-field__box > select:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Fixed-top label variant: classic label-above-the-box layout. */
+.dx-form-field--fixed > .dx-form-field__label {
+  position: static;
+  transform: none;
+  pointer-events: auto;
+  max-width: none;
+  font-size: var(--dx-font-size-sm);
+  font-weight: var(--dx-font-weight-medium);
+  color: var(--dx-color-text);
+}
+
+.dx-form-field--fixed .dx-form-field__box {
+  align-items: center;
+}
+
+.dx-form-field--fixed .dx-form-field__box > input,
+.dx-form-field--fixed .dx-form-field__box > textarea,
+.dx-form-field--fixed .dx-form-field__box > select {
+  padding: 8px 12px;
+}
+
+.dx-form-field__required {
+  color: var(--dx-color-text-danger);
+  margin-left: 2px;
+}
+
+.dx-form-field__start,
+.dx-form-field__end {
+  display: flex;
+  align-items: center;
+  flex: none;
+  color: var(--dx-color-text-muted);
+  white-space: nowrap;
+}
+
+.dx-form-field__start {
+  padding-left: 12px;
+}
+
+.dx-form-field__end {
+  padding-right: 12px;
+}
+
+/* Variants */
+.dx-form-field--filled .dx-form-field__box {
+  background-color: var(--dx-color-surface-hover);
+  border-color: transparent;
+  border-bottom: 1px solid var(--dx-color-border-strong);
+  border-radius: 6px 6px 0 0;
+}
+
+.dx-form-field--flat .dx-form-field__box {
+  background-color: transparent;
+  border-color: transparent;
+  border-bottom: 1px solid var(--dx-color-border-strong);
+  border-radius: 0;
+}
+
+.dx-form-field__helper {
+  font-size: var(--dx-font-size-xs);
+  color: var(--dx-color-text-muted);
+}
+
+.dx-form-field--invalid .dx-form-field__box {
+  border-color: var(--dx-color-danger);
+}
+
+.dx-form-field--invalid .dx-form-field__helper {
+  color: var(--dx-color-text-danger);
+}

@@ -1,0 +1,8 @@
+.dx-auto-grid {
+  display: grid;
+  gap: var(--dx-space-3);
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, var(--dx-auto-grid-min, 240px)), 1fr)
+  );
+}

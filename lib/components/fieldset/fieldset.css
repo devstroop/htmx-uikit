@@ -1,0 +1,46 @@
+.dx-fieldset {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  border: 1px solid var(--dx-color-border);
+  /* non-token radius: mirrors the react 2x base pairing */
+  border-radius: 8px;
+  font-family: var(--dx-font-sans);
+}
+
+.dx-fieldset__legend {
+  padding: 0 8px;
+  margin-left: 12px;
+  font-size: var(--dx-font-size-sm);
+  font-weight: var(--dx-font-weight-medium);
+  color: var(--dx-color-text);
+  white-space: nowrap;
+}
+
+.dx-fieldset__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 2px 8px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.dx-fieldset__toggle:hover {
+  background: var(--dx-color-surface-hover);
+}
+
+.dx-fieldset__content {
+  padding: var(--dx-space-4);
+}
+
+.dx-fieldset__summary {
+  padding: 0 var(--dx-space-4) var(--dx-space-4);
+  font-size: var(--dx-font-size-sm);
+  color: var(--dx-color-text-muted);
+}

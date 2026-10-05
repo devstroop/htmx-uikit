@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SidebarToggle</title>
+    <link rel="stylesheet" href="../../../lib/styles/tokens.css" />
+    <link rel="stylesheet" href="../../../dist/uikit.css" />
+  </head>
+  <body>
+    <main class="dx-layout dx-layout--padded">
+      <h1 class="dx-h1 dx-mb-4">SidebarToggle</h1>
+      <p class="dx-text dx-text-muted dx-mb-4">
+        Hamburger toggle for collapsible sidebars (react
+        <code>SidebarToggle</code> parity): a 40px
+        <code>.dx-sidebar-toggle</code> target, usually placed in the
+        header. It carries its own accessible name
+        (<code>aria-label</code>, never icon-only without one) and
+        flips the sidebar — pair with
+        <code>data-dx-sidebar-toggle</code> in app markup, or wire
+        <code>aria-expanded</code> as below. Presentational only.
+      </p>
+
+      <h2 class="dx-h2 dx-mt-6 dx-mb-2">Default</h2>
+      <button
+        class="dx-sidebar-toggle"
+        type="button"
+        aria-label="Toggle sidebar"
+        aria-expanded="true"
+        aria-controls="demo-sidebar"
+        data-sidebar-toggle
+      >
+        <span aria-hidden="true">☰</span>
+      </button>
+
+      <h2 class="dx-h2 dx-mt-6 dx-mb-2">Target sidebar</h2>
+      <div class="dx-card dx-card-body" id="demo-sidebar">
+        Sidebar content — collapses when the toggle deactivates.
+      </div>
+    </main>
+    <script>
+      document.querySelectorAll("[data-sidebar-toggle]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const target = document.getElementById(
+            btn.getAttribute("aria-controls"),
+          );
+          const expanded = btn.getAttribute("aria-expanded") === "true";
+          btn.setAttribute("aria-expanded", String(!expanded));
+          target.hidden = expanded;
+        });
+      });
+    </script>
+  </body>
+</html>

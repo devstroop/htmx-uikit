@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FormField</title>
+    <!-- parity: component -> explicit label for=/id= association, allowFloatingLabel=false -> .dx-form-field--fixed variant -->
+    <link rel="stylesheet" href="../../../lib/styles/tokens.css" />
+    <link rel="stylesheet" href="../../../dist/uikit.css" />
+  </head>
+  <body>
+    <main class="dx-layout dx-layout--padded">
+      <h1 class="dx-h1 dx-mb-4">FormField</h1>
+      <p class="dx-text dx-text-muted dx-mb-4">
+        Label + control + helper composition (react
+        <code>FormField</code> parity): <code>.dx-form-field</code>
+        wraps a <code>.dx-form-field__box</code> (the control chrome)
+        with a floating or fixed label, optional start/end
+        adornments, variants (<code>--filled</code>,
+        <code>--flat</code>), and an invalid state. Static markup —
+        label association (<code>for</code>/<code>id</code>) is
+        author-owned.
+      </p>
+
+      <h2 class="dx-h2 dx-mt-6 dx-mb-2">Floating label (default)</h2>
+      <div class="dx-form-field">
+        <div class="dx-form-field__box">
+          <label class="dx-form-field__label" for="demo-ff-name"
+            >Full name</label
+          >
+          <input id="demo-ff-name" type="text" placeholder=" " />
+        </div>
+        <p class="dx-form-field__helper">As it appears on official mail.</p>
+      </div>
+
+      <h2 class="dx-h2 dx-mt-6 dx-mb-2">Fixed label + adornments</h2>
+      <div class="dx-form-field dx-form-field--fixed">
+        <label class="dx-form-field__label" for="demo-ff-price"
+          >Price<span class="dx-form-field__required" aria-hidden="true"
+            >*</span
+          ></label
+        >
+        <div class="dx-form-field__box">
+          <span class="dx-form-field__start" aria-hidden="true">$</span>
+          <input id="demo-ff-price" type="text" inputmode="decimal" />
+          <span class="dx-form-field__end" aria-hidden="true">USD</span>
+        </div>
+      </div>
+
+      <h2 class="dx-h2 dx-mt-6 dx-mb-2">Filled variant</h2>
+      <div class="dx-form-field dx-form-field--filled">
+        <div class="dx-form-field__box">
+          <label class="dx-form-field__label" for="demo-ff-search"
+            >Search</label
+          >
+          <input id="demo-ff-search" type="search" placeholder=" " />
+        </div>
+      </div>
+
+      <h2 class="dx-h2 dx-mt-6 dx-mb-2">Invalid with error helper</h2>
+      <div class="dx-form-field dx-form-field--invalid">
+        <div class="dx-form-field__box">
+          <label class="dx-form-field__label" for="demo-ff-email"
+            >Email</label
+          >
+          <input
+            id="demo-ff-email"
+            type="email"
+            placeholder=" "
+            value="not-an-email"
+            aria-invalid="true"
+            aria-describedby="demo-ff-email-hint"
+          />
+        </div>
+        <p class="dx-form-field__helper" id="demo-ff-email-hint">
+          Enter a valid email address.
+        </p>
+      </div>
+    </main>
+  </body>
+</html>

@@ -576,6 +576,16 @@
 }
 
 
+.dx-auto-grid {
+  display: grid;
+  gap: var(--dx-space-3);
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, var(--dx-auto-grid-min, 240px)), 1fr)
+  );
+}
+
+
 .dx-autocomplete {
   position: relative;
   display: block;
@@ -3643,6 +3653,54 @@
 }
 
 
+.dx-fieldset {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  border: 1px solid var(--dx-color-border);
+  /* non-token radius: mirrors the react 2x base pairing */
+  border-radius: 8px;
+  font-family: var(--dx-font-sans);
+}
+
+.dx-fieldset__legend {
+  padding: 0 8px;
+  margin-left: 12px;
+  font-size: var(--dx-font-size-sm);
+  font-weight: var(--dx-font-weight-medium);
+  color: var(--dx-color-text);
+  white-space: nowrap;
+}
+
+.dx-fieldset__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 2px 8px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.dx-fieldset__toggle:hover {
+  background: var(--dx-color-surface-hover);
+}
+
+.dx-fieldset__content {
+  padding: var(--dx-space-4);
+}
+
+.dx-fieldset__summary {
+  padding: 0 var(--dx-space-4) var(--dx-space-4);
+  font-size: var(--dx-font-size-sm);
+  color: var(--dx-color-text-muted);
+}
+
+
 .dx-footer {
   display: flex;
   flex-shrink: 0;
@@ -3656,6 +3714,159 @@
   flex-direction: column;
   gap: var(--dx-space-3);
   font-family: var(--dx-font-sans);
+}
+
+
+.dx-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dx-space-1);
+  font-family: var(--dx-font-sans);
+}
+
+.dx-form-field__box {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  border: 1px solid var(--dx-color-border-strong);
+  /* non-token radius: mirrors the react input-radius pairing */
+  border-radius: 6px;
+  background-color: var(--dx-color-surface);
+  transition:
+    border-color var(--dx-transition-fast),
+    box-shadow var(--dx-transition-fast);
+}
+
+.dx-form-field__box:focus-within {
+  border-color: var(--dx-color-primary);
+  box-shadow: 0 0 0 2px var(--dx-color-outline-primary);
+}
+
+.dx-form-field__box > input,
+.dx-form-field__box > textarea,
+.dx-form-field__box > select {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  padding: 20px 12px 6px;
+  font: inherit;
+  color: var(--dx-color-text);
+  outline: none;
+}
+
+/* Floating label: resting state sits inside the box; focus or content
+ * floats it to the top corner. Blank placeholder drives :placeholder-shown. */
+.dx-form-field__label {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: var(--dx-font-size-sm);
+  color: var(--dx-color-text-muted);
+  pointer-events: none;
+  transition:
+    top var(--dx-transition-fast),
+    font-size var(--dx-transition-fast),
+    color var(--dx-transition-fast);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: calc(100% - 24px);
+}
+
+.dx-form-field__box:focus-within .dx-form-field__label,
+.dx-form-field__box:has(input:not(:placeholder-shown)) .dx-form-field__label,
+.dx-form-field__box:has(textarea:not(:placeholder-shown))
+  .dx-form-field__label,
+.dx-form-field__box:has(select) .dx-form-field__label {
+  top: 8px;
+  transform: none;
+  font-size: var(--dx-font-size-xs);
+}
+
+.dx-form-field__box > input::placeholder,
+.dx-form-field__box > textarea::placeholder {
+  color: transparent;
+}
+
+/* The box owns focus indication: inner controls never paint their own. */
+.dx-form-field__box > input:focus-visible,
+.dx-form-field__box > textarea:focus-visible,
+.dx-form-field__box > select:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Fixed-top label variant: classic label-above-the-box layout. */
+.dx-form-field--fixed > .dx-form-field__label {
+  position: static;
+  transform: none;
+  pointer-events: auto;
+  max-width: none;
+  font-size: var(--dx-font-size-sm);
+  font-weight: var(--dx-font-weight-medium);
+  color: var(--dx-color-text);
+}
+
+.dx-form-field--fixed .dx-form-field__box {
+  align-items: center;
+}
+
+.dx-form-field--fixed .dx-form-field__box > input,
+.dx-form-field--fixed .dx-form-field__box > textarea,
+.dx-form-field--fixed .dx-form-field__box > select {
+  padding: 8px 12px;
+}
+
+.dx-form-field__required {
+  color: var(--dx-color-text-danger);
+  margin-left: 2px;
+}
+
+.dx-form-field__start,
+.dx-form-field__end {
+  display: flex;
+  align-items: center;
+  flex: none;
+  color: var(--dx-color-text-muted);
+  white-space: nowrap;
+}
+
+.dx-form-field__start {
+  padding-left: 12px;
+}
+
+.dx-form-field__end {
+  padding-right: 12px;
+}
+
+/* Variants */
+.dx-form-field--filled .dx-form-field__box {
+  background-color: var(--dx-color-surface-hover);
+  border-color: transparent;
+  border-bottom: 1px solid var(--dx-color-border-strong);
+  border-radius: 6px 6px 0 0;
+}
+
+.dx-form-field--flat .dx-form-field__box {
+  background-color: transparent;
+  border-color: transparent;
+  border-bottom: 1px solid var(--dx-color-border-strong);
+  border-radius: 0;
+}
+
+.dx-form-field__helper {
+  font-size: var(--dx-font-size-xs);
+  color: var(--dx-color-text-muted);
+}
+
+.dx-form-field--invalid .dx-form-field__box {
+  border-color: var(--dx-color-danger);
+}
+
+.dx-form-field--invalid .dx-form-field__helper {
+  color: var(--dx-color-text-danger);
 }
 
 
@@ -3954,6 +4165,40 @@ textarea[data-dx-htmleditor-source] {
 .dx-layout-row:has(.dx-sidebar--overlay) {
   position: relative;
 }
+
+.dx-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--dx-space-1);
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--dx-color-primary);
+  font: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.dx-link:hover {
+  color: var(--dx-color-primary-hover);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.dx-link:focus-visible {
+  /* non-token ring width: mirrors the react focus-ring pairing */
+  outline: 2px solid var(--dx-color-focus);
+  outline-offset: 2px;
+}
+
+.dx-link:disabled,
+.dx-link[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
 
 .dx-listbox {
   display: flex;
@@ -6060,6 +6305,29 @@ textarea[data-dx-htmleditor-source] {
   z-index: 30;
 }
 
+.dx-sidebar-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  /* non-token target: mirrors the react 40px touch target */
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.dx-sidebar-toggle:hover {
+  background: color-mix(in srgb, var(--dx-color-text) 8%, transparent);
+}
+
+
 .dx-signaturepad {
   display: block;
   width: 100%;
@@ -7275,6 +7543,15 @@ textarea[data-dx-htmleditor-source] {
   text-transform: uppercase;
   letter-spacing: var(--dx-letterspacing-overline);
 }
+/* TagName parity: apply any dx-text tier class to any element. */
+p.dx-text--display-6 { font-size: var(--dx-font-display-6); letter-spacing: var(--dx-letterspacing-display-6); }
+
+/* TextAlign parity: composable alignment modifiers. */
+.dx-text--align-left { text-align: left; }
+.dx-text--align-right { text-align: right; }
+.dx-text--align-center { text-align: center; }
+.dx-text--align-justify { text-align: justify; }
+
 
 .dx-textarea {
   width: 100%;
@@ -7426,6 +7703,29 @@ textarea[data-dx-htmleditor-source] {
   color: var(--dx-color-text);
   cursor: pointer;
 }
+
+.dx-theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  /* non-token target: mirrors the react 40px touch target */
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.dx-theme-toggle:hover {
+  background: color-mix(in srgb, var(--dx-color-text) 8%, transparent);
+}
+
 
 .dx-timeline {
   list-style: none;
