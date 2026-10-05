@@ -1,0 +1,68 @@
+      <div class="page-head">
+        <h1>CheckBoxList</h1>
+        <p class="page-sub">Grouped checkboxes sharing one model.</p>
+      </div>
+      <section class="demo-section" id="checkboxlist">
+        <div class="demo-card">
+<div class="demo-area">
+          <div class="demos-grid">
+            <fieldset class="dx-checkboxlist">
+              <legend class="dx-checkboxlist__legend">Notifications</legend>
+              <ul class="dx-checkboxlist__list">
+                <li class="dx-checkboxlist__item">
+                  <label class="dx-checkboxlist__label">
+                    <input type="checkbox" class="dx-checkboxlist__checkbox" name="pv-notifications" value="email" checked />
+                    Email
+                  </label>
+                </li>
+                <li class="dx-checkboxlist__item">
+                  <label class="dx-checkboxlist__label">
+                    <input type="checkbox" class="dx-checkboxlist__checkbox" name="pv-notifications" value="sms" />
+                    SMS
+                  </label>
+                </li>
+                <li class="dx-checkboxlist__item">
+                  <label class="dx-checkboxlist__label">
+                    <input type="checkbox" class="dx-checkboxlist__checkbox" name="pv-notifications" value="push" />
+                    Push
+                  </label>
+                </li>
+                <li class="dx-checkboxlist__item dx-checkboxlist__item--disabled">
+                  <label class="dx-checkboxlist__label">
+                    <input type="checkbox" class="dx-checkboxlist__checkbox" name="pv-notifications" value="carrier" disabled />
+                    Carrier pigeon (unavailable)
+                  </label>
+                </li>
+              </ul>
+            </fieldset>
+            <fieldset class="dx-checkboxlist">
+              <legend class="dx-checkboxlist__legend">Toppings</legend>
+              <ul class="dx-checkboxlist__list">
+                <li class="dx-checkboxlist__item">
+                  <label class="dx-checkboxlist__label">
+                    <input type="checkbox" class="dx-checkboxlist__checkbox" name="pv-toppings" value="cheese" checked />
+                    Extra cheese
+                  </label>
+                </li>
+                <li class="dx-checkboxlist__item">
+                  <label class="dx-checkboxlist__label">
+                    <input type="checkbox" class="dx-checkboxlist__checkbox" name="pv-toppings" value="pepperoni" />
+                    Pepperoni
+                  </label>
+                </li>
+              </ul>
+            </fieldset>
+          </div>
+        </div>
+          <div class="kbd-block">
+            <h3 class="kbd-title">Keyboard</h3>
+            <table class="dx-table kbd-table">
+              <thead><tr><th scope="col">Key</th><th scope="col">Action</th></tr></thead>
+              <tbody>
+                <tr><td class="kbd-keys"><kbd>Tab</kbd></td><td>Move between the checkboxes in the list</td></tr>
+                <tr><td class="kbd-keys"><kbd>Space</kbd></td><td>Toggle the focused checkbox</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>

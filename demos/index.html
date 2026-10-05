@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>htmx-uikit — demos</title>
+    <link rel="stylesheet" href="/dist/uikit.css" />
+    <link rel="stylesheet" href="/tokens/default.css" data-theme-link="default" />
+    <link rel="stylesheet" href="/tokens/fluent.css" data-theme-link="fluent" disabled />
+    <link rel="stylesheet" href="/tokens/github.css" data-theme-link="github" disabled />
+    <link rel="stylesheet" href="/tokens/material.css" data-theme-link="material" disabled />
+    <link rel="stylesheet" href="/tokens/material-3.css" data-theme-link="material-3" disabled />
+    <link rel="stylesheet" href="/tokens/shadcn.css" data-theme-link="shadcn" disabled />
+    <link rel="stylesheet" href="/demos.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="app-brand">
+        <button
+          id="sidebar-toggle"
+          class="dx-button dx-button--text dx-button--icon-only app-sidebar-btn"
+          type="button"
+          aria-expanded="true"
+          aria-controls="app-sidebar"
+          aria-label="Toggle component navigation"
+        >
+          <span aria-hidden="true">☰</span>
+        </button>
+        <a class="app-logo" href="#/"><strong>UIKit</strong><span>htmx</span></a>
+        <span class="dx-badge dx-badge--primary dx-badge--soft">htmx-uikit 0.28.0</span>
+        <span class="dx-badge dx-badge--neutral dx-badge--outline" id="component-count">—</span>
+      </div>
+      <div class="app-header-controls">
+        <label class="app-theme-select">
+          Theme
+          <select id="theme-select" class="dx-select dx-select--sm" aria-label="Palette">
+            <option value="default">Default</option>
+            <option value="fluent">Fluent 2</option>
+            <option value="github">GitHub (Primer)</option>
+            <option value="material">Material 2</option>
+            <option value="material-3">Material 3</option>
+            <option value="shadcn">shadcn/ui</option>
+          </select>
+        </label>
+        <label class="dark-toggle app-dark">
+          <input type="checkbox" id="dark-toggle" class="dx-switch" role="switch" data-dx-theme-switch />
+          Dark
+        </label>
+        <button
+          type="button"
+          id="event-log-toggle"
+          class="dx-button dx-button--ghost dx-button--sm"
+          aria-expanded="false"
+          aria-controls="event-log"
+        >
+          Events
+          <span class="dx-badge dx-badge--neutral dx-badge--soft" id="event-log-count" hidden>0</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="app-body">
+      <aside class="app-sidebar" id="app-sidebar" aria-label="Component navigation">
+        <input
+          id="nav-search"
+          class="dx-input dx-input--sm"
+          type="search"
+          placeholder="Search components…"
+          autocomplete="off"
+          aria-label="Filter components"
+        />
+        <nav id="app-nav"></nav>
+        <p id="nav-empty" class="app-muted app-nav-empty" hidden>No components match.</p>
+      </aside>
+
+      <main class="app-main" id="demo-content" tabindex="-1">
+        <div class="page-head">
+          <h1>Loading…</h1>
+        </div>
+      </main>
+
+      <aside class="app-toc" id="page-toc" hidden aria-label="On this page">
+        <p class="app-toc-head">On this page</p>
+        <nav class="dx-toc dx-toc--vertical" data-dx-toc data-dx-orientation="vertical">
+          <ol class="dx-toc-list" id="page-toc-list"></ol>
+        </nav>
+      </aside>
+    </div>
+
+    <section id="event-log" class="event-log" hidden aria-label="Event log">
+      <header class="event-log-head">
+        <span class="event-log-title">Events</span>
+        <span class="event-log-actions">
+          <button type="button" id="event-log-clear" class="dx-button dx-button--ghost dx-button--sm">Clear</button>
+          <button type="button" id="event-log-close" class="dx-button dx-button--ghost dx-button--sm">Close</button>
+        </span>
+      </header>
+      <ol id="event-log-list" class="event-log-list" aria-live="polite"></ol>
+    </section>
+
+    <script src="/vendor/htmx.min.js"></script>
+    <script src="/dist/uikit.js"></script>
+    <script type="module" src="/demos.js"></script>
+  </body>
+</html>

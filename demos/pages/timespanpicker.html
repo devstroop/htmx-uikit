@@ -1,0 +1,113 @@
+      <div class="page-head">
+        <h1>TimeSpanPicker</h1>
+        <p class="page-sub">Duration picker for hours, minutes, and seconds.</p>
+      </div>
+      <section class="demo-section" id="timespanpicker">
+        <div class="demo-card">
+<div class="demo-area">
+          <div class="demos-grid">
+<div class="dx-timespanpicker" data-dx-timespanpicker data-dx-format="d.HH:mm:ss" data-dx-precision="second" data-dx-show-days data-dx-show-hours data-dx-show-minutes data-dx-show-seconds>
+  <input class="dx-timespanpicker-input dx-timespanpicker-input--md" type="text" data-dx-timespanpicker-input value="1.02:30:00" aria-label="Duration" />
+  <button class="dx-timespanpicker-trigger" type="button" data-dx-timespanpicker-trigger aria-haspopup="dialog" aria-expanded="false" aria-controls="pv-tsp1-popup" aria-label="Set duration">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>
+  </button>
+  <button class="dx-timespanpicker-clear" type="button" data-dx-timespanpicker-clear aria-label="Clear duration">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6L6 18M6 6l12 12" /></svg>
+  </button>
+  <div class="dx-timespanpicker-popup" id="pv-tsp1-popup" role="dialog" aria-label="Set duration" data-dx-timespanpicker-popup hidden>
+    <div class="dx-timespanpicker-units">
+      <div class="dx-timespanpicker-unit">
+        <span class="dx-timespanpicker-unit-label">Days</span>
+        <button type="button" class="dx-timespanpicker-step" data-dx-timespanpicker-step data-dx-timespanpicker-step-unit="days" data-dx-timespanpicker-step-dir="1" aria-label="Increase days">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 15l-6-6-6 6" /></svg>
+        </button>
+        <input type="text" inputmode="numeric" class="dx-timespanpicker-value" data-dx-timespanpicker-value data-dx-unit="days" aria-label="Days" />
+        <button type="button" class="dx-timespanpicker-step" data-dx-timespanpicker-step data-dx-timespanpicker-step-unit="days" data-dx-timespanpicker-step-dir="-1" aria-label="Decrease days">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" /></svg>
+        </button>
+      </div>
+      <div class="dx-timespanpicker-unit">
+        <span class="dx-timespanpicker-unit-label">Hours</span>
+        <button type="button" class="dx-timespanpicker-step" data-dx-timespanpicker-step data-dx-timespanpicker-step-unit="hours" data-dx-timespanpicker-step-dir="1" aria-label="Increase hours">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 15l-6-6-6 6" /></svg>
+        </button>
+        <input type="text" inputmode="numeric" class="dx-timespanpicker-value" data-dx-timespanpicker-value data-dx-unit="hours" aria-label="Hours" />
+        <button type="button" class="dx-timespanpicker-step" data-dx-timespanpicker-step data-dx-timespanpicker-step-unit="hours" data-dx-timespanpicker-step-dir="-1" aria-label="Decrease hours">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" /></svg>
+        </button>
+      </div>
+      <div class="dx-timespanpicker-unit">
+        <span class="dx-timespanpicker-unit-label">Minutes</span>
+        <button type="button" class="dx-timespanpicker-step" data-dx-timespanpicker-step data-dx-timespanpicker-step-unit="minutes" data-dx-timespanpicker-step-dir="1" aria-label="Increase minutes">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 15l-6-6-6 6" /></svg>
+        </button>
+        <input type="text" inputmode="numeric" class="dx-timespanpicker-value" data-dx-timespanpicker-value data-dx-unit="minutes" aria-label="Minutes" />
+        <button type="button" class="dx-timespanpicker-step" data-dx-timespanpicker-step data-dx-timespanpicker-step-unit="minutes" data-dx-timespanpicker-step-dir="-1" aria-label="Decrease minutes">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" /></svg>
+        </button>
+      </div>
+      <div class="dx-timespanpicker-unit">
+        <span class="dx-timespanpicker-unit-label">Seconds</span>
+        <button type="button" class="dx-timespanpicker-step" data-dx-timespanpicker-step data-dx-timespanpicker-step-unit="seconds" data-dx-timespanpicker-step-dir="1" aria-label="Increase seconds">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 15l-6-6-6 6" /></svg>
+        </button>
+        <input type="text" inputmode="numeric" class="dx-timespanpicker-value" data-dx-timespanpicker-value data-dx-unit="seconds" aria-label="Seconds" />
+        <button type="button" class="dx-timespanpicker-step" data-dx-timespanpicker-step data-dx-timespanpicker-step-unit="seconds" data-dx-timespanpicker-step-dir="-1" aria-label="Decrease seconds">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" /></svg>
+        </button>
+      </div>
+    </div>
+    <div class="dx-timespanpicker-footer" data-dx-timespanpicker-footer>
+      <button type="button" class="dx-timespanpicker-ok" data-dx-timespanpicker-ok>OK</button>
+    </div>
+  </div>
+</div>
+<div class="dx-timespanpicker" data-dx-timespanpicker data-dx-format="HH:mm" data-dx-precision="minute" data-dx-show-hours data-dx-show-minutes>
+  <input class="dx-timespanpicker-input dx-timespanpicker-input--sm" type="text" data-dx-timespanpicker-input value="01:15" aria-label="Minutes budget" />
+  <button class="dx-timespanpicker-trigger" type="button" data-dx-timespanpicker-trigger aria-haspopup="dialog" aria-expanded="false" aria-controls="pv-tsp3-popup" aria-label="Set duration">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>
+  </button>
+  <div class="dx-timespanpicker-popup" id="pv-tsp3-popup" role="dialog" aria-label="Set duration" data-dx-timespanpicker-popup hidden>
+    <div class="dx-timespanpicker-units">
+      <div class="dx-timespanpicker-unit">
+        <span class="dx-timespanpicker-unit-label">Hours</span>
+        <button type="button" class="dx-timespanpicker-step" data-dx-timespanpicker-step data-dx-timespanpicker-step-unit="hours" data-dx-timespanpicker-step-dir="1" aria-label="Increase hours">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 15l-6-6-6 6" /></svg>
+        </button>
+        <input type="text" inputmode="numeric" class="dx-timespanpicker-value" data-dx-timespanpicker-value data-dx-unit="hours" aria-label="Hours" />
+        <button type="button" class="dx-timespanpicker-step" data-dx-timespanpicker-step data-dx-timespanpicker-step-unit="hours" data-dx-timespanpicker-step-dir="-1" aria-label="Decrease hours">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" /></svg>
+        </button>
+      </div>
+      <div class="dx-timespanpicker-unit">
+        <span class="dx-timespanpicker-unit-label">Minutes</span>
+        <button type="button" class="dx-timespanpicker-step" data-dx-timespanpicker-step data-dx-timespanpicker-step-unit="minutes" data-dx-timespanpicker-step-dir="1" aria-label="Increase minutes">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 15l-6-6-6 6" /></svg>
+        </button>
+        <input type="text" inputmode="numeric" class="dx-timespanpicker-value" data-dx-timespanpicker-value data-dx-unit="minutes" aria-label="Minutes" />
+        <button type="button" class="dx-timespanpicker-step" data-dx-timespanpicker-step data-dx-timespanpicker-step-unit="minutes" data-dx-timespanpicker-step-dir="-1" aria-label="Decrease minutes">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" /></svg>
+        </button>
+      </div>
+    </div>
+    <div class="dx-timespanpicker-footer" data-dx-timespanpicker-footer>
+      <button type="button" class="dx-timespanpicker-ok" data-dx-timespanpicker-ok>OK</button>
+    </div>
+  </div>
+</div>
+          </div>
+        </div>
+          <div class="kbd-block">
+            <h3 class="kbd-title">Keyboard</h3>
+            <table class="dx-table kbd-table">
+              <thead><tr><th scope="col">Key</th><th scope="col">Action</th></tr></thead>
+              <tbody>
+                <tr><td class="kbd-keys"><kbd>ArrowUp</kbd><span class="kbd-sep">/</span><kbd>ArrowDown</kbd></td><td>Step the focused unit — values carry over at each maximum</td></tr>
+                <tr><td class="kbd-keys"><kbd>Enter</kbd></td><td>Commit the staged edits (canonical value)</td></tr>
+                <tr><td class="kbd-keys"><kbd>Escape</kbd></td><td>Close and revert uncommitted edits</td></tr>
+                <tr><td class="kbd-keys"><kbd>Home</kbd><span class="kbd-sep">/</span><kbd>End</kbd></td><td>Clamp the focused unit to its min/max</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>

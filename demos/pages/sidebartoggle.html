@@ -1,0 +1,43 @@
+      <div class="page-head">
+        <h1>SidebarToggle</h1>
+        <p class="page-sub">Open and close sidebars and edge drawers from any trigger.</p>
+      </div>
+      <section class="demo-section" id="sidebartoggle">
+        <div class="demo-card">
+<div class="dx-layout" style="width: 100%; min-height: 320px; border: 1px dashed var(--dx-color-border); border-radius: var(--dx-radius-md); overflow: hidden; margin-top: 16px">
+  <header class="dx-header" aria-label="Drawers header">
+    <span style="font-weight: 600">Overlay drawers</span>
+    <span style="flex-grow: 1"></span>
+    <button class="dx-button dx-button--ghost dx-button--sm" type="button" id="demos-drawer-left-toggle" data-dx-sidebar-toggle="#demos-drawer-left-sidebar" aria-expanded="false" aria-controls="demos-drawer-left-sidebar">Open left</button>
+    <button class="dx-button dx-button--ghost dx-button--sm" type="button" id="demos-drawer-right-toggle" data-dx-sidebar-toggle="#demos-drawer-right-sidebar" aria-expanded="false" aria-controls="demos-drawer-right-sidebar">Open right</button>
+  </header>
+  <div class="dx-layout-row">
+    <div class="dx-layout-mask dx-layout-mask--hidden" id="demos-drawer-left-mask" data-dx-sidebar-mask="#demos-drawer-left-sidebar"></div>
+    <div class="dx-layout-mask dx-layout-mask--hidden" id="demos-drawer-right-mask" data-dx-sidebar-mask="#demos-drawer-right-sidebar"></div>
+    <div class="dx-body" aria-label="Drawers body">
+      <div class="dx-row">
+        <div class="dx-column dx-column--12 grid-cell">Body content — drawers overlay this from either edge. Escape or the mask closes them.</div>
+      </div>
+    </div>
+    <aside class="dx-sidebar dx-sidebar--left dx-sidebar--overlay dx-sidebar--collapsed" id="demos-drawer-left-sidebar" aria-label="Left drawer navigation">
+      <nav aria-label="Left drawer demo navigation">
+        <ul class="shell-nav">
+          <li><button class="dx-button dx-button--ghost dx-button--sm" type="button" style="width: 100%; justify-content: flex-start">Inbox</button></li>
+          <li><button class="dx-button dx-button--ghost dx-button--sm" type="button" style="width: 100%; justify-content: flex-start">Sent</button></li>
+          <li><button class="dx-button dx-button--ghost dx-button--sm" type="button" style="width: 100%; justify-content: flex-start">Archive</button></li>
+        </ul>
+      </nav>
+    </aside>
+    <aside class="dx-sidebar dx-sidebar--right dx-sidebar--overlay dx-sidebar--collapsed" id="demos-drawer-right-sidebar" aria-label="Right drawer navigation">
+      <nav aria-label="Right drawer demo navigation">
+        <ul class="shell-nav">
+          <li><button class="dx-button dx-button--ghost dx-button--sm" type="button" style="width: 100%; justify-content: flex-start">Dashboard</button></li>
+          <li><button class="dx-button dx-button--ghost dx-button--sm" type="button" style="width: 100%; justify-content: flex-start">Users</button></li>
+          <li><button class="dx-button dx-button--ghost dx-button--sm" type="button" style="width: 100%; justify-content: flex-start">Settings</button></li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+</div>
+        </div>
+      </section>

@@ -1,0 +1,28 @@
+      <div class="page-head">
+        <h1>Mask</h1>
+        <p class="page-sub">Masked input that formats keystrokes as you type.</p>
+      </div>
+      <section class="demo-section" id="mask">
+        <div class="demo-card">
+<div class="demo-area"><div class="demos-inputs">
+<div>
+              <strong>Mask</strong>
+              <input class="dx-mask dx-mask--md" type="text" data-dx-mask="(###) ###-####" placeholder="(123) 456-7890" aria-label="Phone" />
+              <input class="dx-mask dx-mask--sm" type="text" data-dx-mask="##/##/####" placeholder="MM/DD/YYYY" aria-label="Date" />
+              <input class="dx-mask dx-mask--md" type="text" data-dx-mask="###-##-####" placeholder="123-45-6789" aria-label="SSN" />
+            </div>
+          </div>
+        </div>
+          <div class="kbd-block">
+            <h3 class="kbd-title">Keyboard</h3>
+            <table class="dx-table kbd-table">
+              <thead><tr><th scope="col">Key</th><th scope="col">Action</th></tr></thead>
+              <tbody>
+                <tr><td class="kbd-keys"><kbd>Digit</kbd></td><td>Fills the next # slot; literals appear as you type</td></tr>
+                <tr><td class="kbd-keys"><kbd>Backspace</kbd></td><td>Deletes the last digit, stepping over mask literals</td></tr>
+                <tr><td class="kbd-keys"><kbd>Any other key</kbd></td><td>Ignored — only digits are accepted</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>

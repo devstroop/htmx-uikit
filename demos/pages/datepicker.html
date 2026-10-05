@@ -1,0 +1,118 @@
+      <div class="page-head">
+        <h1>DatePicker</h1>
+        <p class="page-sub">Calendar popup with min and max bounds.</p>
+      </div>
+      <section class="demo-section" id="datepicker">
+        <div class="demo-card">
+<div class="demo-area">
+          <div class="demos-grid">
+<div class="dx-datepicker" data-dx-datepicker data-dx-format="yyyy-MM-dd" data-dx-locale="en-US">
+  <input class="dx-datepicker-input dx-datepicker-input--md" type="text" data-dx-datepicker-input value="2026-08-20" aria-label="Date" />
+  <button class="dx-datepicker-trigger" type="button" data-dx-datepicker-trigger aria-haspopup="dialog" aria-expanded="false" aria-controls="pv-dp1-popup" aria-label="Open calendar">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" /></svg>
+  </button>
+  <button class="dx-datepicker-clear" type="button" data-dx-datepicker-clear aria-label="Clear date">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6L6 18M6 6l12 12" /></svg>
+  </button>
+  <div class="dx-datepicker-popup" id="pv-dp1-popup" role="dialog" aria-label="Choose date" data-dx-datepicker-popup hidden>
+    <div class="dx-datepicker-header">
+      <button class="dx-datepicker-nav" type="button" data-dx-datepicker-prev aria-label="Previous month">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 18l-6-6 6-6" /></svg>
+      </button>
+      <div class="dx-datepicker-title" data-dx-datepicker-title aria-live="polite"></div>
+      <button class="dx-datepicker-nav" type="button" data-dx-datepicker-next aria-label="Next month">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 18l6-6-6-6" /></svg>
+      </button>
+    </div>
+    <div class="dx-datepicker-weekdays" data-dx-datepicker-weekdays></div>
+    <div class="dx-datepicker-grid" role="grid" data-dx-datepicker-grid></div>
+  </div>
+</div>
+<div class="dx-datepicker" data-dx-datepicker data-dx-format="dd.MM.yyyy" data-dx-min="2026-01-01" data-dx-max="2026-12-31" data-dx-show-time data-dx-locale="de-DE">
+  <input class="dx-datepicker-input dx-datepicker-input--md" type="text" data-dx-datepicker-input value="20.08.2026" aria-label="Termin" />
+  <button class="dx-datepicker-trigger" type="button" data-dx-datepicker-trigger aria-haspopup="dialog" aria-expanded="false" aria-controls="pv-dp2-popup" aria-label="Kalender öffnen">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" /></svg>
+  </button>
+  <button class="dx-datepicker-clear" type="button" data-dx-datepicker-clear aria-label="Datum löschen">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6L6 18M6 6l12 12" /></svg>
+  </button>
+  <div class="dx-datepicker-popup" id="pv-dp2-popup" role="dialog" aria-label="Datum wählen" data-dx-datepicker-popup hidden>
+    <div class="dx-datepicker-header">
+      <button class="dx-datepicker-nav" type="button" data-dx-datepicker-prev aria-label="Vorheriger Monat">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 18l-6-6 6-6" /></svg>
+      </button>
+      <div class="dx-datepicker-title" data-dx-datepicker-title aria-live="polite"></div>
+      <button class="dx-datepicker-nav" type="button" data-dx-datepicker-next aria-label="Nächster Monat">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 18l6-6-6-6" /></svg>
+      </button>
+    </div>
+    <div class="dx-datepicker-weekdays" data-dx-datepicker-weekdays></div>
+    <div class="dx-datepicker-grid" role="grid" data-dx-datepicker-grid></div>
+    <div class="dx-datepicker-time" data-dx-datepicker-time hidden>
+      <div class="dx-datepicker-time-col">
+        <span class="dx-datepicker-time-label">Stunde</span>
+        <button type="button" class="dx-datepicker-time-btn" data-dx-datepicker-time-step data-dx-datepicker-time-step-field="hours" data-dx-datepicker-time-step-dir="1" aria-label="Stunde erhöhen">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 15l-6-6-6 6" /></svg>
+        </button>
+        <input type="text" inputmode="numeric" class="dx-datepicker-time-input" data-dx-datepicker-time-field="hours" aria-label="Stunde" />
+        <button type="button" class="dx-datepicker-time-btn" data-dx-datepicker-time-step data-dx-datepicker-time-step-field="hours" data-dx-datepicker-time-step-dir="-1" aria-label="Stunde verringern">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" /></svg>
+        </button>
+      </div>
+      <div class="dx-datepicker-time-col">
+        <span class="dx-datepicker-time-label">Minute</span>
+        <button type="button" class="dx-datepicker-time-btn" data-dx-datepicker-time-step data-dx-datepicker-time-step-field="minutes" data-dx-datepicker-time-step-dir="1" aria-label="Minute erhöhen">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 15l-6-6-6 6" /></svg>
+        </button>
+        <input type="text" inputmode="numeric" class="dx-datepicker-time-input" data-dx-datepicker-time-field="minutes" aria-label="Minute" />
+        <button type="button" class="dx-datepicker-time-btn" data-dx-datepicker-time-step data-dx-datepicker-time-step-field="minutes" data-dx-datepicker-time-step-dir="-1" aria-label="Minute verringern">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" /></svg>
+        </button>
+      </div>
+      <div class="dx-datepicker-time-col">
+        <span class="dx-datepicker-time-label">Sekunde</span>
+        <button type="button" class="dx-datepicker-time-btn" data-dx-datepicker-time-step data-dx-datepicker-time-step-field="seconds" data-dx-datepicker-time-step-dir="1" aria-label="Sekunde erhöhen">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 15l-6-6-6 6" /></svg>
+        </button>
+        <input type="text" inputmode="numeric" class="dx-datepicker-time-input" data-dx-datepicker-time-field="seconds" aria-label="Sekunde" />
+        <button type="button" class="dx-datepicker-time-btn" data-dx-datepicker-time-step data-dx-datepicker-time-step-field="seconds" data-dx-datepicker-time-step-dir="-1" aria-label="Sekunde verringern">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" /></svg>
+        </button>
+      </div>
+    </div>
+    <div class="dx-datepicker-footer" data-dx-datepicker-footer hidden>
+      <button type="button" class="dx-datepicker-ok" data-dx-datepicker-ok>OK</button>
+    </div>
+  </div>
+</div>
+<div class="dx-datepicker" data-dx-datepicker data-dx-format="yyyy-MM-dd" data-dx-inline data-dx-value="2026-08-20">
+  <div class="dx-datepicker-popup" role="dialog" aria-label="Choose date" data-dx-datepicker-popup>
+    <div class="dx-datepicker-header">
+      <button class="dx-datepicker-nav" type="button" data-dx-datepicker-prev aria-label="Previous month">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 18l-6-6 6-6" /></svg>
+      </button>
+      <div class="dx-datepicker-title" data-dx-datepicker-title aria-live="polite"></div>
+      <button class="dx-datepicker-nav" type="button" data-dx-datepicker-next aria-label="Next month">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 18l6-6-6-6" /></svg>
+      </button>
+    </div>
+    <div class="dx-datepicker-weekdays" data-dx-datepicker-weekdays></div>
+    <div class="dx-datepicker-grid" role="grid" data-dx-datepicker-grid></div>
+  </div>
+</div>
+          </div>
+        </div>
+          <div class="kbd-block">
+            <h3 class="kbd-title">Keyboard</h3>
+            <table class="dx-table kbd-table">
+              <thead><tr><th scope="col">Key</th><th scope="col">Action</th></tr></thead>
+              <tbody>
+                <tr><td class="kbd-keys"><kbd>Arrow keys</kbd></td><td>Move the focused day (roving tabindex grid)</td></tr>
+                <tr><td class="kbd-keys"><kbd>Enter</kbd></td><td>Select the focused day and close</td></tr>
+                <tr><td class="kbd-keys"><kbd>Escape</kbd></td><td>Close the calendar</td></tr>
+                <tr><td class="kbd-keys"><kbd>Tab</kbd></td><td>Move through the dialog: month buttons, then the day grid</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
