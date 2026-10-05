@@ -1,0 +1,30 @@
+      <div class="page-head">
+        <h1>Splitter</h1>
+        <p class="page-sub">Drag handle that resizes two adjacent panes.</p>
+      </div>
+      <section class="demo-section" id="splitter">
+        <div class="demo-card">
+<div class="demo-area">
+          <div class="demos-grid">
+<div class="dx-splitter dx-splitter--horizontal" data-dx-splitter data-dx-orientation="horizontal" aria-label="Demo splitter" style="height: 200px">
+  <div class="dx-splitter-pane" role="group" aria-label="Left pane" data-dx-splitter-pane data-dx-size="40%" data-dx-collapsible style="flex: 0 0 40%"><div class="dx-splitter-content">Left pane</div></div>
+  <div class="dx-splitter-handle" role="separator" data-dx-splitter-handle data-dx-index="0" aria-orientation="horizontal" aria-valuemin="20" aria-valuemax="80" aria-valuenow="40" aria-label="Resize handle 1" tabindex="0"><span class="dx-splitter-grip" aria-hidden="true"></span></div>
+  <div class="dx-splitter-pane" role="group" aria-label="Right pane" data-dx-splitter-pane data-dx-size="60%" style="flex: 0 0 60%"><div class="dx-splitter-content">Right pane</div></div>
+</div>
+          </div>
+        </div>
+          <div class="kbd-block">
+            <h3 class="kbd-title">Keyboard</h3>
+            <table class="dx-table kbd-table">
+              <thead><tr><th scope="col">Key</th><th scope="col">Action</th></tr></thead>
+              <tbody>
+                <tr><td class="kbd-keys"><kbd>ArrowLeft</kbd><span class="kbd-sep">/</span><kbd>ArrowUp</kbd></td><td>Shrink the first pane by 5%</td></tr>
+                <tr><td class="kbd-keys"><kbd>ArrowRight</kbd><span class="kbd-sep">/</span><kbd>ArrowDown</kbd></td><td>Grow the first pane by 5%</td></tr>
+                <tr><td class="kbd-keys"><kbd>Home</kbd></td><td>First pane to its minimum size</td></tr>
+                <tr><td class="kbd-keys"><kbd>End</kbd></td><td>First pane to its maximum size</td></tr>
+                <tr><td class="kbd-keys"><kbd>Enter</kbd><span class="kbd-sep">/</span><kbd>Space</kbd></td><td>Collapse or expand a collapsible pane</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>

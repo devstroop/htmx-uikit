@@ -1,0 +1,48 @@
+      <div class="page-head">
+        <h1>AutoComplete</h1>
+        <p class="page-sub">Filtered suggestion list beneath a text input.</p>
+      </div>
+      <section class="demo-section" id="autocomplete">
+        <div class="demo-card">
+<div class="demo-area">
+          <div class="demos-grid">
+            <div class="dx-autocomplete dx-autocomplete--md" data-dx-autocomplete>
+              <div class="dx-autocomplete__wrap">
+                <input type="text" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="pv-ac1-menu" aria-label="Pick a fruit" class="dx-autocomplete__input" placeholder="Type to filter…" autocomplete="off" data-dx-autocomplete-input />
+                <button type="button" class="dx-autocomplete__clear" aria-label="Clear" data-dx-autocomplete-clear hidden>×</button>
+              </div>
+              <div role="listbox" id="pv-ac1-menu" class="dx-autocomplete__menu" data-dx-autocomplete-menu hidden>
+                <div role="option" id="pv-ac1-1" class="dx-autocomplete__option" data-dx-autocomplete-option data-dx-autocomplete-value="apple" data-dx-autocomplete-label="Apple" hidden>Apple</div>
+                <div role="option" id="pv-ac1-2" class="dx-autocomplete__option" data-dx-autocomplete-option data-dx-autocomplete-value="banana" data-dx-autocomplete-label="Banana" hidden>Banana</div>
+                <div role="option" id="pv-ac1-3" class="dx-autocomplete__option" data-dx-autocomplete-option data-dx-autocomplete-value="cherry" data-dx-autocomplete-label="Cherry" hidden>Cherry</div>
+                <div role="option" id="pv-ac1-4" class="dx-autocomplete__option dx-autocomplete__option--disabled" data-dx-autocomplete-option data-dx-autocomplete-value="durian" data-dx-autocomplete-label="Durian" aria-disabled="true" hidden>Durian (unavailable)</div>
+                <div class="dx-autocomplete__empty" data-dx-autocomplete-empty hidden>No matches</div>
+              </div>
+            </div>
+            <div class="dx-autocomplete dx-autocomplete--sm" data-dx-autocomplete>
+              <div class="dx-autocomplete__wrap">
+                <input type="text" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="pv-ac2-menu" aria-label="Pick a country" class="dx-autocomplete__input" placeholder="Country…" autocomplete="off" data-dx-autocomplete-input />
+                <button type="button" class="dx-autocomplete__clear" aria-label="Clear" data-dx-autocomplete-clear hidden>×</button>
+              </div>
+              <div role="listbox" id="pv-ac2-menu" class="dx-autocomplete__menu" data-dx-autocomplete-menu hidden>
+                <div role="option" id="pv-ac2-1" class="dx-autocomplete__option" data-dx-autocomplete-option data-dx-autocomplete-value="at" data-dx-autocomplete-label="Austria" hidden>Austria</div>
+                <div role="option" id="pv-ac2-2" class="dx-autocomplete__option" data-dx-autocomplete-option data-dx-autocomplete-value="be" data-dx-autocomplete-label="Belgium" hidden>Belgium</div>
+                <div class="dx-autocomplete__empty" data-dx-autocomplete-empty hidden>No matches</div>
+              </div>
+            </div>
+          </div>
+        </div>
+          <div class="kbd-block">
+            <h3 class="kbd-title">Keyboard</h3>
+            <table class="dx-table kbd-table">
+              <thead><tr><th scope="col">Key</th><th scope="col">Action</th></tr></thead>
+              <tbody>
+                <tr><td class="kbd-keys"><kbd>Type</kbd></td><td>Filter the options and open the popup</td></tr>
+                <tr><td class="kbd-keys"><kbd>ArrowDown</kbd><span class="kbd-sep">/</span><kbd>ArrowUp</kbd></td><td>Move the highlighted option</td></tr>
+                <tr><td class="kbd-keys"><kbd>Enter</kbd></td><td>Commit the highlighted option</td></tr>
+                <tr><td class="kbd-keys"><kbd>Escape</kbd></td><td>Close the popup, keeping text and focus</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
