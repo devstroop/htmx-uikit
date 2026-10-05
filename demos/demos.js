@@ -200,7 +200,7 @@ function buildToc() {
 /* ---------------- page fetch + inject ---------------- */
 async function loadPage(page) {
   if (!pageCache.has(page)) {
-    const res = await fetch(`/pages/${page}.html`);
+    const res = await fetch(`pages/${page}.html`);
     if (!res.ok) throw new Error(`page ${page}: ${res.status}`);
     pageCache.set(page, await res.text());
   }
