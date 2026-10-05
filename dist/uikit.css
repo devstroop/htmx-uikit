@@ -5388,6 +5388,51 @@ textarea[data-dx-htmleditor-source] {
   cursor: not-allowed;
 }
 
+/* range-navigator: zoom/pan window chrome. Geometry is inline
+   (percent positioning driven by the behavior); this file owns the
+   track, window fill, and handles only. */
+.dx-range-navigator {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dx-space-1);
+}
+
+.dx-range-track {
+  position: relative;
+  height: 44px;
+  border: 1px solid var(--dx-color-border);
+  border-radius: var(--dx-radius-md);
+  background: var(--dx-color-surface);
+  touch-action: none;
+  cursor: ew-resize;
+}
+
+.dx-range-window {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-inline: 2px solid var(--dx-primary-color);
+  background: color-mix(in srgb, var(--dx-primary-color) 12%, transparent);
+  pointer-events: none;
+}
+
+.dx-range-handle {
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  width: 12px;
+  margin-inline-start: -6px;
+  border-radius: var(--dx-radius-md);
+  background: var(--dx-primary-color);
+  cursor: ew-resize;
+}
+
+.dx-range-handle:focus-visible {
+  outline: 2px solid var(--dx-color-focus);
+  outline-offset: 2px;
+}
+
+
 .dx-rating {
   display: inline-flex;
   align-items: center;

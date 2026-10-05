@@ -1,0 +1,19 @@
+<!--
+  RangeNavigator — zoom/pan window reference (react RangeNavigator parity).
+  Root: <div class="dx-range-navigator" data-dx-range-navigator="min max"
+    data-dx-range-start data-dx-range-end>
+  Track: [data-dx-range-track] with [data-dx-range-window] fill and two
+    [data-dx-range-handle="start|end"] sliders (role=slider).
+  Dragging handles/window, arrow keys, Home/End commit through one path
+  that clamps to the domain and dispatches dx:range-change{start, end}.
+  Chart linkage stays consumer-side. Behavior tests live in
+  tests/behaviors/rangenavigator.test.js.
+-->
+
+<div class="dx-range-navigator" data-dx-range-navigator="0 100" data-dx-range-start="20" data-dx-range-end="80" role="group" aria-label="Range navigator">
+  <div class="dx-range-track" data-dx-range-track>
+    <div class="dx-range-window" data-dx-range-window></div>
+    <div class="dx-range-handle" data-dx-range-handle="start" role="slider" tabindex="0" aria-label="Window start" aria-valuemin="0" aria-valuemax="100" aria-valuenow="20"></div>
+    <div class="dx-range-handle" data-dx-range-handle="end" role="slider" tabindex="0" aria-label="Window end" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80"></div>
+  </div>
+</div>
