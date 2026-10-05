@@ -1,0 +1,32 @@
+.dx-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--dx-space-1);
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--dx-color-primary);
+  font: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.dx-link:hover {
+  color: var(--dx-color-primary-hover);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.dx-link:focus-visible {
+  /* non-token ring width: mirrors the react focus-ring pairing */
+  outline: 2px solid var(--dx-color-focus);
+  outline-offset: 2px;
+}
+
+.dx-link:disabled,
+.dx-link[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  text-decoration: none;
+}

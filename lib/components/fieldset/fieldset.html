@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fieldset</title>
+    <link rel="stylesheet" href="../../../lib/styles/tokens.css" />
+    <link rel="stylesheet" href="../../../dist/uikit.css" />
+  </head>
+  <body>
+    <main class="dx-layout dx-layout--padded">
+      <h1 class="dx-h1 dx-mb-4">Fieldset</h1>
+      <p class="dx-text dx-text-muted dx-mb-4">
+        Grouped form section (react <code>Fieldset</code> parity):
+        <code>.dx-fieldset</code> with a <code>legend</code>,
+        padded content, and an optional collapse toggle plus
+        collapsed summary. The toggle below is demo wiring —
+        production collapse state is app-owned.
+      </p>
+
+      <h2 class="dx-h2 dx-mt-6 dx-mb-2">Static section</h2>
+      <fieldset class="dx-fieldset">
+        <legend class="dx-fieldset__legend">Contact details</legend>
+        <div class="dx-fieldset__content">
+          <p class="dx-text">Name, email, and phone inputs go here.</p>
+        </div>
+      </fieldset>
+
+      <h2 class="dx-h2 dx-mt-6 dx-mb-2">Collapsible section</h2>
+      <fieldset class="dx-fieldset">
+        <legend class="dx-fieldset__legend">
+          <button
+            type="button"
+            class="dx-fieldset__toggle"
+            aria-expanded="true"
+            aria-controls="demo-fieldset-content"
+            data-fieldset-toggle
+          >
+            <span aria-hidden="true">−</span>
+            <span>Advanced options</span>
+          </button>
+        </legend>
+        <div class="dx-fieldset__content" id="demo-fieldset-content">
+          <p class="dx-text">Extra settings visible while expanded.</p>
+        </div>
+        <div class="dx-fieldset__summary" id="demo-fieldset-summary" hidden>
+          <p class="dx-text">3 advanced settings hidden.</p>
+        </div>
+      </fieldset>
+    </main>
+    <script>
+      document.querySelectorAll("[data-fieldset-toggle]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const content = document.getElementById(
+            btn.getAttribute("aria-controls"),
+          );
+          const summary = document.getElementById("demo-fieldset-summary");
+          const expanded = btn.getAttribute("aria-expanded") === "true";
+          btn.setAttribute("aria-expanded", String(!expanded));
+          btn.querySelector("span").textContent = expanded ? "+" : "−";
+          content.hidden = expanded;
+          summary.hidden = !expanded;
+        });
+      });
+    </script>
+  </body>
+</html>

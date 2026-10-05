@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AutoGrid</title>
+    <link rel="stylesheet" href="../../../lib/styles/tokens.css" />
+    <link rel="stylesheet" href="../../../dist/uikit.css" />
+  </head>
+  <body>
+    <main class="dx-layout dx-layout--padded">
+      <h1 class="dx-h1 dx-mb-4">AutoGrid</h1>
+      <p class="dx-text dx-text-muted dx-mb-4">
+        Responsive track grid (react <code>AutoGrid</code> parity):
+        <code>.dx-auto-grid</code> fills the row with
+        <code>auto-fit</code> tracks of at least
+        <code>--dx-auto-grid-min</code> (default 240px); a lone track
+        spans full width via <code>min(100%, …)</code>. Track gap is the
+        <code>space.3</code> token; override per instance with an inline
+        <code>gap</code>. Presentational only — no JS behavior.
+      </p>
+
+      <h2 class="dx-h2 dx-mt-6 dx-mb-2">Default (240px min)</h2>
+      <div class="dx-auto-grid">
+        <div class="dx-card dx-card-body">Track 1</div>
+        <div class="dx-card dx-card-body">Track 2</div>
+        <div class="dx-card dx-card-body">Track 3</div>
+        <div class="dx-card dx-card-body">Track 4</div>
+      </div>
+
+      <h2 class="dx-h2 dx-mt-6 dx-mb-2">Narrow min (160px)</h2>
+      <div class="dx-auto-grid" style="--dx-auto-grid-min: 160px">
+        <div class="dx-card dx-card-body">A</div>
+        <div class="dx-card dx-card-body">B</div>
+        <div class="dx-card dx-card-body">C</div>
+        <div class="dx-card dx-card-body">D</div>
+        <div class="dx-card dx-card-body">E</div>
+      </div>
+
+      <h2 class="dx-h2 dx-mt-6 dx-mb-2">Single track spans full width</h2>
+      <div class="dx-auto-grid">
+        <div class="dx-card dx-card-body">Only track — full width</div>
+      </div>
+    </main>
+  </body>
+</html>

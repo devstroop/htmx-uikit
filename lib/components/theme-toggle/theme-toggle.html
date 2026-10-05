@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ThemeToggle</title>
+    <link rel="stylesheet" href="../../../lib/styles/tokens.css" />
+    <link rel="stylesheet" href="../../../dist/uikit.css" />
+  </head>
+  <body>
+    <main class="dx-layout dx-layout--padded">
+      <h1 class="dx-h1 dx-mb-4">ThemeToggle</h1>
+      <p class="dx-text dx-text-muted dx-mb-4">
+        Appearance toggle (react <code>ThemeToggle</code> parity): a
+        circular <code>.dx-theme-toggle</code> button showing the moon
+        glyph while light and the sun glyph while dark — the glyph
+        previews the mode a click applies. Persists under the
+        <code>dx-theme</code> key and owns
+        <code>&lt;html data-theme&gt;</code> while uncontrolled. The
+        script below is demo wiring; the contract (key, attribute,
+        system fallback) is what ships.
+      </p>
+
+      <h2 class="dx-h2 dx-mt-6 dx-mb-2">Default</h2>
+      <button
+        class="dx-theme-toggle"
+        type="button"
+        aria-label="Dark mode"
+        data-theme-toggle
+      >
+        <span aria-hidden="true" data-theme-toggle-icon>☾</span>
+      </button>
+    </main>
+    <script>
+      // Demo wiring of the ThemeToggle contract: explicit choice wins,
+      // then the persisted dx-theme value, then the OS; an explicit
+      // choice is persisted, "system" clears the attribute + storage.
+      const KEY = "dx-theme";
+      const btn = document.querySelector("[data-theme-toggle]");
+      const icon = document.querySelector("[data-theme-toggle-icon]");
+      const systemDark = () =>
+        window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const apply = (theme) => {
+        const effective =
+          theme === "system" ? (systemDark() ? "dark" : "light") : theme;
+        if (theme === "system") {
+          delete document.documentElement.dataset.theme;
+        } else {
+          document.documentElement.dataset.theme = theme;
+        }
+        btn.setAttribute("aria-label", effective === "dark" ? "Light mode" : "Dark mode");
+        btn.setAttribute("aria-pressed", String(effective === "dark"));
+        icon.textContent = effective === "dark" ? "☀" : "☾";
+      };
+      let stored = null;
+      try {
+        stored = localStorage.getItem(KEY);
+      } catch {
+        stored = null;
+      }
+      apply(stored === "light" || stored === "dark" ? stored : "system");
+      btn.addEventListener("click", () => {
+        const current = document.documentElement.dataset.theme;
+        const next = current === "dark" ? "light" : "dark";
+        try {
+          localStorage.setItem(KEY, next);
+        } catch {
+          /* persistence is best-effort */
+        }
+        apply(next);
+      });
+    </script>
+  </body>
+</html>

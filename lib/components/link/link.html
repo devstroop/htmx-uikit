@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Link</title>
+    <link rel="stylesheet" href="../../../lib/styles/tokens.css" />
+    <link rel="stylesheet" href="../../../dist/uikit.css" />
+  </head>
+  <body>
+    <main class="dx-layout dx-layout--padded">
+      <h1 class="dx-h1 dx-mb-4">Link</h1>
+      <p class="dx-text dx-text-muted dx-mb-4">
+        Text link (react <code>Link</code> parity):
+        <code>.dx-link</code> on an anchor navigates; on a
+        <code>button type="button"</code> it keeps button semantics
+        for actions that must read as links (disclosures like
+        “Forgot password?”). Primary-role color with hover underline
+        and a keyboard-only focus ring. Presentational only.
+      </p>
+
+      <h2 class="dx-h2 dx-mt-6 dx-mb-2">Anchor</h2>
+      <p class="dx-text">
+        Read the
+        <a class="dx-link" href="#demo">getting-started guide</a>
+        before continuing.
+      </p>
+
+      <h2 class="dx-h2 dx-mt-6 dx-mb-2">Button styled as a link</h2>
+      <p class="dx-text">
+        <button class="dx-link" type="button">Forgot password?</button>
+      </p>
+
+      <h2 class="dx-h2 dx-mt-6 dx-mb-2">Disabled</h2>
+      <p class="dx-text">
+        <button class="dx-link" type="button" disabled>
+          Unavailable action
+        </button>
+      </p>
+    </main>
+  </body>
+</html>
