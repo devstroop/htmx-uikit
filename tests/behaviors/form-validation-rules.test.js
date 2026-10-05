@@ -111,6 +111,18 @@ describe("form validation rules", () => {
     expect(invalid[0].find((f) => f.name === "b").messages).toEqual(["Custom B"]);
   });
 
+  it("uses per-rule data-dx-<rule>-message for non-required rules", () => {
+    const form = fixture(`
+      <form data-dx-form>
+        <input name="code" data-dx-field data-dx-minlength="5" data-dx-minlength-message="Need 5 chars" value="abc" />
+      </form>`);
+    const invalid = [];
+    form.addEventListener("dx:invalid", (e) => invalid.push(e.detail.fields));
+    submit(form);
+    expect(invalid).toHaveLength(1);
+    expect(invalid[0][0].messages).toEqual(["Need 5 chars"]);
+  });
+
   it("respects native constraints via the validity API", () => {
     const form = fixture(`
       <form data-dx-form>
