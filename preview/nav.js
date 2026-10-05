@@ -368,7 +368,12 @@ export const NAV = [
         "slug": "chart",
         "title": "Chart",
         "page": "chart"
-      },
+      },,
+      {
+        "slug": "gauges",
+        "title": "Gauges",
+        "page": "gauges"
+      }
       {
         "slug": "gantt",
         "title": "Gantt",
