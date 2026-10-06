@@ -501,7 +501,10 @@ export const NAV = [
     ]
   }
 ];
-export const COMPONENT_COUNT = 86;
+export const COMPONENT_COUNT = NAV.reduce(
+  (n, g) => n + (g.title === "Recipes" ? 0 : g.routes.length),
+  0,
+);
 export function routeTitle(slug) {
   for (const g of NAV) for (const r of g.routes) if (r.slug === slug) return r.title;
   return slug === "" ? "htmx-uikit demos" : slug;
