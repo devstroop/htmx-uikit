@@ -2,7 +2,7 @@
   FabMenu — reference markup for server templates.
   Root: <div class="dx-fabmenu dx-fabmenu--<position>" data-dx-fabmenu
         [data-dx-position="bottom-right|bottom-left|top-right|top-left"]
-        [data-dx-icon="+"]>
+        [data-dx-icon="add"]>
     <div role="menu" class="dx-fabmenu-menu" data-dx-fabmenu-menu
          aria-label="Open menu" [hidden]>
       <div class="dx-fabmenu-item-wrapper" data-dx-fabmenu-item-wrapper>
@@ -21,7 +21,7 @@
             data-dx-fabmenu-trigger aria-haspopup="menu"
             aria-expanded="true|false" aria-controls="menu-id"
             aria-label="Open menu">
-      <span class="dx-fabmenu-main-icon" aria-hidden="true">+</span>
+      <span class="dx-fabmenu-main-icon" aria-hidden="true">add</span>
     </button>
   </div>
   behaviors.js toggles aria-expanded and hidden on the main button/menu,
@@ -36,8 +36,8 @@
   <div role="menu" class="dx-fabmenu-menu" data-dx-fabmenu-menu aria-label="Open menu" hidden>
     <div class="dx-fabmenu-item-wrapper" data-dx-fabmenu-item-wrapper>
       <span class="dx-fabmenu-tooltip" aria-hidden="true">Create</span>
-      <button type="button" role="menuitem" class="dx-fabmenu-item" data-dx-fabmenu-item data-dx-text="Create" data-dx-value="create" data-dx-icon="+" aria-label="Create" title="Create" tabindex="-1">
-        <span class="dx-fabmenu-item-icon" aria-hidden="true">+</span>
+      <button type="button" role="menuitem" class="dx-fabmenu-item" data-dx-fabmenu-item data-dx-text="Create" data-dx-value="create" data-dx-icon="add" aria-label="Create" title="Create" tabindex="-1">
+        <span class="dx-fabmenu-item-icon" aria-hidden="true">add</span>
       </button>
     </div>
     <div class="dx-fabmenu-item-wrapper" data-dx-fabmenu-item-wrapper>
@@ -54,7 +54,7 @@
     </div>
   </div>
   <button type="button" class="dx-fabmenu-main" data-dx-fabmenu-trigger aria-haspopup="menu" aria-expanded="false" aria-controls="fab-menu-1" aria-label="Open menu">
-    <span class="dx-fabmenu-main-icon" aria-hidden="true">+</span>
+    <span class="dx-fabmenu-main-icon" aria-hidden="true">add</span>
   </button>
 </div>
 
@@ -75,7 +75,7 @@
     </div>
   </div>
   <button type="button" class="dx-fabmenu-main" data-dx-fabmenu-trigger aria-haspopup="menu" aria-expanded="true" aria-controls="fab-menu-2" aria-label="Open menu">
-    <span class="dx-fabmenu-main-icon dx-fabmenu-main-icon--open" aria-hidden="true">+</span>
+    <span class="dx-fabmenu-main-icon dx-fabmenu-main-icon--open" aria-hidden="true">add</span>
   </button>
 </div>
 
