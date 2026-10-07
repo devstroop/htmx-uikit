@@ -3495,6 +3495,25 @@
   left: var(--dx-space-6);
 }
 
+/* The trigger stays pinned in its corner: top corners keep the menu
+ * below the trigger (DOM is menu-then-trigger, so tops reverse). */
+.dx-fabmenu--top-right,
+.dx-fabmenu--top-left {
+  flex-direction: column-reverse;
+}
+
+/* Children align to the anchored edge so opening never nudges the
+ * trigger out of its corner (centered alignment would drift inward). */
+.dx-fabmenu--bottom-left,
+.dx-fabmenu--top-left {
+  align-items: flex-start;
+}
+
+.dx-fabmenu--bottom-right,
+.dx-fabmenu--top-right {
+  align-items: flex-end;
+}
+
 .dx-fabmenu--bottom-right .dx-fabmenu-menu,
 .dx-fabmenu--bottom-left .dx-fabmenu-menu {
   flex-direction: column-reverse;
@@ -3503,6 +3522,30 @@
 .dx-fabmenu--top-right .dx-fabmenu-menu,
 .dx-fabmenu--top-left .dx-fabmenu-menu {
   flex-direction: column;
+}
+
+/* Same per-corner edge alignment for rows (tooltip widths differ). */
+.dx-fabmenu--bottom-left .dx-fabmenu-menu,
+.dx-fabmenu--top-left .dx-fabmenu-menu {
+  align-items: flex-start;
+}
+
+.dx-fabmenu--bottom-right .dx-fabmenu-menu,
+.dx-fabmenu--top-right .dx-fabmenu-menu {
+  align-items: flex-end;
+}
+
+/* The trigger is 56px and items are 44px: pure edge alignment puts the
+ * child-icon column (56-44)/2 = 6px off the trigger's icon axis. Inset
+ * the menu on the anchored side so both axes coincide. */
+.dx-fabmenu--bottom-right .dx-fabmenu-menu,
+.dx-fabmenu--top-right .dx-fabmenu-menu {
+  margin-right: calc((56px - 44px) / 2);
+}
+
+.dx-fabmenu--bottom-left .dx-fabmenu-menu,
+.dx-fabmenu--top-left .dx-fabmenu-menu {
+  margin-left: calc((56px - 44px) / 2);
 }
 
 .dx-fabmenu-menu {
