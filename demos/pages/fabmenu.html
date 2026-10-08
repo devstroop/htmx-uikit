@@ -6,6 +6,9 @@
         <div class="demo-card">
 <div class="demo-area">
           <div class="demos-grid">
+<!-- transform on the wrapper anchors .dx-fabmenu (position:fixed) inside
+     the demo stage instead of the viewport -->
+<div class="demo-stage" style="position:relative;min-height:220px;transform:translateZ(0);">
 <div class="dx-fabmenu dx-fabmenu--bottom-right" data-dx-fabmenu aria-label="Demo fab menu">
   <div role="menu" class="dx-fabmenu-menu" data-dx-fabmenu-menu aria-label="Open menu" hidden>
     <div class="dx-fabmenu-item-wrapper" data-dx-fabmenu-item-wrapper>
@@ -30,6 +33,7 @@
   <button type="button" class="dx-fabmenu-main" data-dx-fabmenu-trigger aria-haspopup="menu" aria-expanded="false" aria-controls="fab-menu-demo" aria-label="Open menu">
     <span class="dx-fabmenu-main-icon" aria-hidden="true">+</span>
   </button>
+</div>
 </div>
           </div>
         </div>
