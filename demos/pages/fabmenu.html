@@ -7,11 +7,29 @@
 <div class="demo-area">
           <div class="demos-grid">
 <div class="dx-fabmenu dx-fabmenu--bottom-right" data-dx-fabmenu aria-label="Demo fab menu">
-  <button type="button" class="dx-fabmenu-trigger" data-dx-fabmenu-trigger aria-haspopup="menu" aria-expanded="false" aria-label="Open menu">+</button>
-  <div role="menu" class="dx-fabmenu-menu" data-dx-fabmenu-menu hidden>
-    <button type="button" role="menuitem" class="dx-fabmenu-item" data-dx-fabmenu-item data-dx-text="Create" tabindex="-1">Create</button>
-    <button type="button" role="menuitem" class="dx-fabmenu-item" data-dx-fabmenu-item data-dx-text="Upload" tabindex="-1">Upload</button>
+  <div role="menu" class="dx-fabmenu-menu" data-dx-fabmenu-menu aria-label="Open menu" hidden>
+    <div class="dx-fabmenu-item-wrapper" data-dx-fabmenu-item-wrapper>
+      <span class="dx-fabmenu-tooltip" aria-hidden="true">Create</span>
+      <button type="button" role="menuitem" class="dx-fabmenu-item" data-dx-fabmenu-item data-dx-text="Create" data-dx-value="create" data-dx-icon="+" aria-label="Create" title="Create" tabindex="-1">
+        <span class="dx-fabmenu-item-icon" aria-hidden="true">+</span>
+      </button>
+    </div>
+    <div class="dx-fabmenu-item-wrapper" data-dx-fabmenu-item-wrapper>
+      <span class="dx-fabmenu-tooltip" aria-hidden="true">Edit</span>
+      <button type="button" role="menuitem" class="dx-fabmenu-item" data-dx-fabmenu-item data-dx-text="Edit" data-dx-value="edit" data-dx-icon="✎" aria-label="Edit" title="Edit" tabindex="-1">
+        <span class="dx-fabmenu-item-icon" aria-hidden="true">✎</span>
+      </button>
+    </div>
+    <div class="dx-fabmenu-item-wrapper" data-dx-fabmenu-item-wrapper>
+      <span class="dx-fabmenu-tooltip" aria-hidden="true">Delete</span>
+      <button type="button" role="menuitem" class="dx-fabmenu-item dx-fabmenu-item--disabled" data-dx-fabmenu-item data-dx-text="Delete" aria-label="Delete" title="Delete" aria-disabled="true" disabled tabindex="-1">
+        <span class="dx-fabmenu-item-icon" aria-hidden="true">✕</span>
+      </button>
+    </div>
   </div>
+  <button type="button" class="dx-fabmenu-main" data-dx-fabmenu-trigger aria-haspopup="menu" aria-expanded="false" aria-controls="fab-menu-demo" aria-label="Open menu">
+    <span class="dx-fabmenu-main-icon" aria-hidden="true">+</span>
+  </button>
 </div>
           </div>
         </div>
